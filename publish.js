@@ -18,11 +18,14 @@ const GRAPH_BASE = `https://graph.facebook.com/${GRAPH_VERSION}`;
 
 const ACCESS_TOKEN = requireEnv('IG_ACCESS_TOKEN');
 const IG_BUSINESS_ACCOUNT_ID = requireEnv('IG_BUSINESS_ACCOUNT_ID');
+const FB_PAGE_ID = requireEnv('FB_PAGE_ID');
 const VIDEO_URL = requireEnv('VIDEO_URL');
 const CAPTION = process.env.CAPTION ?? '';
 const COVER_URL = process.env.COVER_URL || undefined;
 const THUMB_OFFSET = process.env.THUMB_OFFSET || undefined;
 const MEDIA_TYPE = process.env.MEDIA_TYPE || 'REELS'; // REELS (recommended) or VIDEO (legacy feed video)
+const LOCATION_QUERY = process.env.LOCATION_QUERY || undefined; // free-text place name to look up
+const LOCATION_ID = process.env.LOCATION_ID || undefined; // exact Facebook Place ID, skips lookup if set
 
 function requireEnv(name) {
   const value = process.env[name];
@@ -53,7 +56,25 @@ async function graphRequest(path, method, params) {
   return json;
 }
 
-async function createContainer() {
+async function resolveLocationId() {
+  if (LOCATION_ID) return LOCATION_ID;
+  if (!LOCATION_QUERY) return undefined;
+
+  console.log(`[publish] Looking up location for "${LOCATION_QUERY}"...`);
+  const { data } = await graphRequest('pages/search', 'GET', {
+    q: LOCATION_QUERY,
+    type: 'place',
+    fields: 'name,location',
+  });
+  if (!data || data.length === 0) {
+    console.error(`[publish] No location found for "${LOCATION_QUERY}" — proceeding without a location tag.`);
+    return undefined;
+  }
+  console.log(`[publish] Using location: ${data[0].name} (${data[0].id})`);
+  return data[0].id;
+}
+
+async function createContainer(locationId) {
   const params = {
     media_type: MEDIA_TYPE,
     video_url: VIDEO_URL,
@@ -61,8 +82,9 @@ async function createContainer() {
   };
   if (COVER_URL) params.cover_url = COVER_URL;
   else if (THUMB_OFFSET) params.thumb_offset = THUMB_OFFSET;
+  if (locationId) params.location_id = locationId;
 
-  console.log('[publish] Creating media container...');
+  console.log('[publish] Creating Instagram media container...');
   const { id } = await graphRequest(`${IG_BUSINESS_ACCOUNT_ID}/media`, 'POST', params);
   console.log(`[publish] Container created: ${id}`);
   return id;
@@ -88,20 +110,41 @@ async function waitForContainerReady(containerId, { maxAttempts = 30, delayMs = 
   process.exit(1);
 }
 
-async function publishContainer(containerId) {
-  console.log('[publish] Publishing container...');
+async function publishToInstagram(locationId) {
+  const containerId = await createContainer(locationId);
+  await waitForContainerReady(containerId);
+  console.log('[publish] Publishing Instagram container...');
   const { id } = await graphRequest(`${IG_BUSINESS_ACCOUNT_ID}/media_publish`, 'POST', {
     creation_id: containerId,
   });
-  console.log(`[publish] Published. Media ID: ${id}`);
+  console.log(`[publish] Instagram done. Media ID: ${id} — https://www.instagram.com/p/${id}/ (permalink may take a moment to resolve)`);
+  return id;
+}
+
+async function publishToFacebookPage(locationId) {
+  console.log('[publish] Publishing to the Facebook Page...');
+  const params = {
+    file_url: VIDEO_URL,
+    description: CAPTION,
+  };
+  if (locationId) params.place = locationId;
+
+  const { id } = await graphRequest(`${FB_PAGE_ID}/videos`, 'POST', params);
+  console.log(`[publish] Facebook done. Video ID: ${id}`);
   return id;
 }
 
 async function main() {
-  const containerId = await createContainer();
-  await waitForContainerReady(containerId);
-  const mediaId = await publishContainer(containerId);
-  console.log(`[publish] Done. https://www.instagram.com/p/${mediaId}/ (permalink may take a moment to resolve)`);
+  const locationId = await resolveLocationId();
+
+  // Instagram first: if this fails, graphRequest exits before Facebook is attempted.
+  await publishToInstagram(locationId);
+
+  // Facebook is a separate, independent publish call — a failure here is reported
+  // on its own and does not retroactively hide the Instagram success already logged above.
+  await publishToFacebookPage(locationId);
+
+  console.log('[publish] Done — posted to both Instagram and Facebook.');
 }
 
 main().catch((err) => {

@@ -22,6 +22,14 @@ on:
         description: "REELS (default) or VIDEO"
         required: false
         default: "REELS"
+      location_query:
+        description: "Place name to tag (optional, e.g. 'Tel Aviv, Israel') — looked up automatically"
+        required: false
+        default: ""
+      location_id:
+        description: "Exact Facebook Place ID (optional, skips the name lookup if set)"
+        required: false
+        default: ""
 
 jobs:
   publish:
@@ -37,9 +45,12 @@ jobs:
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_BUSINESS_ACCOUNT_ID: ${{ secrets.IG_BUSINESS_ACCOUNT_ID }}
+          FB_PAGE_ID: "299121263767927"
           VIDEO_URL: ${{ inputs.video_url }}
           CAPTION: ${{ inputs.caption }}
           COVER_URL: ${{ inputs.cover_url }}
           THUMB_OFFSET: ${{ inputs.thumb_offset_ms }}
           MEDIA_TYPE: ${{ inputs.media_type }}
+          LOCATION_QUERY: ${{ inputs.location_query }}
+          LOCATION_ID: ${{ inputs.location_id }}
         run: node publish.js
