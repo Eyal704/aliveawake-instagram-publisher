@@ -1,6 +1,9 @@
 name: Publish to Instagram
 
 on:
+  push:
+    paths:
+      - "trigger/run.json"
   workflow_dispatch:
     inputs:
       video_url:
@@ -30,6 +33,10 @@ on:
         description: "Exact Facebook Place ID (optional, skips the name lookup if set)"
         required: false
         default: ""
+      trial_graduation_strategy:
+        description: "Set to MANUAL or SS_PERFORMANCE to publish as a Trial Reel (non-followers only, no Facebook cross-post). Leave empty for a normal post."
+        required: false
+        default: ""
 
 jobs:
   publish:
@@ -41,16 +48,40 @@ jobs:
         with:
           node-version: 20
 
+      # Normal path is workflow_dispatch (Run workflow button, or the GitHub API).
+      # The push trigger is a fallback for when the API token driving this repo can't
+      # call the workflow-dispatch endpoint (Actions:write not granted to that
+      # integration) — committing trigger/run.json fires the same job instead.
+      - name: Read trigger/run.json (push-triggered runs only)
+        if: github.event_name == 'push'
+        run: |
+          node -e '
+            const fs = require("fs");
+            const p = JSON.parse(fs.readFileSync("trigger/run.json", "utf8"));
+            const lines = [
+              `VIDEO_URL=${p.video_url ?? ""}`,
+              `CAPTION=${p.caption ?? ""}`,
+              `COVER_URL=${p.cover_url ?? ""}`,
+              `THUMB_OFFSET=${p.thumb_offset_ms ?? ""}`,
+              `MEDIA_TYPE=${p.media_type ?? "REELS"}`,
+              `LOCATION_QUERY=${p.location_query ?? ""}`,
+              `LOCATION_ID=${p.location_id ?? ""}`,
+              `TRIAL_GRADUATION_STRATEGY=${p.trial_graduation_strategy ?? ""}`,
+            ];
+            fs.appendFileSync(process.env.GITHUB_ENV, lines.join("\n") + "\n");
+          '
+
       - name: Publish
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_BUSINESS_ACCOUNT_ID: ${{ secrets.IG_BUSINESS_ACCOUNT_ID }}
           FB_PAGE_ID: "299121263767927"
-          VIDEO_URL: ${{ inputs.video_url }}
-          CAPTION: ${{ inputs.caption }}
-          COVER_URL: ${{ inputs.cover_url }}
-          THUMB_OFFSET: ${{ inputs.thumb_offset_ms }}
-          MEDIA_TYPE: ${{ inputs.media_type }}
-          LOCATION_QUERY: ${{ inputs.location_query }}
-          LOCATION_ID: ${{ inputs.location_id }}
+          VIDEO_URL: ${{ github.event_name == 'workflow_dispatch' && inputs.video_url || env.VIDEO_URL }}
+          CAPTION: ${{ github.event_name == 'workflow_dispatch' && inputs.caption || env.CAPTION }}
+          COVER_URL: ${{ github.event_name == 'workflow_dispatch' && inputs.cover_url || env.COVER_URL }}
+          THUMB_OFFSET: ${{ github.event_name == 'workflow_dispatch' && inputs.thumb_offset_ms || env.THUMB_OFFSET }}
+          MEDIA_TYPE: ${{ github.event_name == 'workflow_dispatch' && inputs.media_type || env.MEDIA_TYPE }}
+          LOCATION_QUERY: ${{ github.event_name == 'workflow_dispatch' && inputs.location_query || env.LOCATION_QUERY }}
+          LOCATION_ID: ${{ github.event_name == 'workflow_dispatch' && inputs.location_id || env.LOCATION_ID }}
+          TRIAL_GRADUATION_STRATEGY: ${{ github.event_name == 'workflow_dispatch' && inputs.trial_graduation_strategy || env.TRIAL_GRADUATION_STRATEGY }}
         run: node publish.js
