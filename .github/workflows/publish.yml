@@ -1,0 +1,45 @@
+name: Publish to Instagram
+
+on:
+  workflow_dispatch:
+    inputs:
+      video_url:
+        description: "Public URL of the video to publish (required)"
+        required: true
+      caption:
+        description: "Caption text"
+        required: false
+        default: ""
+      cover_url:
+        description: "Public URL of a custom thumbnail image (optional)"
+        required: false
+        default: ""
+      thumb_offset_ms:
+        description: "Milliseconds into the video to grab the thumbnail frame (optional, ignored if cover_url is set)"
+        required: false
+        default: ""
+      media_type:
+        description: "REELS (default) or VIDEO"
+        required: false
+        default: "REELS"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Publish
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_BUSINESS_ACCOUNT_ID: ${{ secrets.IG_BUSINESS_ACCOUNT_ID }}
+          VIDEO_URL: ${{ inputs.video_url }}
+          CAPTION: ${{ inputs.caption }}
+          COVER_URL: ${{ inputs.cover_url }}
+          THUMB_OFFSET: ${{ inputs.thumb_offset_ms }}
+          MEDIA_TYPE: ${{ inputs.media_type }}
+        run: node publish.js

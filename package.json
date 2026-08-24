@@ -1,0 +1,13 @@
+{
+  "name": "aliveawake-instagram-publisher",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Publish videos (with caption + thumbnail) to the AliveAwake Instagram account via the Instagram Graph API.",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "publish": "node publish.js"
+  }
+}
