@@ -41,6 +41,10 @@ on:
         description: "BOTH (default), INSTAGRAM, or FACEBOOK"
         required: false
         default: "BOTH"
+      publish_at_epoch:
+        description: "Unix timestamp to wait for before publishing (optional)"
+        required: false
+        default: ""
 
 jobs:
   publish:
@@ -51,6 +55,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+
+      - name: Wait until scheduled publish time
+        if: github.event_name == 'workflow_dispatch' && inputs.publish_at_epoch != ''
+        env:
+          PUBLISH_AT_EPOCH: ${{ inputs.publish_at_epoch }}
+        run: |
+          now=$(date +%s)
+          if [ "$PUBLISH_AT_EPOCH" -gt "$now" ]; then
+            delay=$((PUBLISH_AT_EPOCH - now))
+            echo "Waiting ${delay} seconds before publishing."
+            sleep "$delay"
+          fi
 
       # Normal path is workflow_dispatch (Run workflow button, or the GitHub API).
       # The push trigger is a fallback for when the API token driving this repo can't
