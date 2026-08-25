@@ -21,6 +21,8 @@ Flow: (optional) resolve a location name to a Place ID → create an Instagram m
 4. Fill in `video_url` (required), `caption`, optionally `cover_url`/`thumb_offset_ms` for the thumbnail, and optionally `location_query` (e.g. "Tel Aviv, Israel") or an exact `location_id` for a location tag.
 5. Run it — logs show the location lookup (if used), Instagram container creation and processing status, the Instagram publish confirmation, and then the Facebook publish confirmation.
 
+For recovery after one platform already succeeded, set `publish_target` to `INSTAGRAM` or `FACEBOOK`. This prevents duplicate posts. Facebook publishing resolves and uses the Page access token returned by `/me/accounts`; the System User token remains the stored root credential.
+
 ## Run it locally
 
 ```bash

@@ -37,6 +37,10 @@ on:
         description: "Set to MANUAL or SS_PERFORMANCE to publish as a Trial Reel (non-followers only, no Facebook cross-post). Leave empty for a normal post."
         required: false
         default: ""
+      publish_target:
+        description: "BOTH (default), INSTAGRAM, or FACEBOOK"
+        required: false
+        default: "BOTH"
 
 jobs:
   publish:
@@ -84,4 +88,5 @@ jobs:
           LOCATION_QUERY: ${{ github.event_name == 'workflow_dispatch' && inputs.location_query || env.LOCATION_QUERY }}
           LOCATION_ID: ${{ github.event_name == 'workflow_dispatch' && inputs.location_id || env.LOCATION_ID }}
           TRIAL_GRADUATION_STRATEGY: ${{ github.event_name == 'workflow_dispatch' && inputs.trial_graduation_strategy || env.TRIAL_GRADUATION_STRATEGY }}
+          PUBLISH_TARGET: ${{ github.event_name == 'workflow_dispatch' && inputs.publish_target || 'BOTH' }}
         run: node publish.js

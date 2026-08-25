@@ -26,6 +26,7 @@ const THUMB_OFFSET = process.env.THUMB_OFFSET || undefined;
 const MEDIA_TYPE = process.env.MEDIA_TYPE || 'REELS'; // REELS (recommended) or VIDEO (legacy feed video)
 const LOCATION_QUERY = process.env.LOCATION_QUERY || undefined; // free-text place name to look up
 const LOCATION_ID = process.env.LOCATION_ID || undefined; // exact Facebook Place ID, skips lookup if set
+const PUBLISH_TARGET = (process.env.PUBLISH_TARGET || 'BOTH').toUpperCase(); // BOTH, INSTAGRAM, or FACEBOOK
 
 function requireEnv(name) {
   const value = process.env[name];
@@ -36,9 +37,9 @@ function requireEnv(name) {
   return value;
 }
 
-async function graphRequest(path, method, params) {
+async function graphRequest(path, method, params, accessToken = ACCESS_TOKEN) {
   const url = new URL(`${GRAPH_BASE}/${path}`);
-  const body = new URLSearchParams({ ...params, access_token: ACCESS_TOKEN });
+  const body = new URLSearchParams({ ...params, access_token: accessToken });
 
   const res = method === 'GET'
     ? await fetch(`${url}?${body.toString()}`)
@@ -122,6 +123,16 @@ async function publishToInstagram(locationId) {
 }
 
 async function publishToFacebookPage(locationId) {
+  const { data: pages } = await graphRequest('me/accounts', 'GET', {
+    fields: 'id,name,access_token',
+    limit: '100',
+  });
+  const page = pages?.find(({ id }) => id === FB_PAGE_ID);
+  if (!page?.access_token) {
+    console.error(`[publish] No Page access token returned for Facebook Page ${FB_PAGE_ID}.`);
+    process.exit(1);
+  }
+
   console.log('[publish] Publishing to the Facebook Page...');
   const params = {
     file_url: VIDEO_URL,
@@ -129,22 +140,27 @@ async function publishToFacebookPage(locationId) {
   };
   if (locationId) params.place = locationId;
 
-  const { id } = await graphRequest(`${FB_PAGE_ID}/videos`, 'POST', params);
+  const { id } = await graphRequest(`${FB_PAGE_ID}/videos`, 'POST', params, page.access_token);
   console.log(`[publish] Facebook done. Video ID: ${id}`);
   return id;
 }
 
 async function main() {
+  if (!['BOTH', 'INSTAGRAM', 'FACEBOOK'].includes(PUBLISH_TARGET)) {
+    console.error(`[publish] Invalid PUBLISH_TARGET: ${PUBLISH_TARGET}`);
+    process.exit(1);
+  }
   const locationId = await resolveLocationId();
 
-  // Instagram first: if this fails, graphRequest exits before Facebook is attempted.
-  await publishToInstagram(locationId);
+  if (PUBLISH_TARGET === 'BOTH' || PUBLISH_TARGET === 'INSTAGRAM') {
+    await publishToInstagram(locationId);
+  }
 
-  // Facebook is a separate, independent publish call — a failure here is reported
-  // on its own and does not retroactively hide the Instagram success already logged above.
-  await publishToFacebookPage(locationId);
+  if (PUBLISH_TARGET === 'BOTH' || PUBLISH_TARGET === 'FACEBOOK') {
+    await publishToFacebookPage(locationId);
+  }
 
-  console.log('[publish] Done — posted to both Instagram and Facebook.');
+  console.log(`[publish] Done — target ${PUBLISH_TARGET} completed.`);
 }
 
 main().catch((err) => {
