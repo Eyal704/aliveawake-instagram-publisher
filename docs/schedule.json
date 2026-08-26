@@ -5,7 +5,7 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-08-26T17:26:38.674Z",
+  "updatedAt": "2026-08-26T17:31:07.002Z",
   "lastCheckedAt": "2026-08-26T17:26:38.674Z",
   "posts": [
     {
@@ -56,7 +56,7 @@
       "id": "2026-08-26-2000-location-shapes-creation",
       "scheduledAt": "2026-08-26T20:00:00+02:00",
       "title": "Your Location Shapes What You Create",
-      "captionMatch": "Every city has a rhythm\u2014and that rhythm shapes what we create",
+      "captionMatch": "Every city has a rhythm—and that rhythm shapes what we create",
       "overall": "scheduled",
       "instagram": {
         "status": "queued_cloud",
@@ -71,13 +71,13 @@
         "videoId": "1535258637891461",
         "scheduledPostId": "299121263767927_1354563163424551"
       },
-      "note": "Facebook is natively scheduled and processed. Instagram is owned by workflow run 32968910769 (the confirmed keeper) \u2014 excluded from the cloud queue poller to prevent a second container/publish attempt for this slot."
+      "note": "Facebook is natively scheduled and processed. Instagram is owned by workflow run 32968910769 (the confirmed keeper) — excluded from the cloud queue poller to prevent a second container/publish attempt for this slot."
     },
     {
       "id": "2026-08-28-1000-eckhart-tolle-california",
       "scheduledAt": "2026-08-27T10:00:00+02:00",
       "title": "What Happened to Eckhart Tolle in California?",
-      "captionMatch": "What if your inspiration is not gone\u2014just waiting for the right environment",
+      "captionMatch": "What if your inspiration is not gone—just waiting for the right environment",
       "overall": "scheduled",
       "instagram": {
         "status": "queued_cloud",
@@ -89,7 +89,7 @@
         "videoId": "2138202303458376",
         "scheduledPostId": "299121263767927_1354140006800200"
       },
-      "note": "Moved from Fri 28 Aug 10:00 to fill the open Thursday slot; Facebook natively rescheduled to 2026-08-27T08:00:00Z and confirmed. Instagram is registered in the durable cloud queue (id kept as-is \u2014 it's the private-queue lookup key, unrelated to the date it encodes) and no longer depends on Codex or the Mac."
+      "note": "Moved from Fri 28 Aug 10:00 to fill the open Thursday slot; Facebook natively rescheduled to 2026-08-27T08:00:00Z and confirmed. Instagram is registered in the durable cloud queue (id kept as-is — it's the private-queue lookup key, unrelated to the date it encodes) and no longer depends on Codex or the Mac."
     },
     {
       "id": "2026-08-28-1500-pack-one-bag",
@@ -107,7 +107,7 @@
         "videoId": "1033723976122047",
         "scheduledPostId": "299121263767927_1354404740107060"
       },
-      "note": "Moved from Fri 28 Aug 15:00 to fill the open Thursday slot; Facebook natively rescheduled to 2026-08-27T13:00:00Z and confirmed. Instagram is registered in the durable cloud queue (id kept as-is \u2014 it's the private-queue lookup key, unrelated to the date it encodes) and no longer depends on Codex or the Mac."
+      "note": "Moved from Fri 28 Aug 15:00 to fill the open Thursday slot; Facebook natively rescheduled to 2026-08-27T13:00:00Z and confirmed. Instagram is registered in the durable cloud queue (id kept as-is — it's the private-queue lookup key, unrelated to the date it encodes) and no longer depends on Codex or the Mac."
     },
     {
       "id": "2026-08-28-2000-one-night-reset",
@@ -125,7 +125,7 @@
         "videoId": "1376472107283264",
         "scheduledPostId": "299121263767927_1354598460087688"
       },
-      "note": "Moved from Fri 28 Aug 20:00 to fill the open Thursday slot; Facebook natively rescheduled to 2026-08-27T18:00:00Z and confirmed. Instagram is registered in the durable cloud queue with the user-approved custom cover (id kept as-is \u2014 it's the private-queue lookup key, unrelated to the date it encodes) and does not depend on Codex or the Mac."
+      "note": "Moved from Fri 28 Aug 20:00 to fill the open Thursday slot; Facebook natively rescheduled to 2026-08-27T18:00:00Z and confirmed. Instagram is registered in the durable cloud queue with the user-approved custom cover (id kept as-is — it's the private-queue lookup key, unrelated to the date it encodes) and does not depend on Codex or the Mac."
     }
   ],
   "cadenceNote": "3 Reels/day (10:00, 15:00, 20:00 Vienna) through Fri 28 Aug 2026. From Sat 29 Aug 2026: 4 Reels/day (09:00, 13:00, 17:00, 21:00 Vienna). Update the 'cadence' array above to the new times once Saturday's slots are actually in use.",
