@@ -20,10 +20,8 @@ jobs:
       COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
       COMPOSIO: /home/runner/.composio/composio
       IG_ACCOUNT: aliveawake-main
-      IG_CONNECTED_ACCOUNT_ID: ca_d6Cr_QsM8LBB
       IG_USER_ID: "28033607902927427"
       FB_ACCOUNT: facebook_urushi-influx
-      FB_CONNECTED_ACCOUNT_ID: ca_1kRvjKmDhSic
       FB_PAGE_ID: "299121263767927"
     steps:
       - uses: actions/checkout@v4
@@ -32,6 +30,11 @@ jobs:
 
       - name: Install Composio CLI
         run: curl -fsSL https://composio.dev/install | COMPOSIO_INSTALL_SHELL=none sh
+
+      - name: Authenticate Composio CLI
+        run: |
+          "$COMPOSIO" login --user-api-key "$COMPOSIO_API_KEY" -y --no-skill-install
+          "$COMPOSIO" whoami
 
       - name: Verify expected posts against Instagram and Facebook
         run: node scripts/verify-dashboard.mjs
