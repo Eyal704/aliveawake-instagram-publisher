@@ -1,0 +1,154 @@
+name: Publish Instagram via Composio
+
+on:
+  workflow_dispatch:
+    inputs:
+      creation_id:
+        description: "Preprocessed Instagram container ID"
+        required: true
+      publish_at_epoch:
+        description: "UTC Unix timestamp for the final publish call"
+        required: true
+      preflight_at_epoch:
+        description: "UTC Unix timestamp for the preflight check"
+        required: true
+      expected_caption_prefix:
+        description: "Caption prefix used for duplicate detection"
+        required: true
+      facebook_video_id:
+        description: "Native Facebook scheduled video ID (verification only)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
+      COMPOSIO: /home/runner/.composio/composio
+      IG_ACCOUNT: aliveawake-main
+      IG_USER_ID: "28033607902927427"
+      FB_ACCOUNT: facebook_urushi-influx
+      FB_PAGE_ID: "299121263767927"
+      CREATION_ID: ${{ inputs.creation_id }}
+      PUBLISH_AT_EPOCH: ${{ inputs.publish_at_epoch }}
+      PREFLIGHT_AT_EPOCH: ${{ inputs.preflight_at_epoch }}
+      EXPECTED_CAPTION_PREFIX: ${{ inputs.expected_caption_prefix }}
+      FACEBOOK_VIDEO_ID: ${{ inputs.facebook_video_id }}
+
+    steps:
+      - name: Install Composio CLI
+        run: curl -fsSL https://composio.dev/install | COMPOSIO_INSTALL_SHELL=none sh
+
+      - name: Confirm cloud connection
+        run: |
+          "$COMPOSIO" whoami
+          "$COMPOSIO" connections list
+
+      - name: Wait for preflight
+        run: |
+          now=$(date +%s)
+          if [ "$PREFLIGHT_AT_EPOCH" -gt "$now" ]; then
+            sleep $((PREFLIGHT_AT_EPOCH - now))
+          fi
+
+      - name: Verify processed Instagram container
+        run: |
+          result=$("$COMPOSIO" execute INSTAGRAM_GET_POST_STATUS \
+            --account "$IG_ACCOUNT" \
+            -d "{\"creation_id\":\"$CREATION_ID\"}")
+          status=$(jq -r '.data.status_code // empty' <<<"$result")
+          if [ "$status" != "FINISHED" ]; then
+            echo "Instagram preflight failed: container status is $status"
+            exit 1
+          fi
+          echo "Instagram container is processed and ready."
+
+      - name: Verify Facebook native schedule exists
+        if: env.FACEBOOK_VIDEO_ID != ''
+        run: |
+          result=$("$COMPOSIO" execute FACEBOOK_GET_SCHEDULED_POSTS \
+            --account "$FB_ACCOUNT" \
+            -d "{\"page_id\":\"$FB_PAGE_ID\",\"limit\":100,\"fields\":\"id,message,scheduled_publish_time,is_published\"}")
+          scheduled=$(jq --arg epoch "$PUBLISH_AT_EPOCH" \
+            '[.data.data[]? | select((.scheduled_publish_time|tostring) == $epoch and .is_published == false)] | length' \
+            <<<"$result")
+          if [ "$scheduled" -lt 1 ]; then
+            echo "Facebook preflight failed: no native post scheduled for the target time."
+            exit 1
+          fi
+          echo "Facebook native schedule is present."
+
+      - name: Stop if Instagram duplicate already exists
+        run: |
+          since=$((PUBLISH_AT_EPOCH - 21600))
+          result=$("$COMPOSIO" execute INSTAGRAM_GET_IG_USER_MEDIA \
+            --account "$IG_ACCOUNT" \
+            -d "{\"ig_user_id\":\"$IG_USER_ID\",\"since\":$since,\"limit\":100,\"fields\":\"id,caption,permalink,timestamp,media_product_type\"}")
+          duplicate=$(jq --arg prefix "$EXPECTED_CAPTION_PREFIX" \
+            '[.data.data[]? | select((.caption // "") | startswith($prefix))] | length' \
+            <<<"$result")
+          if [ "$duplicate" -gt 0 ]; then
+            echo "Matching Instagram Reel already exists; refusing to publish a duplicate."
+            exit 0
+          fi
+
+      - name: Wait for publish time
+        run: |
+          now=$(date +%s)
+          if [ "$PUBLISH_AT_EPOCH" -gt "$now" ]; then
+            sleep $((PUBLISH_AT_EPOCH - now))
+          fi
+
+      - name: Publish Instagram exactly once
+        id: publish
+        run: |
+          result=$("$COMPOSIO" execute INSTAGRAM_POST_IG_USER_MEDIA_PUBLISH \
+            --account "$IG_ACCOUNT" \
+            -d "{\"ig_user_id\":\"$IG_USER_ID\",\"creation_id\":\"$CREATION_ID\",\"max_wait_seconds\":300,\"poll_interval_seconds\":5}")
+          media_id=$(jq -r '.data.id // empty' <<<"$result")
+          if [ -z "$media_id" ]; then
+            echo "Instagram publish did not return a media ID."
+            jq '{successful,error}' <<<"$result"
+            exit 1
+          fi
+          echo "media_id=$media_id" >> "$GITHUB_OUTPUT"
+          echo "Instagram returned media ID $media_id."
+
+      - name: Verify live Instagram Reel
+        run: |
+          result=$("$COMPOSIO" execute INSTAGRAM_GET_IG_MEDIA \
+            --account "$IG_ACCOUNT" \
+            -d "{\"ig_media_id\":\"${{ steps.publish.outputs.media_id }}\",\"fields\":\"id,caption,media_type,media_product_type,permalink,timestamp,username,is_shared_to_feed\"}")
+          permalink=$(jq -r '.data.permalink // empty' <<<"$result")
+          username=$(jq -r '.data.username // empty' <<<"$result")
+          if [ -z "$permalink" ] || [ "$username" != "aliveawake_" ]; then
+            echo "Instagram verification failed."
+            jq '{successful,error,data:{id:.data.id,username:.data.username,permalink:.data.permalink}}' <<<"$result"
+            exit 1
+          fi
+          echo "Verified live Instagram Reel: $permalink"
+
+      - name: Verify Facebook after grace period
+        if: env.FACEBOOK_VIDEO_ID != ''
+        run: |
+          verify_at=$((PUBLISH_AT_EPOCH + 600))
+          now=$(date +%s)
+          if [ "$verify_at" -gt "$now" ]; then
+            sleep $((verify_at - now))
+          fi
+          result=$("$COMPOSIO" execute FACEBOOK_GET_PAGE_VIDEOS \
+            --account "$FB_ACCOUNT" \
+            -d "{\"page_id\":\"$FB_PAGE_ID\",\"limit\":25,\"fields\":\"id,created_time,description,status,permalink_url\"}")
+          published=$(jq --arg id "$FACEBOOK_VIDEO_ID" \
+            '[.data.data[]? | select(.id == $id and .status.publishing_phase.publish_status == "published" and .status.video_status == "ready")] | length' \
+            <<<"$result")
+          if [ "$published" -lt 1 ]; then
+            echo "Facebook verification failed for video $FACEBOOK_VIDEO_ID."
+            exit 1
+          fi
+          echo "Verified live Facebook Reel: https://www.facebook.com/reel/$FACEBOOK_VIDEO_ID/"
