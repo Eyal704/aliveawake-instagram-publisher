@@ -29,7 +29,12 @@ jobs:
 
       - name: Install and authenticate Composio CLI
         run: |
-          curl -fsSL https://composio.dev/install | COMPOSIO_INSTALL_SHELL=none sh
+          for attempt in 1 2 3; do
+            curl -fsSL https://composio.dev/install | COMPOSIO_INSTALL_SHELL=none sh && break
+            echo "Install attempt $attempt failed (likely a transient network blip); retrying..."
+            sleep 10
+          done
+          test -x "$COMPOSIO"
           "$COMPOSIO" login --user-api-key "$COMPOSIO_API_KEY" -y --no-skill-install
 
       - name: Prepare or publish due Instagram posts

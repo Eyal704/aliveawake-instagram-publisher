@@ -51,7 +51,13 @@ jobs:
 
     steps:
       - name: Install Composio CLI
-        run: curl -fsSL https://composio.dev/install | COMPOSIO_INSTALL_SHELL=none sh
+        run: |
+          for attempt in 1 2 3; do
+            curl -fsSL https://composio.dev/install | COMPOSIO_INSTALL_SHELL=none sh && break
+            echo "Install attempt $attempt failed (likely a transient network blip); retrying..."
+            sleep 10
+          done
+          test -x "$COMPOSIO"
 
       - name: Authenticate Composio CLI
         run: |

@@ -132,7 +132,11 @@ for (const post of relevant) {
         verifiedAt: new Date().toISOString()
       };
     } else if (now < due) {
-      const scheduled = fbScheduled.find(item => item.id === post.facebook.scheduledPostId && Number(item.scheduled_publish_time) === Math.floor(due / 1000));
+      // Match on scheduledPostId alone, not also the exact epoch: Facebook's own
+      // scheduler can shift an object's reported scheduled_publish_time by a few
+      // seconds, and an unpublished post already uniquely identified by its post
+      // ID doesn't need a second, brittle equality check to confirm it's real.
+      const scheduled = fbScheduled.find(item => item.id === post.facebook.scheduledPostId && item.is_published === false);
       if (scheduled) post.facebook.status = "scheduled";
     } else if (post.facebook.status !== "published") {
       post.facebook.status = now > due + 15 * 60 * 1000 ? "missing" : "publishing";
