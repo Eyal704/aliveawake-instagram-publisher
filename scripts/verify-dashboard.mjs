@@ -3,12 +3,39 @@ import { spawnSync } from "node:child_process";
 
 const schedulePath = new URL("../docs/schedule.json", import.meta.url);
 const composio = process.env.COMPOSIO || `${process.env.HOME}/.composio/composio`;
+const composioApiKey = process.env.COMPOSIO_API_KEY;
 const igAccount = process.env.IG_ACCOUNT || "aliveawake-main";
+const igConnectedAccountId = process.env.IG_CONNECTED_ACCOUNT_ID;
 const igUserId = process.env.IG_USER_ID || "28033607902927427";
 const fbAccount = process.env.FB_ACCOUNT || "facebook_urushi-influx";
+const fbConnectedAccountId = process.env.FB_CONNECTED_ACCOUNT_ID;
 const fbPageId = process.env.FB_PAGE_ID || "299121263767927";
 
-function execute(tool, account, payload) {
+async function execute(tool, account, connectedAccountId, payload) {
+  if (composioApiKey && connectedAccountId) {
+    const response = await fetch(`https://backend.composio.dev/api/v3.1/tools/execute/${tool}`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "x-api-key": composioApiKey
+      },
+      body: JSON.stringify({
+        connected_account_id: connectedAccountId,
+        version: "latest",
+        arguments: payload
+      })
+    });
+    const raw = await response.text();
+    if (!response.ok || !raw) {
+      throw new Error(`${tool} API request failed (HTTP ${response.status}): ${raw || "empty output"}`);
+    }
+    const result = JSON.parse(raw);
+    if (result.successful === false || result.error) {
+      throw new Error(`${tool} failed: ${JSON.stringify(result.error || result)}`);
+    }
+    return result.data?.data || [];
+  }
+
   const process = spawnSync(composio, ["execute", tool, "--account", account, "-d", JSON.stringify(payload)], {
     encoding: "utf8",
     stdio: ["ignore", "pipe", "pipe"]
@@ -46,18 +73,18 @@ const relevant = schedule.posts.filter(post => {
 });
 
 const earliest = Math.floor(Math.min(...relevant.map(post => new Date(post.scheduledAt).getTime())) / 1000) - 3600;
-const igMedia = execute("INSTAGRAM_GET_IG_USER_MEDIA", igAccount, {
+const igMedia = await execute("INSTAGRAM_GET_IG_USER_MEDIA", igAccount, igConnectedAccountId, {
   ig_user_id: igUserId,
   since: earliest,
   limit: 100,
   fields: "id,caption,permalink,timestamp,media_product_type"
 });
-const fbScheduled = execute("FACEBOOK_GET_SCHEDULED_POSTS", fbAccount, {
+const fbScheduled = await execute("FACEBOOK_GET_SCHEDULED_POSTS", fbAccount, fbConnectedAccountId, {
   page_id: fbPageId,
   limit: 100,
   fields: "id,message,scheduled_publish_time,is_published"
 });
-const fbVideos = execute("FACEBOOK_GET_PAGE_VIDEOS", fbAccount, {
+const fbVideos = await execute("FACEBOOK_GET_PAGE_VIDEOS", fbAccount, fbConnectedAccountId, {
   page_id: fbPageId,
   limit: 100,
   fields: "id,created_time,description,status,permalink_url"

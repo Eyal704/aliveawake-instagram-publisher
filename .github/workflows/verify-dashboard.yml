@@ -20,8 +20,10 @@ jobs:
       COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
       COMPOSIO: /home/runner/.composio/composio
       IG_ACCOUNT: aliveawake-main
+      IG_CONNECTED_ACCOUNT_ID: ca_d6Cr_QsM8LBB
       IG_USER_ID: "28033607902927427"
       FB_ACCOUNT: facebook_urushi-influx
+      FB_CONNECTED_ACCOUNT_ID: ca_1kRvjKmDhSic
       FB_PAGE_ID: "299121263767927"
     steps:
       - uses: actions/checkout@v4
