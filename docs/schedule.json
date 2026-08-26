@@ -136,9 +136,9 @@
       "captionMatch": "We don't just experience reality",
       "overall": "scheduled",
       "instagram": {
-        "status": "awaiting_private_queue",
+        "status": "queued_isolated",
         "verified": false,
-        "note": "Facebook side done. Instagram needs the matching entry added to the ALIVEAWAKE_QUEUE_JSON secret (write-only -- needs a verified copy of the current array before writing) before this can move to queued_cloud."
+        "note": "Handled by its own dedicated GitHub Actions workflow (.github/workflows/publish-creator-of-suffering.yml) and its own secret (CREATOR_OF_SUFFERING_QUEUE) -- deliberately isolated from the shared ALIVEAWAKE_QUEUE_JSON array so it can't affect any other post's queued data. Runs on its own 5-min cron, independent of any local session."
       },
       "facebook": {
         "status": "scheduled",
@@ -146,7 +146,7 @@
         "videoId": "2940094719672457",
         "scheduledPostId": "299121263767927_1354934136720787"
       },
-      "note": "Video/thumbnail hosted at https://eyal704.github.io/aliveawake-instagram-publisher/pending-video/ (verified live). Facebook scheduled and verified via FACEBOOK_GET_SCHEDULED_POSTS. Instagram side blocked on write-only private queue secret -- see instagram.note."
+      "note": "Video/thumbnail hosted at https://eyal704.github.io/aliveawake-instagram-publisher/pending-video/ (verified live). Facebook scheduled and verified via FACEBOOK_GET_SCHEDULED_POSTS. Instagram scheduled via a standalone one-off workflow (own secret, no shared-queue risk) -- see instagram.note."
     }
   ],
   "cadenceNote": "3 Reels/day (10:00, 15:00, 20:00 Vienna) through Fri 28 Aug 2026. From Sat 29 Aug 2026: 4 Reels/day (09:00, 13:00, 17:00, 21:00 Vienna). Update the 'cadence' array above to the new times once Saturday's slots are actually in use.",
