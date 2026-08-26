@@ -59,7 +59,8 @@ function deriveOverall(post, now) {
   const due = new Date(post.scheduledAt).getTime();
   if (post.instagram.status === "published" && post.facebook.status === "published") return "published";
   if ([post.instagram.status, post.facebook.status].includes("not_scheduled")) return "needs_attention";
-  if (now > due + 30 * 60 * 1000 && [post.instagram.status, post.facebook.status].some(s => s !== "published")) return "needs_attention";
+  if ([post.instagram.status, post.facebook.status].some(s => ["failed", "missing", "duplicate"].includes(s))) return "needs_attention";
+  if (now > due + 15 * 60 * 1000 && [post.instagram.status, post.facebook.status].some(s => s !== "published")) return "needs_attention";
   if ([post.instagram.status, post.facebook.status].includes("queued_local")) return "scheduled_with_risk";
   if (now >= due) return "publishing";
   return "scheduled";
@@ -95,8 +96,15 @@ for (const post of relevant) {
   const captionMatch = normalize(post.captionMatch);
 
   if (captionMatch) {
-    const ig = igMedia.find(item => normalize(item.caption).startsWith(captionMatch));
-    if (ig) {
+    const igMatches = igMedia.filter(item => {
+      const timestamp = Date.parse(item.timestamp || "");
+      return normalize(item.caption).startsWith(captionMatch) && Number.isFinite(timestamp) && Math.abs(timestamp - due) <= 6 * 60 * 60 * 1000;
+    });
+    if (igMatches.length > 1) {
+      post.instagram.status = "duplicate";
+      post.instagram.verified = false;
+    } else if (igMatches.length === 1) {
+      const ig = igMatches[0];
       post.instagram = {
         ...post.instagram,
         status: "published",
@@ -106,7 +114,7 @@ for (const post of relevant) {
         verifiedAt: new Date().toISOString()
       };
     } else if (now >= due && post.instagram.status !== "published") {
-      post.instagram.status = now > due + 30 * 60 * 1000 ? "missing" : "publishing";
+      post.instagram.status = now > due + 15 * 60 * 1000 ? "missing" : "publishing";
       post.instagram.verified = false;
     }
   }
@@ -127,7 +135,7 @@ for (const post of relevant) {
       const scheduled = fbScheduled.find(item => item.id === post.facebook.scheduledPostId && Number(item.scheduled_publish_time) === Math.floor(due / 1000));
       if (scheduled) post.facebook.status = "scheduled";
     } else if (post.facebook.status !== "published") {
-      post.facebook.status = now > due + 30 * 60 * 1000 ? "missing" : "publishing";
+      post.facebook.status = now > due + 15 * 60 * 1000 ? "missing" : "publishing";
       post.facebook.verified = false;
     }
   }

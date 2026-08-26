@@ -40,6 +40,8 @@
     .subtitle { margin: 0; color: var(--muted); font-size: 15px; }
     .updated { text-align: right; color: var(--muted); font-size: 13px; white-space: nowrap; }
     .updated strong { display: block; color: var(--text); margin-top: 4px; }
+    .stale { display: none; margin: 0 0 18px; padding: 12px 15px; color: var(--amber); background: var(--amber-bg); border: 1px solid #f4d98b; border-radius: 12px; font-size: 13px; font-weight: 700; }
+    .stale.visible { display: block; }
 
     .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 22px; }
     .metric { background: var(--card); border: 1px solid var(--line); border-radius: 15px; padding: 17px; box-shadow: 0 5px 18px rgba(16,42,58,.035); }
@@ -69,7 +71,7 @@
     .pill.published { color: var(--green); background: var(--green-bg); }
     .pill.scheduled, .pill.queued_cloud { color: var(--blue); background: var(--blue-bg); }
     .pill.queued_local, .pill.scheduled_with_risk { color: var(--amber); background: var(--amber-bg); }
-    .pill.not_scheduled, .pill.needs_attention, .pill.missing, .pill.failed { color: var(--red); background: var(--red-bg); }
+    .pill.not_scheduled, .pill.needs_attention, .pill.missing, .pill.failed, .pill.duplicate { color: var(--red); background: var(--red-bg); }
     .pill.publishing { color: var(--amber); background: var(--amber-bg); }
     .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
     .platform a { color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; }
@@ -108,6 +110,8 @@
       </div>
       <div class="updated">Last platform check<strong id="last-checked">Loading…</strong></div>
     </header>
+
+    <div class="stale" id="stale-warning" role="status"></div>
 
     <section class="summary" aria-label="Publishing summary">
       <div class="metric"><div class="label">Upcoming</div><div class="value" id="metric-upcoming">—</div></div>
@@ -149,7 +153,8 @@
       needs_attention: "Needs attention",
       publishing: "Publishing",
       missing: "Missing",
-      failed: "Failed"
+      failed: "Failed",
+      duplicate: "Duplicate detected"
     };
     let model;
     let view = "all";
@@ -177,6 +182,15 @@
       document.querySelector("#metric-published").textContent = published.length;
       document.querySelector("#metric-attention").textContent = attention.length;
       document.querySelector("#last-checked").textContent = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Vienna", day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }).format(new Date(model.lastCheckedAt));
+      const checkedAt = new Date(model.lastCheckedAt).getTime();
+      const staleWarning = document.querySelector("#stale-warning");
+      const staleMinutes = Math.floor((now - checkedAt) / 60_000);
+      if (!Number.isFinite(checkedAt) || staleMinutes > 25) {
+        staleWarning.textContent = `Platform verification is stale${Number.isFinite(staleMinutes) ? ` (${staleMinutes} minutes old)` : ""}. Statuses may not reflect the latest platform state.`;
+        staleWarning.classList.add("visible");
+      } else {
+        staleWarning.classList.remove("visible");
+      }
 
       let shown = posts;
       if (view === "upcoming") shown = upcoming;

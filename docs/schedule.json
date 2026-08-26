@@ -5,7 +5,7 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-08-26T11:59:41.667Z",
+  "updatedAt": "2026-08-26T12:23:53.808Z",
   "lastCheckedAt": "2026-08-26T11:59:41.667Z",
   "posts": [
     {
@@ -54,25 +54,30 @@
       "id": "2026-08-26-2000-location-shapes-creation",
       "scheduledAt": "2026-08-26T20:00:00+02:00",
       "title": "Your Location Shapes What You Create",
-      "overall": "needs_attention",
+      "captionMatch": "Every city has a rhythm—and that rhythm shapes what we create",
+      "overall": "scheduled",
       "instagram": {
-        "status": "not_scheduled",
-        "verified": false
+        "status": "queued_cloud",
+        "verified": false,
+        "containerId": "17978944782083484",
+        "containerCreatedAt": "2026-08-26T12:15:50.000Z"
       },
       "facebook": {
-        "status": "not_scheduled",
-        "verified": false
+        "status": "scheduled",
+        "verified": false,
+        "videoId": "1535258637891461",
+        "scheduledPostId": "299121263767927_1354563163424551"
       },
-      "note": "Approved creative exists, but no durable platform schedule has been verified."
+      "note": "Facebook is natively scheduled and processed. Instagram is processed and queued in the authenticated cloud publisher."
     },
     {
       "id": "2026-08-28-1000-eckhart-tolle-california",
       "scheduledAt": "2026-08-28T10:00:00+02:00",
       "title": "What Happened to Eckhart Tolle in California?",
       "captionMatch": "What if your inspiration is not gone—just waiting for the right environment",
-      "overall": "scheduled_with_risk",
+      "overall": "scheduled",
       "instagram": {
-        "status": "queued_local",
+        "status": "queued_cloud",
         "verified": false
       },
       "facebook": {
@@ -81,16 +86,16 @@
         "videoId": "2138202303458376",
         "scheduledPostId": "299121263767927_1354140006800200"
       },
-      "note": "Facebook is native. Instagram still relies on the older local queue and should be migrated."
+      "note": "Facebook is native. Instagram is registered in the durable cloud queue and no longer depends on Codex or the Mac."
     },
     {
       "id": "2026-08-28-1500-pack-one-bag",
       "scheduledAt": "2026-08-28T15:00:00+02:00",
       "title": "Feel Stuck? Pack One Bag and Go.",
       "captionMatch": "Sometimes the next step is not a dramatic leap. It is one night somewhere new",
-      "overall": "scheduled_with_risk",
+      "overall": "scheduled",
       "instagram": {
-        "status": "queued_local",
+        "status": "queued_cloud",
         "verified": false
       },
       "facebook": {
@@ -99,7 +104,7 @@
         "videoId": "1033723976122047",
         "scheduledPostId": "299121263767927_1354404740107060"
       },
-      "note": "Facebook is native. Instagram still relies on the older local queue and should be migrated."
+      "note": "Facebook is native. Instagram is registered in the durable cloud queue and no longer depends on Codex or the Mac."
     }
   ]
 }

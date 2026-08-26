@@ -1,9 +1,6 @@
-name: Publish to Instagram
+name: "[DISABLED] Legacy direct Meta publisher"
 
 on:
-  push:
-    paths:
-      - "trigger/run.json"
   workflow_dispatch:
     inputs:
       video_url:
@@ -48,7 +45,9 @@ on:
 
 jobs:
   publish:
+    if: ${{ false }}
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
 
