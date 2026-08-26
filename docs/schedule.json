@@ -128,6 +128,25 @@
         "scheduledPostId": "299121263767927_1354598460087688"
       },
       "note": "Pushed to Friday 10:00 (Thu 20:00 -> Fri 10:00) since Friday was empty, to make room for the recovered Wed 20:00 video at Thu 10:00. Facebook natively rescheduled to 2026-08-28T08:00:00Z and confirmed."
+    },
+    {
+      "id": "2026-08-28-1500-creator-of-suffering",
+      "scheduledAt": "2026-08-28T15:00:00+02:00",
+      "title": "You Are The Creator Of Your Own Suffering",
+      "captionMatch": "We don't just experience reality",
+      "overall": "scheduled",
+      "instagram": {
+        "status": "awaiting_private_queue",
+        "verified": false,
+        "note": "Facebook side done. Instagram needs the matching entry added to the ALIVEAWAKE_QUEUE_JSON secret (write-only -- needs a verified copy of the current array before writing) before this can move to queued_cloud."
+      },
+      "facebook": {
+        "status": "scheduled",
+        "verified": true,
+        "videoId": "2940094719672457",
+        "scheduledPostId": "299121263767927_1354934136720787"
+      },
+      "note": "Video/thumbnail hosted at https://eyal704.github.io/aliveawake-instagram-publisher/pending-video/ (verified live). Facebook scheduled and verified via FACEBOOK_GET_SCHEDULED_POSTS. Instagram side blocked on write-only private queue secret -- see instagram.note."
     }
   ],
   "cadenceNote": "3 Reels/day (10:00, 15:00, 20:00 Vienna) through Fri 28 Aug 2026. From Sat 29 Aug 2026: 4 Reels/day (09:00, 13:00, 17:00, 21:00 Vienna). Update the 'cadence' array above to the new times once Saturday's slots are actually in use.",
