@@ -1,0 +1,47 @@
+name: Verify AliveAwake publishing dashboard
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aliveawake-dashboard-verifier
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
+      COMPOSIO: /home/runner/.composio/composio
+      IG_ACCOUNT: aliveawake-main
+      IG_USER_ID: "28033607902927427"
+      FB_ACCOUNT: facebook_urushi-influx
+      FB_PAGE_ID: "299121263767927"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Install Composio CLI
+        run: curl -fsSL https://composio.dev/install | COMPOSIO_INSTALL_SHELL=none sh
+
+      - name: Verify expected posts against Instagram and Facebook
+        run: node scripts/verify-dashboard.mjs
+
+      - name: Save verified dashboard state
+        run: |
+          if git diff --quiet -- docs/schedule.json; then
+            echo "Dashboard state is unchanged."
+            exit 0
+          fi
+          git config user.name "aliveawake-publishing-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/schedule.json
+          git commit -m "Update verified publishing dashboard"
+          git push origin HEAD:main

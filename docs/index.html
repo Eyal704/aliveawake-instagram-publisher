@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8fafc">
+  <title>AliveAwake Publishing Calendar</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f7f9;
+      --card: #ffffff;
+      --text: #16202a;
+      --muted: #667085;
+      --line: #e4e7ec;
+      --navy: #102a3a;
+      --gold: #f4b942;
+      --green: #138a5b;
+      --green-bg: #eaf8f1;
+      --amber: #9a6700;
+      --amber-bg: #fff7df;
+      --red: #b42318;
+      --red-bg: #fff0ed;
+      --blue: #175cd3;
+      --blue-bg: #eff6ff;
+      --shadow: 0 14px 34px rgba(16, 42, 58, .08);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 42px 0 64px; }
+    header { display: flex; justify-content: space-between; gap: 24px; align-items: flex-end; margin-bottom: 26px; }
+    .eyebrow { color: var(--amber); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: 12px; }
+    h1 { margin: 7px 0 7px; color: var(--navy); font-size: clamp(28px, 5vw, 44px); line-height: 1.05; }
+    .subtitle { margin: 0; color: var(--muted); font-size: 15px; }
+    .updated { text-align: right; color: var(--muted); font-size: 13px; white-space: nowrap; }
+    .updated strong { display: block; color: var(--text); margin-top: 4px; }
+
+    .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 22px; }
+    .metric { background: var(--card); border: 1px solid var(--line); border-radius: 15px; padding: 17px; box-shadow: 0 5px 18px rgba(16,42,58,.035); }
+    .metric .label { color: var(--muted); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+    .metric .value { color: var(--navy); font-size: 27px; font-weight: 800; margin-top: 4px; }
+
+    .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 20px 0 12px; }
+    .tabs { display: flex; gap: 7px; }
+    button { border: 1px solid var(--line); background: #fff; color: var(--muted); border-radius: 999px; padding: 8px 13px; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+    button.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .cadence { color: var(--muted); font-size: 13px; }
+
+    .table-shell { overflow: hidden; background: var(--card); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); }
+    table { width: 100%; border-collapse: collapse; }
+    thead { background: #fafbfc; }
+    th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .07em; text-align: left; padding: 13px 16px; border-bottom: 1px solid var(--line); }
+    td { padding: 17px 16px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr:hover { background: #fcfcfd; }
+    .date { min-width: 126px; }
+    .date strong { display: block; font-size: 14px; }
+    .date span { color: var(--muted); font-size: 13px; }
+    .title { min-width: 250px; font-weight: 750; color: var(--navy); }
+    .title small { display: block; color: var(--muted); font-weight: 450; line-height: 1.35; margin-top: 5px; max-width: 410px; }
+
+    .pill { display: inline-flex; gap: 7px; align-items: center; border-radius: 999px; padding: 7px 10px; font-size: 12px; font-weight: 750; white-space: nowrap; }
+    .pill.published { color: var(--green); background: var(--green-bg); }
+    .pill.scheduled, .pill.queued_cloud { color: var(--blue); background: var(--blue-bg); }
+    .pill.queued_local, .pill.scheduled_with_risk { color: var(--amber); background: var(--amber-bg); }
+    .pill.not_scheduled, .pill.needs_attention, .pill.missing, .pill.failed { color: var(--red); background: var(--red-bg); }
+    .pill.publishing { color: var(--amber); background: var(--amber-bg); }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+    .platform a { color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; }
+    .empty { padding: 48px 20px; color: var(--muted); text-align: center; }
+
+    footer { margin-top: 18px; display: flex; justify-content: space-between; gap: 15px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    footer strong { color: var(--text); }
+
+    @media (max-width: 860px) {
+      main { width: min(100% - 20px, 720px); padding-top: 24px; }
+      header { align-items: flex-start; flex-direction: column; }
+      .updated { text-align: left; }
+      .summary { grid-template-columns: repeat(2, 1fr); }
+      .cadence { display: none; }
+      .table-shell { background: transparent; border: 0; box-shadow: none; overflow: visible; }
+      table, tbody { display: block; }
+      thead { display: none; }
+      tr { display: grid; grid-template-columns: 1fr 1fr; background: var(--card); border: 1px solid var(--line); border-radius: 15px; margin-bottom: 10px; padding: 15px; box-shadow: 0 7px 20px rgba(16,42,58,.05); }
+      td { border: 0; padding: 6px 0; }
+      td.date, td.title, td.overall { grid-column: 1 / -1; }
+      td.platform::before { display: block; color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 6px; }
+      td.platform.instagram::before { content: "Instagram"; }
+      td.platform.facebook::before { content: "Facebook"; }
+      .title { min-width: 0; }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <div class="eyebrow">AliveAwake</div>
+        <h1>Publishing Calendar</h1>
+        <p class="subtitle">Vienna schedule with independent Instagram and Facebook verification.</p>
+      </div>
+      <div class="updated">Last platform check<strong id="last-checked">Loading…</strong></div>
+    </header>
+
+    <section class="summary" aria-label="Publishing summary">
+      <div class="metric"><div class="label">Upcoming</div><div class="value" id="metric-upcoming">—</div></div>
+      <div class="metric"><div class="label">Fully posted</div><div class="value" id="metric-published">—</div></div>
+      <div class="metric"><div class="label">Needs attention</div><div class="value" id="metric-attention">—</div></div>
+      <div class="metric"><div class="label">Daily slots</div><div class="value">3</div></div>
+    </section>
+
+    <div class="toolbar">
+      <div class="tabs">
+        <button class="active" data-view="upcoming">Upcoming</button>
+        <button data-view="all">All</button>
+        <button data-view="posted">Posted</button>
+      </div>
+      <div class="cadence">Standard times: 10:00 · 15:00 · 20:00 Vienna</div>
+    </div>
+
+    <div class="table-shell">
+      <table>
+        <thead><tr><th>Vienna time</th><th>Reel</th><th>Instagram</th><th>Facebook</th><th>Overall</th></tr></thead>
+        <tbody id="rows"><tr><td class="empty" colspan="5">Loading publishing calendar…</td></tr></tbody>
+      </table>
+    </div>
+
+    <footer>
+      <span><strong>✓ Posted</strong> means a public platform object was verified—not merely submitted or scheduled.</span>
+      <span>The page refreshes automatically every 60 seconds.</span>
+    </footer>
+  </main>
+
+  <script>
+    const labels = {
+      published: "✓ Posted",
+      scheduled: "Scheduled",
+      queued_cloud: "Cloud queued",
+      queued_local: "Local queue",
+      scheduled_with_risk: "Scheduled · risk",
+      not_scheduled: "Not scheduled",
+      needs_attention: "Needs attention",
+      publishing: "Publishing",
+      missing: "Missing",
+      failed: "Failed"
+    };
+    let model;
+    let view = "upcoming";
+
+    function formatDate(iso) {
+      const date = new Date(iso);
+      return {
+        day: new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Vienna", weekday: "short", day: "2-digit", month: "short" }).format(date),
+        time: new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Vienna", hour: "2-digit", minute: "2-digit", hour12: false }).format(date)
+      };
+    }
+
+    function pill(status, url) {
+      const body = `<span class="pill ${status}"><span class="dot"></span>${labels[status] || status}</span>`;
+      return url ? `<a href="${url}" target="_blank" rel="noreferrer">${body}</a>` : body;
+    }
+
+    function render() {
+      const now = Date.now();
+      const posts = [...model.posts].sort((a, b) => new Date(a.scheduledAt) - new Date(b.scheduledAt));
+      const upcoming = posts.filter(p => new Date(p.scheduledAt).getTime() >= now - 30 * 60 * 1000 && p.overall !== "published");
+      const published = posts.filter(p => p.overall === "published");
+      const attention = posts.filter(p => ["needs_attention", "scheduled_with_risk", "failed", "missing"].includes(p.overall));
+      document.querySelector("#metric-upcoming").textContent = upcoming.length;
+      document.querySelector("#metric-published").textContent = published.length;
+      document.querySelector("#metric-attention").textContent = attention.length;
+      document.querySelector("#last-checked").textContent = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Vienna", day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }).format(new Date(model.lastCheckedAt));
+
+      let shown = posts;
+      if (view === "upcoming") shown = upcoming;
+      if (view === "posted") shown = published.slice().reverse();
+      const rows = document.querySelector("#rows");
+      if (!shown.length) {
+        rows.innerHTML = `<tr><td class="empty" colspan="5">Nothing in this view.</td></tr>`;
+        return;
+      }
+      rows.innerHTML = shown.map(post => {
+        const when = formatDate(post.scheduledAt);
+        return `<tr>
+          <td class="date"><strong>${when.day}</strong><span>${when.time} Vienna</span></td>
+          <td class="title">${post.title}<small>${post.note || ""}</small></td>
+          <td class="platform instagram">${pill(post.instagram.status, post.instagram.url)}</td>
+          <td class="platform facebook">${pill(post.facebook.status, post.facebook.url)}</td>
+          <td class="overall">${pill(post.overall)}</td>
+        </tr>`;
+      }).join("");
+    }
+
+    async function load() {
+      try {
+        const response = await fetch(`schedule.json?v=${Date.now()}`, { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        model = await response.json();
+        render();
+      } catch (error) {
+        document.querySelector("#rows").innerHTML = `<tr><td class="empty" colspan="5">Could not load the calendar. Please refresh.</td></tr>`;
+      }
+    }
+
+    document.querySelectorAll("button[data-view]").forEach(button => button.addEventListener("click", () => {
+      document.querySelectorAll("button[data-view]").forEach(b => b.classList.remove("active"));
+      button.classList.add("active");
+      view = button.dataset.view;
+      render();
+    }));
+    load();
+    setInterval(load, 60_000);
+  </script>
+</body>
+</html>

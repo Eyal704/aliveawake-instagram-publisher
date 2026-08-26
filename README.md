@@ -2,6 +2,8 @@
 
 Publishes a video (with caption, thumbnail, and optional location tag) to the AliveAwake Instagram Business account **and** the linked Facebook Page, via the Graph API.
 
+Live publishing calendar: https://eyal704.github.io/aliveawake-instagram-publisher/
+
 ## How it works
 
 The Graph API fetches the video itself from a URL you give it — it does not accept file uploads. So `VIDEO_URL` (and `COVER_URL`, if used) must be a plain public link with no login/auth wall, reachable by Meta's servers.

@@ -1,0 +1,105 @@
+{
+  "timezone": "Europe/Vienna",
+  "cadence": [
+    "10:00",
+    "15:00",
+    "20:00"
+  ],
+  "updatedAt": "2026-08-26T10:57:14.207Z",
+  "lastCheckedAt": "2026-08-26T10:57:14.207Z",
+  "posts": [
+    {
+      "id": "2026-08-26-1000-when-life-tells-you-to-leave",
+      "scheduledAt": "2026-08-26T10:00:00+02:00",
+      "title": "When Your Life Tells You to Leave",
+      "captionMatch": "Have you ever known it was time to leave",
+      "overall": "published",
+      "instagram": {
+        "status": "published",
+        "verified": true,
+        "mediaId": "18619114822004455",
+        "url": "https://www.instagram.com/reel/DcfzjCblZbJ/",
+        "verifiedAt": "2026-08-26T10:57:14.198Z"
+      },
+      "facebook": {
+        "status": "published",
+        "verified": true,
+        "videoId": "2951550651863116",
+        "url": "/reel/2951550651863116/",
+        "verifiedAt": "2026-08-26T10:57:14.206Z"
+      },
+      "note": "Recovered and verified on both platforms."
+    },
+    {
+      "id": "2026-08-26-1500-location-changing-you",
+      "scheduledAt": "2026-08-26T15:00:00+02:00",
+      "title": "What If Your Location Is Changing Who You Are?",
+      "captionMatch": "Have you ever arrived somewhere and immediately felt like a different version of yourself",
+      "overall": "scheduled",
+      "instagram": {
+        "status": "queued_cloud",
+        "verified": false,
+        "containerId": "17978925246083484",
+        "workflowRun": "https://github.com/Eyal704/aliveawake-instagram-publisher/actions/runs/32950059607"
+      },
+      "facebook": {
+        "status": "scheduled",
+        "verified": false,
+        "videoId": "1801041707578795",
+        "scheduledPostId": "299121263767927_1354444580103076"
+      },
+      "note": "First live test of the cloud Instagram scheduler."
+    },
+    {
+      "id": "2026-08-26-2000-location-shapes-creation",
+      "scheduledAt": "2026-08-26T20:00:00+02:00",
+      "title": "Your Location Shapes What You Create",
+      "overall": "needs_attention",
+      "instagram": {
+        "status": "not_scheduled",
+        "verified": false
+      },
+      "facebook": {
+        "status": "not_scheduled",
+        "verified": false
+      },
+      "note": "Approved creative exists, but no durable platform schedule has been verified."
+    },
+    {
+      "id": "2026-08-28-1000-eckhart-tolle-california",
+      "scheduledAt": "2026-08-28T10:00:00+02:00",
+      "title": "What Happened to Eckhart Tolle in California?",
+      "captionMatch": "What if your inspiration is not gone—just waiting for the right environment",
+      "overall": "scheduled_with_risk",
+      "instagram": {
+        "status": "queued_local",
+        "verified": false
+      },
+      "facebook": {
+        "status": "scheduled",
+        "verified": false,
+        "videoId": "2138202303458376",
+        "scheduledPostId": "299121263767927_1354140006800200"
+      },
+      "note": "Facebook is native. Instagram still relies on the older local queue and should be migrated."
+    },
+    {
+      "id": "2026-08-28-1500-pack-one-bag",
+      "scheduledAt": "2026-08-28T15:00:00+02:00",
+      "title": "Feel Stuck? Pack One Bag and Go.",
+      "captionMatch": "Sometimes the next step is not a dramatic leap. It is one night somewhere new",
+      "overall": "scheduled_with_risk",
+      "instagram": {
+        "status": "queued_local",
+        "verified": false
+      },
+      "facebook": {
+        "status": "scheduled",
+        "verified": false,
+        "videoId": "1033723976122047",
+        "scheduledPostId": "299121263767927_1354404740107060"
+      },
+      "note": "Facebook is native. Instagram still relies on the older local queue and should be migrated."
+    }
+  ]
+}
