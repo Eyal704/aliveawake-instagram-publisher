@@ -1,5 +1,5 @@
 import fs from "node:fs/promises";
-import { execFileSync } from "node:child_process";
+import { spawnSync } from "node:child_process";
 
 const schedulePath = new URL("../docs/schedule.json", import.meta.url);
 const composio = process.env.COMPOSIO || `${process.env.HOME}/.composio/composio`;
@@ -9,10 +9,14 @@ const fbAccount = process.env.FB_ACCOUNT || "facebook_urushi-influx";
 const fbPageId = process.env.FB_PAGE_ID || "299121263767927";
 
 function execute(tool, account, payload) {
-  const raw = execFileSync(composio, ["execute", tool, "--account", account, "-d", JSON.stringify(payload)], {
+  const process = spawnSync(composio, ["execute", tool, "--account", account, "-d", JSON.stringify(payload)], {
     encoding: "utf8",
     stdio: ["ignore", "pipe", "pipe"]
   });
+  const raw = process.stdout.trim();
+  if (process.status !== 0 || !raw) {
+    throw new Error(`${tool} returned no usable JSON (exit ${process.status}): ${process.stderr.trim() || "empty output"}`);
+  }
   const result = JSON.parse(raw);
   if (result.successful === false || result.error) {
     throw new Error(`${tool} failed: ${JSON.stringify(result.error || result)}`);
