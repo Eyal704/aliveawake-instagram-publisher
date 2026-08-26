@@ -41,13 +41,14 @@ jobs:
 
       - name: Save updated analytics
         run: |
-          if git diff --quiet -- docs/analytics.json docs/analytics-history.json; then
+          git config user.name "aliveawake-publishing-bot"
+          git config user.email "actions@users.noreply.github.com"
+          mkdir -p docs/thumbnails
+          git add docs/analytics.json docs/analytics-history.json docs/thumbnails
+          if git diff --cached --quiet; then
             echo "Analytics data is unchanged."
             exit 0
           fi
-          git config user.name "aliveawake-publishing-bot"
-          git config user.email "actions@users.noreply.github.com"
-          git add docs/analytics.json docs/analytics-history.json
           git commit -m "Update analytics dashboard data"
           git pull --rebase origin main
           git push origin HEAD:main

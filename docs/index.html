@@ -93,6 +93,10 @@
     footer strong { color: var(--text); }
 
     /* Analytics tab */
+    .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+    .platform-tabs button { border: 1px solid var(--line); background: #fff; color: var(--muted); border-radius: 12px; padding: 11px 22px; font: inherit; font-size: 15px; font-weight: 800; cursor: pointer; }
+    .platform-tabs button[data-platform="instagram"].active { background: var(--pink); color: #fff; border-color: var(--pink); }
+    .platform-tabs button[data-platform="facebook"].active { background: var(--blue); color: #fff; border-color: var(--blue); }
     .filter-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; margin-bottom: 18px; box-shadow: 0 5px 18px rgba(16,42,58,.035); }
     .filter-group { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
     .filter-group label { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 750; margin-right: 4px; }
@@ -108,7 +112,7 @@
     .legend span { display: inline-flex; align-items: center; gap: 6px; }
     .legend .swatch { width: 10px; height: 10px; border-radius: 3px; }
 
-    .best-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 22px; }
+    .best-row { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 22px; max-width: 520px; }
     .best-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; display: flex; gap: 12px; box-shadow: 0 5px 18px rgba(16,42,58,.035); }
     .best-card img { width: 58px; height: 58px; border-radius: 12px; object-fit: cover; background: #eef0f2; flex-shrink: 0; }
     .best-card .label { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 750; }
@@ -204,6 +208,11 @@
     <div id="page-analytics" class="page" hidden>
       <div class="stale" id="analytics-stale-warning" role="status"></div>
 
+      <div class="platform-tabs">
+        <button class="active" data-platform="instagram">Instagram</button>
+        <button data-platform="facebook">Facebook</button>
+      </div>
+
       <section class="summary" aria-label="Account summary">
         <div class="metric"><div class="label">Instagram followers</div><div class="value" id="a-ig-followers">—</div><div class="sub" id="a-ig-followers-sub"></div></div>
         <div class="metric"><div class="label">Facebook followers</div><div class="value" id="a-fb-followers">—</div><div class="sub" id="a-fb-followers-sub"></div></div>
@@ -223,15 +232,6 @@
         <div class="filter-group">
           <label>Custom</label>
           <input type="date" id="range-from"> <span style="color:var(--muted)">→</span> <input type="date" id="range-to">
-        </div>
-        <div class="filter-sep"></div>
-        <div class="filter-group">
-          <label>Platform</label>
-          <select id="platform-filter">
-            <option value="all">Instagram + Facebook</option>
-            <option value="instagram">Instagram only</option>
-            <option value="facebook">Facebook only</option>
-          </select>
         </div>
         <div class="filter-sep"></div>
         <div class="filter-group">
@@ -263,26 +263,15 @@
           <h3>Views per Reel over time</h3>
           <p class="chart-note">Each bar is one Reel's lifetime views, positioned at its publish date.</p>
           <div id="chart-views"></div>
-          <div class="legend">
-            <span><span class="swatch" style="background:var(--pink)"></span>Instagram</span>
-            <span><span class="swatch" style="background:var(--blue)"></span>Facebook</span>
-          </div>
+          <div class="legend" id="chart-views-legend"></div>
         </div>
       </div>
 
       <div class="best-row">
-        <div class="best-card" id="best-instagram">
+        <div class="best-card" id="best-reel">
           <img alt="">
           <div>
-            <div class="label">Best-performing Instagram Reel</div>
-            <div class="title">—</div>
-            <div class="stat">—</div>
-          </div>
-        </div>
-        <div class="best-card" id="best-facebook">
-          <img alt="">
-          <div>
-            <div class="label">Best-performing Facebook Reel</div>
+            <div class="label" id="best-reel-label">Best-performing Reel</div>
             <div class="title">—</div>
             <div class="stat">—</div>
           </div>
@@ -412,7 +401,7 @@
     let analytics = null;
     let history = null;
     let rangeMode = "7";
-    let platformMode = "all";
+    let platformMode = "instagram";
     let reelMode = "all";
 
     function metricCell(metric) {
@@ -445,7 +434,7 @@
     function filteredReels() {
       if (!analytics) return [];
       return analytics.reels.filter((r) => {
-        if (platformMode !== "all" && r.platform !== platformMode) return false;
+        if (r.platform !== platformMode) return false;
         if (reelMode !== "all") return r.groupKey === reelMode; // an explicit Reel choice overrides the date range
         return reelInRange(r);
       });
@@ -565,11 +554,13 @@
         { points: fbSeries, color: "var(--blue)" },
       ].filter((s) => s.points.length));
 
+      const platformColor = platformMode === "instagram" ? "var(--pink)" : "var(--blue)";
       const barPoints = reels
         .filter((r) => r.metrics.views.available)
         .sort((a, b) => new Date(a.publishedAt) - new Date(b.publishedAt))
-        .map((r) => ({ x: new Date(r.publishedAt).getTime(), y: r.metrics.views.value, label: r.title, color: r.platform === "instagram" ? "var(--pink)" : "var(--blue)" }));
+        .map((r) => ({ x: new Date(r.publishedAt).getTime(), y: r.metrics.views.value, label: r.title, color: platformColor }));
       document.querySelector("#chart-views").innerHTML = svgBarChart(barPoints);
+      document.querySelector("#chart-views-legend").innerHTML = `<span><span class="swatch" style="background:${platformColor}"></span>${platformMode === "instagram" ? "Instagram" : "Facebook"}</span>`;
     }
 
     function renderReelCards(reels) {
@@ -579,7 +570,7 @@
       grid.innerHTML = sorted.map((r) => {
         const when = viennaDateTime(r.publishedAt);
         const formula = analytics.engagementFormula[r.platform];
-        const updated = analytics.lastSuccessfulUpdateAt ? viennaDateTime(analytics.lastSuccessfulUpdateAt) : null;
+        const updated = r.metricsAsOf ? viennaDateTime(r.metricsAsOf) : null;
         return `<article class="reel-card">
           <img src="${r.thumbnailUrl || ""}" alt="" loading="lazy">
           <div>
@@ -613,7 +604,7 @@
     function populateReelFilter() {
       const select = document.querySelector("#reel-filter");
       const seen = new Map();
-      for (const r of analytics.reels) if (!seen.has(r.groupKey)) seen.set(r.groupKey, r.title);
+      for (const r of analytics.reels) if (r.platform === platformMode && !seen.has(r.groupKey)) seen.set(r.groupKey, r.title);
       const current = select.value;
       select.innerHTML = `<option value="all">All Reels</option>` + [...seen.entries()].map(([key, title]) => `<option value="${key}">${title}</option>`).join("");
       if ([...seen.keys()].includes(current)) select.value = current;
@@ -656,8 +647,8 @@
       renderSumTile("#a-total-shares", reels, "shares");
       renderSumTile("#a-total-saves", reels, "saved");
 
-      renderBestCard("#best-instagram", bestReel(reels, "instagram"), analytics.engagementFormula.instagram);
-      renderBestCard("#best-facebook", bestReel(reels, "facebook"), analytics.engagementFormula.facebook);
+      document.querySelector("#best-reel-label").textContent = `Best-performing ${platformMode === "instagram" ? "Instagram" : "Facebook"} Reel`;
+      renderBestCard("#best-reel", bestReel(reels, platformMode), analytics.engagementFormula[platformMode]);
 
       renderCharts(reels, snapshots);
       renderReelCards(reels);
@@ -674,7 +665,15 @@
     }));
     document.querySelector("#range-from").addEventListener("change", () => { rangeMode = "custom"; document.querySelectorAll("[data-range]").forEach((b) => b.classList.remove("active")); renderAnalytics(); });
     document.querySelector("#range-to").addEventListener("change", () => { rangeMode = "custom"; document.querySelectorAll("[data-range]").forEach((b) => b.classList.remove("active")); renderAnalytics(); });
-    document.querySelector("#platform-filter").addEventListener("change", (e) => { platformMode = e.target.value; renderAnalytics(); });
+    document.querySelectorAll("[data-platform]").forEach((btn) => btn.addEventListener("click", () => {
+      document.querySelectorAll("[data-platform]").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      platformMode = btn.dataset.platform;
+      reelMode = "all";
+      document.querySelector("#reel-filter").value = "all";
+      populateReelFilter();
+      renderAnalytics();
+    }));
     document.querySelector("#reel-filter").addEventListener("change", (e) => { reelMode = e.target.value; renderAnalytics(); });
 
     async function loadAnalytics() {

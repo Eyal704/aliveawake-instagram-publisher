@@ -102,11 +102,31 @@ jobs:
               .is_published == false and
               ($post_id == "" or .id == $post_id)
             )] | length' <<<"$result")
-          if [ "$scheduled" -lt 1 ]; then
-            echo "Facebook preflight failed: the exact native post was not found at the target time."
-            exit 1
+          if [ "$scheduled" -ge 1 ]; then
+            echo "Facebook native schedule is present for the expected object."
+            exit 0
           fi
-          echo "Facebook native schedule is present for the expected object."
+
+          # Not found in the still-scheduled list. Facebook's own native scheduler
+          # runs independently of this workflow and can transition the object out
+          # of that list slightly before PUBLISH_AT_EPOCH (observed once: the post
+          # had already gone live a few minutes ahead of when this check ran, so
+          # the exact-match-on-unpublished query correctly found nothing). Treat
+          # "already published" as success too; only fail if it's in neither state,
+          # which is the real signal that the post was cancelled or never existed.
+          video_result=$("$COMPOSIO" execute FACEBOOK_GET_PAGE_VIDEOS \
+            --account "$FB_ACCOUNT" \
+            -d "{\"page_id\":\"$FB_PAGE_ID\",\"limit\":25,\"fields\":\"id,status\"}")
+          published=$(jq --arg id "$FACEBOOK_VIDEO_ID" \
+            '[.data.data[]? | select(.id == $id and .status.publishing_phase.publish_status == "published")] | length' \
+            <<<"$video_result")
+          if [ "$published" -ge 1 ]; then
+            echo "Facebook already published this video on its native schedule — continuing."
+            exit 0
+          fi
+
+          echo "Facebook preflight failed: the post is neither still scheduled nor already published."
+          exit 1
 
       - name: Stop if Instagram duplicate already exists
         id: duplicate

@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 
 const analyticsPath = new URL("../docs/analytics.json", import.meta.url);
 const historyPath = new URL("../docs/analytics-history.json", import.meta.url);
+const thumbsDir = new URL("../docs/thumbnails/", import.meta.url);
 
 const composio = process.env.COMPOSIO || `${process.env.HOME}/.composio/composio`;
 const composioApiKey = process.env.COMPOSIO_API_KEY;
@@ -72,8 +73,39 @@ const UNAVAILABLE_FOLLOWERS = {
   reason: "Meta does not attribute new followers to an individual Reel or video post — this is a platform limitation, not a permissions gap.",
 };
 
+// Meta's CDN thumbnail/picture URLs are signed and expire well before the next refresh
+// cycle. Downloading the image once and committing it to the repo makes it a permanent,
+// stable asset — immune to expiry and to a single rate-limited run wiping every thumbnail.
+async function ensureCachedThumbnail(platform, id, sourceUrl) {
+  const filename = `${platform}-${id}.jpg`;
+  const fileUrl = new URL(filename, thumbsDir);
+  try {
+    await fs.access(fileUrl);
+    return `thumbnails/${filename}`;
+  } catch {
+    // not cached yet — fall through to fetch it below
+  }
+  if (!sourceUrl) return null;
+  try {
+    const res = await fetch(sourceUrl);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const buf = Buffer.from(await res.arrayBuffer());
+    await fs.mkdir(thumbsDir, { recursive: true });
+    await fs.writeFile(fileUrl, buf);
+    return `thumbnails/${filename}`;
+  } catch (err) {
+    console.warn(`[analytics] Thumbnail cache failed for ${platform}-${id}: ${err.message}`);
+    return null;
+  }
+}
+
+function unavailableMetrics(reason) {
+  const na = { available: false, reason };
+  return { views: na, reach: na, likes: na, comments: na, shares: na, saved: na, avgWatchTimeMs: na, totalWatchTimeMs: na, newFollowers: UNAVAILABLE_FOLLOWERS };
+}
+
 // --- Instagram: account + per-Reel ---
-async function fetchInstagram() {
+async function fetchInstagram(previousReels) {
   const info = asObject(await callRaw("INSTAGRAM_GET_USER_INFO", igAccount, igConnectedAccountId, { ig_user_id: "me" }));
   const account = {
     username: info.username ?? null,
@@ -87,35 +119,62 @@ async function fetchInstagram() {
     fields: "id,caption,permalink,timestamp,media_product_type",
   })).filter((item) => item.media_product_type === "REELS");
 
+  const previousById = new Map(previousReels.map((r) => [r.id, r]));
+
   const reels = [];
   for (const item of media) {
-    let thumbnailUrl = null;
+    const prior = previousById.get(item.id);
+
+    let sourceThumbnailUrl = null;
     try {
       const detail = asObject(await callRaw("INSTAGRAM_GET_IG_MEDIA", igAccount, igConnectedAccountId, {
         ig_media_id: item.id,
         fields: "thumbnail_url",
       }));
-      thumbnailUrl = detail.thumbnail_url ?? null;
+      sourceThumbnailUrl = detail.thumbnail_url ?? null;
     } catch (err) {
       console.warn(`[analytics] Instagram thumbnail lookup failed for ${item.id}: ${err.message}`);
     }
+    const thumbnailUrl = await ensureCachedThumbnail("instagram", item.id, sourceThumbnailUrl);
 
-    let metricsByName = {};
+    let metrics, engagementRate, metricsAsOf;
     try {
       const insights = asList(await callRaw("INSTAGRAM_GET_IG_MEDIA_INSIGHTS", igAccount, igConnectedAccountId, {
         ig_media_id: item.id,
         metric: IG_REEL_METRICS,
       }));
-      metricsByName = Object.fromEntries(insights.map((m) => [m.name, m]));
+      const metricsByName = Object.fromEntries(insights.map((m) => [m.name, m]));
+      const totalInteractions = metricValue(metricsByName, "total_interactions");
+      const reach = metricValue(metricsByName, "reach");
+      metrics = {
+        views: metricValue(metricsByName, "views"),
+        reach,
+        likes: metricValue(metricsByName, "likes"),
+        comments: metricValue(metricsByName, "comments"),
+        shares: metricValue(metricsByName, "shares"),
+        saved: metricValue(metricsByName, "saved"),
+        avgWatchTimeMs: metricValue(metricsByName, "ig_reels_avg_watch_time"),
+        totalWatchTimeMs: metricValue(metricsByName, "ig_reels_video_view_total_time"),
+        newFollowers: UNAVAILABLE_FOLLOWERS,
+      };
+      engagementRate = totalInteractions.available && reach.available && reach.value > 0
+        ? { available: true, value: Math.round((totalInteractions.value / reach.value) * 1000) / 10 }
+        : { available: false, reason: "Needs both total interactions and reach greater than zero." };
+      metricsAsOf = new Date().toISOString();
     } catch (err) {
       console.warn(`[analytics] Instagram insights failed for ${item.id}: ${err.message}`);
+      if (prior?.metrics) {
+        // Keep the last successfully fetched numbers rather than blanking a Reel that
+        // previously had real data just because this one run hit a transient API error.
+        metrics = prior.metrics;
+        engagementRate = prior.engagementRate;
+        metricsAsOf = prior.metricsAsOf ?? null;
+      } else {
+        metrics = unavailableMetrics("Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet.");
+        engagementRate = { available: false, reason: "Needs both total interactions and reach greater than zero." };
+        metricsAsOf = new Date().toISOString();
+      }
     }
-
-    const totalInteractions = metricValue(metricsByName, "total_interactions");
-    const reach = metricValue(metricsByName, "reach");
-    const engagementRate = totalInteractions.available && reach.available && reach.value > 0
-      ? { available: true, value: Math.round((totalInteractions.value / reach.value) * 1000) / 10 }
-      : { available: false, reason: "Needs both total interactions and reach greater than zero." };
 
     reels.push({
       groupKey: groupKeyFor(item.caption),
@@ -126,18 +185,9 @@ async function fetchInstagram() {
       publishedAt: item.timestamp,
       permalink: item.permalink,
       thumbnailUrl,
-      metrics: {
-        views: metricValue(metricsByName, "views"),
-        reach,
-        likes: metricValue(metricsByName, "likes"),
-        comments: metricValue(metricsByName, "comments"),
-        shares: metricValue(metricsByName, "shares"),
-        saved: metricValue(metricsByName, "saved"),
-        avgWatchTimeMs: metricValue(metricsByName, "ig_reels_avg_watch_time"),
-        totalWatchTimeMs: metricValue(metricsByName, "ig_reels_video_view_total_time"),
-        newFollowers: UNAVAILABLE_FOLLOWERS,
-      },
+      metrics,
       engagementRate,
+      metricsAsOf,
     });
   }
 
@@ -200,7 +250,12 @@ async function fetchFacebook() {
     if (videoId) postsByVideoId.set(videoId, post);
   }
 
-  const reels = videos.map((video) => {
+  const now = new Date().toISOString();
+
+  const reels = [];
+  for (const video of videos) {
+    const thumbnailUrl = await ensureCachedThumbnail("facebook", video.id, video.picture);
+
     const post = postsByVideoId.get(video.id);
     const reactions = post?.reactions?.summary?.total_count ?? video?.likes?.summary?.total_count;
     const comments = post?.comments?.summary?.total_count ?? video?.comments?.summary?.total_count ?? 0;
@@ -213,7 +268,19 @@ async function fetchFacebook() {
       ? { available: true, value: Math.round((engagementNumerator / views) * 1000) / 10 }
       : { available: false, reason: "Needs both reactions and view count greater than zero." };
 
-    return {
+    const metrics = {
+      views: views !== null ? { available: true, value: views } : { available: false, reason: "Facebook did not return a view count for this video." },
+      reach: { available: false, reason: "Facebook's video API doesn't expose a unique-reach metric like Instagram's — only a view count, which isn't deduplicated per viewer." },
+      likes: reactionsAvail ? { available: true, value: reactions } : { available: false, reason: "No reaction count returned." },
+      comments: { available: true, value: comments },
+      shares: typeof shares === "number" ? { available: true, value: shares } : { available: false, reason: "Facebook omits the shares field entirely when the count is 0 or unsupported for this post — shown as unavailable rather than guessing." },
+      saved: { available: false, reason: "Facebook has no equivalent to Instagram's Saves for video/Reel posts." },
+      avgWatchTimeMs: { available: false, reason: "Facebook's Graph API does not expose average watch time for Page videos." },
+      totalWatchTimeMs: { available: false, reason: "Facebook's Graph API does not expose total watch time for Page videos." },
+      newFollowers: UNAVAILABLE_FOLLOWERS,
+    };
+
+    reels.push({
       groupKey: groupKeyFor(video.description || post?.message),
       platform: "facebook",
       id: video.id,
@@ -221,21 +288,12 @@ async function fetchFacebook() {
       caption: video.description || post?.message || "",
       publishedAt: video.created_time,
       permalink: post?.permalink_url || `https://www.facebook.com/reel/${video.id}/`,
-      thumbnailUrl: video.picture ?? null,
-      metrics: {
-        views: views !== null ? { available: true, value: views } : { available: false, reason: "Facebook did not return a view count for this video." },
-        reach: { available: false, reason: "Facebook's video API doesn't expose a unique-reach metric like Instagram's — only a view count, which isn't deduplicated per viewer." },
-        likes: reactionsAvail ? { available: true, value: reactions } : { available: false, reason: "No reaction count returned." },
-        comments: { available: true, value: comments },
-        shares: typeof shares === "number" ? { available: true, value: shares } : { available: false, reason: "Facebook omits the shares field entirely when the count is 0 or unsupported for this post — shown as unavailable rather than guessing." },
-        saved: { available: false, reason: "Facebook has no equivalent to Instagram's Saves for video/Reel posts." },
-        avgWatchTimeMs: { available: false, reason: "Facebook's Graph API does not expose average watch time for Page videos." },
-        totalWatchTimeMs: { available: false, reason: "Facebook's Graph API does not expose total watch time for Page videos." },
-        newFollowers: UNAVAILABLE_FOLLOWERS,
-      },
+      thumbnailUrl,
+      metrics,
       engagementRate,
-    };
-  });
+      metricsAsOf: now,
+    });
+  }
 
   return { account, reels };
 }
@@ -270,14 +328,16 @@ async function updateHistory(igFollowers, fbFollowers) {
 async function main() {
   const previous = await loadJson(analyticsPath, {});
   const now = new Date().toISOString();
+  const previousInstagramReels = (previous.reels || []).filter((r) => r.platform === "instagram");
+  const previousFacebookReels = (previous.reels || []).filter((r) => r.platform === "facebook");
 
   const stale = { instagram: false, facebook: false };
   const staleReason = { instagram: null, facebook: null };
-  let instagram = previous.account?.instagram ? { account: previous.account.instagram, reels: (previous.reels || []).filter((r) => r.platform === "instagram") } : null;
-  let facebook = previous.account?.facebook ? { account: previous.account.facebook, reels: (previous.reels || []).filter((r) => r.platform === "facebook") } : null;
+  let instagram = previous.account?.instagram ? { account: previous.account.instagram, reels: previousInstagramReels } : null;
+  let facebook = previous.account?.facebook ? { account: previous.account.facebook, reels: previousFacebookReels } : null;
 
   try {
-    instagram = await fetchInstagram();
+    instagram = await fetchInstagram(previousInstagramReels);
   } catch (err) {
     console.error(`[analytics] Instagram fetch failed, keeping last verified data: ${err.message}`);
     stale.instagram = true;
@@ -327,7 +387,8 @@ async function main() {
   };
 
   await fs.writeFile(analyticsPath, `${JSON.stringify(output, null, 2)}\n`);
-  console.log(`Analytics updated. Instagram stale=${stale.instagram}, Facebook stale=${stale.facebook}. Reels tracked: ${output.reels.length}.`);
+  const missingThumbs = output.reels.filter((r) => !r.thumbnailUrl).length;
+  console.log(`Analytics updated. Instagram stale=${stale.instagram}, Facebook stale=${stale.facebook}. Reels tracked: ${output.reels.length}. Missing thumbnails: ${missingThumbs}.`);
 }
 
 main().catch((err) => {
