@@ -5,7 +5,7 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-08-26T12:52:13.886Z",
+  "updatedAt": "2026-08-26T13:09:00.000Z",
   "lastCheckedAt": "2026-08-26T12:52:13.886Z",
   "posts": [
     {
@@ -106,6 +106,24 @@
         "scheduledPostId": "299121263767927_1354404740107060"
       },
       "note": "Facebook is native. Instagram is registered in the durable cloud queue and no longer depends on Codex or the Mac."
+    },
+    {
+      "id": "2026-08-28-2000-one-night-reset",
+      "scheduledAt": "2026-08-28T20:00:00+02:00",
+      "title": "Stuck? Leave for One Night",
+      "captionMatch": "Stagnation rarely breaks because you finally understand the whole plan. It breaks when you move",
+      "overall": "scheduled",
+      "instagram": {
+        "status": "queued_cloud",
+        "verified": false
+      },
+      "facebook": {
+        "status": "scheduled",
+        "verified": false,
+        "videoId": "1376472107283264",
+        "scheduledPostId": "299121263767927_1354598460087688"
+      },
+      "note": "Facebook is natively scheduled, processed, and ready. Instagram is registered in the durable cloud queue with the user-approved custom cover and does not depend on Codex or the Mac."
     }
   ]
 }
