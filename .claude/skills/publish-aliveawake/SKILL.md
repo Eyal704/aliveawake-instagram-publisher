@@ -145,7 +145,39 @@ For the thumbnail, pick one of:
 - `thumb_offset_ms` — a millisecond offset into the video; Instagram grabs that frame itself. Default reasonable choice if the user has no preference: somewhere in the first 2-3 seconds where the frame reads clearly (check a few candidate frames with the `ffmpeg -ss ... -frames:v 1` trick above rather than guessing blind).
 - `cover_url` — a separately designed thumbnail image, if the user has one, hosted at a public URL (same hosting-step requirement as the video).
 
-### 8. Trigger the publish (per approved video)
+### 8. Scheduling the publish — the current, correct system (read this before anything else in this section)
+
+**As of 2026-08-27, every post goes through a durable scheduling queue, not a one-shot workflow trigger.** The three-tier "trigger the publish" mechanism further below is legacy — it fires *immediately*, has no retry/verification, and should only be used for a genuine right-now publish with no scheduled time. If the user wants a post to go out at a specific future time (the normal case), use this section instead. If you started reading this skill because you "don't have the ability to schedule a post," that's not a real limitation — it means you haven't read this section yet.
+
+**Live dashboard (always check this first):** https://eyal704.github.io/aliveawake-instagram-publisher/ — shows every currently scheduled/published post and the platform-cadence in effect. **Never assume the next chronological slot is empty or guess what's already queued — read `docs/schedule.json` in full first.** A whole day being empty, or a slot you'd expect to be taken being open, has happened more than once; verify, don't assume.
+
+**Current cadence (Europe/Vienna):** 3 Reels/day at **10:00, 15:00, 20:00** through Friday 28 Aug 2026. From **Saturday 29 Aug 2026**: 4 Reels/day at **09:00, 13:00, 17:00, 21:00**. This is documented in `docs/schedule.json`'s `cadence`/`cadenceNote`/`upcomingCadence` fields — check there for the current source of truth rather than trusting this static doc if it's been a while.
+
+**The architecture:**
+- `docs/schedule.json` (public, in this repo) — one entry per scheduled post: `id`, `scheduledAt` (ISO with Vienna offset), `title`, `captionMatch` (a unique prefix of the real caption, used for duplicate-detection — must actually match the real caption's start, normalized), `instagram: {status, ...}`, `facebook: {status, videoId, scheduledPostId, ...}`.
+- `ALIVEAWAKE_QUEUE_JSON` (a **write-only GitHub Actions secret**) — the actual private data: one array of `{id, videoUrl, coverUrl, caption}` objects, one per post, keyed by the *same* `id` used in `schedule.json`. This is where the real video URL and full caption live; `schedule.json` never contains them.
+- Two GitHub Actions workflows do the actual work, woken every 5 minutes by an external Cloudflare Worker (`aliveawake-cron-kicker`, **do not remove or "fix" this** — GitHub's own built-in `schedule:` cron trigger for these workflows is independently known to be unreliable, sometimes not firing for 90+ minutes; the Worker is the actual fix for that, calling `workflow_dispatch` on both workflows every 5 min):
+  - `process-due-instagram.yml` — builds the Instagram container from the private queue entry within 6 hours of the due time, and publishes it at the due time.
+  - `verify-dashboard.yml` — independently re-verifies both platforms' real state every ~5 min and sends a Telegram alert if a post is more than 15 minutes overdue and still not live anywhere.
+- Facebook is scheduled **natively** via Meta's own scheduler (`FACEBOOK_CREATE_VIDEO_POST`-style upload with `published=false` + `scheduled_publish_time`, or `FACEBOOK_RESCHEDULE_POST` to move an existing one) — it does not depend on any of this repo's cron infrastructure, and has been reliable all along.
+
+**To add a new post to the schedule:**
+1. Get the video to a public URL (same rule as always — Meta's servers must be able to fetch it with no login wall).
+2. Pick a genuinely open slot — read `docs/schedule.json` first, don't assume.
+3. Upload/schedule the Facebook side natively (via Composio's `FACEBOOK_CREATE_VIDEO_POST` or equivalent, with the target Vienna time converted to a UTC epoch), and note the resulting `videoId`/`scheduledPostId`.
+4. Add a new entry to `docs/schedule.json` with a unique `id` (convention so far: `YYYY-MM-DD-HHMM-short-slug` for the *original* intended date — if a post later gets rescheduled, only change `scheduledAt`, never the `id`; see the write-only-secret warning below for why).
+5. Add the matching private entry to `ALIVEAWAKE_QUEUE_JSON` — **read the critical warning immediately below before doing this.**
+
+**Critical warning — `ALIVEAWAKE_QUEUE_JSON` is write-only, permanently, for everyone:** GitHub Actions secrets cannot be read back once set — not by you, not by another AI session, not by the repo owner via the GitHub UI, ever. This secret holds a single JSON array covering *every* currently-queued post's private data. If you call `gh secret set ALIVEAWAKE_QUEUE_JSON` with anything less than the complete, correct current array plus your new entry, **you silently and irrecoverably delete every other post's video URL and caption, with no error and no way to detect or undo it** — the next automated container-build for those posts will fail with "private queue payload is missing."
+
+Because of this:
+- **Never** write to this secret unless you have the verified, complete current array in hand — e.g., you personally set every entry currently in it earlier in *this same session*, and you're appending to your own known-correct copy.
+- If you don't have that (e.g., a fresh session, or you don't know what a prior session put there), **stop and ask the user** rather than guessing, reconstructing from `schedule.json` alone (it doesn't contain the private fields), or assuming "it's probably just these few posts." A wrong guess is worse than asking.
+- Whenever you *do* set this secret, keep your own local copy of exactly what you wrote (a scratch file, or state it plainly in your response) — there is no other way for a future session (yours or another agent's) to recover it later. This project does not currently have a safer alternative to this write-only secret; treat every write as effectively permanent and irreversible for whoever comes after you.
+
+**On the "CI redaction" gotcha (2026-08-26 root-cause fix — don't reintroduce this):** the Composio CLI silently redacts every `id`-shaped field in its output to the literal string `"<REDACTED>"` whenever it sees `CI=true` in the environment (undocumented; verified by decompiling the CLI). GitHub Actions sets `CI=true` by default, which broke every ID-based match in these workflows until `CI: "false"` was added to each job's `env:` block. If you're editing these workflows and see an ID comparison mysteriously never matching in CI logs while working fine locally, this is almost certainly why — check that `CI: "false"` is still present before assuming a new bug.
+
+### 9. Trigger an immediate one-shot publish (only when the user explicitly wants it live *right now*, not scheduled)
 
 Confirm with the user before triggering — this is a real, visible action (it posts to a live Instagram account **and** the Facebook Page), not a reversible draft. Show them the final caption, which thumbnail approach, the video URL you're about to submit, and the location tag if one's being applied.
 
