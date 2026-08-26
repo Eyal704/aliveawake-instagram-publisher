@@ -5,8 +5,8 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-08-26T18:01:07.741Z",
-  "lastCheckedAt": "2026-08-26T17:56:42.370Z",
+  "updatedAt": "2026-08-26T18:01:50.330Z",
+  "lastCheckedAt": "2026-08-26T18:01:50.330Z",
   "posts": [
     {
       "id": "2026-08-26-1000-when-life-tells-you-to-leave",
@@ -19,7 +19,7 @@
         "verified": true,
         "mediaId": "<REDACTED>",
         "url": "https://www.instagram.com/reel/DcfzjCblZbJ/",
-        "verifiedAt": "2026-08-26T17:56:42.369Z"
+        "verifiedAt": "2026-08-26T18:01:50.329Z"
       },
       "facebook": {
         "status": "published",
@@ -41,7 +41,7 @@
         "verified": true,
         "mediaId": "<REDACTED>",
         "url": "https://www.instagram.com/reel/Dcf0ro4kaOs/",
-        "verifiedAt": "2026-08-26T17:56:42.369Z"
+        "verifiedAt": "2026-08-26T18:01:50.330Z"
       },
       "facebook": {
         "status": "published",
@@ -57,16 +57,16 @@
       "scheduledAt": "2026-08-26T20:00:00+02:00",
       "title": "Your Location Shapes What You Create",
       "captionMatch": "Every city has a rhythm—and that rhythm shapes what we create",
-      "overall": "scheduled",
+      "overall": "publishing",
       "instagram": {
-        "status": "queued_cloud",
+        "status": "publishing",
         "verified": false,
         "containerId": "17978944782083484",
         "containerCreatedAt": "2026-08-26T12:15:50.000Z",
         "workflowRun": "https://github.com/Eyal704/aliveawake-instagram-publisher/actions/runs/32968910769"
       },
       "facebook": {
-        "status": "scheduled",
+        "status": "publishing",
         "verified": false,
         "videoId": "1535258637891461",
         "scheduledPostId": "299121263767927_1354563163424551"
