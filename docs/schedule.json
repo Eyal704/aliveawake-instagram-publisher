@@ -60,7 +60,8 @@
         "status": "queued_cloud",
         "verified": false,
         "containerId": "17978944782083484",
-        "containerCreatedAt": "2026-08-26T12:15:50.000Z"
+        "containerCreatedAt": "2026-08-26T12:15:50.000Z",
+        "workflowRun": "https://github.com/Eyal704/aliveawake-instagram-publisher/actions/runs/32968910769"
       },
       "facebook": {
         "status": "scheduled",
@@ -68,7 +69,7 @@
         "videoId": "1535258637891461",
         "scheduledPostId": "299121263767927_1354563163424551"
       },
-      "note": "Facebook is natively scheduled and processed. Instagram is processed and queued in the authenticated cloud publisher."
+      "note": "Facebook is natively scheduled and processed. Instagram is owned by workflow run 32968910769 (the confirmed keeper) — excluded from the cloud queue poller to prevent a second container/publish attempt for this slot."
     },
     {
       "id": "2026-08-28-1000-eckhart-tolle-california",
