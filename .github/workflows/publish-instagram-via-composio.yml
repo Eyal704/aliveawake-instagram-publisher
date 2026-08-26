@@ -54,7 +54,8 @@ jobs:
         run: curl -fsSL https://composio.dev/install | COMPOSIO_INSTALL_SHELL=none sh
 
       - name: Authenticate Composio CLI
-        run: "$COMPOSIO" login --user-api-key "$COMPOSIO_API_KEY" -y --no-skill-install
+        run: |
+          "$COMPOSIO" login --user-api-key "$COMPOSIO_API_KEY" -y --no-skill-install
 
       - name: Confirm cloud connection
         run: |
