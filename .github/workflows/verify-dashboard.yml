@@ -43,6 +43,10 @@ jobs:
         run: |
           "$COMPOSIO" login --user-api-key "$COMPOSIO_API_KEY" -y --no-skill-install
           "$COMPOSIO" whoami
+          echo "[DEBUG] connections:"
+          "$COMPOSIO" connections list
+          echo "[DEBUG] direct page-details check for the target video's page:"
+          "$COMPOSIO" execute FACEBOOK_GET_PAGE_DETAILS --account "$FB_ACCOUNT" -d "{\"page_id\":\"$FB_PAGE_ID\",\"fields\":\"id,name\"}" || true
 
       - name: Verify, alert, and save (retried on concurrent-writer conflicts)
         id: verify
