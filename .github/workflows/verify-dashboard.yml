@@ -44,29 +44,34 @@ jobs:
           "$COMPOSIO" login --user-api-key "$COMPOSIO_API_KEY" -y --no-skill-install
           "$COMPOSIO" whoami
 
-      - name: Verify expected posts against Instagram and Facebook
+      - name: Verify, alert, and save (retried on concurrent-writer conflicts)
         id: verify
-        continue-on-error: true
-        run: node scripts/verify-dashboard.mjs
-
-      - name: Send alerts for posts still unverified after 15 minutes
-        if: always()
-        run: node scripts/notify-telegram.mjs
-
-      - name: Save verified dashboard state
-        if: always()
         run: |
-          if git diff --quiet -- docs/schedule.json; then
-            echo "Dashboard state is unchanged."
-            exit 0
-          fi
           git config user.name "aliveawake-publishing-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add docs/schedule.json
-          git commit -m "Update verified publishing dashboard"
-          git pull --rebase origin main
-          git push origin HEAD:main
-
-      - name: Fail when platform verification failed
-        if: steps.verify.outcome == 'failure'
-        run: exit 1
+          verify_failed=0
+          for attempt in 1 2 3 4 5; do
+            node scripts/verify-dashboard.mjs || verify_failed=1
+            node scripts/notify-telegram.mjs
+            if git diff --quiet -- docs/schedule.json; then
+              echo "Dashboard state is unchanged."
+              break
+            fi
+            git add docs/schedule.json
+            git commit -m "Update verified publishing dashboard"
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              break
+            fi
+            echo "Push attempt $attempt hit a concurrent writer (another workflow or session updating the same file); resetting to latest and retrying with a fresh check..."
+            git rebase --abort 2>/dev/null || true
+            git fetch origin main
+            git reset --hard origin/main
+            if [ "$attempt" = "5" ]; then
+              echo "Failed to save dashboard state after 5 attempts."
+              exit 1
+            fi
+            sleep $((5 + RANDOM % 10))
+          done
+          if [ "$verify_failed" = "1" ]; then
+            exit 1
+          fi
