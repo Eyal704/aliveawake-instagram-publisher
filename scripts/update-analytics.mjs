@@ -138,7 +138,9 @@ async function fetchInstagram(previousReels) {
     } catch (err) {
       console.warn(`[analytics] Instagram thumbnail lookup failed for ${item.id}: ${err.message}`);
     }
-    const thumbnailUrl = await ensureCachedThumbnail("instagram", item.id, sourceThumbnailUrl);
+    // A transient failure fetching or caching this run shouldn't blank out a thumbnail
+    // that was already successfully cached in Blob storage on a previous run.
+    const thumbnailUrl = (await ensureCachedThumbnail("instagram", item.id, sourceThumbnailUrl)) ?? prior?.thumbnailUrl ?? null;
 
     let metrics, engagementRate, metricsAsOf;
     try {
@@ -203,7 +205,7 @@ function extractVideoIdFromReelPermalink(url) {
   return match ? match[1] : null;
 }
 
-async function fetchFacebook() {
+async function fetchFacebook(previousReels) {
   const details = asObject(await callRaw("FACEBOOK_GET_PAGE_DETAILS", fbAccount, fbConnectedAccountId, {
     page_id: fbPageId,
     fields: "id,name,followers_count,fan_count,link",
@@ -254,10 +256,14 @@ async function fetchFacebook() {
   }
 
   const now = new Date().toISOString();
+  const previousById = new Map(previousReels.map((r) => [r.id, r]));
 
   const reels = [];
   for (const video of videos) {
-    const thumbnailUrl = await ensureCachedThumbnail("facebook", video.id, video.picture);
+    const prior = previousById.get(video.id);
+    // Same rationale as the Instagram side: don't blank a thumbnail that was already
+    // successfully cached in Blob storage just because this run's fetch/check hiccuped.
+    const thumbnailUrl = (await ensureCachedThumbnail("facebook", video.id, video.picture)) ?? prior?.thumbnailUrl ?? null;
 
     const post = postsByVideoId.get(video.id);
     const reactions = post?.reactions?.summary?.total_count ?? video?.likes?.summary?.total_count;
@@ -348,7 +354,7 @@ async function main() {
   }
 
   try {
-    facebook = await fetchFacebook();
+    facebook = await fetchFacebook(previousFacebookReels);
   } catch (err) {
     console.error(`[analytics] Facebook fetch failed, keeping last verified data: ${err.message}`);
     stale.facebook = true;
