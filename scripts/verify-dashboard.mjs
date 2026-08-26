@@ -91,12 +91,13 @@ const fbVideos = await execute("FACEBOOK_GET_PAGE_VIDEOS", fbAccount, fbConnecte
   fields: "id,created_time,description,status,permalink_url"
 });
 
-console.error(`[DEBUG] fbVideos count=${fbVideos.length}, first 5 ids=${JSON.stringify(fbVideos.slice(0,5).map(v=>v.id))}`);
+console.error(`[DEBUG] fbVideos count=${fbVideos.length}`);
 console.error(`[DEBUG] target 1535258637891461 present=${fbVideos.some(v=>v.id==="1535258637891461")}`);
-const targetVideo = fbVideos.find(v=>v.id==="1535258637891461");
-console.error(`[DEBUG] target video object=${JSON.stringify(targetVideo)}`);
+const sortedTimes = fbVideos.map(v=>v.created_time).sort().reverse();
+console.error(`[DEBUG] fbVideos created_time sorted desc (newest first)=${JSON.stringify(sortedTimes)}`);
 console.error(`[DEBUG] fbScheduled count=${fbScheduled.length}`);
 console.error(`[DEBUG] igMedia count=${igMedia.length}, since=${earliest}`);
+console.error(`[DEBUG] server clock now=${new Date(now).toISOString()}`);
 
 for (const post of relevant) {
   const due = new Date(post.scheduledAt).getTime();
