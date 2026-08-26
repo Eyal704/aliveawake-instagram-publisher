@@ -446,7 +446,7 @@
       if (!analytics) return [];
       return analytics.reels.filter((r) => {
         if (platformMode !== "all" && r.platform !== platformMode) return false;
-        if (reelMode !== "all" && r.groupKey !== reelMode) return false;
+        if (reelMode !== "all") return r.groupKey === reelMode; // an explicit Reel choice overrides the date range
         return reelInRange(r);
       });
     }
@@ -516,7 +516,8 @@
     function svgLineChart(seriesList, { width = 520, height = 200 } = {}) {
       const padding = { top: 14, right: 14, bottom: 24, left: 40 };
       const allPoints = seriesList.flatMap((s) => s.points);
-      if (allPoints.length < 2) return `<p style="color:var(--muted);font-size:13px;margin:0;">Not enough history yet — check back after a few more days of data.</p>`;
+      const hasDrawableSeries = seriesList.some((s) => s.points.length >= 2);
+      if (!hasDrawableSeries) return `<p style="color:var(--muted);font-size:13px;margin:0;">Not enough history yet — check back after a few more days of data.</p>`;
       const xs = allPoints.map((p) => p.x);
       const ys = allPoints.map((p) => p.y);
       const minX = Math.min(...xs), maxX = Math.max(...xs);
