@@ -92,11 +92,15 @@ const fbVideos = await execute("FACEBOOK_GET_PAGE_VIDEOS", fbAccount, fbConnecte
 });
 
 console.error(`[DEBUG] fbVideos count=${fbVideos.length}`);
-console.error(`[DEBUG] target 1535258637891461 present=${fbVideos.some(v=>v.id==="1535258637891461")}`);
+console.error(`[DEBUG] target 1535258637891461 present (strict)=${fbVideos.some(v=>v.id==="1535258637891461")}`);
+console.error(`[DEBUG] target present (loose ==)=${fbVideos.some(v=>v.id=="1535258637891461")}`);
+console.error(`[DEBUG] target present (String() coerced)=${fbVideos.some(v=>String(v.id)==="1535258637891461")}`);
 const newestVideo = [...fbVideos].sort((a,b)=> (b.created_time||"").localeCompare(a.created_time||""))[0];
-console.error(`[DEBUG] newest video raw id (obfuscated, digit-by-digit)=${JSON.stringify(String(newestVideo?.id).split(""))}`);
-console.error(`[DEBUG] newest video created_time=${newestVideo?.created_time}`);
-console.error(`[DEBUG] newest video full object=${JSON.stringify(newestVideo)}`);
+console.error(`[DEBUG] typeof newestVideo.id=${typeof newestVideo?.id}`);
+console.error(`[DEBUG] newestVideo.id length=${String(newestVideo?.id).length}`);
+console.error(`[DEBUG] newestVideo.id === target: ${newestVideo?.id === "1535258637891461"}`);
+console.error(`[DEBUG] newestVideo.id JSON-encoded=${JSON.stringify(newestVideo?.id)}`);
+console.error(`[DEBUG] char codes of newestVideo.id=${JSON.stringify(Array.from(String(newestVideo?.id)).map(c=>c.charCodeAt(0)))}`);
 
 for (const post of relevant) {
   const due = new Date(post.scheduledAt).getTime();
