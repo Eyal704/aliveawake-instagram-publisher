@@ -23,10 +23,18 @@ jobs:
       IG_USER_ID: "28033607902927427"
       FB_ACCOUNT: facebook_urushi-influx
       FB_PAGE_ID: "299121263767927"
+      BLOB_READ_WRITE_TOKEN: ${{ secrets.BLOB_READ_WRITE_TOKEN }}
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Install Composio CLI
         run: curl -fsSL https://composio.dev/install | COMPOSIO_INSTALL_SHELL=none sh
@@ -43,8 +51,7 @@ jobs:
         run: |
           git config user.name "aliveawake-publishing-bot"
           git config user.email "actions@users.noreply.github.com"
-          mkdir -p docs/thumbnails
-          git add docs/analytics.json docs/analytics-history.json docs/thumbnails
+          git add docs/analytics.json docs/analytics-history.json
           if git diff --cached --quiet; then
             echo "Analytics data is unchanged."
             exit 0

@@ -490,11 +490,11 @@
 
     function renderFollowerDelta(id, snapshots, key, days) {
       const el = document.querySelector(id);
-      if (!snapshots || snapshots.length < 2) { el.textContent = ""; return; }
+      if (!snapshots || snapshots.length < 2) { el.textContent = "Not enough history yet"; return; }
       const latest = snapshots[snapshots.length - 1];
       const target = Date.now() - days * 86400000;
       const past = nearestSnapshotAtOrBefore(snapshots, target);
-      if (!past || past === latest || typeof latest[key] !== "number" || typeof past[key] !== "number") { el.textContent = ""; return; }
+      if (!past || past === latest || typeof latest[key] !== "number" || typeof past[key] !== "number") { el.textContent = "Not enough history yet"; return; }
       const diff = latest[key] - past[key];
       const oldestMs = new Date(snapshots[0].capturedAt).getTime();
       const partial = oldestMs > target;

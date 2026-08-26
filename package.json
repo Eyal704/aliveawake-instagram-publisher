@@ -9,5 +9,8 @@
   },
   "scripts": {
     "publish": "node publish.js"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.8.0"
   }
 }

@@ -1,8 +1,9 @@
 import fs from "node:fs/promises";
+import { head, put } from "@vercel/blob";
 
 const analyticsPath = new URL("../docs/analytics.json", import.meta.url);
 const historyPath = new URL("../docs/analytics-history.json", import.meta.url);
-const thumbsDir = new URL("../docs/thumbnails/", import.meta.url);
+const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
 
 const composio = process.env.COMPOSIO || `${process.env.HOME}/.composio/composio`;
 const composioApiKey = process.env.COMPOSIO_API_KEY;
@@ -74,25 +75,27 @@ const UNAVAILABLE_FOLLOWERS = {
 };
 
 // Meta's CDN thumbnail/picture URLs are signed and expire well before the next refresh
-// cycle. Downloading the image once and committing it to the repo makes it a permanent,
-// stable asset — immune to expiry and to a single rate-limited run wiping every thumbnail.
+// cycle. Uploading the image once to Vercel Blob storage makes it a permanent, stable
+// asset with its own public URL — immune to expiry and to a single rate-limited run
+// wiping every thumbnail. Blob storage (not the git repo) is the source of truth here:
+// committing binary images would make the repo grow forever with no upper bound.
 async function ensureCachedThumbnail(platform, id, sourceUrl) {
-  const filename = `${platform}-${id}.jpg`;
-  const fileUrl = new URL(filename, thumbsDir);
+  const pathname = `reel-thumbnails/${platform}-${id}.jpg`;
   try {
-    await fs.access(fileUrl);
-    return `thumbnails/${filename}`;
-  } catch {
-    // not cached yet — fall through to fetch it below
+    const existing = await head(pathname, { token: blobToken });
+    return existing.url;
+  } catch (err) {
+    if (err?.name !== "BlobNotFoundError" && !/not.*found|does not exist/i.test(err?.message || "")) {
+      console.warn(`[analytics] Unexpected error checking cached thumbnail for ${platform}-${id}: ${err.message}`);
+    }
   }
   if (!sourceUrl) return null;
   try {
     const res = await fetch(sourceUrl);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const buf = Buffer.from(await res.arrayBuffer());
-    await fs.mkdir(thumbsDir, { recursive: true });
-    await fs.writeFile(fileUrl, buf);
-    return `thumbnails/${filename}`;
+    const uploaded = await put(pathname, buf, { access: "public", contentType: "image/jpeg", token: blobToken });
+    return uploaded.url;
   } catch (err) {
     console.warn(`[analytics] Thumbnail cache failed for ${platform}-${id}: ${err.message}`);
     return null;
