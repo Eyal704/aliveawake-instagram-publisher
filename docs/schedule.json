@@ -5,8 +5,8 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-08-26T21:36:05.587Z",
-  "lastCheckedAt": "2026-08-26T21:31:46.102Z",
+  "updatedAt": "2026-08-26T21:36:46.864Z",
+  "lastCheckedAt": "2026-08-26T21:36:46.864Z",
   "posts": [
     {
       "id": "2026-08-26-1000-when-life-tells-you-to-leave",
@@ -17,16 +17,16 @@
       "instagram": {
         "status": "published",
         "verified": true,
-        "mediaId": "<REDACTED>",
+        "mediaId": "18619114822004455",
         "url": "https://www.instagram.com/reel/DcfzjCblZbJ/",
-        "verifiedAt": "2026-08-26T21:31:46.101Z"
+        "verifiedAt": "2026-08-26T21:36:46.863Z"
       },
       "facebook": {
         "status": "published",
         "verified": true,
         "videoId": "2951550651863116",
         "url": "/reel/2951550651863116/",
-        "verifiedAt": "2026-08-26T11:04:08.441Z"
+        "verifiedAt": "2026-08-26T21:36:46.863Z"
       },
       "note": "Recovered and verified on both platforms."
     },
@@ -39,16 +39,16 @@
       "instagram": {
         "status": "published",
         "verified": true,
-        "mediaId": "<REDACTED>",
+        "mediaId": "18101807657205807",
         "url": "https://www.instagram.com/reel/Dcf0ro4kaOs/",
-        "verifiedAt": "2026-08-26T21:31:46.101Z"
+        "verifiedAt": "2026-08-26T21:36:46.864Z"
       },
       "facebook": {
         "status": "published",
         "verified": true,
         "videoId": "1801041707578795",
         "url": "/reel/1801041707578795/",
-        "verifiedAt": "2026-08-26T13:17:31.000Z"
+        "verifiedAt": "2026-08-26T21:36:46.864Z"
       },
       "note": "Recovered manually: the dedicated cloud workflow (run 32962210254) aborted on a false-positive Facebook-preflight check (strict exact-timestamp match, no tolerance) 10 minutes before Facebook's own native scheduler successfully published on time. Instagram's container was already FINISHED, so it was published directly and verified on both platforms; the poller had also skipped this slot because a workflowRun was already attached to it."
     },
@@ -56,10 +56,10 @@
       "id": "2026-08-26-2000-location-shapes-creation",
       "scheduledAt": "2026-08-26T20:00:00+02:00",
       "title": "Your Location Shapes What You Create",
-      "captionMatch": "Every city has a rhythm\u2014and that rhythm shapes what we create",
+      "captionMatch": "Every city has a rhythm—and that rhythm shapes what we create",
       "overall": "needs_attention",
       "instagram": {
-        "status": "removed_by_user",
+        "status": "missing",
         "verified": false,
         "lastMediaId": "18614372971051189",
         "note": "Was published, then manually deleted from Instagram by the user at ~21:35 UTC because it went out without approval. No longer live. Awaiting a decision: republish, or drop for this slot."
@@ -69,19 +69,19 @@
         "verified": true,
         "videoId": "1535258637891461",
         "url": "/reel/1535258637891461/",
-        "verifiedAt": "2026-08-26T21:32:45.000Z"
+        "verifiedAt": "2026-08-26T21:36:46.864Z"
       },
       "note": "Facebook published correctly on time (18:00:00Z) and remains live. Instagram was recovered late due to the CI-redaction bug (see repo history), then manually taken down by the user because it was published without their go-ahead. Decision pending on what to do with the Instagram side of this slot.",
       "alert": {
-        "lastKey": "removed_by_user:published:needs_attention",
-        "sentAt": "suppressed - status change was a deliberate user action, not a system failure"
+        "lastKey": "missing:published:needs_attention",
+        "sentAt": "2026-08-26T21:36:47.694Z"
       }
     },
     {
       "id": "2026-08-28-1000-eckhart-tolle-california",
       "scheduledAt": "2026-08-27T10:00:00+02:00",
       "title": "What Happened to Eckhart Tolle in California?",
-      "captionMatch": "What if your inspiration is not gone\u2014just waiting for the right environment",
+      "captionMatch": "What if your inspiration is not gone—just waiting for the right environment",
       "overall": "scheduled",
       "instagram": {
         "status": "queued_cloud",
@@ -93,7 +93,7 @@
         "videoId": "2138202303458376",
         "scheduledPostId": "299121263767927_1354140006800200"
       },
-      "note": "Moved from Fri 28 Aug 10:00 to fill the open Thursday slot; Facebook natively rescheduled to 2026-08-27T08:00:00Z and confirmed. Instagram is registered in the durable cloud queue (id kept as-is \u2014 it's the private-queue lookup key, unrelated to the date it encodes) and no longer depends on Codex or the Mac."
+      "note": "Moved from Fri 28 Aug 10:00 to fill the open Thursday slot; Facebook natively rescheduled to 2026-08-27T08:00:00Z and confirmed. Instagram is registered in the durable cloud queue (id kept as-is — it's the private-queue lookup key, unrelated to the date it encodes) and no longer depends on Codex or the Mac."
     },
     {
       "id": "2026-08-28-1500-pack-one-bag",
@@ -111,7 +111,7 @@
         "videoId": "1033723976122047",
         "scheduledPostId": "299121263767927_1354404740107060"
       },
-      "note": "Moved from Fri 28 Aug 15:00 to fill the open Thursday slot; Facebook natively rescheduled to 2026-08-27T13:00:00Z and confirmed. Instagram is registered in the durable cloud queue (id kept as-is \u2014 it's the private-queue lookup key, unrelated to the date it encodes) and no longer depends on Codex or the Mac."
+      "note": "Moved from Fri 28 Aug 15:00 to fill the open Thursday slot; Facebook natively rescheduled to 2026-08-27T13:00:00Z and confirmed. Instagram is registered in the durable cloud queue (id kept as-is — it's the private-queue lookup key, unrelated to the date it encodes) and no longer depends on Codex or the Mac."
     },
     {
       "id": "2026-08-28-2000-one-night-reset",
@@ -129,7 +129,7 @@
         "videoId": "1376472107283264",
         "scheduledPostId": "299121263767927_1354598460087688"
       },
-      "note": "Moved from Fri 28 Aug 20:00 to fill the open Thursday slot; Facebook natively rescheduled to 2026-08-27T18:00:00Z and confirmed. Instagram is registered in the durable cloud queue with the user-approved custom cover (id kept as-is \u2014 it's the private-queue lookup key, unrelated to the date it encodes) and does not depend on Codex or the Mac."
+      "note": "Moved from Fri 28 Aug 20:00 to fill the open Thursday slot; Facebook natively rescheduled to 2026-08-27T18:00:00Z and confirmed. Instagram is registered in the durable cloud queue with the user-approved custom cover (id kept as-is — it's the private-queue lookup key, unrelated to the date it encodes) and does not depend on Codex or the Mac."
     }
   ],
   "cadenceNote": "3 Reels/day (10:00, 15:00, 20:00 Vienna) through Fri 28 Aug 2026. From Sat 29 Aug 2026: 4 Reels/day (09:00, 13:00, 17:00, 21:00 Vienna). Update the 'cadence' array above to the new times once Saturday's slots are actually in use.",
