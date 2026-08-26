@@ -5,8 +5,8 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-08-26T11:04:08.441Z",
-  "lastCheckedAt": "2026-08-26T11:04:08.441Z",
+  "updatedAt": "2026-08-26T11:08:30.089Z",
+  "lastCheckedAt": "2026-08-26T11:08:30.089Z",
   "posts": [
     {
       "id": "2026-08-26-1000-when-life-tells-you-to-leave",
@@ -17,9 +17,9 @@
       "instagram": {
         "status": "published",
         "verified": true,
-        "mediaId": "18619114822004455",
+        "mediaId": "<REDACTED>",
         "url": "https://www.instagram.com/reel/DcfzjCblZbJ/",
-        "verifiedAt": "2026-08-26T11:04:08.436Z"
+        "verifiedAt": "2026-08-26T11:08:30.022Z"
       },
       "facebook": {
         "status": "published",
