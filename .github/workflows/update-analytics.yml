@@ -1,0 +1,53 @@
+name: Update AliveAwake analytics dashboard
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aliveawake-analytics-updater
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
+      COMPOSIO: /home/runner/.composio/composio
+      IG_ACCOUNT: aliveawake-main
+      IG_USER_ID: "28033607902927427"
+      FB_ACCOUNT: facebook_urushi-influx
+      FB_PAGE_ID: "299121263767927"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Install Composio CLI
+        run: curl -fsSL https://composio.dev/install | COMPOSIO_INSTALL_SHELL=none sh
+
+      - name: Authenticate Composio CLI
+        run: |
+          "$COMPOSIO" login --user-api-key "$COMPOSIO_API_KEY" -y --no-skill-install
+          "$COMPOSIO" whoami
+
+      - name: Fetch Instagram and Facebook analytics
+        run: node scripts/update-analytics.mjs
+
+      - name: Save updated analytics
+        run: |
+          if git diff --quiet -- docs/analytics.json docs/analytics-history.json; then
+            echo "Analytics data is unchanged."
+            exit 0
+          fi
+          git config user.name "aliveawake-publishing-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/analytics.json docs/analytics-history.json
+          git commit -m "Update analytics dashboard data"
+          git pull --rebase origin main
+          git push origin HEAD:main
