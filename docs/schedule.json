@@ -5,8 +5,8 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-08-26T13:09:00.000Z",
-  "lastCheckedAt": "2026-08-26T12:52:13.886Z",
+  "updatedAt": "2026-08-26T13:17:31.000Z",
+  "lastCheckedAt": "2026-08-26T13:17:31.000Z",
   "posts": [
     {
       "id": "2026-08-26-1000-when-life-tells-you-to-leave",
@@ -35,20 +35,22 @@
       "scheduledAt": "2026-08-26T15:00:00+02:00",
       "title": "What If Your Location Is Changing Who You Are?",
       "captionMatch": "Have you ever arrived somewhere and immediately felt like a different version of yourself",
-      "overall": "scheduled",
+      "overall": "published",
       "instagram": {
-        "status": "queued_cloud",
-        "verified": false,
-        "containerId": "17978925246083484",
-        "workflowRun": "https://github.com/Eyal704/aliveawake-instagram-publisher/actions/runs/32962210254"
+        "status": "published",
+        "verified": true,
+        "mediaId": "18101807657205807",
+        "url": "https://www.instagram.com/reel/Dcf0ro4kaOs/",
+        "verifiedAt": "2026-08-26T13:17:31.000Z"
       },
       "facebook": {
-        "status": "scheduled",
-        "verified": false,
+        "status": "published",
+        "verified": true,
         "videoId": "1801041707578795",
-        "scheduledPostId": "299121263767927_1354444580103076"
+        "url": "/reel/1801041707578795/",
+        "verifiedAt": "2026-08-26T13:17:31.000Z"
       },
-      "note": "Authenticated cloud scheduler is active; duplicate protection and platform verification are enabled."
+      "note": "Recovered manually: the dedicated cloud workflow (run 32962210254) aborted on a false-positive Facebook-preflight check (strict exact-timestamp match, no tolerance) 10 minutes before Facebook's own native scheduler successfully published on time. Instagram's container was already FINISHED, so it was published directly and verified on both platforms; the poller had also skipped this slot because a workflowRun was already attached to it."
     },
     {
       "id": "2026-08-26-2000-location-shapes-creation",
