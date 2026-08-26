@@ -17,6 +17,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
+      # GitHub Actions sets CI=true by default, and the Composio CLI silently
+      # redacts every "id"-shaped field to the literal string "<REDACTED>"
+      # whenever it sees CI=true (a log-hygiene feature, not a bug) — which
+      # breaks every ID-based match against its output. Override it here so
+      # this workflow gets real IDs back, the same as an interactive session.
+      CI: "false"
       COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
       COMPOSIO: /home/runner/.composio/composio
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -43,10 +49,6 @@ jobs:
         run: |
           "$COMPOSIO" login --user-api-key "$COMPOSIO_API_KEY" -y --no-skill-install
           "$COMPOSIO" whoami
-          echo "[DEBUG] connections:"
-          "$COMPOSIO" connections list
-          echo "[DEBUG] direct page-details check for the target video's page:"
-          "$COMPOSIO" execute FACEBOOK_GET_PAGE_DETAILS --account "$FB_ACCOUNT" -d "{\"page_id\":\"$FB_PAGE_ID\",\"fields\":\"id,name\"}" || true
 
       - name: Verify, alert, and save (retried on concurrent-writer conflicts)
         id: verify

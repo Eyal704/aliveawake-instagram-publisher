@@ -91,17 +91,6 @@ const fbVideos = await execute("FACEBOOK_GET_PAGE_VIDEOS", fbAccount, fbConnecte
   fields: "id,created_time,description,status,permalink_url"
 });
 
-console.error(`[DEBUG] fbVideos count=${fbVideos.length}`);
-console.error(`[DEBUG] target 1535258637891461 present (strict)=${fbVideos.some(v=>v.id==="1535258637891461")}`);
-console.error(`[DEBUG] target present (loose ==)=${fbVideos.some(v=>v.id=="1535258637891461")}`);
-console.error(`[DEBUG] target present (String() coerced)=${fbVideos.some(v=>String(v.id)==="1535258637891461")}`);
-const newestVideo = [...fbVideos].sort((a,b)=> (b.created_time||"").localeCompare(a.created_time||""))[0];
-console.error(`[DEBUG] typeof newestVideo.id=${typeof newestVideo?.id}`);
-console.error(`[DEBUG] newestVideo.id length=${String(newestVideo?.id).length}`);
-console.error(`[DEBUG] newestVideo.id === target: ${newestVideo?.id === "1535258637891461"}`);
-console.error(`[DEBUG] newestVideo.id JSON-encoded=${JSON.stringify(newestVideo?.id)}`);
-console.error(`[DEBUG] char codes of newestVideo.id=${JSON.stringify(Array.from(String(newestVideo?.id)).map(c=>c.charCodeAt(0)))}`);
-
 for (const post of relevant) {
   const due = new Date(post.scheduledAt).getTime();
   const captionMatch = normalize(post.captionMatch);

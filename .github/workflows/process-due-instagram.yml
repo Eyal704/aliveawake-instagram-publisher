@@ -17,6 +17,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
+      # GitHub Actions sets CI=true by default, and the Composio CLI silently
+      # redacts every "id"-shaped field to the literal string "<REDACTED>"
+      # whenever it sees CI=true (a log-hygiene feature, not a bug) — which
+      # breaks every ID-based match against its output. Override it here so
+      # this workflow gets real IDs back, the same as an interactive session.
+      CI: "false"
       COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
       COMPOSIO: /home/runner/.composio/composio
       IG_ACCOUNT: aliveawake-main
