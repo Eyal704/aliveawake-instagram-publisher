@@ -40,7 +40,7 @@
         "status": "queued_cloud",
         "verified": false,
         "containerId": "17978925246083484",
-        "workflowRun": "https://github.com/Eyal704/aliveawake-instagram-publisher/actions/runs/32950059607"
+        "workflowRun": "https://github.com/Eyal704/aliveawake-instagram-publisher/actions/runs/32962210254"
       },
       "facebook": {
         "status": "scheduled",
@@ -48,7 +48,7 @@
         "videoId": "1801041707578795",
         "scheduledPostId": "299121263767927_1354444580103076"
       },
-      "note": "First live test of the cloud Instagram scheduler."
+      "note": "Authenticated cloud scheduler is active; duplicate protection and platform verification are enabled."
     },
     {
       "id": "2026-08-26-2000-location-shapes-creation",
