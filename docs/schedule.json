@@ -56,12 +56,15 @@
       "id": "2026-08-26-2000-location-shapes-creation",
       "scheduledAt": "2026-08-27T10:00:00+02:00",
       "title": "Your Location Shapes What You Create",
-      "captionMatch": "Every city has a rhythm—and that rhythm shapes what we create",
-      "overall": "needs_attention",
+      "captionMatch": "Every city has a rhythm\u2014and that rhythm shapes what we create",
+      "overall": "published",
       "instagram": {
-        "status": "missing",
-        "verified": false,
-        "lastError": "Private queue payload is missing."
+        "status": "published",
+        "verified": true,
+        "mediaId": "18003267704786861",
+        "url": "https://www.instagram.com/reel/DciVl0vE_1Y/",
+        "containerId": "17979056646083484",
+        "verifiedAt": "2026-08-27T08:18:00.000Z"
       },
       "facebook": {
         "status": "published",
@@ -70,17 +73,17 @@
         "url": "/reel/1535258637891461/",
         "verifiedAt": "2026-08-27T08:16:22.428Z"
       },
-      "note": "Facebook published live on 2026-08-26 at its original 20:00 slot and stays there (already public, cannot be moved). Instagram was recovered, then removed by the user, and is now rescheduled fresh for Thu 27 Aug 10:00 Vienna instead -- the durable cloud queue will build a new container from the same stored video/caption when its prep window opens.",
+      "note": "Published Thu 27 Aug ~10:17 Vienna (17 min late). The automated build failed with 'Private queue payload is missing' because this post never had an entry in ALIVEAWAKE_QUEUE_JSON -- its original publish used a pre-built container, so the private entry was never needed until it was rescheduled for a fresh from-scratch build. Recovered by building the container manually from the already-public GitHub release assets (media-2026-08-26-location-shapes-creation-01) and publishing. Facebook side went live 2026-08-26 at its original slot and is unchanged. LESSON: rescheduling a post for a fresh build requires confirming its ALIVEAWAKE_QUEUE_JSON entry exists.",
       "alert": {
-        "lastKey": "missing:published:needs_attention",
-        "sentAt": "2026-08-26T21:36:47.694Z"
+        "lastKey": "published:published:published",
+        "sentAt": "resolved"
       }
     },
     {
       "id": "2026-08-28-1000-eckhart-tolle-california",
       "scheduledAt": "2026-08-27T15:00:00+02:00",
       "title": "What Happened to Eckhart Tolle in California?",
-      "captionMatch": "What if your inspiration is not gone—just waiting for the right environment",
+      "captionMatch": "What if your inspiration is not gone\u2014just waiting for the right environment",
       "overall": "scheduled",
       "instagram": {
         "status": "queued_cloud",
