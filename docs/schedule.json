@@ -5,7 +5,7 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-08-27T01:56:42.766Z",
+  "updatedAt": "2026-08-27T02:01:10.948Z",
   "lastCheckedAt": "2026-08-27T01:56:42.766Z",
   "posts": [
     {
@@ -57,10 +57,11 @@
       "scheduledAt": "2026-08-27T10:00:00+02:00",
       "title": "Your Location Shapes What You Create",
       "captionMatch": "Every city has a rhythm—and that rhythm shapes what we create",
-      "overall": "scheduled",
+      "overall": "needs_attention",
       "instagram": {
-        "status": "queued_cloud",
-        "verified": false
+        "status": "failed",
+        "verified": false,
+        "lastError": "Private queue payload is missing."
       },
       "facebook": {
         "status": "published",
