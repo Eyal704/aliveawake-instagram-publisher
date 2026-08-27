@@ -5,8 +5,8 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-08-27T01:31:09.799Z",
-  "lastCheckedAt": "2026-08-27T01:26:49.429Z",
+  "updatedAt": "2026-08-27T01:31:47.406Z",
+  "lastCheckedAt": "2026-08-27T01:31:47.406Z",
   "posts": [
     {
       "id": "2026-08-26-1000-when-life-tells-you-to-leave",
@@ -19,14 +19,14 @@
         "verified": true,
         "mediaId": "18619114822004455",
         "url": "https://www.instagram.com/reel/DcfzjCblZbJ/",
-        "verifiedAt": "2026-08-27T01:26:49.428Z"
+        "verifiedAt": "2026-08-27T01:31:47.406Z"
       },
       "facebook": {
         "status": "published",
         "verified": true,
         "videoId": "2951550651863116",
         "url": "/reel/2951550651863116/",
-        "verifiedAt": "2026-08-27T01:26:49.428Z"
+        "verifiedAt": "2026-08-27T01:31:47.406Z"
       },
       "note": "Recovered and verified on both platforms."
     },
@@ -41,14 +41,14 @@
         "verified": true,
         "mediaId": "18101807657205807",
         "url": "https://www.instagram.com/reel/Dcf0ro4kaOs/",
-        "verifiedAt": "2026-08-27T01:26:49.428Z"
+        "verifiedAt": "2026-08-27T01:31:47.406Z"
       },
       "facebook": {
         "status": "published",
         "verified": true,
         "videoId": "1801041707578795",
         "url": "/reel/1801041707578795/",
-        "verifiedAt": "2026-08-27T01:26:49.428Z"
+        "verifiedAt": "2026-08-27T01:31:47.406Z"
       },
       "note": "Recovered manually: the dedicated cloud workflow (run 32962210254) aborted on a false-positive Facebook-preflight check (strict exact-timestamp match, no tolerance) 10 minutes before Facebook's own native scheduler successfully published on time. Instagram's container was already FINISHED, so it was published directly and verified on both platforms; the poller had also skipped this slot because a workflowRun was already attached to it."
     },
@@ -67,7 +67,7 @@
         "verified": true,
         "videoId": "1535258637891461",
         "url": "/reel/1535258637891461/",
-        "verifiedAt": "2026-08-27T01:26:49.428Z"
+        "verifiedAt": "2026-08-27T01:31:47.406Z"
       },
       "note": "Facebook published live on 2026-08-26 at its original 20:00 slot and stays there (already public, cannot be moved). Instagram was recovered, then removed by the user, and is now rescheduled fresh for Thu 27 Aug 10:00 Vienna instead -- the durable cloud queue will build a new container from the same stored video/caption when its prep window opens.",
       "alert": {
