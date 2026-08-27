@@ -27,12 +27,19 @@ if (!Array.isArray(queue)) {
 const schedule = JSON.parse(await fs.readFile(schedulePath, "utf8"));
 const now = Date.now();
 
-let creatorOfSuffering;
-try {
-  creatorOfSuffering = JSON.parse(process.env.CREATOR_OF_SUFFERING_QUEUE || "null");
-} catch {
-  console.log("FAIL: CREATOR_OF_SUFFERING_QUEUE is not valid JSON. The dedicated secret is corrupt.");
-  process.exit(1);
+const isolatedSecrets = {
+  "2026-08-28-1500-creator-of-suffering": "CREATOR_OF_SUFFERING_QUEUE",
+  "2026-08-28-2000-stop-blaming": "STOP_BLAMING_QUEUE",
+  "2026-08-29-1000-changing-reality": "CHANGING_REALITY_QUEUE",
+};
+const isolatedPayloads = new Map();
+for (const [postId, envName] of Object.entries(isolatedSecrets)) {
+  try {
+    isolatedPayloads.set(postId, JSON.parse(process.env[envName] || "null"));
+  } catch {
+    console.log(`FAIL: ${envName} is not valid JSON. The dedicated secret is corrupt.`);
+    process.exit(1);
+  }
 }
 
 // Anything not already fully published on Instagram, and not in the past by more
@@ -51,7 +58,7 @@ console.log(`Checking ${upcoming.length} upcoming/unpublished post(s):\n`);
 
 for (const post of upcoming) {
   const isolated = post.instagram?.status === "queued_isolated";
-  const entry = isolated ? creatorOfSuffering : byId.get(post.id);
+  const entry = isolated ? isolatedPayloads.get(post.id) : byId.get(post.id);
   if (!entry) {
     console.log(`  MISSING   ${post.scheduledAt}  ${post.id}`);
     console.log(`            -> no ${isolated ? "dedicated" : "shared"} private payload; this post WILL fail at publish time.`);
@@ -94,7 +101,9 @@ if (orphans.length) {
 }
 
 console.log(`\nAll private queue ids currently stored: ${queue.map(i => i.id).join(", ") || "(none)"}`);
-console.log(`Dedicated Creator of Suffering payload: ${creatorOfSuffering ? "present" : "missing"}`);
+for (const [postId, envName] of Object.entries(isolatedSecrets)) {
+  console.log(`Dedicated ${postId} payload (${envName}): ${isolatedPayloads.get(postId) ? "present" : "missing"}`);
+}
 
 if (problems) {
   console.log(`\nRESULT: ${problems} problem(s) found. Fix before the affected slot arrives.`);

@@ -5,7 +5,7 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-08-27T22:06:48.339Z",
+  "updatedAt": "2026-08-27T22:07:26.000Z",
   "lastCheckedAt": "2026-08-27T22:06:48.339Z",
   "posts": [
     {
@@ -184,6 +184,25 @@
         "scheduledPostId": "299121263767927_1355533733327494"
       },
       "note": "Video/thumbnail hosted at https://eyal704.github.io/aliveawake-instagram-publisher/pending-video/ (verified live). Facebook scheduled and verified via FACEBOOK_GET_SCHEDULED_POSTS."
+    },
+    {
+      "id": "2026-08-29-1000-changing-reality",
+      "scheduledAt": "2026-08-29T10:00:00+02:00",
+      "title": "The Secret to Changing Your Reality",
+      "captionMatch": "The moment we stop asking who is to blame, something shifts",
+      "overall": "scheduled",
+      "instagram": {
+        "status": "queued_isolated",
+        "verified": false,
+        "note": "Handled by its own dedicated GitHub Actions workflow (.github/workflows/publish-changing-reality.yml) and secret (CHANGING_REALITY_QUEUE). The workflow uses CI=false, duplicate reconciliation, exact Facebook-object preflight, and does not depend on a local machine."
+      },
+      "facebook": {
+        "status": "scheduled",
+        "verified": true,
+        "videoId": "2278037603034258",
+        "scheduledPostId": "299121263767927_1355734316640769"
+      },
+      "note": "Approved revised video and existing thumbnail. Stable GitHub release assets verified directly. Facebook scheduled natively for 2026-08-29T08:00:00Z; Instagram assigned to an isolated cloud scheduler."
     }
   ],
   "cadenceNote": "3 Reels/day (10:00, 15:00, 20:00 Vienna) through Tue 1 Sep 2026. From Wed 2 Sep 2026: 4 Reels/day (09:00, 13:00, 17:00, 21:00 Vienna). Update the 'cadence' array above to the new times once Wednesday's slots are actually in use.",
