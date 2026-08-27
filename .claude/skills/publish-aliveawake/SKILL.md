@@ -151,7 +151,7 @@ For the thumbnail, pick one of:
 
 **Live dashboard (always check this first):** https://eyal704.github.io/aliveawake-instagram-publisher/ — shows every currently scheduled/published post and the platform-cadence in effect. **Never assume the next chronological slot is empty or guess what's already queued — read `docs/schedule.json` in full first.** A whole day being empty, or a slot you'd expect to be taken being open, has happened more than once; verify, don't assume.
 
-**Current cadence (Europe/Vienna):** 3 Reels/day at **10:00, 15:00, 20:00** through Friday 28 Aug 2026. From **Saturday 29 Aug 2026**: 4 Reels/day at **09:00, 13:00, 17:00, 21:00**. This is documented in `docs/schedule.json`'s `cadence`/`cadenceNote`/`upcomingCadence` fields — check there for the current source of truth rather than trusting this static doc if it's been a while.
+**Current cadence (Europe/Vienna):** 3 Reels/day at **10:00, 15:00, 20:00** through Tuesday 1 Sep 2026. From **Wednesday 2 Sep 2026**: 4 Reels/day at **09:00, 13:00, 17:00, 21:00**. This is documented in `docs/schedule.json`'s `cadence`/`cadenceNote`/`upcomingCadence` fields — check there for the current source of truth rather than trusting this static doc if it's been a while.
 
 **The architecture:**
 - `docs/schedule.json` (public, in this repo) — one entry per scheduled post: `id`, `scheduledAt` (ISO with Vienna offset), `title`, `captionMatch` (a unique prefix of the real caption, used for duplicate-detection — must actually match the real caption's start, normalized), `instagram: {status, ...}`, `facebook: {status, videoId, scheduledPostId, ...}`.

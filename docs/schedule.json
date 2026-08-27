@@ -56,7 +56,7 @@
       "id": "2026-08-26-2000-location-shapes-creation",
       "scheduledAt": "2026-08-27T10:00:00+02:00",
       "title": "Your Location Shapes What You Create",
-      "captionMatch": "Every city has a rhythm—and that rhythm shapes what we create",
+      "captionMatch": "Every city has a rhythm\u2014and that rhythm shapes what we create",
       "overall": "published",
       "instagram": {
         "status": "published",
@@ -83,7 +83,7 @@
       "id": "2026-08-28-1000-eckhart-tolle-california",
       "scheduledAt": "2026-08-27T15:00:00+02:00",
       "title": "What Happened to Eckhart Tolle in California?",
-      "captionMatch": "What if your inspiration is not gone—just waiting for the right environment",
+      "captionMatch": "What if your inspiration is not gone\u2014just waiting for the right environment",
       "overall": "published",
       "instagram": {
         "status": "published",
@@ -162,9 +162,9 @@
       "note": "Video/thumbnail hosted at https://eyal704.github.io/aliveawake-instagram-publisher/pending-video/ (verified live). Facebook scheduled and verified via FACEBOOK_GET_SCHEDULED_POSTS. Instagram scheduled via a standalone one-off workflow (own secret, no shared-queue risk) -- see instagram.note."
     }
   ],
-  "cadenceNote": "3 Reels/day (10:00, 15:00, 20:00 Vienna) through Fri 28 Aug 2026. From Sat 29 Aug 2026: 4 Reels/day (09:00, 13:00, 17:00, 21:00 Vienna). Update the 'cadence' array above to the new times once Saturday's slots are actually in use.",
+  "cadenceNote": "3 Reels/day (10:00, 15:00, 20:00 Vienna) through Tue 1 Sep 2026. From Wed 2 Sep 2026: 4 Reels/day (09:00, 13:00, 17:00, 21:00 Vienna). Update the 'cadence' array above to the new times once Wednesday's slots are actually in use.",
   "upcomingCadence": {
-    "effectiveFrom": "2026-08-29",
+    "effectiveFrom": "2026-09-02",
     "times": [
       "09:00",
       "13:00",
