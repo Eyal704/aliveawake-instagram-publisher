@@ -1,0 +1,33 @@
+name: Check publishing queue integrity
+
+# Answers the question nobody could answer before: does every upcoming post
+# actually have its private video/caption payload, or will it fail at publish
+# time? ALIVEAWAKE_QUEUE_JSON is write-only, so only a workflow can read it.
+#
+# Read-only: never writes the secret, never publishes, never commits.
+# Prints post ids and booleans only -- no secret values.
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Twice a day, well ahead of the earliest 09:00 Vienna slot, so a missing
+    # payload surfaces with hours to fix it rather than at the slot itself.
+    - cron: "17 4 * * *"
+    - cron: "17 16 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      ALIVEAWAKE_QUEUE_JSON: ${{ secrets.ALIVEAWAKE_QUEUE_JSON }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Compare private queue against public schedule
+        run: node scripts/check-queue-integrity.mjs
