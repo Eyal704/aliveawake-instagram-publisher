@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-26T20:29:41.333Z",
-  "lastAttemptedAt": "2026-08-26T20:29:41.333Z",
-  "lastSuccessfulUpdateAt": "2026-08-26T20:29:41.333Z",
+  "generatedAt": "2026-08-27T00:00:10.444Z",
+  "lastAttemptedAt": "2026-08-27T00:00:10.444Z",
+  "lastSuccessfulUpdateAt": "2026-08-27T00:00:10.444Z",
   "timezone": "Europe/Vienna",
   "stale": {
     "instagram": false,
@@ -31,44 +31,44 @@
     {
       "groupKey": "have you ever arrived somewhere and immediately felt like a",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18101807657205807",
       "title": "Have you ever arrived somewhere and immediately felt like a different version of yourself?",
       "caption": "Have you ever arrived somewhere and immediately felt like a different version of yourself?\n\nI’ve moved countries many times, and I’ve seen how quickly a place can change how I feel, how I act, and what I’m able to create.\n\nSometimes that pull toward a place is subtle—but it may be worth listening to.\n\nWhere in the world do you feel most alive?\n\n#AliveAwake #PersonalGrowth #NewBeginnings #TravelChangesYou #InnerCalling\n\nMusic: “Convergence” by Scott Buckley — CC BY 4.0 · scottbuckley.com.au",
       "publishedAt": "2026-08-26T13:16:46+0000",
       "permalink": "https://www.instagram.com/reel/Dcf0ro4kaOs/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18101807657205807.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 9
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 8
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 13911
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 139117
         },
         "newFollowers": {
           "available": false,
@@ -76,20 +76,20 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 12.5
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:00:34.037Z"
     },
     {
       "groupKey": "every city has a rhythm—and that rhythm shapes what we creat",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "1535258637891461",
       "title": "Every city has a rhythm—and that rhythm shapes what we create.",
       "caption": "Every city has a rhythm—and that rhythm shapes what we create.\n\nMusic, books, dance, business… none of it is created in a vacuum. The place around us influences our energy, our body, and our ideas.\n\nSometimes changing your life starts with changing your location—even when it feels risky or financially inconvenient.\n\nHave you ever felt yourself become a different person in a different place?\n\n#AliveAwake #PersonalGrowth #Creativity #LifeChange #SelfDiscovery\n\nMusic: “Convergence” by Scott Buckley — CC BY 4.0 · scottbuckley.com.au",
       "publishedAt": "2026-08-26T12:12:55+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/1535258637891461/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-1535258637891461.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -132,21 +132,21 @@
         "available": false,
         "reason": "Needs both reactions and view count greater than zero."
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "have you ever arrived somewhere and immediately felt like a",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "1801041707578795",
       "title": "Have you ever arrived somewhere and immediately felt like a different version of yourself?",
       "caption": "Have you ever arrived somewhere and immediately felt like a different version of yourself?\n\nI’ve moved countries many times, and I’ve seen how quickly a place can change how I feel, how I act, and what I’m able to create.\n\nSometimes that pull toward a place is subtle—but it may be worth listening to.\n\nWhere in the world do you feel most alive?\n\n#AliveAwake #PersonalGrowth #NewBeginnings #TravelChangesYou #InnerCalling\n\nMusic: “Convergence” by Scott Buckley — CC BY 4.0 · scottbuckley.com.au",
       "publishedAt": "2026-08-26T08:50:22+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/1801041707578795/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-1801041707578795.jpg",
       "metrics": {
         "views": {
           "available": true,
-          "value": 0
+          "value": 1
         },
         "reach": {
           "available": false,
@@ -182,52 +182,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both reactions and view count greater than zero."
+        "available": true,
+        "value": 0
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "have you ever known it was time to leave—a relationship, a j",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18619114822004455",
       "title": "Have you ever known it was time to leave—a relationship, a job, a city, or even the lif…",
       "caption": "Have you ever known it was time to leave—a relationship, a job, a city, or even the life you had built?\n\nThen someone told you to be practical. To choose security. Or maybe you talked yourself out of it.\n\nI’ve followed that inner nudge many times—for better and for worse. In this series, I’ll share what I left, why I left, and what each decision brought into my life.\n\nWhat have you been afraid to leave?\n\n#AliveAwake #InnerCalling #LifeChoices #PersonalGrowth #StartingOver",
       "publishedAt": "2026-08-26T08:41:03+0000",
       "permalink": "https://www.instagram.com/reel/DcfzjCblZbJ/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18619114822004455.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 161
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 120
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 3
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 15956
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1946671
         },
         "newFollowers": {
           "available": false,
@@ -235,20 +235,20 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 3.3
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:00:52.375Z"
     },
     {
       "groupKey": "have you ever known it was time to leave—a relationship, a j",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "2951550651863116",
       "title": "Have you ever known it was time to leave—a relationship, a job, a city, or even the lif…",
       "caption": "Have you ever known it was time to leave—a relationship, a job, a city, or even the life you had built?\n\nThen someone told you to be practical. To choose security. Or maybe you talked yourself out of it.\n\nI’ve followed that inner nudge many times—for better and for worse. In this series, I’ll share what I left, why I left, and what each decision brought into my life.\n\nWhat have you been afraid to leave?\n\n#AliveAwake #InnerCalling #LifeChoices #PersonalGrowth #StartingOver",
       "publishedAt": "2026-08-26T08:40:32+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/2951550651863116/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-2951550651863116.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -291,49 +291,49 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "you don’t have to be in a perfect state before helping someo",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18107363318152965",
       "title": "You don’t have to be in a perfect state before helping someone else.",
       "caption": "You don’t have to be in a perfect state before helping someone else.\n\nSometimes giving another person care, positivity, or attention is exactly what helps move your own energy again.\n\nWhen we stay stagnant, we become like water that doesn’t move. But when we give, something begins to flow.\n\nWho can you support today?\n\n#AliveAwake #HelpingOthers #PersonalGrowth #Kindness #Purpose",
       "publishedAt": "2026-08-25T19:47:25+0000",
       "permalink": "https://www.instagram.com/reel/Dcea-tzjrHh/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18107363318152965.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 17
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 14
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 28452
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 512151
         },
         "newFollowers": {
           "available": false,
@@ -341,20 +341,20 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 7.1
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:01:03.434Z"
     },
     {
       "groupKey": "you don’t have to be in a perfect state before helping someo",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "842997745547074",
       "title": "You don’t have to be in a perfect state before helping someone else.",
       "caption": "You don’t have to be in a perfect state before helping someone else.\n\nSometimes giving another person care, positivity, or attention is exactly what helps move your own energy again.\n\nWhen we stay stagnant, we become like water that doesn’t move. But when we give, something begins to flow.\n\nWho can you support today?\n\n#AliveAwake #HelpingOthers #PersonalGrowth #Kindness #Purpose",
       "publishedAt": "2026-08-25T19:46:50+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/842997745547074/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-842997745547074.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -397,17 +397,17 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "in 2014, i left university with a backpack and one question:",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "1071511175812326",
       "title": "In 2014, I left university with a backpack and one question: What makes a life worth li…",
       "caption": "In 2014, I left university with a backpack and one question: What makes a life worth living?\n\nBefore committing to the usual path—career, family, routine—I hitchhiked from home to home, living and working with strangers while searching for my own understanding of happiness.\n\nWould you leave everything behind to find your answer?",
       "publishedAt": "2026-08-25T15:19:11+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/1071511175812326/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-1071511175812326.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -450,49 +450,49 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "in 2014, i left university with a backpack and one question:",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18126245944704326",
       "title": "In 2014, I left university with a backpack and one question: What makes a life worth li…",
       "caption": "In 2014, I left university with a backpack and one question: What makes a life worth living?\n\nBefore committing to the usual path—career, family, routine—I hitchhiked from home to home, living and working with strangers while searching for my own understanding of happiness.\n\nWould you leave everything behind to find your answer?",
       "publishedAt": "2026-08-25T14:53:10+0000",
       "permalink": "https://www.instagram.com/reel/Dcd5UXWDj21/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18126245944704326.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 162
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 127
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 4
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 6169
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 845265
         },
         "newFollowers": {
           "available": false,
@@ -500,20 +500,20 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 3.1
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:01:20.145Z"
     },
     {
       "groupKey": "👁️👁️",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "2470818016653864",
       "title": "👁️👁️",
       "caption": "👁️👁️",
       "publishedAt": "2025-12-18T17:07:41+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/2470818016653864/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-2470818016653864.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -532,8 +532,8 @@
           "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Facebook omits the shares field entirely when the count is 0 or unsupported for this post — shown as unavailable rather than guessing."
+          "available": true,
+          "value": 1
         },
         "saved": {
           "available": false,
@@ -554,51 +554,51 @@
       },
       "engagementRate": {
         "available": true,
-        "value": 0
+        "value": 0.9
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "👁️👁️",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "17869864134413748",
       "title": "👁️👁️",
       "caption": "👁️👁️",
       "publishedAt": "2025-12-18T17:07:31+0000",
       "permalink": "https://www.instagram.com/reel/DSaZcyPgj68/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-17869864134413748.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 521
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 301
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 4
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 6953
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2732779
         },
         "newFollowers": {
           "available": false,
@@ -606,20 +606,20 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 2.3
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:01:32.155Z"
     },
     {
       "groupKey": "a famous samurai, nearing the end of his life, began to wond",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "1190176986546015",
       "title": "A famous samurai, nearing the end of his life, began to wonder whether heaven and hell…",
       "caption": "A famous samurai, nearing the end of his life, began to wonder whether heaven and hell truly existed. He was told of a Zen Master named Hakuin who might have the answer.\n\nAfter climbing a mountain in search of him, the samurai noticed a man sitting quietly on a log of wood.\n\n“Hey, you,” the samurai demanded, drawing his attention. “I need to know — is there really such a thing as heaven and hell?”\n\nHakuin looked at him calmly and asked, “Who are you?” The warrior replied proudly, “I am the chief samurai to the Emperor.”\n\nHakuin laughed and said, “You? A samurai? With a face like that? You can’t understand — you look stupid.” The samurai became so angry he drew his sword, ready to strike.\n\nHakuin stood there unmoving, calm, and said, “Here… the gates of hell open.”\n\nPerceiving the master’s composure, the warrior suddenly became aware of himself, lowered his sword, and bowed.\n\nHakuin then said, “and here open the gates of heaven.”\n\n***At any moment, - Life, is up to us the way it is created!",
       "publishedAt": "2025-12-17T12:58:42+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/1190176986546015/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-1190176986546015.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -638,8 +638,8 @@
           "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Facebook omits the shares field entirely when the count is 0 or unsupported for this post — shown as unavailable rather than guessing."
+          "available": true,
+          "value": 1
         },
         "saved": {
           "available": false,
@@ -660,51 +660,51 @@
       },
       "engagementRate": {
         "available": true,
-        "value": 0
+        "value": 0.7
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "a famous samurai, nearing the end of his life, began to wond",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18500012620079419",
       "title": "A famous samurai, nearing the end of his life, began to wonder whether heaven and hell…",
       "caption": "A famous samurai, nearing the end of his life, began to wonder whether heaven and hell truly existed. He was told of a Zen Master named Hakuin who might have the answer.\n\nAfter climbing a mountain in search of him, the samurai noticed a man sitting quietly on a log of wood.\n\n“Hey, you,” the samurai demanded, drawing his attention. “I need to know — is there really such a thing as heaven and hell?”\n\nHakuin looked at him calmly and asked, “Who are you?” The warrior replied proudly, “I am the chief samurai to the Emperor.”\n\nHakuin laughed and said, “You? A samurai? With a face like that? You can’t understand — you look stupid.” The samurai became so angry he drew his sword, ready to strike.\n\nHakuin stood there unmoving, calm, and said, “Here… the gates of hell open.”\n\nPerceiving the master’s composure, the warrior suddenly became aware of himself, lowered his sword, and bowed.\n\nHakuin then said, “and here open the gates of heaven.”\n\n***At any moment, - Life, is up to us the way it is created!",
       "publishedAt": "2025-12-17T12:58:32+0000",
       "permalink": "https://www.instagram.com/reel/DSXYHKxAnjn/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18500012620079419.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 562
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 367
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 8
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 9107
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 3906927
         },
         "newFollowers": {
           "available": false,
@@ -712,20 +712,20 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 3
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:01:46.561Z"
     },
     {
       "groupKey": "you gain by joining - it’s free and you can contribute whate",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "2823379137855459",
       "title": "You gain by joining - it’s free and you can contribute whatever you feel. @skool_com -…",
       "caption": "You gain by joining - it’s free and you can contribute whatever you feel. @skool_com - The new online Schooling platform \n\nWe host Yoga lessons, guided meditations & various  breathwork sessions. And so much more beauty to encourage the growing and blooming of our TRUE SELF 🌺\n\nYou can participate wherever you are - every session will be recorded. \n🦋\nFind the link the bio and joinnnnnnn….. >>> \n\nLet’s create a vast field of energy and communal Journey of feeling ALIVE and AWAKE 🌞🦋 #AliveAwake #community #transformation #growth #skool #skoolcommunity #yogalife #teaching #loving #fulfillment",
       "publishedAt": "2025-11-21T21:59:57+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/2823379137855459/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-2823379137855459.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -744,8 +744,8 @@
           "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Facebook omits the shares field entirely when the count is 0 or unsupported for this post — shown as unavailable rather than guessing."
+          "available": true,
+          "value": 1
         },
         "saved": {
           "available": false,
@@ -766,51 +766,51 @@
       },
       "engagementRate": {
         "available": true,
-        "value": 0
+        "value": 0.6
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "you gain by joining - it’s free and you can contribute whate",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18077462549467686",
       "title": "You gain by joining - it’s free and you can contribute whatever you feel. @skool_com -…",
       "caption": "You gain by joining - it’s free and you can contribute whatever you feel. @skool_com - The new online Schooling platform \n\nWe host Yoga lessons, guided meditations & various  breathwork sessions. And so much more beauty to encourage the growing and blooming of our TRUE SELF 🌺\n\nYou can participate wherever you are - every session will be recorded. \n🦋\nFind the link the bio and joinnnnnnn….. >>> \n\nLet’s create a vast field of energy and communal Journey of feeling ALIVE and AWAKE 🌞🦋 #AliveAwake #community #transformation #growth #skool #skoolcommunity #yogalife #teaching #loving #fulfillment",
       "publishedAt": "2025-11-21T21:59:40+0000",
       "permalink": "https://www.instagram.com/reel/DRVZ1HlAuPh/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18077462549467686.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 8969
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 6551
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 18
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 5
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 136
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 10
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 14192
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 99475464
         },
         "newFollowers": {
           "available": false,
@@ -818,20 +818,20 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 2.6
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:01:55.404Z"
     },
     {
       "groupKey": "🔥",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "1156721269446201",
       "title": "🔥",
       "caption": "🔥",
       "publishedAt": "2025-11-16T14:11:52+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/1156721269446201/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-1156721269446201.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -874,49 +874,49 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "🔥",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18081894158037954",
       "title": "🔥",
       "caption": "🔥",
       "publishedAt": "2025-11-16T14:11:24+0000",
       "permalink": "https://www.instagram.com/reel/DRHsEUOAu2w/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18081894158037954.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 328
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 192
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 11108
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2810411
         },
         "newFollowers": {
           "available": false,
@@ -924,20 +924,20 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 2.6
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:02:05.003Z"
     },
     {
       "groupKey": "many of us didn’t receive the love and attention we needed g",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "707566642395922",
       "title": "Many of us didn’t receive the love and attention we needed growing up. For some, this l…",
       "caption": "Many of us didn’t receive the love and attention we needed growing up. For some, this lack of love creates a subconscious decision to become someone different—someone they believe will be deserving of love. In codependency language, this is called the “protective self”: a persona that strives to be successful, accomplished, or worthy enough to finally earn love and acceptance. \nWhen children grow up with emotionally immature or, in some cases, abusive parents, they often experience emotional neglect. This causes them to abandon their own needs and focus on caring for their parents instead of learning to trust and value themselves. Later in life, this pattern makes feelings of calm, serenity, self-trust, and comfort in their own body feel foreign and undeserving. \nI’m ready to offer support to people who need more confidence and recognition of who they truly are. If you—or someone you know—could benefit from this support, please visit aliveawake.org, scroll to the bottom for my contact number, and reach out via WhatsApp. I want to support you!",
       "publishedAt": "2025-11-12T17:02:44+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/707566642395922/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-707566642395922.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -980,49 +980,49 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "many of us didn’t receive the love and attention we needed g",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18210964978314128",
       "title": "Many of us didn’t receive the love and attention we needed growing up. For some, this l…",
       "caption": "Many of us didn’t receive the love and attention we needed growing up. For some, this lack of love creates a subconscious decision to become someone different—someone they believe will be deserving of love. In codependency language, this is called the “protective self”: a persona that strives to be successful, accomplished, or worthy enough to finally earn love and acceptance. \nWhen children grow up with emotionally immature or, in some cases, abusive parents, they often experience emotional neglect. This causes them to abandon their own needs and focus on caring for their parents instead of learning to trust and value themselves. Later in life, this pattern makes feelings of calm, serenity, self-trust, and comfort in their own body feel foreign and undeserving. \nI’m ready to offer support to people who need more confidence and recognition of who they truly are. If you—or someone you know—could benefit from this support, please visit aliveawake.org, scroll to the bottom for my contact number, and reach out via WhatsApp. I want to support you!",
       "publishedAt": "2025-11-12T17:02:25+0000",
       "permalink": "https://www.instagram.com/reel/DQ9rKhcApAx/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18210964978314128.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 234
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 206
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 3935
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 814682
         },
         "newFollowers": {
           "available": false,
@@ -1030,20 +1030,20 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 0.5
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:02:14.608Z"
     },
     {
       "groupKey": "",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "1581771719934021",
       "title": "Untitled Reel",
       "caption": "",
       "publishedAt": "2025-11-11T12:22:58+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/1581771719934021/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-1581771719934021.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -1086,49 +1086,49 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "17992285496712986",
       "title": "Untitled Reel",
       "caption": "",
       "publishedAt": "2025-11-11T12:21:33+0000",
       "permalink": "https://www.instagram.com/reel/DQ6nrMWAg1l/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-17992285496712986.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 134
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 104
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 18558
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2041407
         },
         "newFollowers": {
           "available": false,
@@ -1136,20 +1136,20 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 2.9
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:02:23.879Z"
     },
     {
       "groupKey": "most of us feel it... that quiet ache — that life, as it is, i",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "1613921499292804",
       "title": "Most of us feel it… That quiet ache — that life, as it is, isn’t quite it. We’ve follow…",
       "caption": "Most of us feel it… That quiet ache — that life, as it is, isn’t quite it. We’ve followed what culture taught. But inside, something else is calling. For the past 13 years, I’ve followed that call — across the world, through doubt, into presence. And I’ve come to one truth: We don’t need to become someone else. We need to return to what we are.",
       "publishedAt": "2025-05-29T08:45:05+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/1613921499292804/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-1613921499292804.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -1192,17 +1192,17 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "4200610250264461",
       "title": "Untitled Reel",
       "caption": "",
       "publishedAt": "2025-05-29T07:33:26+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/4200610250264461/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-4200610250264461.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -1245,49 +1245,49 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "this is the way of the universe to reward you",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18214748773278560",
       "title": "This is the way of the universe to reward you",
       "caption": "This is the way of the universe to reward you",
       "publishedAt": "2024-02-05T11:55:47+0000",
       "permalink": "https://www.instagram.com/reel/C29uoZgtpEG/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18214748773278560.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 147
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 17
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 3
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 17762
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2540102
         },
         "newFollowers": {
           "available": false,
@@ -1295,52 +1295,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 23.5
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:02:32.377Z"
     },
     {
       "groupKey": "entrepreneurs, spiritual seekers and creators. it takes cour",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18282348712087663",
       "title": "Entrepreneurs, spiritual seekers and creators. It takes courage to transcend the fear o…",
       "caption": "Entrepreneurs, spiritual seekers and creators. It takes courage to transcend the fear of the unknown and not follow orders and the common programming, sold everywhere. \n\nI tell you that there is a higher power. More potent, and greater, that seeks manifestation through you.",
       "publishedAt": "2024-01-12T10:07:36+0000",
       "permalink": "https://www.instagram.com/reel/C1_vx4BxDIR/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18282348712087663.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 281
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 18
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 10
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 3
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 10703
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2879264
         },
         "newFollowers": {
           "available": false,
@@ -1348,52 +1348,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 72.2
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:02:40.844Z"
     },
     {
       "groupKey": "connect with nature, with your nature, its the ultimate trea",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18412228576059606",
       "title": "Connect with nature, with your nature, its the ultimate treasure 👑",
       "caption": "Connect with nature, with your nature, its the ultimate treasure 👑",
       "publishedAt": "2024-01-11T06:14:40+0000",
       "permalink": "https://www.instagram.com/reel/C18w7nSRtqV/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18412228576059606.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1047
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 22
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 96
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 3
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 11157
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 8691698
         },
         "newFollowers": {
           "available": false,
@@ -1401,52 +1401,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 454.5
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:02:47.908Z"
     },
     {
       "groupKey": "abundance is everywhere; what is needed to fix is not outsid",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18042130471615057",
       "title": "Abundance is everywhere; what is needed to fix is not outside of us, but inside.",
       "caption": "Abundance is everywhere; what is needed to fix is not outside of us, but inside. \n\nIf we can become more meditative, more aware, we can live abundantly today. However, as long as we look and live life from our minds, it will remain forever dull and lacking..\n\nFeel your belly and move from there",
       "publishedAt": "2024-01-06T16:39:06+0000",
       "permalink": "https://www.instagram.com/reel/C1xAGvixAn1/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18042130471615057.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 303
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 28
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 8
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 12018
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2944554
         },
         "newFollowers": {
           "available": false,
@@ -1454,52 +1454,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 35.7
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:02:57.585Z"
     },
     {
       "groupKey": "if you’re experiencing one of these signs, consider what you",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18002620940469717",
       "title": "If you’re experiencing one of these signs, consider what you might be avoiding. Your bo…",
       "caption": "If you’re experiencing one of these signs, consider what you might be avoiding. Your body is intelligently signaling you in every possible way.\n\nTake a few breaths and ask yourself, ‘What am I avoiding doing that my soul desires?’ Let your voice speak it out loud. What does it say?\n\nInstead of moving unconsciously and taking actions that may harm your body and mind, inquire: ‘What am I needed to do?’ Don’t condemn, judge, or provide counter-limiting thoughts. Simply let the first thing that comes up be said.\n\nIf you could have everything, and nothing stopped you, what would you change or remove from your life right now?\n\nLet me know in the comments what resonated the most..",
       "publishedAt": "2023-12-29T14:02:36+0000",
       "permalink": "https://www.instagram.com/reel/C1cIXQ7RiYS/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18002620940469717.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1545
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 28
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 31
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 5
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 12
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 21268
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 27754836
         },
         "newFollowers": {
           "available": false,
@@ -1507,52 +1507,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 171.4
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:03:05.399Z"
     },
     {
       "groupKey": "the hard truth about life, just prepare yourself to be wiser",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18049495858551607",
       "title": "The hard truth about life, just prepare yourself to be wiser and aware #life #truth",
       "caption": "The hard truth about life, just prepare yourself to be wiser and aware #life #truth",
       "publishedAt": "2023-12-23T15:00:00+0000",
       "permalink": "https://www.instagram.com/reel/C1MyYiyxeJ8/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18049495858551607.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 309
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 11
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 11
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 13699
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 3712660
         },
         "newFollowers": {
           "available": false,
@@ -1560,52 +1560,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 118.2
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:03:13.372Z"
     },
     {
       "groupKey": "enlightenment is not a fairy tale; only dreamers or phonies",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "17983502603383030",
       "title": "Enlightenment is not a fairy tale; only dreamers or phonies believe in it. It is as rea…",
       "caption": "Enlightenment is not a fairy tale; only dreamers or phonies believe in it. It is as real as the sun and sky above you. Everybody knows about Elon Musk, Donald Trump, or Kim Kardashian. But does the world know of the wisest men to have lived on Earth in the last century?\n\nNo. Why is that?\n\nBecause humans are drifting on the same stream, and almost no one stops to wonder where it’s going.\n\nWith intelligence, you can observe the sheer madness and strive for a greater altitude. There is more than what appears to be; it’s beautiful and immense.",
       "publishedAt": "2023-12-22T06:43:24+0000",
       "permalink": "https://www.instagram.com/reel/C1JPRQLtvtp/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-17983502603383030.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 864
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 25
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 23
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 3
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 12102
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 9173964
         },
         "newFollowers": {
           "available": false,
@@ -1613,52 +1613,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 108
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:03:21.567Z"
     },
     {
       "groupKey": "if you have experienced awakening, you are not completely lo",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18007624394476447",
       "title": "If you have experienced awakening, you are not completely lost in the thought process.…",
       "caption": "If you have experienced awakening, you are not completely lost in the thought process. That means there are moments where you can recognize the separation between the thinker and reality.\n\nI believe that as long as you are not consciously living your life, you do not truly understand what life is, leading to more suffering.\n\nThrough conscious manifestation, you can create harmony, fulfillment, and peace during your life’s masterpiece.",
       "publishedAt": "2023-12-21T12:41:45+0000",
       "permalink": "https://www.instagram.com/reel/C1HYrShxZxp/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18007624394476447.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 441
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 11
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 17
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 4
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 14315
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 5726084
         },
         "newFollowers": {
           "available": false,
@@ -1666,52 +1666,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 190.9
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:03:29.655Z"
     },
     {
       "groupKey": "it’s time for you to change the direction of your attention.",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "17963466479651365",
       "title": "It’s time for you to change the direction of your attention. Outward to inward, that is…",
       "caption": "It’s time for you to change the direction of your attention. Outward to inward, that is where you find a new quality, a new depth. Indestructible in its essence. One must find the essence of life and stop being drifted in the same sick movement of the collective.",
       "publishedAt": "2023-12-19T09:33:40+0000",
       "permalink": "https://www.instagram.com/reel/C1B4_KWLAMT/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-17963466479651365.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 305
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 8
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 12
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 12788
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 3376278
         },
         "newFollowers": {
           "available": false,
@@ -1719,52 +1719,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 175
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:03:37.142Z"
     },
     {
       "groupKey": "it’s the only journey worth taking – that of light and aware",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18056737405505201",
       "title": "It’s the only journey worth taking – that of light and awareness. Otherwise, you’re jus…",
       "caption": "It’s the only journey worth taking – that of light and awareness. Otherwise, you’re just adrift like all the rest. Creating a life in your unique touch is your duty. Drop the comparisons and be present in your own body.\n\nWhat’s more beautiful – a plastic flower that needs no water, or a real one growing, sharing fragrance, and possessing genuine beauty? Be the real flower and relish the true richness of life. ✨\n\n#ConsciousLiving #Meditation #LifeJourney #Consciousmanifestation",
       "publishedAt": "2023-12-18T09:47:43+0000",
       "permalink": "https://www.instagram.com/reel/C0_WOAgLAGM/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18056737405505201.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 715
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 9
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 30
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 7
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 11692
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 7378123
         },
         "newFollowers": {
           "available": false,
@@ -1772,52 +1772,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 411.1
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:03:44.342Z"
     },
     {
       "groupKey": "when you see that every unconscious action, leads to sufferi",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "17984454614345621",
       "title": "When you see that every unconscious action, leads to suffering. Your attention grows st…",
       "caption": "When you see that every unconscious action, leads to suffering. Your attention grows stronger.\n\nThe amazing violinist who performed this piece is Mari Samuelsen!",
       "publishedAt": "2023-12-17T11:49:21+0000",
       "permalink": "https://www.instagram.com/reel/C08_ERwrHkC/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-17984454614345621.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 754
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 5
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 28
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 5
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 19580
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 12727258
         },
         "newFollowers": {
           "available": false,
@@ -1825,52 +1825,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 660
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:03:53.778Z"
     },
     {
       "groupKey": "this is no joke. when you are in tune with the conscious pul",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18296983738181533",
       "title": "This is no joke. When you are in tune with the conscious pull of the universe, you are…",
       "caption": "This is no joke. When you are in tune with the conscious pull of the universe, you are functioning as a whole. It’s okay to drift away, your purpose stands still, just don’t lose that spark in your heart. Keep awareness of it, and come back when it’s time! ✨\n\n#consciousness #calling",
       "publishedAt": "2023-12-16T10:32:35+0000",
       "permalink": "https://www.instagram.com/reel/C06RRo0rdNE/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18296983738181533.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1394
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 8
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 48
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 11
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 18600
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 22097442
         },
         "newFollowers": {
           "available": false,
@@ -1878,52 +1878,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 737.5
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:04:00.625Z"
     },
     {
       "groupKey": "reconnecting with your inner child, help you gather forgotte",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "17888117912901828",
       "title": "Reconnecting with your inner child, help you gather forgotten parts in you which have b…",
       "caption": "Reconnecting with your inner child, help you gather forgotten parts in you which have been avoided for years. Use this meditation to connect to yourself, and let go of any judgments and feelings that don’t serve you. Comment ❤️ for part two ✨",
       "publishedAt": "2023-12-15T06:44:17+0000",
       "permalink": "https://www.instagram.com/reel/C03SSEdr_cn/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-17888117912901828.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1057
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 9
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 33
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 8
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 19471
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 17465535
         },
         "newFollowers": {
           "available": false,
@@ -1931,52 +1931,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 455.6
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:04:07.815Z"
     },
     {
       "groupKey": "whenever you are overthinking or overwhelmed with emotions,",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18038236087619043",
       "title": "Whenever you are overthinking or overwhelmed with emotions, don’t believe your thoughts.",
       "caption": "Whenever you are overthinking or overwhelmed with emotions, don’t believe your thoughts.\n\nMove that tense energy through your body. Using a combination of body movements and breaths, you can set this energy loose. Try!",
       "publishedAt": "2023-12-14T08:27:31+0000",
       "permalink": "https://www.instagram.com/reel/C002ZcmOEWr/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18038236087619043.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 283
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 10
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 9
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 20604
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 4677108
         },
         "newFollowers": {
           "available": false,
@@ -1984,52 +1984,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 100
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:04:15.602Z"
     },
     {
       "groupKey": "live as if you are the first man on earth ❤️ #consciousness",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "17936612615772897",
       "title": "Live as if you are the first man on earth ❤️",
       "caption": "Live as if you are the first man on earth ❤️\n\n#consciousness #alive #present",
       "publishedAt": "2023-12-02T02:29:17+0000",
       "permalink": "https://www.instagram.com/reel/C0VXssWrKk5/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-17936612615772897.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 940
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 10
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 14
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 4804
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 3348494
         },
         "newFollowers": {
           "available": false,
@@ -2037,52 +2037,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 140
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:04:24.622Z"
     },
     {
       "groupKey": "meditation doesn’t have to involve sitting with your back st",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "17935976912775446",
       "title": "Meditation doesn’t have to involve sitting with your back straight in a specific posture.",
       "caption": "Meditation doesn’t have to involve sitting with your back straight in a specific posture.\n\nLiving in meditation is a way of life—a choice to be present in every moment, avoiding unconscious patterns that might lead you to repeat the same actions.\n\nLearn the form of attention that can transform each moment into meditation, and enjoy increased inner peace and a more creatively lived life.",
       "publishedAt": "2023-11-30T00:46:38+0000",
       "permalink": "https://www.instagram.com/reel/C0QCOMyRL36/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-17935976912775446.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 511
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 16
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 21
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 8810
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 3938179
         },
         "newFollowers": {
           "available": false,
@@ -2090,52 +2090,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 137.5
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:04:31.719Z"
     },
     {
       "groupKey": "start on a profound journey of presence with this meditation",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18033907633591010",
       "title": "Start on a profound journey of presence with this meditation, release the grip of old t…",
       "caption": "Start on a profound journey of presence with this meditation, release the grip of old thought patterns, and awaken to the brilliance of your own existence 😇\n\n#meditation #PresentMoment #AwakenYourSoul #innerpeace",
       "publishedAt": "2023-11-29T01:00:37+0000",
       "permalink": "https://www.instagram.com/reel/C0Ne52MRofP/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18033907633591010.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 533
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 36
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 25
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 3
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 9833
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 4533231
         },
         "newFollowers": {
           "available": false,
@@ -2143,52 +2143,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 77.8
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:04:38.529Z"
     },
     {
       "groupKey": "i have condensed the most important lessons i’ve learned in",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "17904807506805914",
       "title": "I have condensed the most important lessons I’ve learned in the past 20 years about rel…",
       "caption": "I have condensed the most important lessons I’ve learned in the past 20 years about relationships into this summary.\n1. Attachment leads to suffering. Clinging desperately to a person or relationship attaches you to an illusion that will inevitably change or dissolve, leaving you disappointed.\n2. Relationships cannot make you happy. True happiness comes from within. Relying on others for happiness gives them control over your inner state.\n3. Conflict, even in harmonious relationships, is inevitable. Accepting this allows for constructive resolution rather than emotional turmoil.\n4. Love is not a feeling; it is a choice. While infatuation may initially sweep us away, true love is consciously committing even through challenges.\n5. Intimacy requires vulnerability. Emotional openness is risky but necessary for meaningful connection. Hiding your authentic self prevents closeness.\n6. Relationships can mirror unhealed wounds, providing opportunities for self-awareness, healing, and forgiveness.\n7. We cannot fix or rescue others. Our role is to love and support unconditionally, allowing them to find their own path.\n8. Relationships reflect our relationship with ourselves. How we treat ourselves sets the tone for how we interact.\n9. Relationships involve surrendering and taking responsibility for choices. Find the balance between the two.\n10. Relationships are a journey, not a destination. There is no perfect relationship, only evolving, transformative experiences.\nLet me know if you have come to know this already!",
       "publishedAt": "2023-11-27T18:27:36+0000",
       "permalink": "https://www.instagram.com/reel/C0KNSfLPNpC/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-17904807506805914.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2054
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 10
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 56
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 29
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 26736
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 44221972
         },
         "newFollowers": {
           "available": false,
@@ -2196,52 +2196,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 870
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:04:44.807Z"
     },
     {
       "groupKey": "when i accepted my self, for what ever i was. bad, good. 99",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "17982429293358885",
       "title": "When I accepted my self, for what ever I was. Bad, good. 99 percent of my problems disa…",
       "caption": "When I accepted my self, for what ever I was. Bad, good. 99 percent of my problems disappeared.\n\nI no longer tried to fit myself into someone I thought I should be.\n\nAccept yourself.",
       "publishedAt": "2023-11-26T15:35:54+0000",
       "permalink": "https://www.instagram.com/reel/C0HUVoErwDQ/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-17982429293358885.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1127
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 8
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 32
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 5
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 8582
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 7964803
         },
         "newFollowers": {
           "available": false,
@@ -2249,52 +2249,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 462.5
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:04:51.561Z"
     },
     {
       "groupKey": "freedom is something you first have to break from psychologi",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18105674581354717",
       "title": "Freedom is something you first have to break from psychologically. Daring to step out o…",
       "caption": "Freedom is something you first have to break from psychologically. Daring to step out of the collective stream requires courage, but freedom is the highest achievement in life.\n\nWhen you step away from your environmental pattern, you can move on a new path that fulfills more of your potential.\n\nThese uncomfortable truths are a small taste of what you can transcend to allow more power to flow within you. To get more guidance to fulfill your fullest potential, follow @enlightenmnetnow",
       "publishedAt": "2023-11-23T00:51:17+0000",
       "permalink": "https://www.instagram.com/reel/Cz-BL3tRCi3/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18105674581354717.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 8891
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 8
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 285
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 89
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 23579
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 175643793
         },
         "newFollowers": {
           "available": false,
@@ -2302,52 +2302,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 4687.5
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:04:58.107Z"
     },
     {
       "groupKey": "boy, have i struggled with that one. accepting myself for w",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "17990523695418429",
       "title": "Boy, have I struggled with that one.",
       "caption": "Boy, have I struggled with that one.\n\nAccepting myself for what I am—my “flaws,” my passions, my unique abilities—was a very difficult process.\n\nThe inner conflicts, the self-harm, the disgust I was inflicting on myself were extreme.\n\nI denied, condemned, and truly lost any desire to live many times.\n\nI searched for approval and acceptance in others; I undervalued myself.\n\nUntil I realized the futility of it all.\n\nMy solution to all of my problems was one: self-acceptance.\n\nEverything transformed from that moment. ❤️‍🔥",
       "publishedAt": "2023-11-19T19:38:56+0000",
       "permalink": "https://www.instagram.com/reel/Cz1vG_KPsbz/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-17990523695418429.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1718
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 41
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 99
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 19
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 13820
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 19293254
         },
         "newFollowers": {
           "available": false,
@@ -2355,52 +2355,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 292.7
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:05:04.875Z"
     },
     {
       "groupKey": "ever wondered, how do i allow my fullest potential to manife",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18088248469378472",
       "title": "Ever wondered, how do I allow my fullest potential to manifest into the world? Well, th…",
       "caption": "Ever wondered, how do I allow my fullest potential to manifest into the world? Well, that was my biggest inquiry.\n\nEach of us possesses the infinite power of the universe within itself. It wishes to shine through us all.\n\nSo, what is that block that stops it from blossoming?\n\nI’ll tell you…\n\nIt’s your beliefs, your dogmas, and the limiting narratives you’ve internalized over the years. These mental constructs act like filters, obstructing the infinite potential that resides within you to unleash.  To tap into this boundless energy, the first step is awareness – recognizing these barriers for what they are.\n\nOnce you’re aware, the journey of unlearning begins. It’s about questioning the beliefs and assumptions that have shaped your worldview.\n\nYour fullest potential is waiting. Follow for more insights on this transformative journey.",
       "publishedAt": "2023-11-10T22:53:22+0000",
       "permalink": "https://www.instagram.com/reel/Cze6F4LxV2J/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18088248469378472.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 221
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 4
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 8
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 3
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 7874
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1700905
         },
         "newFollowers": {
           "available": false,
@@ -2408,52 +2408,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 275
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:05:12.090Z"
     },
     {
       "groupKey": "for many years, i have been experimenting with the power of",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "17976472358422708",
       "title": "For many years, I have been experimenting with the power of applying force and surrende…",
       "caption": "For many years, I have been experimenting with the power of applying force and surrendering. \nI have tried to push actions to grow my reality, and I have also completely let go.\n Observing the beauty and the rewards that come from moving naturally in the world, I can say that by simply flowing with what feels natural and good, your truest self unfolds at its peak.  This goes against the popular opinion in the media, which suggests that you need to force yourself into action.  I can assure you that to create a beautiful life, where you are radiant and blissful, prioritizing sensitivity and care is the way.",
       "publishedAt": "2023-11-09T04:41:05+0000",
       "permalink": "https://www.instagram.com/reel/CzaYZT9t2FP/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-17976472358422708.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 219
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 4
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 12
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 6433
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1170817
         },
         "newFollowers": {
           "available": false,
@@ -2461,52 +2461,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 375
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:05:19.455Z"
     },
     {
       "groupKey": "you are allowed to feel good. agree to it.",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18027335602734661",
       "title": "You are allowed to feel good. Agree to it.",
       "caption": "You are allowed to feel good. Agree to it.",
       "publishedAt": "2023-11-07T18:34:17+0000",
       "permalink": "https://www.instagram.com/reel/CzWuIu9uK_8/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18027335602734661.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 701
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 46
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 24
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 6673
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 3350084
         },
         "newFollowers": {
           "available": false,
@@ -2514,52 +2514,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 52.2
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:05:25.908Z"
     },
     {
       "groupKey": "everybody tells you what you should do. your parents, your",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18294529474123810",
       "title": "Everybody tells you what you should do.",
       "caption": "Everybody tells you what you should do.\n\nYour parents, your friends, your teachers.\n\nYou listen, and act.\n\nThroughout the process, you might wonder: Am I going to be a copycat of my parents, the people I know? Or—is there something else?\n\nIf you’ve raised this question, you have experienced the first glimpse of conscious awareness.\n\nTo live consciously is not to move on autopilot in your life, but to take intelligent action that stems from the present moment—not the past.\n\nEver wondered if there was something beyond what you experience as life? Well—there is. ‘Life is not what it appears to be,’ as Eckhart Tolle wrote in his book.\n\nThere is more to your life, and you know it. More joy, more ecstasy, more freedom, more depth. It is accessible to you, too.\n\nI can tell you because I was once in your place. Seeking. Wondering. Is there more? What is that ‘more’? Is it in financial abundance? Business? Women?\n\nSometime in my early 20s, after years of wondering, I came across a master who said, ‘Yes—there is. You are on the right path; keep going—there is a lot more beyond what you’ve tasted.’\n\nI was filled with joy hearing it. Happiness. I had finally come across someone who didn’t try to stop me, cool me off, or cut my growing thrill. But someone who was willing to show me the way, support my evolution, my blossoming.\n\nI was thankful and said yes. Yes to more. Yes to all. Yes to the ultimate experience.\n\nThe new man is out there. Follow @selfdiscoveryjourney__ if you want to learn the way to becoming one.",
       "publishedAt": "2023-11-06T17:39:29+0000",
       "permalink": "https://www.instagram.com/reel/CzUDIqVNmQU/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18294529474123810.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1209
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 204
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 38
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 7716
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 5695087
         },
         "newFollowers": {
           "available": false,
@@ -2567,52 +2567,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 20.1
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:05:32.671Z"
     },
     {
       "groupKey": "watch how focusing on the constant stream of thoughts can dr",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18026530558616417",
       "title": "Watch how focusing on the constant stream of thoughts can draw you into a state of unco…",
       "caption": "Watch how focusing on the constant stream of thoughts can draw you into a state of unconsciousness. Instead, engage in life to keep your awareness in the present moment. \n\n#conciousness",
       "publishedAt": "2023-11-04T00:18:28+0000",
       "permalink": "https://www.instagram.com/reel/CzNB-kVN8Qp/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18026530558616417.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1430
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 14
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 55
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 5
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 6201
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 7367838
         },
         "newFollowers": {
           "available": false,
@@ -2620,52 +2620,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 428.6
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:05:39.021Z"
     },
     {
       "groupKey": "saying yes to life and agreeing to move towards a more fulfi",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "17995540109097860",
       "title": "Saying yes to life and agreeing to move towards a more fulfilling experience is what is…",
       "caption": "Saying yes to life and agreeing to move towards a more fulfilling experience is what is required for you to live in wholeness. \n\nBecome more receptive and dare to step into the unknown; your life’s potential will then unfold of its own accord.",
       "publishedAt": "2023-11-02T07:58:45+0000",
       "permalink": "https://www.instagram.com/reel/CzIg9gsifZd/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-17995540109097860.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 931
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 53
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 15
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 16446
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 10821570
         },
         "newFollowers": {
           "available": false,
@@ -2673,52 +2673,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 34
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:05:45.447Z"
     },
     {
       "groupKey": "find out what life is really all about. don’t miss out on th",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18398658610025143",
       "title": "Find out what life is really all about. Don’t miss out on this journey, it’s the only o…",
       "caption": "Find out what life is really all about. Don’t miss out on this journey, it’s the only one worth taking.\n\n#selfactualization",
       "publishedAt": "2023-10-31T08:58:45+0000",
       "permalink": "https://www.instagram.com/reel/CzDl5l_iq9p/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18398658610025143.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 297
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 6
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 11
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 3
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 7073
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1655300
         },
         "newFollowers": {
           "available": false,
@@ -2726,52 +2726,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 233.3
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:05:51.722Z"
     },
     {
       "groupKey": "create life, don’t just be entertained #bepresent #awakenin",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18270749539088114",
       "title": "Create life, don’t just be entertained",
       "caption": "Create life, don’t just be entertained\n\n#bepresent #awakening #presence",
       "publishedAt": "2023-10-29T05:06:45+0000",
       "permalink": "https://www.instagram.com/reel/Cy-GZnxOwtT/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18270749539088114.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1921
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 61
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 74
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 9
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 6237
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 8171071
         },
         "newFollowers": {
           "available": false,
@@ -2779,52 +2779,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 137.7
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:05:58.374Z"
     },
     {
       "groupKey": "life is full of choices between comfort and our true calling",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18029258278636783",
       "title": "Life is full of choices between comfort and our true calling. While society often condi…",
       "caption": "Life is full of choices between comfort and our true calling. While society often conditions us towards the familiar, there’s an inner voice that speaks of our greater purpose. To truly hear it, we must give ourselves the space to take the actions we’re truly meant to.",
       "publishedAt": "2023-10-26T20:26:13+0000",
       "permalink": "https://www.instagram.com/reel/Cy4BYaxPej3/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18029258278636783.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 944
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 5
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 64
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 4
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 5483
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 3887587
         },
         "newFollowers": {
           "available": false,
@@ -2832,52 +2832,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 1360
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:06:06.145Z"
     },
     {
       "groupKey": "delve into the timeless teachings of guifeng zongmi, a rever",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18286712551183154",
       "title": "Delve into the timeless teachings of Guifeng Zongmi, a revered Chinese Zen Master from…",
       "caption": "Delve into the timeless teachings of Guifeng Zongmi, a revered Chinese Zen Master from 780 AD. Discover the profound 10 Stages of Zen, a journey from awakening to enlightenment. This ancient scripture, ‘The 10 Bulls of Zen’, beautifully illustrates the path to self-realization, from seeking one’s false identity to ultimate transcendence. A guide that has enlightened souls for millennia.",
       "publishedAt": "2023-10-26T02:05:15+0000",
       "permalink": "https://www.instagram.com/reel/Cy2DcU4rxo2/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18286712551183154.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 310
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 5
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 5
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 1
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 10557
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2977232
         },
         "newFollowers": {
           "available": false,
@@ -2885,52 +2885,52 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 120
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:06:13.211Z"
     },
     {
       "groupKey": "an awakened man is someone who: 1) takes full responsibilit",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "17975966210556209",
       "title": "An awakened man is someone who:",
       "caption": "An awakened man is someone who:\n\n1) Takes full responsibility for his life - a man who recognizes reality for what it truly is understands that his life is his own creation, and he alone holds responsibility for it.\n\n2) Does not blame his partner, country, or anyone else for his circumstances - an awakened man understands the complexities of life. He respects each individual and recognizes the absurdity of the unconscious mind. By being present, he elevates the consciousness of those around him without casting blame or judgment.\n\n3) Realizes that humankind is one united species at its core, undivided by religion or nationality - human beings are fundamentally the same. An awakened man acknowledges this, enabling him to relate to anyone, transcending artificial distinctions and divisions.\n\n4) Lives in the Here and Now, understanding it as the only real moment. The future or past is but a memory. Giving your full attention to the present ensures the next moment will be taken care of.\n\n5) Has no fear of death for he understands eternity. Life extends beyond our physical form, and an awakened man recognizes his eternal nature.\n\n6) Radiates presence, which is palpable when you’re around him. When you encounter such conscious individual, you can sense the depth of his presence and feel his vibrational energy. The more conscious he becomes, the more intense the radiance.\n\n7) Creates and nourishes life, rather than dividing or destroying it. As one becomes more conscious, there’s an inherent drive to support life, to encourage its growth and development. Such an individual acts in the spirit of creation and nurturing, never in destruction.",
       "publishedAt": "2023-10-24T23:21:41+0000",
       "permalink": "https://www.instagram.com/reel/CyzMA6uvFeW/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-17975966210556209.jpg",
       "metrics": {
         "views": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 115
         },
         "reach": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 6
         },
         "likes": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 4
         },
         "comments": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 2
         },
         "shares": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "saved": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 0
         },
         "avgWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 9846
         },
         "totalWatchTimeMs": {
-          "available": false,
-          "reason": "Instagram insights failed on the most recent fetch attempt for this Reel, and no prior successful reading exists yet."
+          "available": true,
+          "value": 964950
         },
         "newFollowers": {
           "available": false,
@@ -2938,20 +2938,20 @@
         }
       },
       "engagementRate": {
-        "available": false,
-        "reason": "Needs both total interactions and reach greater than zero."
+        "available": true,
+        "value": 100
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:06:20.981Z"
     },
     {
       "groupKey": "want a better life and a better world? cut down on media, fo",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18319055893096548",
       "title": "Want a better life and a better world? Cut down on media, focus on self-discovery, trus…",
       "caption": "Want a better life and a better world? Cut down on media, focus on self-discovery, trust your insights, never settle for mediocrity, and light up your consciousness.",
       "publishedAt": "2023-10-24T06:35:34+0000",
       "permalink": "https://www.instagram.com/reel/CyxY3qXOnU9/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18319055893096548.jpg",
       "metrics": {
         "views": {
           "available": false,
@@ -2994,17 +2994,17 @@
         "available": false,
         "reason": "Needs both total interactions and reach greater than zero."
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:06:27.062Z"
     },
     {
       "groupKey": "taking care of yourself through various moods means acceptin",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "17984700248278277",
       "title": "Taking care of yourself through various moods means accepting every emotion that arises…",
       "caption": "Taking care of yourself through various moods means accepting every emotion that arises, just as they are. \n\nThis acceptance brings a sense of peace that underlies all circumstances ❤️",
       "publishedAt": "2023-10-22T19:37:00+0000",
       "permalink": "https://www.instagram.com/reel/Cytot7Rvqf-/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-17984700248278277.jpg",
       "metrics": {
         "views": {
           "available": false,
@@ -3047,17 +3047,17 @@
         "available": false,
         "reason": "Needs both total interactions and reach greater than zero."
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:06:33.365Z"
     },
     {
       "groupKey": "you have a choice to make: 1. a. follow the casual paradigm",
       "platform": "instagram",
-      "id": "<REDACTED>",
+      "id": "18267394186090342",
       "title": "You have a choice to make:",
       "caption": "You have a choice to make:\n\n1.\na. Follow the casual paradigm- Conform to what’s common and accepted.\nb. Do what you are being told - Let others dictate your actions without questioning.\nc. Hide who you are - Suppress your true self in favor of fitting in.\nd. Be like the people around you - Imitate to belong, even if it doesn’t resonate with your essence.\ne. Be politically correct - Always say what’s expected, even if it’s not your genuine belief.\nf. Survive - Just get by without truly thriving or pursuing passion.\n\n2.\na. Be curious - Keep an inquisitive mind, always seeking deeper insight and understanding.\nb. Respect your feelings - Honor your emotions; they’re a true reflection of your experience.\nc. Respect your insights - Value your inner wisdom and unique understanding.\nd. Act upon what seems true, not what others think - Trust your instincts and be authentic.\ne.  Be whole; say no to becoming a hypocrite - Be consistent in your wisdom and actions.\nf. Live joyfully - Embrace the beauty of life and find happiness in each moment.\n\nWhat do you choose?",
       "publishedAt": "2023-10-13T16:34:55+0000",
       "permalink": "https://www.instagram.com/reel/CyWH8pURY5s/",
-      "thumbnailUrl": null,
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/instagram-18267394186090342.jpg",
       "metrics": {
         "views": {
           "available": false,
@@ -3100,17 +3100,17 @@
         "available": false,
         "reason": "Needs both total interactions and reach greater than zero."
       },
-      "metricsAsOf": "2026-08-26T18:17:32.448Z"
+      "metricsAsOf": "2026-08-27T00:06:40.027Z"
     },
     {
       "groupKey": "love ❤️ meditation",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "595999847413399",
       "title": "Love ❤️ Meditation",
       "caption": "Love ❤️ Meditation",
       "publishedAt": "2018-02-09T10:51:25+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/595999847413399/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-595999847413399.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -3122,7 +3122,7 @@
         },
         "likes": {
           "available": true,
-          "value": 0
+          "value": 5
         },
         "comments": {
           "available": true,
@@ -3151,19 +3151,19 @@
       },
       "engagementRate": {
         "available": true,
-        "value": 0
+        "value": 7.5
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "wenn ein nahestehender mensch stirbt, kommt die ganze energi",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "595954587417925",
       "title": "Wenn ein nahestehender Mensch stirbt, kommt die ganze Energie zu dir zurück....Teil 1",
       "caption": "Wenn ein nahestehender Mensch stirbt, kommt die ganze Energie zu dir zurück....Teil 1",
       "publishedAt": "2018-02-09T09:59:40+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/595954587417925/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-595954587417925.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -3175,7 +3175,7 @@
         },
         "likes": {
           "available": true,
-          "value": 0
+          "value": 5
         },
         "comments": {
           "available": true,
@@ -3204,19 +3204,19 @@
       },
       "engagementRate": {
         "available": true,
-        "value": 0
+        "value": 8.6
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "where is happiness?",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "593043997708984",
       "title": "Where is Happiness?",
       "caption": "Where is Happiness?",
       "publishedAt": "2018-02-03T19:00:24+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/593043997708984/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-593043997708984.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -3228,7 +3228,7 @@
         },
         "likes": {
           "available": true,
-          "value": 0
+          "value": 3
         },
         "comments": {
           "available": true,
@@ -3257,19 +3257,19 @@
       },
       "engagementRate": {
         "available": true,
-        "value": 0
+        "value": 1.1
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "yes",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "582927995387251",
       "title": "Yes",
       "caption": "Yes",
       "publishedAt": "2018-01-13T18:16:39+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/582927995387251/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-582927995387251.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -3281,7 +3281,7 @@
         },
         "likes": {
           "available": true,
-          "value": 0
+          "value": 1
         },
         "comments": {
           "available": true,
@@ -3310,19 +3310,19 @@
       },
       "engagementRate": {
         "available": true,
-        "value": 0
+        "value": 3.2
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "the purest you cannot grasp - it is- every moment - ever -",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "581190845560966",
       "title": "the purest you cannot grasp - it is- every moment  - ever - it is glorious",
       "caption": "the purest you cannot grasp - it is- every moment  - ever - it is glorious",
       "publishedAt": "2018-01-09T19:40:11+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/581190845560966/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-581190845560966.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -3334,7 +3334,7 @@
         },
         "likes": {
           "available": true,
-          "value": 0
+          "value": 4
         },
         "comments": {
           "available": true,
@@ -3363,19 +3363,19 @@
       },
       "engagementRate": {
         "available": true,
-        "value": 0
+        "value": 6.5
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "climbing a nice tree in tel aviv 🌳",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "578791515800899",
       "title": "Climbing a nice tree in tel aviv 🌳",
       "caption": "Climbing a nice tree in tel aviv 🌳",
       "publishedAt": "2018-01-04T13:18:30+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/578791515800899/",
+      "thumbnailUrl": null,
       "metrics": {
         "views": {
           "available": true,
@@ -3387,7 +3387,7 @@
         },
         "likes": {
           "available": true,
-          "value": 0
+          "value": 1
         },
         "comments": {
           "available": true,
@@ -3416,19 +3416,19 @@
       },
       "engagementRate": {
         "available": true,
-        "value": 0
+        "value": 6.3
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "marshal hearts exercises 🙂",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "578020069211377",
       "title": "Marshal hearts exercises 🙂",
       "caption": "Marshal hearts exercises 🙂",
       "publishedAt": "2018-01-02T20:50:28+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/578020069211377/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-578020069211377.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -3440,7 +3440,7 @@
         },
         "likes": {
           "available": true,
-          "value": 0
+          "value": 2
         },
         "comments": {
           "available": true,
@@ -3469,19 +3469,19 @@
       },
       "engagementRate": {
         "available": true,
-        "value": 0
+        "value": 4
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "what we are here for?",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "577918042554913",
       "title": "What we are here for?",
       "caption": "What we are here for?",
       "publishedAt": "2018-01-02T16:23:42+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/577918042554913/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-577918042554913.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -3493,7 +3493,7 @@
         },
         "likes": {
           "available": true,
-          "value": 0
+          "value": 2
         },
         "comments": {
           "available": true,
@@ -3522,19 +3522,19 @@
       },
       "engagementRate": {
         "available": true,
-        "value": 0
+        "value": 6.1
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "let yourself shine and share your gifts so that you can flow",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "577914129221971",
       "title": "Let yourself shine and share your gifts so that you can flower",
       "caption": "Let yourself shine and share your gifts so that you can flower",
       "publishedAt": "2018-01-02T16:15:44+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/577914129221971/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-577914129221971.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -3546,7 +3546,7 @@
         },
         "likes": {
           "available": true,
-          "value": 0
+          "value": 1
         },
         "comments": {
           "available": true,
@@ -3575,19 +3575,19 @@
       },
       "engagementRate": {
         "available": true,
-        "value": 0
+        "value": 4.8
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "if you would not dare to come out of your shell, greatness w",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "577804449232939",
       "title": "If you would not dare to come out of your shell, greatness would never be unfolded",
       "caption": "If you would not dare to come out of your shell, greatness would never be unfolded",
       "publishedAt": "2018-01-02T12:11:56+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/577804449232939/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-577804449232939.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -3630,17 +3630,17 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "realizing your gift and becoming independent is bliss",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "576995705980480",
       "title": "REALIZING YOUR GIFT AND BECOMING INDEPENDENT IS BLISS",
       "caption": "REALIZING YOUR GIFT AND BECOMING INDEPENDENT IS BLISS",
       "publishedAt": "2017-12-31T20:46:05+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/576995705980480/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-576995705980480.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -3652,11 +3652,11 @@
         },
         "likes": {
           "available": true,
-          "value": 0
+          "value": 2
         },
         "comments": {
           "available": true,
-          "value": 0
+          "value": 1
         },
         "shares": {
           "available": false,
@@ -3681,19 +3681,19 @@
       },
       "engagementRate": {
         "available": true,
-        "value": 0
+        "value": 0.7
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "the inner world is the best world.",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "576988929314491",
       "title": "The inner world is the best world.",
       "caption": "The inner world is the best world.",
       "publishedAt": "2017-12-31T19:54:06+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/576988929314491/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-576988929314491.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -3705,7 +3705,7 @@
         },
         "likes": {
           "available": true,
-          "value": 0
+          "value": 1
         },
         "comments": {
           "available": true,
@@ -3734,19 +3734,19 @@
       },
       "engagementRate": {
         "available": true,
-        "value": 0
+        "value": 2.7
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "setting intentions and increasing awareness",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "576311869382197",
       "title": "Setting Intentions and Increasing Awareness",
       "caption": "Setting Intentions and Increasing Awareness",
       "publishedAt": "2017-12-30T13:35:27+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/576311869382197/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-576311869382197.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -3758,7 +3758,7 @@
         },
         "likes": {
           "available": true,
-          "value": 0
+          "value": 3
         },
         "comments": {
           "available": true,
@@ -3787,19 +3787,19 @@
       },
       "engagementRate": {
         "available": true,
-        "value": 0
+        "value": 1
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "awareness to the source of energy is the most important thin",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "575270389486345",
       "title": "Awareness to the Source of Energy is the most Important thing",
       "caption": "Awareness to the Source of Energy is the most Important thing",
       "publishedAt": "2017-12-28T15:16:43+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/575270389486345/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-575270389486345.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -3842,17 +3842,17 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "awareness to the source of energy is the most important thin",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "575331436146907",
       "title": "Awareness to the Source of Energy is The Most Important thing",
       "caption": "Awareness to the Source of Energy is The Most Important thing",
       "publishedAt": "2017-12-28T13:40:13+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/575331436146907/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-575331436146907.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -3864,11 +3864,11 @@
         },
         "likes": {
           "available": true,
-          "value": 0
+          "value": 1
         },
         "comments": {
           "available": true,
-          "value": 0
+          "value": 1
         },
         "shares": {
           "available": false,
@@ -3893,19 +3893,19 @@
       },
       "engagementRate": {
         "available": true,
-        "value": 0
+        "value": 0.5
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "when you are not present in your life, your life will always",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "574398329573551",
       "title": "When you are not present in your life, your life will always be dependent on the outer…",
       "caption": "When you are not present in your life, your life will always be dependent on the outer circumstances. The more present you are, the less dependent you become.",
       "publishedAt": "2017-12-26T07:44:21+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/574398329573551/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-574398329573551.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -3917,7 +3917,7 @@
         },
         "likes": {
           "available": true,
-          "value": 0
+          "value": 1
         },
         "comments": {
           "available": true,
@@ -3946,19 +3946,19 @@
       },
       "engagementRate": {
         "available": true,
-        "value": 0
+        "value": 1.4
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "33",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "573826879630696",
       "title": "33",
       "caption": "33",
       "publishedAt": "2017-12-25T02:34:39+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/573826879630696/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-573826879630696.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -4001,17 +4001,17 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "about love and appriciation",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "570755599937824",
       "title": "About Love and Appriciation",
       "caption": "About Love and Appriciation",
       "publishedAt": "2017-12-19T05:13:43+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/570755599937824/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-570755599937824.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -4054,17 +4054,17 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "how to feel comfortable not knowing what comes next?",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "570724939940890",
       "title": "How to Feel Comfortable Not Knowing What Comes Next?",
       "caption": "How to Feel Comfortable Not Knowing What Comes Next?",
       "publishedAt": "2017-12-19T05:12:11+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/570724939940890/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-570724939940890.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -4076,7 +4076,7 @@
         },
         "likes": {
           "available": true,
-          "value": 0
+          "value": 1
         },
         "comments": {
           "available": true,
@@ -4105,19 +4105,19 @@
       },
       "engagementRate": {
         "available": true,
-        "value": 0
+        "value": 3.7
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     },
     {
       "groupKey": "the deep root of unconsciousness",
       "platform": "facebook",
-      "id": "<REDACTED>",
+      "id": "570774269935957",
       "title": "The Deep Root of Unconsciousness",
       "caption": "The Deep Root of Unconsciousness",
       "publishedAt": "2017-12-18T05:43:01+0000",
-      "permalink": "https://www.facebook.com/reel/<REDACTED>/",
-      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-%3CREDACTED%3E.jpg",
+      "permalink": "https://www.facebook.com/reel/570774269935957/",
+      "thumbnailUrl": "https://dyx53lwhaf1f3mbm.public.blob.vercel-storage.com/reel-thumbnails/facebook-570774269935957.jpg",
       "metrics": {
         "views": {
           "available": true,
@@ -4160,7 +4160,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-08-26T20:33:59.598Z"
+      "metricsAsOf": "2026-08-27T00:07:05.019Z"
     }
   ]
 }
