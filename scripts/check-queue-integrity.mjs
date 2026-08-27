@@ -27,6 +27,14 @@ if (!Array.isArray(queue)) {
 const schedule = JSON.parse(await fs.readFile(schedulePath, "utf8"));
 const now = Date.now();
 
+let creatorOfSuffering;
+try {
+  creatorOfSuffering = JSON.parse(process.env.CREATOR_OF_SUFFERING_QUEUE || "null");
+} catch {
+  console.log("FAIL: CREATOR_OF_SUFFERING_QUEUE is not valid JSON. The dedicated secret is corrupt.");
+  process.exit(1);
+}
+
 // Anything not already fully published on Instagram, and not in the past by more
 // than a day, still needs its private payload to exist.
 const upcoming = schedule.posts.filter(post => {
@@ -42,10 +50,17 @@ console.log(`Private queue holds ${queue.length} entr${queue.length === 1 ? "y" 
 console.log(`Checking ${upcoming.length} upcoming/unpublished post(s):\n`);
 
 for (const post of upcoming) {
-  const entry = byId.get(post.id);
+  const isolated = post.instagram?.status === "queued_isolated";
+  const entry = isolated ? creatorOfSuffering : byId.get(post.id);
   if (!entry) {
     console.log(`  MISSING   ${post.scheduledAt}  ${post.id}`);
-    console.log(`            -> no private payload; this post WILL fail at publish time.`);
+    console.log(`            -> no ${isolated ? "dedicated" : "shared"} private payload; this post WILL fail at publish time.`);
+    problems++;
+    continue;
+  }
+  if (isolated && entry.id && entry.id !== post.id) {
+    console.log(`  MISMATCH  ${post.scheduledAt}  ${post.id}`);
+    console.log("            -> dedicated private payload has a different id.");
     problems++;
     continue;
   }
@@ -62,7 +77,7 @@ for (const post of upcoming) {
   const norm = v => String(v || "").normalize("NFKC").replace(/\s+/g, " ").trim().toLocaleLowerCase("en");
   const captionOk = !post.captionMatch || norm(entry.caption).startsWith(norm(post.captionMatch));
   console.log(`  OK        ${post.scheduledAt}  ${post.id}`);
-  console.log(`            -> payload present (cover: ${entry.coverUrl ? "yes" : "no"}, caption matches schedule: ${captionOk ? "yes" : "NO"})`);
+  console.log(`            -> ${isolated ? "dedicated" : "shared"} payload present (cover: ${entry.coverUrl ? "yes" : "no"}, caption matches schedule: ${captionOk ? "yes" : "NO"})`);
   if (!captionOk) {
     console.log(`            -> WARNING: caption does not start with this post's captionMatch.`);
     problems++;
@@ -79,6 +94,7 @@ if (orphans.length) {
 }
 
 console.log(`\nAll private queue ids currently stored: ${queue.map(i => i.id).join(", ") || "(none)"}`);
+console.log(`Dedicated Creator of Suffering payload: ${creatorOfSuffering ? "present" : "missing"}`);
 
 if (problems) {
   console.log(`\nRESULT: ${problems} problem(s) found. Fix before the affected slot arrives.`);

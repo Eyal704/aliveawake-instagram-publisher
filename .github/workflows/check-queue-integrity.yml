@@ -2,7 +2,7 @@ name: Check publishing queue integrity
 
 # Answers the question nobody could answer before: does every upcoming post
 # actually have its private video/caption payload, or will it fail at publish
-# time? ALIVEAWAKE_QUEUE_JSON is write-only, so only a workflow can read it.
+# time? The queue secrets are write-only, so only a workflow can read them.
 #
 # Read-only: never writes the secret, never publishes, never commits.
 # Prints post ids and booleans only -- no secret values.
@@ -24,6 +24,7 @@ jobs:
     timeout-minutes: 5
     env:
       ALIVEAWAKE_QUEUE_JSON: ${{ secrets.ALIVEAWAKE_QUEUE_JSON }}
+      CREATOR_OF_SUFFERING_QUEUE: ${{ secrets.CREATOR_OF_SUFFERING_QUEUE }}
     steps:
       - uses: actions/checkout@v4
         with:
