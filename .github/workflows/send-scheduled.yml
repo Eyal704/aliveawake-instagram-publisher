@@ -1,0 +1,59 @@
+name: Send Reel scheduled alert
+
+on:
+  workflow_dispatch:
+    inputs:
+      reel_title:
+        description: "Reel title"
+        required: true
+        type: string
+      scheduled_slot:
+        description: "Confirmed Vienna slot"
+        required: true
+        type: string
+      video_url:
+        description: "Stable public video URL"
+        required: true
+        type: string
+
+permissions: {}
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      REEL_TITLE: ${{ inputs.reel_title }}
+      SCHEDULED_SLOT: ${{ inputs.scheduled_slot }}
+      VIDEO_URL: ${{ inputs.video_url }}
+    steps:
+      - name: Send Telegram scheduling confirmation
+        run: |
+          node <<'NODE'
+          const {TELEGRAM_BOT_TOKEN: token, TELEGRAM_CHAT_ID: chatId,
+            REEL_TITLE: title, SCHEDULED_SLOT: slot, VIDEO_URL: videoUrl} = process.env;
+          if (!token || !chatId) throw new Error("Telegram repository secrets are not configured.");
+          const url = new URL(videoUrl);
+          if (url.protocol !== "https:") throw new Error("Video URL must use HTTPS.");
+          const head = await fetch(url, {method: "HEAD", redirect: "follow"});
+          if (!head.ok) throw new Error(`Video URL returned HTTP ${head.status}.`);
+          const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+            method: "POST",
+            headers: {"content-type": "application/json"},
+            body: JSON.stringify({
+              chat_id: chatId,
+              text: [
+                "📅 AliveAwake Reel scheduled",
+                title,
+                `Instagram + Facebook: ${slot}`,
+                "Publication will be verified separately after the slot."
+              ].join("\n"),
+              reply_markup: {inline_keyboard: [[{text: "▶️ Review scheduled video", url: videoUrl}]]}
+            })
+          });
+          if (!response.ok) throw new Error(`Telegram send failed with HTTP ${response.status}.`);
+          const result = await response.json();
+          if (!result.ok) throw new Error("Telegram did not confirm delivery.");
+          NODE
