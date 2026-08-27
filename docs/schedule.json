@@ -160,6 +160,25 @@
         "scheduledPostId": "299121263767927_1354934136720787"
       },
       "note": "Video/thumbnail hosted at https://eyal704.github.io/aliveawake-instagram-publisher/pending-video/ (verified live). Facebook scheduled and verified via FACEBOOK_GET_SCHEDULED_POSTS. Instagram scheduled via a standalone one-off workflow (own secret, no shared-queue risk) -- see instagram.note."
+    },
+    {
+      "id": "2026-08-28-2000-stop-blaming",
+      "scheduledAt": "2026-08-28T20:00:00+02:00",
+      "title": "Stop Blaming Others For Your Reality",
+      "captionMatch": "Blaming your parents for how they raised you",
+      "overall": "scheduled",
+      "instagram": {
+        "status": "queued_isolated",
+        "verified": false,
+        "note": "Handled by its own dedicated GitHub Actions workflow (.github/workflows/publish-stop-blaming.yml) and its own secret (STOP_BLAMING_QUEUE) -- isolated from the shared ALIVEAWAKE_QUEUE_JSON array, includes the CI redaction fix from creation. Runs on its own 5-min cron."
+      },
+      "facebook": {
+        "status": "scheduled",
+        "verified": true,
+        "videoId": "4251828485037889",
+        "scheduledPostId": "299121263767927_1355533733327494"
+      },
+      "note": "Video/thumbnail hosted at https://eyal704.github.io/aliveawake-instagram-publisher/pending-video/ (verified live). Facebook scheduled and verified via FACEBOOK_GET_SCHEDULED_POSTS."
     }
   ],
   "cadenceNote": "3 Reels/day (10:00, 15:00, 20:00 Vienna) through Tue 1 Sep 2026. From Wed 2 Sep 2026: 4 Reels/day (09:00, 13:00, 17:00, 21:00 Vienna). Update the 'cadence' array above to the new times once Wednesday's slots are actually in use.",
