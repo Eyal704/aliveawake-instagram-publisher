@@ -175,7 +175,26 @@ Because of this:
 - If you don't have that (e.g., a fresh session, or you don't know what a prior session put there), **stop and ask the user** rather than guessing, reconstructing from `schedule.json` alone (it doesn't contain the private fields), or assuming "it's probably just these few posts." A wrong guess is worse than asking.
 - Whenever you *do* set this secret, keep your own local copy of exactly what you wrote (a scratch file, or state it plainly in your response) — there is no other way for a future session (yours or another agent's) to recover it later. This project does not currently have a safer alternative to this write-only secret; treat every write as effectively permanent and irreversible for whoever comes after you.
 
-**On the "CI redaction" gotcha (2026-08-26 root-cause fix — don't reintroduce this):** the Composio CLI silently redacts every `id`-shaped field in its output to the literal string `"<REDACTED>"` whenever it sees `CI=true` in the environment (undocumented; verified by decompiling the CLI). GitHub Actions sets `CI=true` by default, which broke every ID-based match in these workflows until `CI: "false"` was added to each job's `env:` block. If you're editing these workflows and see an ID comparison mysteriously never matching in CI logs while working fine locally, this is almost certainly why — check that `CI: "false"` is still present before assuming a new bug.
+**Verify a secret write instead of trusting it.** `.github/workflows/check-queue-integrity.yml` runs inside CI — the only place a write-only secret can be read — and compares the private queue against every unpublished row in `docs/schedule.json`, printing `OK` / `MISSING` / `INCOMPLETE` per post plus every stored id (ids and booleans only, never secret values). It runs twice daily and on demand:
+
+```bash
+gh workflow run check-queue-integrity.yml --repo Eyal704/aliveawake-instagram-publisher --ref main
+```
+
+Run it immediately after any write to a queue secret. It is the only way to see what the secret now contains, and it catches a missing or wrong-caption payload hours ahead instead of at the slot. **But a green run is necessary, not sufficient** — it proves the payload exists, not that the publisher can consume it. On 2026-08-27 a post passed the checker while its publisher would still have failed every run, because of the redaction bug below.
+
+**The Composio CLI id-redaction trap — the single worst gotcha here (verified 2026-08-27):** the CLI silently replaces every id-shaped field in its JSON output with the literal string `"<REDACTED>"` whenever it sees `CI=true`. GitHub Actions sets `CI=true` on every job by default. Undocumented — found by decompiling the CLI (`CI_REDACTION_ENABLED` derives from `CI`) and confirmed by reproducing it locally.
+
+It is destructive because `<REDACTED>` is *non-empty*, so it sails past `// empty` and `-z` guards. You never get a clean error — you get a comparison that can never match, or a real API call made with a garbage id:
+
+- `container_id=$(jq -r '.data.id // empty')` becomes `<REDACTED>`, passes the guard, then every status check on it fails forever while each run still creates a real orphaned container.
+- A Facebook preflight matching on video id never matches, so the workflow aborts before publishing even though everything is fine. This silently blocked the Instagram half of two slots on 2026-08-26.
+
+**Every workflow calling Composio must set `CI: "false"` in its job `env:`.** All five current ones do (`process-due-instagram`, `verify-dashboard`, `publish-instagram-via-composio`, `update-analytics`, `publish-creator-of-suffering`). Add it when you create a new one, not after it fails. If an id comparison works locally but never matches in CI, check this before hunting a logic bug — and never "fix" it by loosening the comparison, which hides the bug and removes a real safety check.
+
+**Isolated single-post queues.** Because adding to the shared array means rewriting it wholesale, a single post can instead get its own dedicated secret and its own self-contained workflow, with its `schedule.json` status set to something the shared poller ignores (`queued_isolated` rather than `queued_cloud`), and the workflow deleting its own secret after a verified publish. Nothing else can be corrupted. If you use this: the shared poller will never touch that post, so its dedicated workflow owns everything — its own trigger, `CI: "false"`, duplicate check, and verification — and it must be added to the integrity checker or the post becomes invisible to validation.
+
+**Report status honestly:** `registered` → `prepared` → `scheduled` → `published` → `independently verified`. A green run, a built container, or a dashboard row reading "scheduled" is none of those. "Processed N posts" in the poller log usually means it found nothing due. As of 2026-08-27 15:01 Vienna the queue has published unattended exactly once (run `33074655218`); every prior Instagram publication in this project was done manually after automation failed. Posts land 0–5 minutes after their slot because the poller wakes every five minutes — that latency is by design, not a fault.
 
 ### 9. Trigger an immediate one-shot publish (only when the user explicitly wants it live *right now*, not scheduled)
 
