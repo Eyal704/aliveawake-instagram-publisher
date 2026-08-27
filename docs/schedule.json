@@ -5,7 +5,7 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-08-27T11:56:49.384Z",
+  "updatedAt": "2026-08-27T12:01:24.340Z",
   "lastCheckedAt": "2026-08-27T11:56:49.384Z",
   "posts": [
     {
@@ -107,7 +107,9 @@
       "overall": "scheduled",
       "instagram": {
         "status": "queued_cloud",
-        "verified": false
+        "verified": false,
+        "containerId": "17979079077083484",
+        "containerCreatedAt": "2026-08-27T12:01:24.338Z"
       },
       "facebook": {
         "status": "scheduled",
