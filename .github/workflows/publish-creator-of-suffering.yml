@@ -24,6 +24,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
+      # REQUIRED: GitHub sets CI=true, which makes the Composio CLI silently
+      # replace every id field with the literal string "<REDACTED>". This
+      # workflow reads .data.id for the container and media ids, so without
+      # this override container_id becomes "<REDACTED>" -- non-empty, so it
+      # passes the guard -- and every subsequent status check fails forever.
+      CI: "false"
       COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
       COMPOSIO: /home/runner/.composio/composio
       IG_ACCOUNT: aliveawake-main
