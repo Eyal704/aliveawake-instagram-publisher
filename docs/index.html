@@ -78,7 +78,7 @@
 
     .pill { display: inline-flex; gap: 7px; align-items: center; border-radius: 999px; padding: 7px 10px; font-size: 12px; font-weight: 750; white-space: nowrap; }
     .pill.published { color: var(--green); background: var(--green-bg); }
-    .pill.scheduled, .pill.queued_cloud { color: var(--blue); background: var(--blue-bg); }
+    .pill.scheduled, .pill.queued_cloud, .pill.queued_isolated { color: var(--blue); background: var(--blue-bg); }
     .pill.queued_local, .pill.scheduled_with_risk { color: var(--amber); background: var(--amber-bg); }
     .pill.not_scheduled, .pill.needs_attention, .pill.missing, .pill.failed, .pill.duplicate { color: var(--red); background: var(--red-bg); }
     .pill.publishing { color: var(--amber); background: var(--amber-bg); }
@@ -312,6 +312,7 @@
       published: "✓ Posted",
       scheduled: "Scheduled",
       queued_cloud: "Cloud queued",
+      queued_isolated: "Isolated queue",
       queued_local: "Local queue",
       scheduled_with_risk: "Scheduled · risk",
       not_scheduled: "Not scheduled",
