@@ -5,8 +5,8 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-08-28T05:11:12.186Z",
-  "lastCheckedAt": "2026-08-28T05:06:52.190Z",
+  "updatedAt": "2026-08-28T05:11:42.491Z",
+  "lastCheckedAt": "2026-08-28T05:11:42.491Z",
   "posts": [
     {
       "id": "2026-08-26-1000-when-life-tells-you-to-leave",
@@ -19,14 +19,14 @@
         "verified": true,
         "mediaId": "18619114822004455",
         "url": "https://www.instagram.com/reel/DcfzjCblZbJ/",
-        "verifiedAt": "2026-08-28T05:06:52.188Z"
+        "verifiedAt": "2026-08-28T05:11:42.490Z"
       },
       "facebook": {
         "status": "published",
         "verified": true,
         "videoId": "2951550651863116",
         "url": "/reel/2951550651863116/",
-        "verifiedAt": "2026-08-28T05:06:52.188Z"
+        "verifiedAt": "2026-08-28T05:11:42.491Z"
       },
       "note": "Recovered and verified on both platforms."
     },
@@ -41,14 +41,14 @@
         "verified": true,
         "mediaId": "18101807657205807",
         "url": "https://www.instagram.com/reel/Dcf0ro4kaOs/",
-        "verifiedAt": "2026-08-28T05:06:52.189Z"
+        "verifiedAt": "2026-08-28T05:11:42.491Z"
       },
       "facebook": {
         "status": "published",
         "verified": true,
         "videoId": "1801041707578795",
         "url": "/reel/1801041707578795/",
-        "verifiedAt": "2026-08-28T05:06:52.189Z"
+        "verifiedAt": "2026-08-28T05:11:42.491Z"
       },
       "note": "Recovered manually: the dedicated cloud workflow (run 32962210254) aborted on a false-positive Facebook-preflight check (strict exact-timestamp match, no tolerance) 10 minutes before Facebook's own native scheduler successfully published on time. Instagram's container was already FINISHED, so it was published directly and verified on both platforms; the poller had also skipped this slot because a workflowRun was already attached to it."
     },
@@ -64,14 +64,14 @@
         "mediaId": "18003267704786861",
         "url": "https://www.instagram.com/reel/DciVl0vE_1Y/",
         "containerId": "17979056646083484",
-        "verifiedAt": "2026-08-28T05:06:52.189Z"
+        "verifiedAt": "2026-08-28T05:11:42.491Z"
       },
       "facebook": {
         "status": "published",
         "verified": true,
         "videoId": "1535258637891461",
         "url": "/reel/1535258637891461/",
-        "verifiedAt": "2026-08-28T05:06:52.189Z"
+        "verifiedAt": "2026-08-28T05:11:42.491Z"
       },
       "note": "Published Thu 27 Aug ~10:17 Vienna (17 min late). The automated build failed with 'Private queue payload is missing' because this post never had an entry in ALIVEAWAKE_QUEUE_JSON -- its original publish used a pre-built container, so the private entry was never needed until it was rescheduled for a fresh from-scratch build. Recovered by building the container manually from the already-public GitHub release assets (media-2026-08-26-location-shapes-creation-01) and publishing. Facebook side went live 2026-08-26 at its original slot and is unchanged. LESSON: rescheduling a post for a fresh build requires confirming its ALIVEAWAKE_QUEUE_JSON entry exists.",
       "alert": {
@@ -92,7 +92,7 @@
         "containerCreatedAt": "2026-08-27T07:01:14.057Z",
         "mediaId": "17929650105147864",
         "url": "https://www.instagram.com/reel/DciM-ZHkZrq/",
-        "verifiedAt": "2026-08-28T05:06:52.189Z"
+        "verifiedAt": "2026-08-28T05:11:42.491Z"
       },
       "facebook": {
         "status": "published",
@@ -100,7 +100,7 @@
         "videoId": "2138202303458376",
         "scheduledPostId": "299121263767927_1354140006800200",
         "url": "/reel/2138202303458376/",
-        "verifiedAt": "2026-08-28T05:06:52.189Z"
+        "verifiedAt": "2026-08-28T05:11:42.491Z"
       },
       "note": "Pushed one slot later (Thu 10:00 -> 15:00) to make room for the recovered Wed 20:00 video at Thu 10:00. Facebook natively rescheduled to 2026-08-27T13:00:00Z and confirmed."
     },
@@ -117,7 +117,7 @@
         "containerCreatedAt": "2026-08-27T12:01:24.338Z",
         "mediaId": "18143782648561064",
         "url": "https://www.instagram.com/reel/DcivVtLlAc3/",
-        "verifiedAt": "2026-08-28T05:06:52.189Z"
+        "verifiedAt": "2026-08-28T05:11:42.491Z"
       },
       "facebook": {
         "status": "published",
@@ -125,7 +125,7 @@
         "videoId": "1033723976122047",
         "scheduledPostId": "299121263767927_1354404740107060",
         "url": "/reel/1033723976122047/",
-        "verifiedAt": "2026-08-28T05:06:52.189Z"
+        "verifiedAt": "2026-08-28T05:11:42.491Z"
       },
       "note": "Pushed one slot later (Thu 15:00 -> 20:00) to make room for the recovered Wed 20:00 video at Thu 10:00. Facebook natively rescheduled to 2026-08-27T18:00:00Z and confirmed."
     },
