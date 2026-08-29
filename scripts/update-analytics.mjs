@@ -1,12 +1,11 @@
 import fs from "node:fs/promises";
 import { head, put } from "@vercel/blob";
+import { executeComposioTool } from "./lib/composio.mjs";
 
 const analyticsPath = new URL("../docs/analytics.json", import.meta.url);
 const historyPath = new URL("../docs/analytics-history.json", import.meta.url);
 const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
 
-const composio = process.env.COMPOSIO || `${process.env.HOME}/.composio/composio`;
-const composioApiKey = process.env.COMPOSIO_API_KEY;
 const igAccount = process.env.IG_ACCOUNT || "aliveawake-main";
 const igConnectedAccountId = process.env.IG_CONNECTED_ACCOUNT_ID;
 const igUserId = process.env.IG_USER_ID || "28033607902927427";
@@ -20,50 +19,8 @@ const IG_REEL_METRICS = [
   "total_interactions", "ig_reels_avg_watch_time", "ig_reels_video_view_total_time",
 ];
 
-// The Composio CLI writes large tool outputs to a local temp file instead of
-// inlining them (result.storedInFile === true, result.data left undefined) --
-// confirmed 2026-08-29: INSTAGRAM_GET_IG_USER_MEDIA at this script's real
-// limit:100 always crossed that size threshold, so every Instagram fetch
-// silently returned zero reels for as long as this dashboard has existed
-// (result.successful stayed true and result.error stayed null, so callRaw's
-// own error check never caught it -- it looked like "succeeded with no
-// data" rather than a failure). The Facebook fetch stayed under the
-// threshold, which is why Facebook data was always populating fine while
-// Instagram was silently empty. Always resolve storedInFile before
-// returning, for both the CLI and the direct-HTTP path.
-async function resolveResult(result) {
-  if (result.data !== undefined) return result;
-  if (result.storedInFile && result.outputFilePath) {
-    const fileRaw = await fs.readFile(result.outputFilePath, "utf8");
-    return JSON.parse(fileRaw);
-  }
-  return result;
-}
-
-// --- Composio execution (same dual-path pattern as scripts/verify-dashboard.mjs) ---
 async function callRaw(tool, account, connectedAccountId, payload) {
-  if (composioApiKey && connectedAccountId) {
-    const response = await fetch(`https://backend.composio.dev/api/v3.1/tools/execute/${tool}`, {
-      method: "POST",
-      headers: { "content-type": "application/json", "x-api-key": composioApiKey },
-      body: JSON.stringify({ connected_account_id: connectedAccountId, version: "latest", arguments: payload }),
-    });
-    const raw = await response.text();
-    if (!response.ok || !raw) throw new Error(`${tool} API request failed (HTTP ${response.status}): ${raw || "empty output"}`);
-    const result = await resolveResult(JSON.parse(raw));
-    if (result.successful === false || result.error) throw new Error(`${tool} failed: ${JSON.stringify(result.error || result)}`);
-    return result.data;
-  }
-
-  const { spawnSync } = await import("node:child_process");
-  const proc = spawnSync(composio, ["execute", tool, "--account", account, "-d", JSON.stringify(payload)], {
-    encoding: "utf8",
-    stdio: ["ignore", "pipe", "pipe"],
-  });
-  const raw = proc.stdout.trim();
-  if (proc.status !== 0 || !raw) throw new Error(`${tool} returned no usable JSON (exit ${proc.status}): ${proc.stderr.trim() || "empty output"}`);
-  const result = await resolveResult(JSON.parse(raw));
-  if (result.successful === false || result.error) throw new Error(`${tool} failed: ${JSON.stringify(result.error || result)}`);
+  const result = await executeComposioTool(tool, account, connectedAccountId, payload);
   return result.data;
 }
 
@@ -141,6 +98,9 @@ async function fetchInstagram(previousReels) {
     limit: 100,
     fields: "id,caption,permalink,timestamp,media_product_type",
   })).filter((item) => item.media_product_type === "REELS");
+  if (media.length === 0) {
+    throw new Error(`Instagram returned zero Reels for an account that is expected to contain published media (previously verified: ${previousReels.length}); refusing to treat this as a successful refresh.`);
+  }
 
   const previousById = new Map(previousReels.map((r) => [r.id, r]));
 
@@ -252,6 +212,9 @@ async function fetchFacebook(previousReels) {
     }),
   ]);
   const videoCore = asList(videoCoreRaw);
+  if (videoCore.length === 0) {
+    throw new Error(`Facebook returned zero videos for a Page that is expected to contain published media (previously verified: ${previousReels.length}); refusing to treat this as a successful refresh.`);
+  }
   const pictureById = new Map(asList(videoPictureRaw).map((v) => [v.id, v.picture]));
   const engagementById = new Map(asList(videoEngagementRaw).map((v) => [v.id, v]));
   const videos = videoCore
@@ -418,6 +381,12 @@ async function main() {
   await fs.writeFile(analyticsPath, `${JSON.stringify(output, null, 2)}\n`);
   const missingThumbs = output.reels.filter((r) => !r.thumbnailUrl).length;
   console.log(`Analytics updated. Instagram stale=${stale.instagram}, Facebook stale=${stale.facebook}. Reels tracked: ${output.reels.length}. Missing thumbnails: ${missingThumbs}.`);
+  if (stale.instagram || stale.facebook) {
+    throw new Error(`Analytics refresh is stale for: ${[
+      stale.instagram && "Instagram",
+      stale.facebook && "Facebook",
+    ].filter(Boolean).join(", ")}. Prior verified platform data was preserved.`);
+  }
 }
 
 main().catch((err) => {

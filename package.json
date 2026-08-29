@@ -8,7 +8,9 @@
     "node": ">=18"
   },
   "scripts": {
-    "publish": "node publish.js"
+    "publish": "node publish.js",
+    "audit:composio": "node scripts/audit-composio-callers.mjs",
+    "test": "node --test scripts/lib/composio.test.mjs && npm run audit:composio"
   },
   "dependencies": {
     "@vercel/blob": "^2.8.0"

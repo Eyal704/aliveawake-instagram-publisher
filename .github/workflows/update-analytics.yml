@@ -30,6 +30,8 @@ jobs:
       FB_ACCOUNT: facebook_urushi-influx
       FB_PAGE_ID: "299121263767927"
       BLOB_READ_WRITE_TOKEN: ${{ secrets.BLOB_READ_WRITE_TOKEN }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -51,7 +53,22 @@ jobs:
           "$COMPOSIO" whoami
 
       - name: Fetch Instagram and Facebook analytics
+        id: analytics
         run: node scripts/update-analytics.mjs
+
+      - name: Alert when analytics safety checks fail
+        if: failure() && steps.analytics.outcome == 'failure'
+        continue-on-error: true
+        run: |
+          if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+            echo "Telegram is not configured; the failed workflow remains the loud guardrail."
+            exit 0
+          fi
+          message="⚠️ AliveAwake analytics refresh failed. A platform call failed or returned an impossible zero-media result; prior verified data was preserved. Check the Update AliveAwake analytics dashboard workflow."
+          payload=$(jq -n --arg chat_id "$TELEGRAM_CHAT_ID" --arg text "$message" \
+            '{chat_id:$chat_id,text:$text,disable_web_page_preview:true}')
+          curl -fsS -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -H "content-type: application/json" -d "$payload" >/dev/null
 
       - name: Save updated analytics
         run: |

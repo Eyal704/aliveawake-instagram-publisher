@@ -1,9 +1,7 @@
 import fs from "node:fs/promises";
-import { spawnSync } from "node:child_process";
+import { executeComposioTool } from "./lib/composio.mjs";
 
 const schedulePath = new URL("../docs/schedule.json", import.meta.url);
-const composio = process.env.COMPOSIO || `${process.env.HOME}/.composio/composio`;
-const composioApiKey = process.env.COMPOSIO_API_KEY;
 const igAccount = process.env.IG_ACCOUNT || "aliveawake-main";
 const igConnectedAccountId = process.env.IG_CONNECTED_ACCOUNT_ID;
 const igUserId = process.env.IG_USER_ID || "28033607902927427";
@@ -12,43 +10,11 @@ const fbConnectedAccountId = process.env.FB_CONNECTED_ACCOUNT_ID;
 const fbPageId = process.env.FB_PAGE_ID || "299121263767927";
 
 async function execute(tool, account, connectedAccountId, payload) {
-  if (composioApiKey && connectedAccountId) {
-    const response = await fetch(`https://backend.composio.dev/api/v3.1/tools/execute/${tool}`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        "x-api-key": composioApiKey
-      },
-      body: JSON.stringify({
-        connected_account_id: connectedAccountId,
-        version: "latest",
-        arguments: payload
-      })
-    });
-    const raw = await response.text();
-    if (!response.ok || !raw) {
-      throw new Error(`${tool} API request failed (HTTP ${response.status}): ${raw || "empty output"}`);
-    }
-    const result = JSON.parse(raw);
-    if (result.successful === false || result.error) {
-      throw new Error(`${tool} failed: ${JSON.stringify(result.error || result)}`);
-    }
-    return result.data?.data || [];
+  const result = await executeComposioTool(tool, account, connectedAccountId, payload);
+  if (!Array.isArray(result.data?.data)) {
+    throw new Error(`${tool} returned no data.data array.`);
   }
-
-  const process = spawnSync(composio, ["execute", tool, "--account", account, "-d", JSON.stringify(payload)], {
-    encoding: "utf8",
-    stdio: ["ignore", "pipe", "pipe"]
-  });
-  const raw = process.stdout.trim();
-  if (process.status !== 0 || !raw) {
-    throw new Error(`${tool} returned no usable JSON (exit ${process.status}): ${process.stderr.trim() || "empty output"}`);
-  }
-  const result = JSON.parse(raw);
-  if (result.successful === false || result.error) {
-    throw new Error(`${tool} failed: ${JSON.stringify(result.error || result)}`);
-  }
-  return result.data?.data || [];
+  return result.data.data;
 }
 
 function normalize(value = "") {

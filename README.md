@@ -33,6 +33,25 @@ cp .env.example .env
 npm run publish
 ```
 
+## Composio output safety
+
+The Composio CLI can offload a large tool result to a temporary file and print
+`{"storedInFile":true,"outputFilePath":"..."}` without an inline `data` key.
+Never parse raw `composio execute` stdout directly.
+
+- Node scripts call `executeComposioTool` or `executeComposioCli` from
+  `scripts/lib/composio.mjs`.
+- GitHub Actions capture resolved JSON through the shared wrapper:
+
+```bash
+result=$(bash scripts/composio-execute.sh INSTAGRAM_GET_IG_USER_MEDIA \
+  --account "$IG_ACCOUNT" -d "$payload")
+items=$(jq '.data.data | length' <<<"$result")
+```
+
+`npm test` verifies both inline and offloaded response shapes and rejects new
+raw Composio callers that bypass these helpers.
+
 ## Thumbnail selection
 
 - **`THUMB_OFFSET`** (milliseconds) — Instagram grabs a frame from within the video itself at that timestamp. Simplest option, no extra hosting needed.

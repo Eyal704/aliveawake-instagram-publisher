@@ -70,7 +70,7 @@ jobs:
           video_url=$(jq -r '.videoUrl' <<<"$QUEUE_JSON")
           cover_url=$(jq -r '.coverUrl' <<<"$QUEUE_JSON")
           caption=$(jq -r '.caption' <<<"$QUEUE_JSON")
-          created=$("$COMPOSIO" execute INSTAGRAM_POST_IG_USER_MEDIA \
+          created=$(bash scripts/composio-execute.sh INSTAGRAM_POST_IG_USER_MEDIA \
             --account "$IG_ACCOUNT" \
             -d "$(jq -n --arg u "$IG_USER_ID" --arg v "$video_url" --arg c "$cover_url" --arg cap "$caption" \
               '{ig_user_id:$u, video_url:$v, cover_url:$c, caption:$cap, media_type:"REELS", share_to_feed:true}')")
@@ -84,7 +84,7 @@ jobs:
         if: steps.gate.outputs.done != 'true'
         run: |
           for i in $(seq 1 40); do
-            result=$("$COMPOSIO" execute INSTAGRAM_GET_POST_STATUS --account "$IG_ACCOUNT" \
+            result=$(bash scripts/composio-execute.sh INSTAGRAM_GET_POST_STATUS --account "$IG_ACCOUNT" \
               -d "{\"creation_id\":\"${{ steps.container.outputs.container_id }}\"}")
             status=$(jq -r '.data.status_code // empty' <<<"$result")
             if [ "$status" = "FINISHED" ]; then echo "Container ready."; exit 0; fi
@@ -103,7 +103,7 @@ jobs:
       - name: Verify exact Facebook scheduled object
         if: steps.gate.outputs.done != 'true'
         run: |
-          result=$("$COMPOSIO" execute FACEBOOK_GET_SCHEDULED_POSTS --account "$FB_ACCOUNT" \
+          result=$(bash scripts/composio-execute.sh FACEBOOK_GET_SCHEDULED_POSTS --account "$FB_ACCOUNT" \
             -d "{\"page_id\":\"$FB_PAGE_ID\",\"limit\":100,\"fields\":\"id,scheduled_publish_time,is_published\"}")
           matches=$(jq --arg id "$FACEBOOK_SCHEDULED_POST_ID" --argjson epoch "$PUBLISH_AT_EPOCH" \
             '[.data.data[]? | select(.id == $id and .scheduled_publish_time == $epoch and .is_published == false)] | length' <<<"$result")
@@ -119,7 +119,7 @@ jobs:
           # is in neither state, which is the real signal it was cancelled or
           # never existed. (Without this, a late run aborts before Instagram
           # publishes even though nothing is wrong -- observed 2026-08-29.)
-          video_result=$("$COMPOSIO" execute FACEBOOK_GET_PAGE_VIDEOS \
+          video_result=$(bash scripts/composio-execute.sh FACEBOOK_GET_PAGE_VIDEOS \
             --account "$FB_ACCOUNT" \
             -d "{\"page_id\":\"$FB_PAGE_ID\",\"limit\":25,\"fields\":\"id,status\"}")
           published=$(jq --arg id "$FACEBOOK_VIDEO_ID" \
@@ -145,7 +145,7 @@ jobs:
           caption=$(jq -r '.caption' <<<"$QUEUE_JSON")
           prefix=$(echo "$caption" | head -c 40 | tr '[:upper:]' '[:lower:]')
           since=$((PUBLISH_AT_EPOCH - 21600))
-          result=$("$COMPOSIO" execute INSTAGRAM_GET_IG_USER_MEDIA --account "$IG_ACCOUNT" \
+          result=$(bash scripts/composio-execute.sh INSTAGRAM_GET_IG_USER_MEDIA --account "$IG_ACCOUNT" \
             -d "{\"ig_user_id\":\"$IG_USER_ID\",\"since\":$since,\"limit\":50,\"fields\":\"id,caption,permalink,timestamp\"}")
           matches=$(jq --arg p "$prefix" '[.data.data[]? | select(((.caption // "") | ascii_downcase) | startswith($p))] | length' <<<"$result")
           if [ "$matches" -gt 0 ]; then echo "duplicate=true" >> "$GITHUB_OUTPUT"; else echo "duplicate=false" >> "$GITHUB_OUTPUT"; fi
@@ -153,7 +153,7 @@ jobs:
       - name: Publish Instagram Reel
         if: steps.gate.outputs.done != 'true' && steps.duplicate.outputs.duplicate != 'true'
         run: |
-          result=$("$COMPOSIO" execute INSTAGRAM_POST_IG_USER_MEDIA_PUBLISH --account "$IG_ACCOUNT" \
+          result=$(bash scripts/composio-execute.sh INSTAGRAM_POST_IG_USER_MEDIA_PUBLISH --account "$IG_ACCOUNT" \
             -d "{\"ig_user_id\":\"$IG_USER_ID\",\"creation_id\":\"${{ steps.container.outputs.container_id }}\",\"max_wait_seconds\":300,\"poll_interval_seconds\":5}")
           media_id=$(jq -r '.data.id // empty' <<<"$result")
           if [ -z "$media_id" ]; then echo "Publish failed:"; echo "$result"; exit 1; fi
@@ -162,7 +162,7 @@ jobs:
       - name: Verify Instagram Reel live
         if: steps.gate.outputs.done != 'true' && steps.duplicate.outputs.duplicate != 'true'
         run: |
-          result=$("$COMPOSIO" execute INSTAGRAM_GET_IG_USER_MEDIA --account "$IG_ACCOUNT" \
+          result=$(bash scripts/composio-execute.sh INSTAGRAM_GET_IG_USER_MEDIA --account "$IG_ACCOUNT" \
             -d "{\"ig_user_id\":\"$IG_USER_ID\",\"since\":$((PUBLISH_AT_EPOCH - 600)),\"limit\":10,\"fields\":\"id,caption,permalink,username\"}")
           permalink=$(jq -r '.data.data[0].permalink // empty' <<<"$result")
           test -n "$permalink"

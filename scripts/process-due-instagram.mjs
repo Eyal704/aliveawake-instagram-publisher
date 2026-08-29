@@ -1,8 +1,7 @@
 import fs from "node:fs/promises";
-import { spawnSync } from "node:child_process";
+import { executeComposioCli } from "./lib/composio.mjs";
 
 const schedulePath = new URL("../docs/schedule.json", import.meta.url);
-const composio = process.env.COMPOSIO || `${process.env.HOME}/.composio/composio`;
 const igAccount = process.env.IG_ACCOUNT || "aliveawake-main";
 const igUserId = process.env.IG_USER_ID || "28033607902927427";
 const queue = JSON.parse(process.env.ALIVEAWAKE_QUEUE_JSON || "[]");
@@ -13,19 +12,8 @@ const recoveryWindowMs = 6 * 60 * 60 * 1000;
 const MAX_ATTEMPTS = 5;
 let failed = false;
 
-function execute(tool, payload) {
-  const process = spawnSync(composio, ["execute", tool, "--account", igAccount, "-d", JSON.stringify(payload)], {
-    encoding: "utf8",
-    stdio: ["ignore", "pipe", "pipe"]
-  });
-  const raw = process.stdout.trim();
-  if (process.status !== 0 || !raw) {
-    throw new Error(`${tool} returned no usable response: ${process.stderr.trim() || `exit ${process.status}`}`);
-  }
-  const result = JSON.parse(raw);
-  if (result.successful === false || result.error) {
-    throw new Error(`${tool} failed: ${JSON.stringify(result.error || result)}`);
-  }
+async function execute(tool, payload) {
+  const result = await executeComposioCli(tool, igAccount, payload);
   return result.data;
 }
 
@@ -63,7 +51,7 @@ for (const post of candidates) {
     const containerAge = now - Date.parse(post.instagram.containerCreatedAt || 0);
     const needsContainer = !containerId || !Number.isFinite(containerAge) || containerAge > 22 * 60 * 60 * 1000;
     if (needsContainer) {
-      const created = execute("INSTAGRAM_POST_IG_USER_MEDIA", {
+      const created = await execute("INSTAGRAM_POST_IG_USER_MEDIA", {
         ig_user_id: igUserId,
         video_url: privatePost.videoUrl,
         cover_url: privatePost.coverUrl,
@@ -90,12 +78,15 @@ for (const post of candidates) {
 
     if (now < due) continue;
 
-    const recent = execute("INSTAGRAM_GET_IG_USER_MEDIA", {
+    const recent = (await execute("INSTAGRAM_GET_IG_USER_MEDIA", {
       ig_user_id: igUserId,
       since: Math.floor((due - recoveryWindowMs) / 1000),
       limit: 100,
       fields: "id,caption,permalink,timestamp,media_product_type"
-    }).data || [];
+    })).data;
+    if (!Array.isArray(recent)) {
+      throw new Error("INSTAGRAM_GET_IG_USER_MEDIA returned no data array.");
+    }
     const prefix = normalize(post.captionMatch);
     const matches = recent.filter(item => normalize(item.caption).startsWith(prefix) && timestampNear(item, due));
     if (matches.length > 1) {
@@ -119,12 +110,12 @@ for (const post of candidates) {
       continue;
     }
 
-    const container = execute("INSTAGRAM_GET_POST_STATUS", {creation_id: containerId});
+    const container = await execute("INSTAGRAM_GET_POST_STATUS", {creation_id: containerId});
     if (container.status_code !== "FINISHED") {
       throw new Error(`Instagram container is ${container.status_code || "unknown"}, not FINISHED.`);
     }
 
-    const published = execute("INSTAGRAM_POST_IG_USER_MEDIA_PUBLISH", {
+    const published = await execute("INSTAGRAM_POST_IG_USER_MEDIA_PUBLISH", {
       ig_user_id: igUserId,
       creation_id: containerId,
       max_wait_seconds: 300,
@@ -132,7 +123,7 @@ for (const post of candidates) {
     });
     if (!published.id) throw new Error("Instagram publish did not return a media ID.");
 
-    const verified = execute("INSTAGRAM_GET_IG_MEDIA", {
+    const verified = await execute("INSTAGRAM_GET_IG_MEDIA", {
       ig_media_id: published.id,
       fields: "id,caption,media_type,media_product_type,permalink,timestamp,username,is_shared_to_feed"
     });

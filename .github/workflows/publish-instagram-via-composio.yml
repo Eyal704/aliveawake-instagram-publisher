@@ -92,7 +92,7 @@ jobs:
 
       - name: Verify processed Instagram container
         run: |
-          result=$("$COMPOSIO" execute INSTAGRAM_GET_POST_STATUS \
+          result=$(bash scripts/composio-execute.sh INSTAGRAM_GET_POST_STATUS \
             --account "$IG_ACCOUNT" \
             -d "{\"creation_id\":\"$CREATION_ID\"}")
           status=$(jq -r '.data.status_code // empty' <<<"$result")
@@ -105,7 +105,7 @@ jobs:
       - name: Verify Facebook native schedule exists
         if: env.FACEBOOK_VIDEO_ID != ''
         run: |
-          result=$("$COMPOSIO" execute FACEBOOK_GET_SCHEDULED_POSTS \
+          result=$(bash scripts/composio-execute.sh FACEBOOK_GET_SCHEDULED_POSTS \
             --account "$FB_ACCOUNT" \
             -d "{\"page_id\":\"$FB_PAGE_ID\",\"limit\":100,\"fields\":\"id,message,scheduled_publish_time,is_published\"}")
           scheduled=$(jq --arg epoch "$PUBLISH_AT_EPOCH" --arg post_id "$FACEBOOK_SCHEDULED_POST_ID" \
@@ -126,7 +126,7 @@ jobs:
           # the exact-match-on-unpublished query correctly found nothing). Treat
           # "already published" as success too; only fail if it's in neither state,
           # which is the real signal that the post was cancelled or never existed.
-          video_result=$("$COMPOSIO" execute FACEBOOK_GET_PAGE_VIDEOS \
+          video_result=$(bash scripts/composio-execute.sh FACEBOOK_GET_PAGE_VIDEOS \
             --account "$FB_ACCOUNT" \
             -d "{\"page_id\":\"$FB_PAGE_ID\",\"limit\":25,\"fields\":\"id,status\"}")
           published=$(jq --arg id "$FACEBOOK_VIDEO_ID" \
@@ -144,7 +144,7 @@ jobs:
         id: duplicate
         run: |
           since=$((PUBLISH_AT_EPOCH - 21600))
-          result=$("$COMPOSIO" execute INSTAGRAM_GET_IG_USER_MEDIA \
+          result=$(bash scripts/composio-execute.sh INSTAGRAM_GET_IG_USER_MEDIA \
             --account "$IG_ACCOUNT" \
             -d "{\"ig_user_id\":\"$IG_USER_ID\",\"since\":$since,\"limit\":100,\"fields\":\"id,caption,permalink,timestamp,media_product_type\"}")
           duplicate=$(jq --arg prefix "$EXPECTED_CAPTION_PREFIX" \
@@ -172,7 +172,7 @@ jobs:
         if: steps.duplicate.outputs.duplicate != 'true'
         id: publish
         run: |
-          result=$("$COMPOSIO" execute INSTAGRAM_POST_IG_USER_MEDIA_PUBLISH \
+          result=$(bash scripts/composio-execute.sh INSTAGRAM_POST_IG_USER_MEDIA_PUBLISH \
             --account "$IG_ACCOUNT" \
             -d "{\"ig_user_id\":\"$IG_USER_ID\",\"creation_id\":\"$CREATION_ID\",\"max_wait_seconds\":300,\"poll_interval_seconds\":5}")
           media_id=$(jq -r '.data.id // empty' <<<"$result")
@@ -188,7 +188,7 @@ jobs:
         env:
           MEDIA_ID: ${{ steps.duplicate.outputs.duplicate == 'true' && steps.duplicate.outputs.media_id || steps.publish.outputs.media_id }}
         run: |
-          result=$("$COMPOSIO" execute INSTAGRAM_GET_IG_MEDIA \
+          result=$(bash scripts/composio-execute.sh INSTAGRAM_GET_IG_MEDIA \
             --account "$IG_ACCOUNT" \
             -d "{\"ig_media_id\":\"$MEDIA_ID\",\"fields\":\"id,caption,media_type,media_product_type,permalink,timestamp,username,is_shared_to_feed\"}")
           permalink=$(jq -r '.data.permalink // empty' <<<"$result")
@@ -208,7 +208,7 @@ jobs:
           if [ "$verify_at" -gt "$now" ]; then
             sleep $((verify_at - now))
           fi
-          result=$("$COMPOSIO" execute FACEBOOK_GET_PAGE_VIDEOS \
+          result=$(bash scripts/composio-execute.sh FACEBOOK_GET_PAGE_VIDEOS \
             --account "$FB_ACCOUNT" \
             -d "{\"page_id\":\"$FB_PAGE_ID\",\"limit\":25,\"fields\":\"id,created_time,description,status,permalink_url\"}")
           published=$(jq --arg id "$FACEBOOK_VIDEO_ID" \
