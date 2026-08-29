@@ -254,6 +254,27 @@
         "url": "/reel/1705580393881694/"
       },
       "note": "Approved video (voice-audio bug fixed, hook panel repositioned, last second trimmed) with Eyal-supplied custom thumbnail. Stable GitHub release assets (media-2026-08-29-everyone-is-your-mirror-01). Facebook scheduled natively for 2026-08-29T15:00:00Z (17:00 Vienna) and verified via FACEBOOK_GET_SCHEDULED_POSTS; Instagram assigned to an isolated cloud scheduler for the same epoch."
+    },
+    {
+      "id": "2026-08-29-2100-way-shows-when-you-walk",
+      "scheduledAt": "2026-08-29T21:00:00+02:00",
+      "title": "The Way Shows When You Walk",
+      "captionMatch": "Clarity rarely arrives before the first step.",
+      "overall": "scheduled",
+      "instagram": {
+        "status": "queued_isolated",
+        "verified": false,
+        "note": "Dedicated GitHub Actions publisher (.github/workflows/publish-way-shows-when-you-walk.yml) and WAY_SHOWS_WHEN_YOU_WALK_QUEUE secret; Worker-dispatched with pre-container and pre-publish duplicate reconciliation."
+      },
+      "facebook": {
+        "status": "scheduled",
+        "verified": true,
+        "videoId": "1374577058137460",
+        "scheduledPostId": "299121263767927_1357261296488071",
+        "scheduledPublishTime": 1788030000,
+        "verifiedAt": "2026-08-29T18:08:00.000Z"
+      },
+      "note": "Approved corrected full-width video v2 and regenerated thumbnail v3. Stable GitHub release assets media-2026-08-29-the-way-shows-when-you-walk-01. Facebook scheduled natively and verified for 21:00 Vienna; Instagram assigned to an isolated cloud publisher for the same epoch."
     }
   ],
   "cadenceNote": "3 Reels/day (10:00, 15:00, 20:00 Vienna) through Tue 1 Sep 2026. From Wed 2 Sep 2026: 4 Reels/day (09:00, 13:00, 17:00, 21:00 Vienna). Update the 'cadence' array above to the new times once Wednesday's slots are actually in use.",
