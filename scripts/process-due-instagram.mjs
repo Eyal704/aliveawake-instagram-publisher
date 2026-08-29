@@ -9,6 +9,8 @@ const queue = JSON.parse(process.env.ALIVEAWAKE_QUEUE_JSON || "[]");
 const now = Date.now();
 const prepareWindowMs = 6 * 60 * 60 * 1000;
 const recoveryWindowMs = 6 * 60 * 60 * 1000;
+// Bounded retry budget for transient failures before a post is marked failed.
+const MAX_ATTEMPTS = 5;
 let failed = false;
 
 function execute(tool, payload) {
@@ -134,11 +136,41 @@ for (const post of candidates) {
       verified: true,
       mediaId: verified.id,
       url: verified.permalink,
-      verifiedAt: new Date().toISOString()
+      verifiedAt: new Date().toISOString(),
+      attempts: undefined,
+      lastError: undefined,
+      lastErrorAt: undefined
     };
   } catch (error) {
-    post.instagram = {...post.instagram, status: "failed", verified: false, lastError: safeError(error)};
-    post.overall = "needs_attention";
+    // A transient error (network blip, Composio CLI hiccup, Meta 5xx) must NOT
+    // permanently remove a post from the queue. The candidate filter above only
+    // picks up status === "queued_cloud", so writing "failed" here used to be a
+    // one-way door: a single 5-second network fault meant the post was never
+    // retried and silently never published. Stay retryable until the attempt
+    // budget is spent, then fail loudly so the Telegram alert fires.
+    const attempts = (post.instagram.attempts || 0) + 1;
+    if (attempts < MAX_ATTEMPTS) {
+      post.instagram = {
+        ...post.instagram,
+        status: "queued_cloud",
+        verified: false,
+        attempts,
+        lastError: safeError(error),
+        lastErrorAt: new Date().toISOString()
+      };
+      console.log(`Attempt ${attempts}/${MAX_ATTEMPTS} failed for ${post.id}; staying queued for retry: ${safeError(error)}`);
+    } else {
+      post.instagram = {
+        ...post.instagram,
+        status: "failed",
+        verified: false,
+        attempts,
+        lastError: safeError(error),
+        lastErrorAt: new Date().toISOString()
+      };
+      post.overall = "needs_attention";
+      console.log(`Attempt ${attempts}/${MAX_ATTEMPTS} failed for ${post.id}; giving up.`);
+    }
     failed = true;
   }
 }
