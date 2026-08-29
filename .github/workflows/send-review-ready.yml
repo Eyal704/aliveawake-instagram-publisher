@@ -21,6 +21,11 @@ on:
         required: false
         default: "Not assigned"
         type: string
+      caption:
+        description: "Full approved social caption text, exactly as it will be posted"
+        required: false
+        default: ""
+        type: string
 
 permissions: {}
 
@@ -39,12 +44,14 @@ jobs:
       VIDEO_URL: ${{ inputs.video_url }}
       THUMBNAIL_URL: ${{ inputs.thumbnail_url }}
       INTENDED_SLOT: ${{ inputs.intended_slot }}
+      CAPTION: ${{ inputs.caption }}
     steps:
       - name: Validate and send Telegram review notification
         run: |
           node <<'NODE'
           const {TELEGRAM_BOT_TOKEN: token, TELEGRAM_CHAT_ID: chatId, REEL_TITLE: title,
-            VIDEO_URL: videoUrl, THUMBNAIL_URL: thumbnailUrl, INTENDED_SLOT: intendedSlot} = process.env;
+            VIDEO_URL: videoUrl, THUMBNAIL_URL: thumbnailUrl, INTENDED_SLOT: intendedSlot,
+            CAPTION: caption} = process.env;
 
           if (!token || !chatId) throw new Error("Telegram repository secrets are not configured.");
           for (const [label, value] of [["video", videoUrl], ["thumbnail", thumbnailUrl]]) {
@@ -55,12 +62,27 @@ jobs:
             if (!response.ok) throw new Error(`${label} URL returned HTTP ${response.status}.`);
           }
 
+          // Telegram caps a single message at 4096 chars. Reserve room for the
+          // surrounding lines/buttons; truncate the caption itself if it's ever
+          // unusually long rather than letting the whole send fail.
+          const MAX_CAPTION_CHARS = 3200;
+
           const lines = [
             "✅ Done! AliveAwake Reel ready for review",
             title,
             `Intended slot: ${intendedSlot} (not scheduled until approval)`,
-            "Watch the finished video and approve the exact video, thumbnail, caption, platforms, and slot before scheduling."
           ];
+          if (caption && caption.trim()) {
+            const trimmed = caption.length > MAX_CAPTION_CHARS
+              ? caption.slice(0, MAX_CAPTION_CHARS) + "\n… (truncated — full caption is in the review package)"
+              : caption;
+            lines.push("", "📝 Caption:", trimmed);
+          }
+          lines.push(
+            "",
+            "Watch the video, check the thumbnail, and read the caption above.",
+            "Reply \"approve\" to schedule as-is, or reply with what to change to keep iterating."
+          );
           const buttons = [[{text: "▶️ Watch video", url: videoUrl}]];
           if (thumbnailUrl) buttons.push([{text: "🖼 View thumbnail", url: thumbnailUrl}]);
 
