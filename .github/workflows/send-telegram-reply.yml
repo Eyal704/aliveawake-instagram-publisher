@@ -1,0 +1,67 @@
+name: Send Telegram reply
+
+# General-purpose "answer back" workflow for the AliveAwake Telegram inbox
+# relay: lets an agent (Claude or Codex, local or cloud) that has read a
+# reply from the inbox and composed a real answer actually deliver it,
+# without ever needing the bot token itself -- it stays server-side here,
+# same as the other notification workflows.
+
+on:
+  workflow_dispatch:
+    inputs:
+      reply_text:
+        description: "The message text to send"
+        required: true
+        type: string
+      reply_to_message_id:
+        description: "Telegram message_id to reply to (threads the reply visually); leave blank to send standalone"
+        required: false
+        default: ""
+        type: string
+
+permissions: {}
+
+concurrency:
+  group: aliveawake-telegram-reply-${{ github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      REPLY_TEXT: ${{ inputs.reply_text }}
+      REPLY_TO_MESSAGE_ID: ${{ inputs.reply_to_message_id }}
+    steps:
+      - name: Send Telegram message
+        run: |
+          node <<'NODE'
+          const {TELEGRAM_BOT_TOKEN: token, TELEGRAM_CHAT_ID: chatId,
+            REPLY_TEXT: text, REPLY_TO_MESSAGE_ID: replyToId} = process.env;
+
+          if (!token || !chatId) throw new Error("Telegram repository secrets are not configured.");
+          if (!text || !text.trim()) throw new Error("reply_text is empty.");
+
+          const MAX_CHARS = 4000;
+          const body = {
+            chat_id: chatId,
+            text: text.length > MAX_CHARS ? text.slice(0, MAX_CHARS) + "\n… (truncated)" : text,
+          };
+          if (replyToId && replyToId.trim()) {
+            const id = Number(replyToId);
+            if (!Number.isInteger(id)) throw new Error("reply_to_message_id must be an integer.");
+            body.reply_parameters = { message_id: id };
+          }
+
+          const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+            method: "POST",
+            headers: {"content-type": "application/json"},
+            body: JSON.stringify(body)
+          });
+          if (!response.ok) throw new Error(`Telegram send failed with HTTP ${response.status}.`);
+          const result = await response.json();
+          if (!result.ok) throw new Error(`Telegram did not confirm delivery: ${JSON.stringify(result)}`);
+          console.log(`Reply delivered, message_id ${result.result.message_id}.`);
+          NODE
