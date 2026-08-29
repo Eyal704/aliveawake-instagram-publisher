@@ -30,6 +30,7 @@ jobs:
       EVERYONE_IS_YOUR_MIRROR_QUEUE: ${{ secrets.EVERYONE_IS_YOUR_MIRROR_QUEUE }}
       WAY_SHOWS_WHEN_YOU_WALK_QUEUE: ${{ secrets.WAY_SHOWS_WHEN_YOU_WALK_QUEUE }}
       STOP_BEING_A_COPY_QUEUE: ${{ secrets.STOP_BEING_A_COPY_QUEUE }}
+      WHEN_YOU_ARE_YOU_QUEUE: ${{ secrets.WHEN_YOU_ARE_YOU_QUEUE }}
     steps:
       - uses: actions/checkout@v4
         with:

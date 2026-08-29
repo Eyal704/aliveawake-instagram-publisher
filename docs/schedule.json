@@ -299,6 +299,26 @@
         "url": "/reel/975733318864596/"
       },
       "note": "Approved video (4 overlays: mirror-selfie, personal journal page, path-to-mountain, sunrise) and Eyal-supplied thumbnail. Stable GitHub release assets media-2026-08-29-stop-being-a-copy-01. Facebook scheduled natively for 2026-08-30T08:00:00Z (10:00 Vienna) and verified via FACEBOOK_GET_SCHEDULED_POSTS (exact caption match); Instagram assigned to an isolated cloud publisher for the same epoch."
+    },
+    {
+      "id": "2026-08-30-1500-when-you-are-you",
+      "scheduledAt": "2026-08-30T15:00:00+02:00",
+      "title": "When You Are You",
+      "captionMatch": "The more authentic you become, the less predictable you look.",
+      "overall": "scheduled",
+      "instagram": {
+        "status": "queued_isolated",
+        "note": "Handled by its own dedicated GitHub Actions workflow (.github/workflows/publish-when-you-are-you.yml) and its own secret (WHEN_YOU_ARE_YOU_QUEUE) -- isolated from the shared ALIVEAWAKE_QUEUE_JSON array. Runs on its own 5-min cron and is Worker-dispatched, publishing at the exact slot epoch."
+      },
+      "facebook": {
+        "status": "scheduled",
+        "verified": true,
+        "videoId": "1943818349631694",
+        "scheduledPostId": "299121263767927_1357399716474229",
+        "scheduledPublishTime": 1788094800,
+        "url": "/reel/1943818349631694/"
+      },
+      "note": "Approved final v3 with premium moving internet-video overlays and the religious middle shot replaced by a contemporary non-religious dancing clip; Eyal-supplied thumbnail used unchanged. Stable GitHub release assets media-2026-08-30-when-you-are-you-02. Facebook scheduled natively for 2026-08-30T13:00:00Z (15:00 Vienna) and verified via FACEBOOK_GET_SCHEDULED_POSTS by exact caption, exact scheduled epoch, and returned video ID; Instagram assigned to an isolated cloud publisher for the same epoch."
     }
   ],
   "cadenceNote": "3 Reels/day (10:00, 15:00, 20:00 Vienna) through Tue 1 Sep 2026. From Wed 2 Sep 2026: 4 Reels/day (09:00, 13:00, 17:00, 21:00 Vienna). Update the 'cadence' array above to the new times once Wednesday's slots are actually in use.",
