@@ -107,9 +107,30 @@ jobs:
             -d "{\"page_id\":\"$FB_PAGE_ID\",\"limit\":100,\"fields\":\"id,scheduled_publish_time,is_published\"}")
           matches=$(jq --arg id "$FACEBOOK_SCHEDULED_POST_ID" --argjson epoch "$PUBLISH_AT_EPOCH" \
             '[.data.data[]? | select(.id == $id and .scheduled_publish_time == $epoch and .is_published == false)] | length' <<<"$result")
-          if [ "$matches" -ne 1 ]; then
-            echo "Exact Facebook object is not scheduled for the expected epoch."; exit 1
+          if [ "$matches" -eq 1 ]; then
+            echo "Facebook object is scheduled for the expected epoch."
+            exit 0
           fi
+
+          # Not in the still-scheduled list. Facebook's own scheduler runs
+          # independently and removes the object the moment it publishes -- so at
+          # or after PUBLISH_AT_EPOCH a perfectly healthy post is legitimately
+          # absent here. Treat "already published" as a pass; only fail when it
+          # is in neither state, which is the real signal it was cancelled or
+          # never existed. (Without this, a late run aborts before Instagram
+          # publishes even though nothing is wrong -- observed 2026-08-29.)
+          video_result=$("$COMPOSIO" execute FACEBOOK_GET_PAGE_VIDEOS \
+            --account "$FB_ACCOUNT" \
+            -d "{\"page_id\":\"$FB_PAGE_ID\",\"limit\":25,\"fields\":\"id,status\"}")
+          published=$(jq --arg id "$FACEBOOK_VIDEO_ID" \
+            '[.data.data[]? | select(.id == $id and .status.publishing_phase.publish_status == "published")] | length' \
+            <<<"$video_result")
+          if [ "$published" -ge 1 ]; then
+            echo "Facebook already published this video on its native schedule -- continuing."
+            exit 0
+          fi
+
+          echo "Facebook object is neither still scheduled nor already published."; exit 1
 
       - name: Wait until the exact Instagram publish time
         if: steps.gate.outputs.done != 'true'
