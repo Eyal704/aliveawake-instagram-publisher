@@ -1,0 +1,53 @@
+name: Set up Telegram inbox webhook
+
+# One-shot / idempotent registration: points the AliveAwake Telegram bot's
+# webhook at the Cloudflare Worker relay (aliveawake-telegram-inbox) so
+# replies to review-ready/scheduled notifications get captured for a later
+# scheduled agent to read via the Worker's token-protected /inbox endpoint.
+#
+# The bot token never leaves this workflow's runtime -- it's read from the
+# existing TELEGRAM_BOT_TOKEN repo secret and used only in-process here.
+
+on:
+  workflow_dispatch:
+    inputs:
+      webhook_secret:
+        description: "The TG_WEBHOOK_SECRET value already set on the Worker (Telegram will echo this back on every push so the Worker can verify authenticity)"
+        required: true
+        type: string
+      worker_url:
+        description: "Full Worker webhook URL"
+        required: false
+        default: "https://aliveawake-telegram-inbox.eyalshovalt.workers.dev/webhook"
+        type: string
+
+permissions: {}
+
+jobs:
+  set-webhook:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      WEBHOOK_SECRET: ${{ inputs.webhook_secret }}
+      WORKER_URL: ${{ inputs.worker_url }}
+    steps:
+      - name: Register webhook with Telegram
+        run: |
+          if [ -z "$TELEGRAM_BOT_TOKEN" ]; then
+            echo "TELEGRAM_BOT_TOKEN secret is not set." >&2
+            exit 1
+          fi
+          response=$(curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/setWebhook" \
+            -H "content-type: application/json" \
+            -d "$(node -e 'console.log(JSON.stringify({url: process.env.WORKER_URL, secret_token: process.env.WEBHOOK_SECRET, allowed_updates: ["message"]}))')")
+          echo "$response" | jq .
+          ok=$(echo "$response" | jq -r '.ok')
+          if [ "$ok" != "true" ]; then
+            echo "setWebhook failed." >&2
+            exit 1
+          fi
+
+      - name: Verify webhook info
+        run: |
+          curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getWebhookInfo" | jq .
