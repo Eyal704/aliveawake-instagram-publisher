@@ -20,6 +20,26 @@ const IG_REEL_METRICS = [
   "total_interactions", "ig_reels_avg_watch_time", "ig_reels_video_view_total_time",
 ];
 
+// The Composio CLI writes large tool outputs to a local temp file instead of
+// inlining them (result.storedInFile === true, result.data left undefined) --
+// confirmed 2026-08-29: INSTAGRAM_GET_IG_USER_MEDIA at this script's real
+// limit:100 always crossed that size threshold, so every Instagram fetch
+// silently returned zero reels for as long as this dashboard has existed
+// (result.successful stayed true and result.error stayed null, so callRaw's
+// own error check never caught it -- it looked like "succeeded with no
+// data" rather than a failure). The Facebook fetch stayed under the
+// threshold, which is why Facebook data was always populating fine while
+// Instagram was silently empty. Always resolve storedInFile before
+// returning, for both the CLI and the direct-HTTP path.
+async function resolveResult(result) {
+  if (result.data !== undefined) return result;
+  if (result.storedInFile && result.outputFilePath) {
+    const fileRaw = await fs.readFile(result.outputFilePath, "utf8");
+    return JSON.parse(fileRaw);
+  }
+  return result;
+}
+
 // --- Composio execution (same dual-path pattern as scripts/verify-dashboard.mjs) ---
 async function callRaw(tool, account, connectedAccountId, payload) {
   if (composioApiKey && connectedAccountId) {
@@ -30,7 +50,7 @@ async function callRaw(tool, account, connectedAccountId, payload) {
     });
     const raw = await response.text();
     if (!response.ok || !raw) throw new Error(`${tool} API request failed (HTTP ${response.status}): ${raw || "empty output"}`);
-    const result = JSON.parse(raw);
+    const result = await resolveResult(JSON.parse(raw));
     if (result.successful === false || result.error) throw new Error(`${tool} failed: ${JSON.stringify(result.error || result)}`);
     return result.data;
   }
@@ -42,7 +62,7 @@ async function callRaw(tool, account, connectedAccountId, payload) {
   });
   const raw = proc.stdout.trim();
   if (proc.status !== 0 || !raw) throw new Error(`${tool} returned no usable JSON (exit ${proc.status}): ${proc.stderr.trim() || "empty output"}`);
-  const result = JSON.parse(raw);
+  const result = await resolveResult(JSON.parse(raw));
   if (result.successful === false || result.error) throw new Error(`${tool} failed: ${JSON.stringify(result.error || result)}`);
   return result.data;
 }
