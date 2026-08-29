@@ -78,7 +78,13 @@ for (const post of candidates) {
         status: "queued_cloud",
         verified: false,
         containerId,
-        containerCreatedAt: new Date().toISOString()
+        containerCreatedAt: new Date().toISOString(),
+        // Preparation succeeded, so earlier transient failures are not part of a
+        // continuing problem. Clear the budget or non-consecutive blips would
+        // accumulate across days and eventually fail a healthy post.
+        attempts: undefined,
+        lastError: undefined,
+        lastErrorAt: undefined
       };
     }
 
@@ -105,7 +111,10 @@ for (const post of candidates) {
         verified: true,
         mediaId: matches[0].id,
         url: matches[0].permalink,
-        verifiedAt: new Date().toISOString()
+        verifiedAt: new Date().toISOString(),
+        attempts: undefined,
+        lastError: undefined,
+        lastErrorAt: undefined
       };
       continue;
     }
