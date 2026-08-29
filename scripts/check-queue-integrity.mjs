@@ -31,6 +31,7 @@ const isolatedSecrets = {
   "2026-08-28-1500-creator-of-suffering": "CREATOR_OF_SUFFERING_QUEUE",
   "2026-08-28-2000-stop-blaming": "STOP_BLAMING_QUEUE",
   "2026-08-29-1000-changing-reality": "CHANGING_REALITY_QUEUE",
+  "2026-08-29-1700-everyone-is-your-mirror": "EVERYONE_IS_YOUR_MIRROR_QUEUE",
 };
 const isolatedPayloads = new Map();
 for (const [postId, envName] of Object.entries(isolatedSecrets)) {

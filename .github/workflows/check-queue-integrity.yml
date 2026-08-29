@@ -27,6 +27,7 @@ jobs:
       CREATOR_OF_SUFFERING_QUEUE: ${{ secrets.CREATOR_OF_SUFFERING_QUEUE }}
       STOP_BLAMING_QUEUE: ${{ secrets.STOP_BLAMING_QUEUE }}
       CHANGING_REALITY_QUEUE: ${{ secrets.CHANGING_REALITY_QUEUE }}
+      EVERYONE_IS_YOUR_MIRROR_QUEUE: ${{ secrets.EVERYONE_IS_YOUR_MIRROR_QUEUE }}
     steps:
       - uses: actions/checkout@v4
         with:

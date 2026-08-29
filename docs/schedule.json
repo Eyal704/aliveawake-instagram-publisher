@@ -229,6 +229,26 @@
         "lastKey": "missing:published:needs_attention",
         "sentAt": "2026-08-29T08:16:42.231Z"
       }
+    },
+    {
+      "id": "2026-08-29-1700-everyone-is-your-mirror",
+      "scheduledAt": "2026-08-29T17:00:00+02:00",
+      "title": "Everyone You Meet Is Your Mirror",
+      "captionMatch": "We love to rank ourselves.",
+      "overall": "pending",
+      "instagram": {
+        "status": "queued_isolated",
+        "note": "Handled by its own dedicated GitHub Actions workflow (.github/workflows/publish-everyone-is-your-mirror.yml) and its own secret (EVERYONE_IS_YOUR_MIRROR_QUEUE) -- isolated from the shared ALIVEAWAKE_QUEUE_JSON array. Runs on its own 5-min cron, publishes at the exact slot epoch."
+      },
+      "facebook": {
+        "status": "scheduled",
+        "verified": true,
+        "videoId": "1705580393881694",
+        "scheduledPostId": "299121263767927_1357062686507932",
+        "scheduledPublishTime": 1788015600,
+        "verifiedAt": "2026-08-29T13:15:00.000Z"
+      },
+      "note": "Approved video (voice-audio bug fixed, hook panel repositioned, last second trimmed) with Eyal-supplied custom thumbnail. Stable GitHub release assets (media-2026-08-29-everyone-is-your-mirror-01). Facebook scheduled natively for 2026-08-29T15:00:00Z (17:00 Vienna) and verified via FACEBOOK_GET_SCHEDULED_POSTS; Instagram assigned to an isolated cloud scheduler for the same epoch."
     }
   ],
   "cadenceNote": "3 Reels/day (10:00, 15:00, 20:00 Vienna) through Tue 1 Sep 2026. From Wed 2 Sep 2026: 4 Reels/day (09:00, 13:00, 17:00, 21:00 Vienna). Update the 'cadence' array above to the new times once Wednesday's slots are actually in use.",

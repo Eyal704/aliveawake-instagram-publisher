@@ -1,0 +1,152 @@
+name: Publish Everyone Is Your Mirror (Instagram, one-off)
+
+# Self-contained, single-post Instagram scheduler. Uses its own dedicated
+# secret (EVERYONE_IS_YOUR_MIRROR_QUEUE) instead of the shared
+# ALIVEAWAKE_QUEUE_JSON array -- deliberately isolated so this can never
+# corrupt any other post's queued data. Runs independently of any local
+# machine or chat session. Safe to delete this file and the
+# EVERYONE_IS_YOUR_MIRROR_QUEUE secret once this post is confirmed published.
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: publish-everyone-is-your-mirror
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      # REQUIRED: GitHub sets CI=true, which makes the Composio CLI silently
+      # replace every id field with the literal string "<REDACTED>". This
+      # workflow reads .data.id for the container and media ids, so without
+      # this override container_id becomes "<REDACTED>" -- non-empty, so it
+      # passes the guard -- and every subsequent status check fails forever.
+      CI: "false"
+      COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
+      COMPOSIO: /home/runner/.composio/composio
+      IG_ACCOUNT: aliveawake-main
+      IG_USER_ID: "28033607902927427"
+      QUEUE_JSON: ${{ secrets.EVERYONE_IS_YOUR_MIRROR_QUEUE }}
+      PUBLISH_AT_EPOCH: "1788015600"
+      FACEBOOK_VIDEO_ID: "1705580393881694"
+    steps:
+      - name: Stop once already published or the secret was cleared
+        id: gate
+        run: |
+          if [ -z "$QUEUE_JSON" ]; then
+            echo "Queue secret already cleared -- nothing to do."
+            echo "done=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          now=$(date +%s)
+          if [ "$now" -lt $((PUBLISH_AT_EPOCH - 21600)) ]; then
+            echo "More than 6 hours before due time; nothing to do yet."
+            echo "done=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "done=false" >> "$GITHUB_OUTPUT"
+
+      - name: Install Composio CLI
+        if: steps.gate.outputs.done != 'true'
+        run: |
+          for attempt in 1 2 3; do
+            curl -fsSL https://composio.dev/install | COMPOSIO_INSTALL_SHELL=none sh && break
+            echo "Install attempt $attempt failed; retrying..."
+            sleep 10
+          done
+          test -x "$COMPOSIO"
+
+      - name: Authenticate Composio CLI
+        if: steps.gate.outputs.done != 'true'
+        run: "$COMPOSIO login --user-api-key \"$COMPOSIO_API_KEY\" -y --no-skill-install"
+
+      - name: Create or verify Instagram container
+        if: steps.gate.outputs.done != 'true'
+        id: container
+        run: |
+          video_url=$(jq -r '.videoUrl' <<<"$QUEUE_JSON")
+          cover_url=$(jq -r '.coverUrl' <<<"$QUEUE_JSON")
+          caption=$(jq -r '.caption' <<<"$QUEUE_JSON")
+          created=$("$COMPOSIO" execute INSTAGRAM_POST_IG_USER_MEDIA \
+            --account "$IG_ACCOUNT" \
+            -d "$(jq -n --arg u "$IG_USER_ID" --arg v "$video_url" --arg c "$cover_url" --arg cap "$caption" \
+              '{ig_user_id:$u, video_url:$v, cover_url:$c, caption:$cap, media_type:"REELS", share_to_feed:true}')")
+          container_id=$(jq -r '.data.id // empty' <<<"$created")
+          if [ -z "$container_id" ]; then
+            echo "Failed to create Instagram container:"
+            echo "$created"
+            exit 1
+          fi
+          echo "container_id=$container_id" >> "$GITHUB_OUTPUT"
+          echo "Created container $container_id"
+
+      - name: Wait for container to finish processing
+        if: steps.gate.outputs.done != 'true'
+        run: |
+          for i in $(seq 1 40); do
+            result=$("$COMPOSIO" execute INSTAGRAM_GET_POST_STATUS --account "$IG_ACCOUNT" -d "{\"creation_id\":\"${{ steps.container.outputs.container_id }}\"}")
+            status=$(jq -r '.data.status_code // empty' <<<"$result")
+            if [ "$status" = "FINISHED" ]; then echo "Container ready."; exit 0; fi
+            echo "Container status: $status, waiting..."
+            sleep 15
+          done
+          echo "Container never reached FINISHED."
+          exit 1
+
+      - name: Wait until the exact publish time
+        if: steps.gate.outputs.done != 'true'
+        run: |
+          now=$(date +%s)
+          if [ "$PUBLISH_AT_EPOCH" -gt "$now" ]; then
+            sleep $((PUBLISH_AT_EPOCH - now))
+          fi
+
+      - name: Stop if a duplicate already exists (retry safety)
+        if: steps.gate.outputs.done != 'true'
+        id: duplicate
+        run: |
+          caption=$(jq -r '.caption' <<<"$QUEUE_JSON")
+          prefix=$(echo "$caption" | head -c 40 | tr '[:upper:]' '[:lower:]')
+          since=$((PUBLISH_AT_EPOCH - 21600))
+          result=$("$COMPOSIO" execute INSTAGRAM_GET_IG_USER_MEDIA --account "$IG_ACCOUNT" \
+            -d "{\"ig_user_id\":\"$IG_USER_ID\",\"since\":$since,\"limit\":50,\"fields\":\"id,caption,permalink,timestamp\"}")
+          match=$(jq --arg p "$prefix" '[.data.data[]? | select(((.caption // "") | ascii_downcase) | startswith($p))] | length' <<<"$result")
+          if [ "$match" -gt 0 ]; then
+            echo "duplicate=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "duplicate=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish
+        if: steps.gate.outputs.done != 'true' && steps.duplicate.outputs.duplicate != 'true'
+        id: publish
+        run: |
+          result=$("$COMPOSIO" execute INSTAGRAM_POST_IG_USER_MEDIA_PUBLISH --account "$IG_ACCOUNT" \
+            -d "{\"ig_user_id\":\"$IG_USER_ID\",\"creation_id\":\"${{ steps.container.outputs.container_id }}\",\"max_wait_seconds\":300,\"poll_interval_seconds\":5}")
+          media_id=$(jq -r '.data.id // empty' <<<"$result")
+          if [ -z "$media_id" ]; then
+            echo "Publish failed:"; echo "$result"; exit 1
+          fi
+          echo "Published media $media_id"
+
+      - name: Verify live
+        if: steps.gate.outputs.done != 'true' && steps.duplicate.outputs.duplicate != 'true'
+        run: |
+          result=$("$COMPOSIO" execute INSTAGRAM_GET_IG_USER_MEDIA --account "$IG_ACCOUNT" \
+            -d "{\"ig_user_id\":\"$IG_USER_ID\",\"since\":$((PUBLISH_AT_EPOCH - 600)),\"limit\":10,\"fields\":\"id,caption,permalink,username\"}")
+          permalink=$(jq -r '.data.data[0].permalink // empty' <<<"$result")
+          echo "Verified: $permalink"
+
+      - name: Clear the dedicated secret now that this post is done
+        if: steps.gate.outputs.done != 'true' && steps.duplicate.outputs.duplicate != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh secret delete EVERYONE_IS_YOUR_MIRROR_QUEUE --repo ${{ github.repository }} || true
