@@ -118,6 +118,16 @@ jobs:
           since=$((PUBLISH_AT_EPOCH - 21600))
           result=$("$COMPOSIO" execute INSTAGRAM_GET_IG_USER_MEDIA --account "$IG_ACCOUNT" \
             -d "{\"ig_user_id\":\"$IG_USER_ID\",\"since\":$since,\"limit\":50,\"fields\":\"id,caption,permalink,timestamp\"}")
+          # The Composio CLI offloads large tool outputs to a local temp file
+          # (storedInFile=true, no inline .data) instead of failing -- confirmed
+          # 2026-08-29 in scripts/update-analytics.mjs, where this exact shape
+          # silently produced zero results for months without ever tripping an
+          # error check. Resolve it here too so a false "no duplicate" can't
+          # slip through the same way.
+          stored_file=$(jq -r '.outputFilePath // empty' <<<"$result")
+          if [ -n "$stored_file" ]; then
+            result=$(cat "$stored_file")
+          fi
           match=$(jq --arg p "$prefix" '[.data.data[]? | select(((.caption // "") | ascii_downcase) | startswith($p))] | length' <<<"$result")
           if [ "$match" -gt 0 ]; then
             echo "duplicate=true" >> "$GITHUB_OUTPUT"
