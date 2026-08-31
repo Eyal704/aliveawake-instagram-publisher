@@ -5,7 +5,7 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-08-31T20:26:52.296Z",
+  "updatedAt": "2026-08-31T20:28:30.000Z",
   "lastCheckedAt": "2026-08-31T20:26:52.296Z",
   "posts": [
     {
@@ -332,6 +332,27 @@
         "verifiedAt": "2026-08-31T20:26:52.296Z"
       },
       "note": "Approved final v3 with premium moving internet-video overlays and the religious middle shot replaced by a contemporary non-religious dancing clip; Eyal-supplied thumbnail used unchanged. Stable GitHub release assets media-2026-08-30-when-you-are-you-02. Facebook scheduled natively for 2026-08-30T13:00:00Z (15:00 Vienna) and verified via FACEBOOK_GET_SCHEDULED_POSTS by exact caption, exact scheduled epoch, and returned video ID; Instagram assigned to an isolated cloud publisher for the same epoch."
+    },
+    {
+      "id": "2026-09-01-1000-smallest-actions-shape-life",
+      "scheduledAt": "2026-09-01T10:00:00+02:00",
+      "title": "The Smallest Actions Shape Your Life",
+      "captionMatch": "The way we live is hidden in the smallest actions.",
+      "overall": "scheduled",
+      "instagram": {
+        "status": "queued_isolated",
+        "verified": true,
+        "workflow": ".github/workflows/publish-smallest-actions-shape-life.yml",
+        "note": "Dedicated cloud publisher with CI=false, duplicate reconciliation, exact-time gate, and SMALLEST_ACTIONS_SHAPE_LIFE_QUEUE payload. Worker-dispatched every five minutes until publication."
+      },
+      "facebook": {
+        "status": "scheduled",
+        "verified": true,
+        "videoId": "1149151154101589",
+        "scheduledPostId": "299121263767927_1358915646322636",
+        "scheduledPublishTime": 1788249600
+      },
+      "note": "Approved revised Reel with three context-matched web video overlays and completed-body thumbnail v4. Stable release media-2026-08-31-smallest-actions-shape-life-01. Facebook scheduled natively and verified for 2026-09-01T08:00:00Z; Instagram assigned to an isolated cloud publisher for the same epoch."
     }
   ],
   "cadenceNote": "3 Reels/day (10:00, 15:00, 20:00 Vienna) through Tue 1 Sep 2026. From Wed 2 Sep 2026: 4 Reels/day (09:00, 13:00, 17:00, 21:00 Vienna). Update the 'cadence' array above to the new times once Wednesday's slots are actually in use.",

@@ -1,0 +1,159 @@
+name: Publish The Smallest Actions Shape Your Life (Instagram, one-off)
+
+# Temporary isolated publisher. Its dedicated secret prevents any write to the
+# unreadable shared queue. The Cloudflare Worker dispatches this workflow every
+# five minutes; GitHub schedule is only a fallback and is not timing-critical.
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: publish-smallest-actions-shape-life
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      CI: "false"
+      COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
+      COMPOSIO: /home/runner/.composio/composio
+      IG_ACCOUNT: aliveawake-main
+      IG_USER_ID: "28033607902927427"
+      QUEUE_JSON: ${{ secrets.SMALLEST_ACTIONS_SHAPE_LIFE_QUEUE }}
+      PUBLISH_AT_EPOCH: "1788249600"
+    steps:
+      - name: Gate the one-off window
+        id: gate
+        run: |
+          if [ -z "$QUEUE_JSON" ]; then
+            echo "Dedicated queue secret is absent; nothing to do."
+            echo "done=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          now=$(date +%s)
+          if [ "$now" -lt $((PUBLISH_AT_EPOCH - 21600)) ]; then
+            echo "More than six hours early; nothing to do."
+            echo "done=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ "$now" -gt $((PUBLISH_AT_EPOCH + 21600)) ]; then
+            echo "More than six hours late; refusing an unbounded late publish."
+            exit 1
+          fi
+          echo "done=false" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v4
+        if: steps.gate.outputs.done != 'true'
+
+      - name: Install Composio CLI
+        if: steps.gate.outputs.done != 'true'
+        run: |
+          for attempt in 1 2 3; do
+            curl -fsSL https://composio.dev/install | COMPOSIO_INSTALL_SHELL=none sh && break
+            echo "Install attempt $attempt failed; retrying..."
+            sleep 10
+          done
+          test -x "$COMPOSIO"
+
+      - name: Authenticate Composio CLI
+        if: steps.gate.outputs.done != 'true'
+        run: "$COMPOSIO login --user-api-key \"$COMPOSIO_API_KEY\" -y --no-skill-install"
+
+      - name: Reconcile before creating a container
+        if: steps.gate.outputs.done != 'true'
+        id: before
+        run: |
+          caption=$(jq -r '.caption' <<<"$QUEUE_JSON")
+          prefix=$(echo "$caption" | head -c 40 | tr '[:upper:]' '[:lower:]')
+          since=$((PUBLISH_AT_EPOCH - 21600))
+          result=$(bash scripts/composio-execute.sh INSTAGRAM_GET_IG_USER_MEDIA --account "$IG_ACCOUNT" \
+            -d "{\"ig_user_id\":\"$IG_USER_ID\",\"since\":$since,\"limit\":50,\"fields\":\"id,caption,permalink,timestamp\"}")
+          match=$(jq --arg p "$prefix" '[.data.data[]? | select(((.caption // "") | ascii_downcase) | startswith($p))] | length' <<<"$result")
+          if [ "$match" -gt 0 ]; then
+            echo "Already published; stopping before container creation."
+            echo "duplicate=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "duplicate=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create Instagram container
+        if: steps.gate.outputs.done != 'true' && steps.before.outputs.duplicate != 'true'
+        id: container
+        run: |
+          video_url=$(jq -r '.videoUrl' <<<"$QUEUE_JSON")
+          cover_url=$(jq -r '.coverUrl' <<<"$QUEUE_JSON")
+          caption=$(jq -r '.caption' <<<"$QUEUE_JSON")
+          created=$(bash scripts/composio-execute.sh INSTAGRAM_POST_IG_USER_MEDIA \
+            --account "$IG_ACCOUNT" \
+            -d "$(jq -n --arg u "$IG_USER_ID" --arg v "$video_url" --arg c "$cover_url" --arg cap "$caption" \
+              '{ig_user_id:$u, video_url:$v, cover_url:$c, caption:$cap, media_type:"REELS", share_to_feed:true}')")
+          container_id=$(jq -r '.data.id // empty' <<<"$created")
+          if [ -z "$container_id" ]; then
+            echo "Container creation failed; a later Worker tick may retry."
+            echo "$created"
+            exit 1
+          fi
+          echo "container_id=$container_id" >> "$GITHUB_OUTPUT"
+          echo "Created container $container_id"
+
+      - name: Wait for container processing
+        if: steps.gate.outputs.done != 'true' && steps.before.outputs.duplicate != 'true'
+        run: |
+          for i in $(seq 1 40); do
+            result=$(bash scripts/composio-execute.sh INSTAGRAM_GET_POST_STATUS --account "$IG_ACCOUNT" -d "{\"creation_id\":\"${{ steps.container.outputs.container_id }}\"}")
+            status=$(jq -r '.data.status_code // empty' <<<"$result")
+            if [ "$status" = "FINISHED" ]; then echo "Container ready."; exit 0; fi
+            echo "Container status: $status, waiting..."
+            sleep 15
+          done
+          echo "Container never reached FINISHED; a later Worker tick may retry."
+          exit 1
+
+      - name: Wait until exact publish time
+        if: steps.gate.outputs.done != 'true' && steps.before.outputs.duplicate != 'true'
+        run: |
+          now=$(date +%s)
+          if [ "$PUBLISH_AT_EPOCH" -gt "$now" ]; then sleep $((PUBLISH_AT_EPOCH - now)); fi
+
+      - name: Reconcile immediately before publish
+        if: steps.gate.outputs.done != 'true' && steps.before.outputs.duplicate != 'true'
+        id: final_check
+        run: |
+          caption=$(jq -r '.caption' <<<"$QUEUE_JSON")
+          prefix=$(echo "$caption" | head -c 40 | tr '[:upper:]' '[:lower:]')
+          result=$(bash scripts/composio-execute.sh INSTAGRAM_GET_IG_USER_MEDIA --account "$IG_ACCOUNT" \
+            -d "{\"ig_user_id\":\"$IG_USER_ID\",\"since\":$((PUBLISH_AT_EPOCH - 21600)),\"limit\":50,\"fields\":\"id,caption,permalink,timestamp\"}")
+          match=$(jq --arg p "$prefix" '[.data.data[]? | select(((.caption // "") | ascii_downcase) | startswith($p))] | length' <<<"$result")
+          if [ "$match" -gt 0 ]; then
+            echo "duplicate=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "duplicate=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish
+        if: steps.gate.outputs.done != 'true' && steps.before.outputs.duplicate != 'true' && steps.final_check.outputs.duplicate != 'true'
+        run: |
+          result=$(bash scripts/composio-execute.sh INSTAGRAM_POST_IG_USER_MEDIA_PUBLISH --account "$IG_ACCOUNT" \
+            -d "{\"ig_user_id\":\"$IG_USER_ID\",\"creation_id\":\"${{ steps.container.outputs.container_id }}\",\"max_wait_seconds\":300,\"poll_interval_seconds\":5}")
+          media_id=$(jq -r '.data.id // empty' <<<"$result")
+          if [ -z "$media_id" ]; then echo "Publish failed:"; echo "$result"; exit 1; fi
+          echo "Published media $media_id"
+
+      - name: Verify exact live Reel
+        if: steps.gate.outputs.done != 'true' && steps.before.outputs.duplicate != 'true'
+        run: |
+          caption=$(jq -r '.caption' <<<"$QUEUE_JSON")
+          prefix=$(echo "$caption" | head -c 40 | tr '[:upper:]' '[:lower:]')
+          result=$(bash scripts/composio-execute.sh INSTAGRAM_GET_IG_USER_MEDIA --account "$IG_ACCOUNT" \
+            -d "{\"ig_user_id\":\"$IG_USER_ID\",\"since\":$((PUBLISH_AT_EPOCH - 600)),\"limit\":10,\"fields\":\"id,caption,permalink,username\"}")
+          permalink=$(jq -r --arg p "$prefix" '[.data.data[]? | select(((.caption // "") | ascii_downcase) | startswith($p))][0].permalink // empty' <<<"$result")
+          if [ -z "$permalink" ]; then echo "Exact Reel verification failed."; exit 1; fi
+          echo "Verified: $permalink"
+

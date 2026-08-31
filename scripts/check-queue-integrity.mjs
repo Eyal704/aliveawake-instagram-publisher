@@ -35,6 +35,7 @@ const isolatedSecrets = {
   "2026-08-29-2100-way-shows-when-you-walk": "WAY_SHOWS_WHEN_YOU_WALK_QUEUE",
   "2026-08-30-1000-stop-being-a-copy": "STOP_BEING_A_COPY_QUEUE",
   "2026-08-30-1500-when-you-are-you": "WHEN_YOU_ARE_YOU_QUEUE",
+  "2026-09-01-1000-smallest-actions-shape-life": "SMALLEST_ACTIONS_SHAPE_LIFE_QUEUE",
 };
 const isolatedPayloads = new Map();
 for (const [postId, envName] of Object.entries(isolatedSecrets)) {

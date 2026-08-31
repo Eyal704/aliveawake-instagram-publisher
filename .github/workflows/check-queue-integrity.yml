@@ -31,6 +31,7 @@ jobs:
       WAY_SHOWS_WHEN_YOU_WALK_QUEUE: ${{ secrets.WAY_SHOWS_WHEN_YOU_WALK_QUEUE }}
       STOP_BEING_A_COPY_QUEUE: ${{ secrets.STOP_BEING_A_COPY_QUEUE }}
       WHEN_YOU_ARE_YOU_QUEUE: ${{ secrets.WHEN_YOU_ARE_YOU_QUEUE }}
+      SMALLEST_ACTIONS_SHAPE_LIFE_QUEUE: ${{ secrets.SMALLEST_ACTIONS_SHAPE_LIFE_QUEUE }}
     steps:
       - uses: actions/checkout@v4
         with:
