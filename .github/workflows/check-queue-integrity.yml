@@ -32,6 +32,7 @@ jobs:
       STOP_BEING_A_COPY_QUEUE: ${{ secrets.STOP_BEING_A_COPY_QUEUE }}
       WHEN_YOU_ARE_YOU_QUEUE: ${{ secrets.WHEN_YOU_ARE_YOU_QUEUE }}
       SMALLEST_ACTIONS_SHAPE_LIFE_QUEUE: ${{ secrets.SMALLEST_ACTIONS_SHAPE_LIFE_QUEUE }}
+      CHOOSE_YOUR_DAY_BEFORE_EYES_QUEUE: ${{ secrets.CHOOSE_YOUR_DAY_BEFORE_EYES_QUEUE }}
     steps:
       - uses: actions/checkout@v4
         with:

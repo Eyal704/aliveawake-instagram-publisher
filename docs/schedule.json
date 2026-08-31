@@ -353,6 +353,27 @@
         "scheduledPublishTime": 1788249600
       },
       "note": "Approved revised Reel with three context-matched web video overlays and completed-body thumbnail v4. Stable release media-2026-08-31-smallest-actions-shape-life-01. Facebook scheduled natively and verified for 2026-09-01T08:00:00Z; Instagram assigned to an isolated cloud publisher for the same epoch."
+    },
+    {
+      "id": "2026-09-01-1500-choose-your-day-before-eyes",
+      "scheduledAt": "2026-09-01T15:00:00+02:00",
+      "title": "Choose Your Day Before You Open Your Eyes",
+      "captionMatch": "The direction of your day can be chosen before you even open your eyes.",
+      "overall": "scheduled",
+      "instagram": {
+        "status": "queued_isolated",
+        "verified": true,
+        "workflow": ".github/workflows/publish-choose-your-day-before-eyes.yml",
+        "note": "Dedicated cloud publisher with CI=false, duplicate reconciliation, exact-time gate, and CHOOSE_YOUR_DAY_BEFORE_EYES_QUEUE payload. Worker-dispatched every five minutes until publication."
+      },
+      "facebook": {
+        "status": "scheduled",
+        "verified": true,
+        "videoId": "1347181708471939",
+        "scheduledPostId": "299121263767927_1358964549651079",
+        "scheduledPublishTime": 1788267600
+      },
+      "note": "Approved Reel with five context-matched licensed web overlays and a body-completed thumbnail. Stable release media-2026-08-31-choose-your-day-before-eyes-01. Facebook scheduled natively and verified for 2026-09-01T13:00:00Z; Instagram assigned to an isolated cloud publisher for the same epoch."
     }
   ],
   "cadenceNote": "3 Reels/day (10:00, 15:00, 20:00 Vienna) through Tue 1 Sep 2026. From Wed 2 Sep 2026: 4 Reels/day (09:00, 13:00, 17:00, 21:00 Vienna). Update the 'cadence' array above to the new times once Wednesday's slots are actually in use.",
