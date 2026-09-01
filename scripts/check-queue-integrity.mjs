@@ -11,6 +11,7 @@
 import fs from "node:fs/promises";
 
 const schedulePath = new URL("../docs/schedule.json", import.meta.url);
+const isolatedConfigPath = new URL("../config/isolated-queues.json", import.meta.url);
 
 let queue;
 try {
@@ -27,18 +28,7 @@ if (!Array.isArray(queue)) {
 const schedule = JSON.parse(await fs.readFile(schedulePath, "utf8"));
 const now = Date.now();
 
-const isolatedSecrets = {
-  "2026-08-28-1500-creator-of-suffering": "CREATOR_OF_SUFFERING_QUEUE",
-  "2026-08-28-2000-stop-blaming": "STOP_BLAMING_QUEUE",
-  "2026-08-29-1000-changing-reality": "CHANGING_REALITY_QUEUE",
-  "2026-08-29-1700-everyone-is-your-mirror": "EVERYONE_IS_YOUR_MIRROR_QUEUE",
-  "2026-08-29-2100-way-shows-when-you-walk": "WAY_SHOWS_WHEN_YOU_WALK_QUEUE",
-  "2026-08-30-1000-stop-being-a-copy": "STOP_BEING_A_COPY_QUEUE",
-  "2026-08-30-1500-when-you-are-you": "WHEN_YOU_ARE_YOU_QUEUE",
-  "2026-09-01-1000-smallest-actions-shape-life": "SMALLEST_ACTIONS_SHAPE_LIFE_QUEUE",
-  "2026-09-01-1500-choose-your-day-before-eyes": "CHOOSE_YOUR_DAY_BEFORE_EYES_QUEUE",
-  "2026-09-01-2000-choose-integrity-over-acceptance": "CHOOSE_INTEGRITY_OVER_ACCEPTANCE_QUEUE",
-};
+const isolatedSecrets = JSON.parse(await fs.readFile(isolatedConfigPath, "utf8"));
 const isolatedPayloads = new Map();
 for (const [postId, envName] of Object.entries(isolatedSecrets)) {
   try {

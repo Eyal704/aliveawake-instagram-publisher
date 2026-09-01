@@ -9,8 +9,9 @@
   },
   "scripts": {
     "publish": "node publish.js",
+    "schedule:reel": "node scripts/schedule-reel.mjs",
     "audit:composio": "node scripts/audit-composio-callers.mjs",
-    "test": "node --test scripts/lib/composio.test.mjs && npm run audit:composio"
+    "test": "node --test scripts/lib/*.test.mjs && npm run audit:composio"
   },
   "dependencies": {
     "@vercel/blob": "^2.8.0"
