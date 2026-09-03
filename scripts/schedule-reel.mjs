@@ -47,15 +47,24 @@ function run(command, args, options = {}) {
   return result.stdout.trim();
 }
 
-function preflightCapabilities(repo) {
+async function preflightCapabilities(repo) {
   run("gh", ["auth", "status"], {cwd: repo});
-  run("security", ["find-generic-password", "-a", "eyalshoval", "-s", "cloudflare-api-token"]);
+  const cloudflareToken = run("security", ["find-generic-password", "-a", "eyalshoval", "-s", "cloudflare-api-token", "-w"]);
   const checks = [
     ["FACEBOOK_GET_SCHEDULED_POSTS", process.env.FB_ACCOUNT || "facebook_urushi-influx", {page_id: process.env.FB_PAGE_ID || "299121263767927", limit: 1, fields: "id"}],
     ["INSTAGRAM_GET_IG_USER_MEDIA", process.env.IG_ACCOUNT || "aliveawake-main", {ig_user_id: process.env.IG_USER_ID || "28033607902927427", limit: 1, fields: "id"}],
-    ["GOOGLEDRIVE_GET_FILE_METADATA", process.env.DRIVE_ACCOUNT || "aliveawake-drive", {fileId: "capability-preflight-placeholder", fields: "id,name"}]
+    ["GOOGLEDRIVE_GET_FILE_METADATA", process.env.DRIVE_ACCOUNT || "aliveawake-drive-v2", {fileId: "capability-preflight-placeholder", fields: "id,name"}]
   ];
   for (const [tool, account, payload] of checks) run(process.env.COMPOSIO || "composio", ["execute", tool, "--account", account, "-d", JSON.stringify(payload), "--dry-run"], {cwd: repo});
+  const headers = {Authorization: `Bearer ${cloudflareToken}`};
+  const accountsResponse = await fetchReadWithRetry("https://api.cloudflare.com/client/v4/accounts", {headers});
+  if (!accountsResponse.ok) throw new Error(`Cloudflare preflight failed: HTTP ${accountsResponse.status}`);
+  const accounts = await accountsResponse.json();
+  const accountId = accounts.result?.[0]?.id;
+  if (!accountId) throw new Error("Cloudflare preflight found no account");
+  const workerResponse = await fetchReadWithRetry(`https://api.cloudflare.com/client/v4/accounts/${accountId}/workers/services/aliveawake-cron-kicker/environments/production/content`, {headers});
+  if (!workerResponse.ok) throw new Error(`Cloudflare Worker preflight failed: HTTP ${workerResponse.status}`);
+  if (!(await workerResponse.text()).includes("ISOLATED_ONE_OFFS")) throw new Error("Cloudflare Worker preflight marker missing");
 }
 
 function validateJob(job, phase) {
@@ -325,7 +334,7 @@ function statusDriveName(job, status) {
 }
 
 async function renameDrive(job, fixture, status = "SCHEDULED") {
-  const account = process.env.DRIVE_ACCOUNT || "aliveawake-drive";
+  const account = process.env.DRIVE_ACCOUNT || "aliveawake-drive-v2";
   const before = await composio("GOOGLEDRIVE_GET_FILE_METADATA", account, {fileId: job.drive.file_id, fields: "id,name"}, fixture);
   if (before.name !== job.drive.current_name) throw new Error(`Drive name differs from job state: ${before.name}`);
   const name = statusDriveName(job, status);
@@ -376,7 +385,7 @@ async function schedulePhase(args, job, fixture) {
   const plan = {ok: true, phase: "schedule", mutating: args.execute, reel_id: job.reel_id, state: job.state, checks: {assets: "verified", queue: "consistent"}, platforms: {instagram: {status: queue.existing?.instagram?.status || "not_registered"}, facebook: {status: queue.existing?.facebook?.status || "not_registered"}}, actions: steps};
   if (!args.execute) return plan;
 
-  const driveAccount = process.env.DRIVE_ACCOUNT || "aliveawake-drive";
+  const driveAccount = process.env.DRIVE_ACCOUNT || "aliveawake-drive-v2";
   const driveMetadata = await composio("GOOGLEDRIVE_GET_FILE_METADATA", driveAccount, {fileId: job.drive.file_id, fields: "id,name"}, fixture);
   if (driveMetadata.name !== job.drive.current_name) throw new Error(`Drive name differs from job state: ${driveMetadata.name}`);
 
@@ -447,7 +456,7 @@ async function main() {
     const local = run("git", ["rev-parse", "HEAD"], {cwd: args.repo});
     const remote = run("git", ["rev-parse", "origin/main"], {cwd: args.repo});
     if (local !== remote) throw new Error("publishing repo is not exactly at origin/main; sync before live execution");
-    preflightCapabilities(args.repo);
+    await preflightCapabilities(args.repo);
   }
   try {
     return args.phase === "verify" ? await verifyPhase(args, job, fixture) : await schedulePhase(args, job, fixture);
