@@ -5,8 +5,8 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-09-03T16:02:02.959Z",
-  "lastCheckedAt": "2026-09-03T16:02:02.862Z",
+  "updatedAt": "2026-09-03T16:16:33.411Z",
+  "lastCheckedAt": "2026-09-03T16:16:33.407Z",
   "posts": [
     {
       "id": "2026-08-26-1000-when-life-tells-you-to-leave",
@@ -464,7 +464,7 @@
       "scheduledAt": "2026-09-03T18:00:00+02:00",
       "title": "Responsibility Is Not Self-Blame",
       "captionMatch": "responsibility for your life is not self-blame. whether you're in pain or in joy",
-      "overall": "publishing",
+      "overall": "needs_attention",
       "instagram": {
         "status": "published",
         "verified": true,
@@ -474,11 +474,15 @@
         "verifiedAt": "2026-09-03T15:01:43.699Z"
       },
       "facebook": {
-        "status": "publishing",
+        "status": "missing",
         "verified": false,
         "videoId": "1360990329448501",
         "scheduledPostId": "299121263767927_1360990329448501",
         "scheduledPublishTime": 1788451200
+      },
+      "alert": {
+        "lastKey": "published:missing:needs_attention",
+        "sentAt": "2026-09-03T16:16:33.863Z"
       }
     },
     {
