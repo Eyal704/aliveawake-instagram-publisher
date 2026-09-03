@@ -39,6 +39,7 @@ jobs:
       RESPONSIBILITY_IS_NOT_SELF_BLAME_QUEUE: ${{ secrets.RESPONSIBILITY_IS_NOT_SELF_BLAME_QUEUE }}
       ASK_YOUR_BODY_QUEUE: ${{ secrets.ASK_YOUR_BODY_QUEUE }}
       IMG_2760_20260902_QUEUE: ${{ secrets.IMG_2760_20260902_QUEUE }}
+      IF_IT_WONT_FEEL_GOOD_QUEUE: ${{ secrets.IF_IT_WONT_FEEL_GOOD_QUEUE }}
     steps:
       - uses: actions/checkout@v4
         with:
