@@ -131,6 +131,19 @@ async function checkpoint(jobFile, job, step) {
   await writeJson(jobFile, job);
 }
 
+async function fetchReadWithRetry(url, options = {}) {
+  let error;
+  for (let attempt = 1; attempt <= 4; attempt++) {
+    try {
+      return await fetch(url, options);
+    } catch (caught) {
+      error = caught;
+      if (attempt < 4) await new Promise(resolve => setTimeout(resolve, attempt * 1000));
+    }
+  }
+  throw error;
+}
+
 async function composio(tool, account, payload, fixture) {
   if (fixture) {
     const value = fixture.composio?.[tool];
@@ -235,11 +248,11 @@ async function updateWorkerAllowlist(workflow, fixture, action = "add") {
   }
   const token = run("security", ["find-generic-password", "-a", "eyalshoval", "-s", "cloudflare-api-token", "-w"]);
   const headers = {Authorization: `Bearer ${token}`};
-  const accounts = await fetch("https://api.cloudflare.com/client/v4/accounts", {headers}).then(response => response.json());
+  const accounts = await fetchReadWithRetry("https://api.cloudflare.com/client/v4/accounts", {headers}).then(response => response.json());
   const accountId = accounts.result?.[0]?.id;
   if (!accountId) throw new Error("Cloudflare account unavailable");
   const base = `https://api.cloudflare.com/client/v4/accounts/${accountId}/workers/services/aliveawake-cron-kicker/environments/production`;
-  const response = await fetch(`${base}/content`, {headers});
+  const response = await fetchReadWithRetry(`${base}/content`, {headers});
   if (!response.ok) throw new Error(`Worker read failed: HTTP ${response.status}`);
   const contentType = response.headers.get("content-type") || "";
   const boundary = /boundary=([^;]+)/i.exec(contentType)?.[1];
@@ -250,6 +263,9 @@ async function updateWorkerAllowlist(workflow, fixture, action = "add") {
   const arrayMatch = /var ISOLATED_ONE_OFFS = \[([\s\S]*?)\];/.exec(source);
   if (!arrayMatch) throw new Error("Worker allowlist marker missing");
   const values = [...arrayMatch[1].matchAll(/"([^"]+\.yml)"/g)].map(row => row[1]);
+  if ((action === "add" && values.includes(workflow)) || (action === "remove" && !values.includes(workflow))) {
+    return {verified: true, workflow, action, unchanged: true};
+  }
   if (action === "add" && !values.includes(workflow)) values.push(workflow);
   if (action === "remove") values.splice(0, values.length, ...values.filter(value => value !== workflow));
   const rendered = `\n${values.sort().map(value => `  "${value}"`).join(",\n")}\n`;
@@ -259,7 +275,7 @@ async function updateWorkerAllowlist(workflow, fixture, action = "add") {
   form.append("metadata", new Blob([JSON.stringify({main_module: "worker.js", compatibility_date: "2026-08-26", bindings: [{name: "GH_PAT", type: "secret_text"}]})], {type: "application/json"}), "metadata.json");
   const uploaded = await fetch(base, {method: "PUT", headers, body: form});
   if (!uploaded.ok) throw new Error(`Worker update failed: HTTP ${uploaded.status}`);
-  const verify = await fetch(`${base}/content`, {headers}).then(row => row.text());
+  const verify = await fetchReadWithRetry(`${base}/content`, {headers}).then(row => row.text());
   const present = verify.includes(`"${workflow}"`);
   if ((action === "add" && !present) || (action === "remove" && present)) throw new Error("Worker allowlist readback failed");
   return {verified: true, workflow, action};
