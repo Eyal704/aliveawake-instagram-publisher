@@ -5,7 +5,7 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-09-03T11:06:47.001Z",
+  "updatedAt": "2026-09-03T11:08:52.525Z",
   "lastCheckedAt": "2026-09-03T11:06:47.001Z",
   "posts": [
     {
@@ -452,6 +452,25 @@
         "videoId": "1389991412617987",
         "scheduledPostId": "299121263767927_1360637802817087",
         "scheduledPublishTime": 1788440400
+      }
+    },
+    {
+      "id": "responsibility-is-not-self-blame",
+      "scheduledAt": "2026-09-03T17:00:00+02:00",
+      "title": "Responsibility Is Not Self-Blame",
+      "captionMatch": "responsibility for your life is not self-blame. whether you're in pain or in joy",
+      "overall": "scheduled",
+      "instagram": {
+        "status": "queued_isolated",
+        "verified": true,
+        "workflow": ".github/workflows/publish-responsibility-is-not-self-blame.yml"
+      },
+      "facebook": {
+        "status": "scheduled",
+        "verified": true,
+        "videoId": "1360990329448501",
+        "scheduledPostId": "299121263767927_1360990329448501",
+        "scheduledPublishTime": 1788447600
       }
     }
   ],
