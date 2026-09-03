@@ -1,9 +1,10 @@
 {
   "timezone": "Europe/Vienna",
   "cadence": [
-    "10:00",
-    "15:00",
-    "20:00"
+    "09:00",
+    "13:00",
+    "17:00",
+    "21:00"
   ],
   "updatedAt": "2026-09-03T21:31:45.927Z",
   "lastCheckedAt": "2026-09-03T18:01:49.571Z",
@@ -551,14 +552,12 @@
       }
     }
   ],
-  "cadenceNote": "3 Reels/day (10:00, 15:00, 20:00 Vienna) through Tue 1 Sep 2026. From Wed 2 Sep 2026: 4 Reels/day (09:00, 13:00, 17:00, 21:00 Vienna). Update the 'cadence' array above to the new times once Wednesday's slots are actually in use.",
+  "cadenceNote": "Reduced to two Reels/day from 2026-09-05 on Eyal's instruction (2026-09-03): four/day was not earning views. Published-post data at the time supported it - median Instagram views per post were 564 at 1/day, 118 at 2/day and 41 at 3/day (posts >=48h old), and within the recent era the 15:00-17:00 Vienna window outperformed both late evening and early morning (medians ~42-99 vs ~21-30 at 20:00-21:00 and ~26 at 10:00). Slots 13:00 and 17:00 were chosen on that basis; the recent-era sample is only 24 posts, so revisit once more data accumulates. 2026-09-04 keeps its already-scheduled 09:00 and 13:00 posts, which is already two for that day.",
   "upcomingCadence": {
-    "effectiveFrom": "2026-09-02",
+    "effectiveFrom": "2026-09-05",
     "times": [
-      "09:00",
       "13:00",
-      "17:00",
-      "21:00"
+      "17:00"
     ]
   }
 }
