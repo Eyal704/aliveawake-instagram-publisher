@@ -198,7 +198,7 @@ async function facebookSchedule(job, captionText, fixture) {
     for (let attempt = 1; attempt <= 4; attempt++) {
       scheduled = await readScheduled();
       if (scheduled.length === 1 || scheduled.length > 1 || fixture) break;
-      await new Promise(resolve => setTimeout(resolve, attempt * 2000));
+      if (attempt < 4) await new Promise(resolve => setTimeout(resolve, attempt * 2000));
     }
     if (scheduled.length !== 1) throw new Error(`Facebook post-create verification found ${scheduled.length} exact matches`);
     postId = String(scheduled[0].id);
