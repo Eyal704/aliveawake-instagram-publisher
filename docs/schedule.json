@@ -5,7 +5,7 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-09-03T00:06:53.071Z",
+  "updatedAt": "2026-09-03T00:08:25.840Z",
   "lastCheckedAt": "2026-09-03T00:06:53.071Z",
   "posts": [
     {
@@ -56,7 +56,7 @@
       "id": "2026-08-26-2000-location-shapes-creation",
       "scheduledAt": "2026-08-27T10:00:00+02:00",
       "title": "Your Location Shapes What You Create",
-      "captionMatch": "Every city has a rhythm—and that rhythm shapes what we create",
+      "captionMatch": "Every city has a rhythm\u2014and that rhythm shapes what we create",
       "overall": "published",
       "instagram": {
         "status": "published",
@@ -83,7 +83,7 @@
       "id": "2026-08-28-1000-eckhart-tolle-california",
       "scheduledAt": "2026-08-27T15:00:00+02:00",
       "title": "What Happened to Eckhart Tolle in California?",
-      "captionMatch": "What if your inspiration is not gone—just waiting for the right environment",
+      "captionMatch": "What if your inspiration is not gone\u2014just waiting for the right environment",
       "overall": "published",
       "instagram": {
         "status": "published",
@@ -410,6 +410,25 @@
         "verifiedAt": "2026-09-03T00:06:53.071Z"
       },
       "note": "Approved revised Reel with nine distinct overlays and no repeated recognizable footage. Stable release media-2026-09-01-choose-integrity-over-acceptance-01. Facebook scheduled natively for 2026-09-01T18:00:00Z; Instagram assigned to an isolated cloud publisher for the same epoch."
+    },
+    {
+      "id": "what-you-have-is-what-you-need",
+      "scheduledAt": "2026-09-03T15:00:00+02:00",
+      "title": "What You Have Is What You Need",
+      "captionMatch": "Religious people trust that what they have is what they need to have.\n\nNot what ",
+      "overall": "scheduled",
+      "instagram": {
+        "status": "queued_isolated",
+        "verified": true,
+        "workflow": ".github/workflows/publish-what-you-have-is-what-you-need.yml"
+      },
+      "facebook": {
+        "status": "scheduled",
+        "verified": true,
+        "videoId": "1389991412617987",
+        "scheduledPostId": "299121263767927_1360637802817087",
+        "scheduledPublishTime": 1788440400
+      }
     }
   ],
   "cadenceNote": "3 Reels/day (10:00, 15:00, 20:00 Vienna) through Tue 1 Sep 2026. From Wed 2 Sep 2026: 4 Reels/day (09:00, 13:00, 17:00, 21:00 Vienna). Update the 'cadence' array above to the new times once Wednesday's slots are actually in use.",
