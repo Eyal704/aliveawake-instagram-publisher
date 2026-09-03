@@ -66,6 +66,9 @@ test("fixture execution completes every scheduling checkpoint without live opera
   const job = JSON.parse(await fs.readFile(paths.jobPath, "utf8"));
   assert.equal(job.state, "scheduled");
   assert.equal(job.publishing.transaction.last_completed_step, "telegram");
+  assert.equal(job.publishing.transaction.attempts.length, 1);
+  assert.equal(job.publishing.transaction.attempts[0].outcome, "success");
+  assert.deepEqual(job.publishing.transaction.checkpoints.map(item => item.step), ["assets", "queue", "facebook", "private_queue", "public_queue", "worker", "integrity", "drive", "telegram"]);
   assert.equal(job.publishing.queue_integrity_verified, true);
   assert.equal((JSON.parse(await fs.readFile(path.join(paths.repo, "docs", "schedule.json"), "utf8"))).posts.length, 1);
 });

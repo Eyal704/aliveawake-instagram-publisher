@@ -126,8 +126,22 @@ function renderWorkflow(job, secret) {
 }
 
 async function checkpoint(jobFile, job, step) {
+  const now = new Date().toISOString();
+  const transaction = job.publishing.transaction;
+  const previous = Date.parse(transaction.last_checkpoint_at || transaction.started_at || now);
+  transaction.checkpoints = transaction.checkpoints || [];
+  transaction.checkpoints.push({step, completed_at: now, elapsed_seconds: Math.max(0, Math.round((Date.parse(now) - previous) / 1000))});
+  transaction.last_checkpoint_at = now;
   job.publishing.transaction.last_completed_step = step;
   job.publishing.transaction.error = "";
+  const attempt = transaction.attempts?.at(-1);
+  if (attempt?.outcome === "running") {
+    attempt.last_step = step;
+    if (step === "telegram") {
+      attempt.completed_at = now;
+      attempt.outcome = "success";
+    }
+  }
   await writeJson(jobFile, job);
 }
 
@@ -370,6 +384,10 @@ async function schedulePhase(args, job, fixture) {
   job.publishing.transaction = job.publishing.transaction || {};
   job.publishing.transaction.id ||= crypto.randomUUID();
   job.publishing.transaction.started_at ||= new Date().toISOString();
+  const attemptStartedAt = new Date().toISOString();
+  job.publishing.transaction.attempts = job.publishing.transaction.attempts || [];
+  job.publishing.transaction.attempts.push({started_at: attemptStartedAt, completed_at: "", outcome: "running", last_step: job.publishing.transaction.last_completed_step || ""});
+  job.publishing.transaction.last_checkpoint_at = attemptStartedAt;
   await checkpoint(args.job, job, "assets");
   await checkpoint(args.job, job, "queue");
   if (queue.existing) {
@@ -431,7 +449,24 @@ async function main() {
     if (local !== remote) throw new Error("publishing repo is not exactly at origin/main; sync before live execution");
     preflightCapabilities(args.repo);
   }
-  return args.phase === "verify" ? verifyPhase(args, job, fixture) : schedulePhase(args, job, fixture);
+  try {
+    return args.phase === "verify" ? await verifyPhase(args, job, fixture) : await schedulePhase(args, job, fixture);
+  } catch (error) {
+    if (args.execute && job.state === "scheduling" && job.publishing?.transaction) {
+      const now = new Date().toISOString();
+      const message = compactError(error);
+      job.publishing.transaction.error = message;
+      job.publishing.transaction.last_error_at = now;
+      const attempt = job.publishing.transaction.attempts?.at(-1);
+      if (attempt?.outcome === "running") {
+        attempt.completed_at = now;
+        attempt.outcome = "failed";
+        attempt.error = message;
+      }
+      await writeJson(args.job, job);
+    }
+    throw error;
+  }
 }
 
 try {
