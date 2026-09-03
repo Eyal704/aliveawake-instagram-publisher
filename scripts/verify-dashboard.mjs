@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import { executeComposioTool } from "./lib/composio.mjs";
+import { normalize, resolveFacebookVideo } from "./lib/facebook-reconcile.mjs";
 
 const schedulePath = new URL("../docs/schedule.json", import.meta.url);
 const igAccount = process.env.IG_ACCOUNT || "aliveawake-main";
@@ -15,10 +16,6 @@ async function execute(tool, account, connectedAccountId, payload) {
     throw new Error(`${tool} returned no data.data array.`);
   }
   return result.data.data;
-}
-
-function normalize(value = "") {
-  return value.normalize("NFKC").replace(/\s+/g, " ").trim().toLocaleLowerCase("en");
 }
 
 function deriveOverall(post, now) {
@@ -89,16 +86,27 @@ for (const post of relevant) {
   }
 
   if (post.facebook.videoId) {
-    const video = fbVideos.find(item => item.id === post.facebook.videoId);
-    const ready = video?.status?.video_status === "ready";
-    const published = video?.status?.publishing_phase?.publish_status === "published";
-    if (video && ready && published) {
-      const url = video.permalink_url || `https://www.facebook.com/reel/${post.facebook.videoId}/`;
-      if (post.facebook.status !== "published" || post.facebook.verified !== true || post.facebook.url !== url) {
+    // Resolve by recorded ID first, then by caption -- Facebook can publish a
+    // scheduled Reel under a different video object than the one it reported at
+    // schedule time, and an ID miss alone must not read as "missing".
+    const resolved = resolveFacebookVideo({
+      videoId: post.facebook.videoId,
+      captionMatch: post.captionMatch,
+      videos: fbVideos,
+      due
+    });
+    if (resolved.outcome === "duplicate") {
+      post.facebook.status = "duplicate";
+      post.facebook.verified = false;
+    } else if (resolved.outcome === "published") {
+      const videoId = resolved.videoId;
+      const url = resolved.video.permalink_url || `https://www.facebook.com/reel/${videoId}/`;
+      if (post.facebook.status !== "published" || post.facebook.verified !== true || post.facebook.url !== url || post.facebook.videoId !== videoId) {
         post.facebook = {
           ...post.facebook,
           status: "published",
           verified: true,
+          videoId,
           url,
           verifiedAt: new Date().toISOString()
         };

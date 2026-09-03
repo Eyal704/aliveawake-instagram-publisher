@@ -5,8 +5,8 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-09-03T16:16:33.411Z",
-  "lastCheckedAt": "2026-09-03T16:16:33.407Z",
+  "updatedAt": "2026-09-03T16:57:33.187Z",
+  "lastCheckedAt": "2026-09-03T16:57:33.187Z",
   "posts": [
     {
       "id": "2026-08-26-1000-when-life-tells-you-to-leave",
@@ -285,7 +285,7 @@
       "scheduledAt": "2026-08-30T10:00:00+02:00",
       "title": "Stop Being A Copy",
       "captionMatch": "Somewhere between childhood and now",
-      "overall": "needs_attention",
+      "overall": "published",
       "instagram": {
         "status": "published",
         "note": "Handled by its own dedicated GitHub Actions workflow (.github/workflows/publish-stop-being-a-copy.yml) and its own secret (STOP_BEING_A_COPY_QUEUE) -- isolated from the shared ALIVEAWAKE_QUEUE_JSON array. Runs on its own 5-min cron, publishes at the exact slot epoch.",
@@ -295,12 +295,13 @@
         "verifiedAt": "2026-09-03T12:12:01.382Z"
       },
       "facebook": {
-        "status": "missing",
-        "verified": false,
-        "videoId": "975733318864596",
+        "status": "published",
+        "verified": true,
+        "videoId": "1815634276286409",
         "scheduledPostId": "299121263767927_1357329283147939",
         "scheduledPublishTime": 1788076800,
-        "url": "/reel/975733318864596/"
+        "url": "/reel/1815634276286409/",
+        "verifiedAt": "2026-09-03T16:57:33.180Z"
       },
       "note": "Approved video (4 overlays: mirror-selfie, personal journal page, path-to-mountain, sunrise) and Eyal-supplied thumbnail. Stable GitHub release assets media-2026-08-29-stop-being-a-copy-01. Facebook scheduled natively for 2026-08-30T08:00:00Z (10:00 Vienna) and verified via FACEBOOK_GET_SCHEDULED_POSTS (exact caption match); Instagram assigned to an isolated cloud publisher for the same epoch.",
       "alert": {
@@ -464,7 +465,7 @@
       "scheduledAt": "2026-09-03T18:00:00+02:00",
       "title": "Responsibility Is Not Self-Blame",
       "captionMatch": "responsibility for your life is not self-blame. whether you're in pain or in joy",
-      "overall": "needs_attention",
+      "overall": "published",
       "instagram": {
         "status": "published",
         "verified": true,
@@ -474,11 +475,13 @@
         "verifiedAt": "2026-09-03T15:01:43.699Z"
       },
       "facebook": {
-        "status": "missing",
-        "verified": false,
-        "videoId": "1360990329448501",
+        "status": "published",
+        "verified": true,
+        "videoId": "1095132296499239",
         "scheduledPostId": "299121263767927_1360990329448501",
-        "scheduledPublishTime": 1788451200
+        "scheduledPublishTime": 1788451200,
+        "url": "/reel/1095132296499239/",
+        "verifiedAt": "2026-09-03T16:57:33.186Z"
       },
       "alert": {
         "lastKey": "published:missing:needs_attention",
