@@ -5,8 +5,8 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-09-03T16:57:33.187Z",
-  "lastCheckedAt": "2026-09-03T16:57:33.187Z",
+  "updatedAt": "2026-09-03T18:01:49.571Z",
+  "lastCheckedAt": "2026-09-03T18:01:49.571Z",
   "posts": [
     {
       "id": "2026-08-26-1000-when-life-tells-you-to-leave",
@@ -493,18 +493,23 @@
       "scheduledAt": "2026-09-03T20:00:00+02:00",
       "title": "Ask Your Body",
       "captionMatch": "when you feel down, changing your state can begin with one simple check-in: what",
-      "overall": "scheduled",
+      "overall": "published",
       "instagram": {
-        "status": "queued_isolated",
+        "status": "published",
         "verified": true,
-        "workflow": ".github/workflows/publish-ask-your-body.yml"
+        "workflow": ".github/workflows/publish-ask-your-body.yml",
+        "mediaId": "17905797840472642",
+        "url": "https://www.instagram.com/reel/Dc0w7gGlKGy/",
+        "verifiedAt": "2026-09-03T18:01:49.516Z"
       },
       "facebook": {
-        "status": "scheduled",
+        "status": "published",
         "verified": true,
         "videoId": "2822550858119109",
         "scheduledPostId": "299121263767927_1360999326114268",
-        "scheduledPublishTime": 1788458400
+        "scheduledPublishTime": 1788458400,
+        "url": "/reel/2822550858119109/",
+        "verifiedAt": "2026-09-03T18:01:49.570Z"
       }
     },
     {
