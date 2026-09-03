@@ -23,7 +23,7 @@ jobs:
       IG_ACCOUNT: aliveawake-main
       IG_USER_ID: "28033607902927427"
       QUEUE_JSON: ${{ secrets.RESPONSIBILITY_IS_NOT_SELF_BLAME_QUEUE }}
-      PUBLISH_AT_EPOCH: "1788447600"
+      PUBLISH_AT_EPOCH: "1788451200"
     steps:
       - uses: actions/checkout@v4
         with:
