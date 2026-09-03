@@ -212,13 +212,16 @@ async function registerFiles(repo, schedule, job, captionText, facebook, secret)
     facebook: {status: "scheduled", verified: true, videoId: facebook.video_id, scheduledPostId: facebook.post_id, scheduledPublishTime: facebook.scheduled_epoch}
   };
   const existingIndex = schedule.posts.findIndex(post => post.id === job.reel_id);
+  let scheduleChanged = existingIndex < 0;
   if (existingIndex >= 0) {
     const existing = schedule.posts[existingIndex];
     if (existing.facebook?.videoId && existing.facebook.videoId !== facebook.video_id) throw new Error("public queue Facebook ID conflicts with verified object");
-    schedule.posts[existingIndex] = {...existing, ...row};
+    const updated = {...existing, ...row};
+    scheduleChanged = JSON.stringify(existing) !== JSON.stringify(updated);
+    schedule.posts[existingIndex] = updated;
   } else schedule.posts.push(row);
   schedule.posts.sort((a, b) => Date.parse(a.scheduledAt) - Date.parse(b.scheduledAt));
-  schedule.updatedAt = new Date().toISOString();
+  if (scheduleChanged) schedule.updatedAt = new Date().toISOString();
   await writeJson(path.join(repo, "docs", "schedule.json"), schedule);
   await fs.writeFile(workflowPath, renderWorkflow(job, secret));
 
@@ -378,9 +381,14 @@ async function schedulePhase(args, job, fixture) {
   const registration = await registerFiles(args.repo, schedule, job, captionText, facebook, secret);
   if (!fixture) {
     run("git", ["add", ...registration.paths], {cwd: args.repo});
-    run("git", ["commit", "-m", `Schedule ${job.creative.title}`], {cwd: args.repo});
-    run("git", ["pull", "--rebase", "origin", "main"], {cwd: args.repo});
-    run("git", ["push", "origin", "HEAD:main"], {cwd: args.repo});
+    const staged = spawnSync("git", ["diff", "--cached", "--quiet"], {cwd: args.repo});
+    if (staged.status === 1) {
+      run("git", ["commit", "-m", `Schedule ${job.creative.title}`], {cwd: args.repo});
+      run("git", ["pull", "--rebase", "origin", "main"], {cwd: args.repo});
+      run("git", ["push", "origin", "HEAD:main"], {cwd: args.repo});
+    } else if (staged.status !== 0) {
+      throw new Error("git staged-change check failed");
+    }
   }
   job.publishing.instagram = {status: "queued_isolated", workflow: `.github/workflows/${registration.workflow}`, media_id: "", url: ""};
   await checkpoint(args.job, job, "public_queue");
