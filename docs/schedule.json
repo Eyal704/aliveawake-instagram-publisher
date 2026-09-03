@@ -5,8 +5,8 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-09-03T13:01:44.142Z",
-  "lastCheckedAt": "2026-09-03T13:01:44.142Z",
+  "updatedAt": "2026-09-03T15:01:43.704Z",
+  "lastCheckedAt": "2026-09-03T15:01:43.704Z",
   "posts": [
     {
       "id": "2026-08-26-1000-when-life-tells-you-to-leave",
@@ -466,9 +466,12 @@
       "captionMatch": "responsibility for your life is not self-blame. whether you're in pain or in joy",
       "overall": "scheduled",
       "instagram": {
-        "status": "queued_isolated",
+        "status": "published",
         "verified": true,
-        "workflow": ".github/workflows/publish-responsibility-is-not-self-blame.yml"
+        "workflow": ".github/workflows/publish-responsibility-is-not-self-blame.yml",
+        "mediaId": "18128815114674486",
+        "url": "https://www.instagram.com/reel/Dc0sWRqAbai/",
+        "verifiedAt": "2026-09-03T15:01:43.699Z"
       },
       "facebook": {
         "status": "scheduled",
