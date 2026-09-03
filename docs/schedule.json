@@ -5,8 +5,8 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-09-03T12:12:01.385Z",
-  "lastCheckedAt": "2026-09-03T12:12:01.385Z",
+  "updatedAt": "2026-09-03T13:01:44.142Z",
+  "lastCheckedAt": "2026-09-03T13:01:44.142Z",
   "posts": [
     {
       "id": "2026-08-26-1000-when-life-tells-you-to-leave",
@@ -440,18 +440,23 @@
       "scheduledAt": "2026-09-03T15:00:00+02:00",
       "title": "What You Have Is What You Need",
       "captionMatch": "Religious people trust that what they have is what they need to have.\n\nNot what ",
-      "overall": "scheduled",
+      "overall": "published",
       "instagram": {
-        "status": "queued_isolated",
+        "status": "published",
         "verified": true,
-        "workflow": ".github/workflows/publish-what-you-have-is-what-you-need.yml"
+        "workflow": ".github/workflows/publish-what-you-have-is-what-you-need.yml",
+        "mediaId": "18045378188810730",
+        "url": "https://www.instagram.com/reel/Dc0OjKoiWWK/",
+        "verifiedAt": "2026-09-03T13:01:44.136Z"
       },
       "facebook": {
-        "status": "scheduled",
+        "status": "published",
         "verified": true,
         "videoId": "1389991412617987",
         "scheduledPostId": "299121263767927_1360637802817087",
-        "scheduledPublishTime": 1788440400
+        "scheduledPublishTime": 1788440400,
+        "url": "/reel/1389991412617987/",
+        "verifiedAt": "2026-09-03T13:01:44.141Z"
       }
     },
     {
