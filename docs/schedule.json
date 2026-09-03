@@ -5,8 +5,8 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-09-03T03:36:07.468Z",
-  "lastCheckedAt": "2026-09-03T03:31:46.901Z",
+  "updatedAt": "2026-09-03T03:36:39.115Z",
+  "lastCheckedAt": "2026-09-03T03:36:39.115Z",
   "posts": [
     {
       "id": "2026-08-26-1000-when-life-tells-you-to-leave",
@@ -64,14 +64,14 @@
         "mediaId": "18003267704786861",
         "url": "https://www.instagram.com/reel/DciVl0vE_1Y/",
         "containerId": "17979056646083484",
-        "verifiedAt": "2026-09-03T03:31:46.898Z"
+        "verifiedAt": "2026-09-03T03:36:39.109Z"
       },
       "facebook": {
         "status": "published",
         "verified": true,
         "videoId": "1535258637891461",
         "url": "/reel/1535258637891461/",
-        "verifiedAt": "2026-09-03T03:31:46.898Z"
+        "verifiedAt": "2026-09-03T03:36:39.109Z"
       },
       "note": "Published Thu 27 Aug ~10:17 Vienna (17 min late). The automated build failed with 'Private queue payload is missing' because this post never had an entry in ALIVEAWAKE_QUEUE_JSON -- its original publish used a pre-built container, so the private entry was never needed until it was rescheduled for a fresh from-scratch build. Recovered by building the container manually from the already-public GitHub release assets (media-2026-08-26-location-shapes-creation-01) and publishing. Facebook side went live 2026-08-26 at its original slot and is unchanged. LESSON: rescheduling a post for a fresh build requires confirming its ALIVEAWAKE_QUEUE_JSON entry exists.",
       "alert": {
@@ -92,7 +92,7 @@
         "containerCreatedAt": "2026-08-27T07:01:14.057Z",
         "mediaId": "17929650105147864",
         "url": "https://www.instagram.com/reel/DciM-ZHkZrq/",
-        "verifiedAt": "2026-09-03T03:31:46.898Z"
+        "verifiedAt": "2026-09-03T03:36:39.110Z"
       },
       "facebook": {
         "status": "published",
@@ -100,7 +100,7 @@
         "videoId": "2138202303458376",
         "scheduledPostId": "299121263767927_1354140006800200",
         "url": "/reel/2138202303458376/",
-        "verifiedAt": "2026-09-03T03:31:46.898Z"
+        "verifiedAt": "2026-09-03T03:36:39.110Z"
       },
       "note": "Pushed one slot later (Thu 10:00 -> 15:00) to make room for the recovered Wed 20:00 video at Thu 10:00. Facebook natively rescheduled to 2026-08-27T13:00:00Z and confirmed."
     },
@@ -117,7 +117,7 @@
         "containerCreatedAt": "2026-08-27T12:01:24.338Z",
         "mediaId": "18143782648561064",
         "url": "https://www.instagram.com/reel/DcivVtLlAc3/",
-        "verifiedAt": "2026-09-03T03:31:46.899Z"
+        "verifiedAt": "2026-09-03T03:36:39.111Z"
       },
       "facebook": {
         "status": "published",
@@ -125,7 +125,7 @@
         "videoId": "1033723976122047",
         "scheduledPostId": "299121263767927_1354404740107060",
         "url": "/reel/1033723976122047/",
-        "verifiedAt": "2026-09-03T03:31:46.899Z"
+        "verifiedAt": "2026-09-03T03:36:39.111Z"
       },
       "note": "Pushed one slot later (Thu 15:00 -> 20:00) to make room for the recovered Wed 20:00 video at Thu 10:00. Facebook natively rescheduled to 2026-08-27T18:00:00Z and confirmed."
     },
@@ -142,7 +142,7 @@
         "containerCreatedAt": "2026-08-28T02:01:13.469Z",
         "mediaId": "18094732646428607",
         "url": "https://www.instagram.com/reel/DckPjWMif4C/",
-        "verifiedAt": "2026-09-03T03:31:46.899Z"
+        "verifiedAt": "2026-09-03T03:36:39.111Z"
       },
       "facebook": {
         "status": "published",
@@ -150,7 +150,7 @@
         "videoId": "1376472107283264",
         "scheduledPostId": "299121263767927_1354598460087688",
         "url": "/reel/1376472107283264/",
-        "verifiedAt": "2026-09-03T03:31:46.899Z"
+        "verifiedAt": "2026-09-03T03:36:39.111Z"
       },
       "note": "Pushed to Friday 10:00 (Thu 20:00 -> Fri 10:00) since Friday was empty, to make room for the recovered Wed 20:00 video at Thu 10:00. Facebook natively rescheduled to 2026-08-28T08:00:00Z and confirmed."
     },
@@ -166,7 +166,7 @@
         "note": "Handled by its own dedicated GitHub Actions workflow (.github/workflows/publish-creator-of-suffering.yml) and its own secret (CREATOR_OF_SUFFERING_QUEUE) -- deliberately isolated from the shared ALIVEAWAKE_QUEUE_JSON array so it can't affect any other post's queued data. Runs on its own 5-min cron, independent of any local session.",
         "mediaId": "18027285440890020",
         "url": "https://www.instagram.com/reel/DclVXA5EgMv/",
-        "verifiedAt": "2026-09-03T03:31:46.899Z"
+        "verifiedAt": "2026-09-03T03:36:39.112Z"
       },
       "facebook": {
         "status": "published",
@@ -174,7 +174,7 @@
         "videoId": "2940094719672457",
         "scheduledPostId": "299121263767927_1354934136720787",
         "url": "/reel/2940094719672457/",
-        "verifiedAt": "2026-09-03T03:31:46.899Z"
+        "verifiedAt": "2026-09-03T03:36:39.112Z"
       },
       "note": "Video/thumbnail hosted at https://eyal704.github.io/aliveawake-instagram-publisher/pending-video/ (verified live). Facebook scheduled and verified via FACEBOOK_GET_SCHEDULED_POSTS. Instagram scheduled via a standalone one-off workflow (own secret, no shared-queue risk) -- see instagram.note."
     },
@@ -190,7 +190,7 @@
         "note": "Handled by its own dedicated GitHub Actions workflow (.github/workflows/publish-stop-blaming.yml) and its own secret (STOP_BLAMING_QUEUE) -- isolated from the shared ALIVEAWAKE_QUEUE_JSON array, includes the CI redaction fix from creation. Runs on its own 5-min cron.",
         "mediaId": "17894175306394672",
         "url": "https://www.instagram.com/reel/DclW9-lGA6w/",
-        "verifiedAt": "2026-09-03T03:31:46.899Z"
+        "verifiedAt": "2026-09-03T03:36:39.112Z"
       },
       "facebook": {
         "status": "published",
@@ -198,7 +198,7 @@
         "videoId": "4251828485037889",
         "scheduledPostId": "299121263767927_1355533733327494",
         "url": "/reel/4251828485037889/",
-        "verifiedAt": "2026-09-03T03:31:46.899Z"
+        "verifiedAt": "2026-09-03T03:36:39.112Z"
       },
       "note": "Video/thumbnail hosted at https://eyal704.github.io/aliveawake-instagram-publisher/pending-video/ (verified live). Facebook scheduled and verified via FACEBOOK_GET_SCHEDULED_POSTS."
     },
@@ -214,7 +214,7 @@
         "note": "Handled by its own dedicated GitHub Actions workflow (.github/workflows/publish-changing-reality.yml) and secret (CHANGING_REALITY_QUEUE). The workflow uses CI=false, duplicate reconciliation, exact Facebook-object preflight, and does not depend on a local machine.",
         "mediaId": "17946263343054069",
         "url": "https://www.instagram.com/reel/DcnvG8iESIj/",
-        "verifiedAt": "2026-09-03T03:31:46.899Z"
+        "verifiedAt": "2026-09-03T03:36:39.112Z"
       },
       "facebook": {
         "status": "published",
@@ -222,7 +222,7 @@
         "videoId": "2278037603034258",
         "scheduledPostId": "299121263767927_1355734316640769",
         "url": "/reel/2278037603034258/",
-        "verifiedAt": "2026-09-03T03:31:46.900Z"
+        "verifiedAt": "2026-09-03T03:36:39.112Z"
       },
       "note": "Approved revised video and existing thumbnail. Stable GitHub release assets verified directly. Facebook scheduled natively for 2026-08-29T08:00:00Z; Instagram assigned to an isolated cloud scheduler.",
       "alert": {
@@ -242,7 +242,7 @@
         "verified": true,
         "mediaId": "17879560614522799",
         "url": "https://www.instagram.com/reel/DcoBrWDFZz1/",
-        "verifiedAt": "2026-09-03T03:31:46.900Z"
+        "verifiedAt": "2026-09-03T03:36:39.112Z"
       },
       "facebook": {
         "status": "published",
@@ -250,7 +250,7 @@
         "videoId": "1705580393881694",
         "scheduledPostId": "299121263767927_1357062686507932",
         "scheduledPublishTime": 1788015600,
-        "verifiedAt": "2026-09-03T03:31:46.900Z",
+        "verifiedAt": "2026-09-03T03:36:39.112Z",
         "url": "/reel/1705580393881694/"
       },
       "note": "Approved video (voice-audio bug fixed, hook panel repositioned, last second trimmed) with Eyal-supplied custom thumbnail. Stable GitHub release assets (media-2026-08-29-everyone-is-your-mirror-01). Facebook scheduled natively for 2026-08-29T15:00:00Z (17:00 Vienna) and verified via FACEBOOK_GET_SCHEDULED_POSTS; Instagram assigned to an isolated cloud scheduler for the same epoch."
@@ -267,7 +267,7 @@
         "note": "Dedicated GitHub Actions publisher (.github/workflows/publish-way-shows-when-you-walk.yml) and WAY_SHOWS_WHEN_YOU_WALK_QUEUE secret; Worker-dispatched with pre-container and pre-publish duplicate reconciliation.",
         "mediaId": "18096893276319418",
         "url": "https://www.instagram.com/reel/DcojfzfD0XT/",
-        "verifiedAt": "2026-09-03T03:31:46.900Z"
+        "verifiedAt": "2026-09-03T03:36:39.113Z"
       },
       "facebook": {
         "status": "published",
@@ -275,7 +275,7 @@
         "videoId": "1374577058137460",
         "scheduledPostId": "299121263767927_1357261296488071",
         "scheduledPublishTime": 1788030000,
-        "verifiedAt": "2026-09-03T03:31:46.900Z",
+        "verifiedAt": "2026-09-03T03:36:39.113Z",
         "url": "/reel/1374577058137460/"
       },
       "note": "Approved corrected full-width video v2 and regenerated thumbnail v3. Stable GitHub release assets media-2026-08-29-the-way-shows-when-you-walk-01. Facebook scheduled natively and verified for 21:00 Vienna; Instagram assigned to an isolated cloud publisher for the same epoch."
@@ -292,7 +292,7 @@
         "verified": true,
         "mediaId": "17981252037079388",
         "url": "https://www.instagram.com/reel/DcqCKR3jyKH/",
-        "verifiedAt": "2026-09-03T03:31:46.900Z"
+        "verifiedAt": "2026-09-03T03:36:39.113Z"
       },
       "facebook": {
         "status": "missing",
@@ -320,7 +320,7 @@
         "verified": true,
         "mediaId": "17917509246441300",
         "url": "https://www.instagram.com/reel/Dcp7aOwE_En/",
-        "verifiedAt": "2026-09-03T03:31:46.900Z"
+        "verifiedAt": "2026-09-03T03:36:39.114Z"
       },
       "facebook": {
         "status": "published",
@@ -329,7 +329,7 @@
         "scheduledPostId": "299121263767927_1357399716474229",
         "scheduledPublishTime": 1788094800,
         "url": "/reel/1943818349631694/",
-        "verifiedAt": "2026-09-03T03:31:46.900Z"
+        "verifiedAt": "2026-09-03T03:36:39.114Z"
       },
       "note": "Approved final v3 with premium moving internet-video overlays and the religious middle shot replaced by a contemporary non-religious dancing clip; Eyal-supplied thumbnail used unchanged. Stable GitHub release assets media-2026-08-30-when-you-are-you-02. Facebook scheduled natively for 2026-08-30T13:00:00Z (15:00 Vienna) and verified via FACEBOOK_GET_SCHEDULED_POSTS by exact caption, exact scheduled epoch, and returned video ID; Instagram assigned to an isolated cloud publisher for the same epoch."
     },
@@ -346,7 +346,7 @@
         "note": "Dedicated cloud publisher with CI=false, duplicate reconciliation, exact-time gate, and SMALLEST_ACTIONS_SHAPE_LIFE_QUEUE payload. Worker-dispatched every five minutes until publication.",
         "mediaId": "17927400042162768",
         "url": "https://www.instagram.com/reel/DcuimqxjZae/",
-        "verifiedAt": "2026-09-03T03:31:46.900Z"
+        "verifiedAt": "2026-09-03T03:36:39.114Z"
       },
       "facebook": {
         "status": "published",
@@ -355,7 +355,7 @@
         "scheduledPostId": "299121263767927_1358915646322636",
         "scheduledPublishTime": 1788249600,
         "url": "/reel/1149151154101589/",
-        "verifiedAt": "2026-09-03T03:31:46.900Z"
+        "verifiedAt": "2026-09-03T03:36:39.114Z"
       },
       "note": "Approved revised Reel with three context-matched web video overlays and completed-body thumbnail v4. Stable release media-2026-08-31-smallest-actions-shape-life-01. Facebook scheduled natively and verified for 2026-09-01T08:00:00Z; Instagram assigned to an isolated cloud publisher for the same epoch."
     },
@@ -372,7 +372,7 @@
         "note": "Dedicated cloud publisher with CI=false, duplicate reconciliation, exact-time gate, and CHOOSE_YOUR_DAY_BEFORE_EYES_QUEUE payload. Worker-dispatched every five minutes until publication.",
         "mediaId": "18129210118793610",
         "url": "https://www.instagram.com/reel/DcvE8STAdhp/",
-        "verifiedAt": "2026-09-03T03:31:46.900Z"
+        "verifiedAt": "2026-09-03T03:36:39.114Z"
       },
       "facebook": {
         "status": "published",
@@ -381,7 +381,7 @@
         "scheduledPostId": "299121263767927_1358964549651079",
         "scheduledPublishTime": 1788267600,
         "url": "/reel/1347181708471939/",
-        "verifiedAt": "2026-09-03T03:31:46.900Z"
+        "verifiedAt": "2026-09-03T03:36:39.114Z"
       },
       "note": "Approved Reel with five context-matched licensed web overlays and a body-completed thumbnail. Stable release media-2026-08-31-choose-your-day-before-eyes-01. Facebook scheduled natively and verified for 2026-09-01T13:00:00Z; Instagram assigned to an isolated cloud publisher for the same epoch."
     },
@@ -398,7 +398,7 @@
         "note": "Dedicated cloud publisher with CI=false, duplicate reconciliation, exact-time gate, and CHOOSE_INTEGRITY_OVER_ACCEPTANCE_QUEUE payload. Worker-dispatched every five minutes until publication.",
         "mediaId": "18127388383706987",
         "url": "https://www.instagram.com/reel/DcvnVseHBDR/",
-        "verifiedAt": "2026-09-03T03:31:46.901Z"
+        "verifiedAt": "2026-09-03T03:36:39.114Z"
       },
       "facebook": {
         "status": "published",
@@ -407,7 +407,7 @@
         "scheduledPostId": "299121263767927_1359306089616925",
         "scheduledPublishTime": 1788285600,
         "url": "/reel/1081251777774122/",
-        "verifiedAt": "2026-09-03T03:31:46.901Z"
+        "verifiedAt": "2026-09-03T03:36:39.114Z"
       },
       "note": "Approved revised Reel with nine distinct overlays and no repeated recognizable footage. Stable release media-2026-09-01-choose-integrity-over-acceptance-01. Facebook scheduled natively for 2026-09-01T18:00:00Z; Instagram assigned to an isolated cloud publisher for the same epoch."
     },
