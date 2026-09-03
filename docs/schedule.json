@@ -5,7 +5,7 @@
     "15:00",
     "20:00"
   ],
-  "updatedAt": "2026-09-03T00:17:35.930Z",
+  "updatedAt": "2026-09-03T00:20:07.377Z",
   "lastCheckedAt": "2026-09-03T00:17:35.930Z",
   "posts": [
     {
@@ -410,6 +410,25 @@
         "verifiedAt": "2026-09-03T00:17:35.929Z"
       },
       "note": "Approved revised Reel with nine distinct overlays and no repeated recognizable footage. Stable release media-2026-09-01-choose-integrity-over-acceptance-01. Facebook scheduled natively for 2026-09-01T18:00:00Z; Instagram assigned to an isolated cloud publisher for the same epoch."
+    },
+    {
+      "id": "why-life-keeps-repeating",
+      "scheduledAt": "2026-09-03T09:00:00+02:00",
+      "title": "Why Life Keeps Repeating",
+      "captionMatch": "life doesn’t repeat itself to punish us. it repeats what we haven’t yet seen. th",
+      "overall": "scheduled",
+      "instagram": {
+        "status": "queued_isolated",
+        "verified": true,
+        "workflow": ".github/workflows/publish-why-life-keeps-repeating.yml"
+      },
+      "facebook": {
+        "status": "scheduled",
+        "verified": true,
+        "videoId": "1044862005053804",
+        "scheduledPostId": "299121263767927_1360642376149963",
+        "scheduledPublishTime": 1788418800
+      }
     },
     {
       "id": "what-you-have-is-what-you-need",

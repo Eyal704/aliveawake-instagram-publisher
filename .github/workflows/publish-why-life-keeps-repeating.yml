@@ -1,0 +1,40 @@
+name: Publish Why Life Keeps Repeating (Instagram, isolated)
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: publish-why-life-keeps-repeating
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      CI: "false"
+      COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
+      COMPOSIO: /home/runner/.composio/composio
+      IG_ACCOUNT: aliveawake-main
+      IG_USER_ID: "28033607902927427"
+      QUEUE_JSON: ${{ secrets.WHY_LIFE_KEEPS_REPEATING_QUEUE }}
+      PUBLISH_AT_EPOCH: "1788418800"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Install and authenticate Composio CLI
+        run: |
+          for attempt in 1 2 3; do
+            curl -fsSL https://composio.dev/install | COMPOSIO_INSTALL_SHELL=none sh && break
+            sleep 10
+          done
+          test -x "$COMPOSIO"
+          "$COMPOSIO" login --user-api-key "$COMPOSIO_API_KEY" -y --no-skill-install
+      - name: Publish with bounded duplicate reconciliation
+        run: node scripts/publish-isolated-instagram.mjs
