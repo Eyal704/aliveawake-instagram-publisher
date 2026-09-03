@@ -147,8 +147,12 @@ async function facebookSchedule(job, captionText, fixture) {
   let videoId = job.publishing.facebook.video_id;
   let postId = job.publishing.facebook.post_id;
   const prefix = normalize(captionText).slice(0, 80);
+  const permalinkVideoId = row => {
+    const match = /\/reel\/(\d+)\/?(?:[?#].*)?$/.exec(String(row?.permalink_url || ""));
+    return match?.[1] || "";
+  };
   const readScheduled = async () => {
-    const response = await composio("FACEBOOK_GET_SCHEDULED_POSTS", account, {page_id: pageId, limit: 100, fields: "id,message,scheduled_publish_time,is_published"}, fixture);
+    const response = await composio("FACEBOOK_GET_SCHEDULED_POSTS", account, {page_id: pageId, limit: 100, fields: "id,message,scheduled_publish_time,is_published,permalink_url"}, fixture);
     return (response.data || response).filter(row => Number(row.scheduled_publish_time) === epoch && normalize(row.message).startsWith(prefix) && row.is_published === false);
   };
   let scheduled = await readScheduled();
@@ -160,10 +164,13 @@ async function facebookSchedule(job, captionText, fixture) {
     const videos = (videosResponse.data || videosResponse).filter(row => normalize(row.description).startsWith(prefix));
     if (videoId) {
       const exact = videos.filter(row => String(row.id) === String(videoId));
-      if (exact.length !== 1) throw new Error("Facebook exact video ID did not match the scheduled caption object");
+      const permalinkId = permalinkVideoId(scheduled[0]);
+      if (exact.length !== 1 && String(videoId) !== permalinkId) throw new Error("Facebook exact video ID did not match the scheduled caption object");
     } else {
-      if (videos.length !== 1) throw new Error(`Facebook scheduled object exists but exact video reconciliation found ${videos.length} matches`);
-      videoId = String(videos[0].id);
+      const permalinkId = permalinkVideoId(scheduled[0]);
+      if (videos.length === 1) videoId = String(videos[0].id);
+      else if (videos.length === 0 && permalinkId) videoId = permalinkId;
+      else throw new Error(`Facebook scheduled object exists but exact video reconciliation found ${videos.length} matches`);
     }
   } else if (videoId || postId) {
     throw new Error("job records a Facebook object that the exact platform preflight did not find");

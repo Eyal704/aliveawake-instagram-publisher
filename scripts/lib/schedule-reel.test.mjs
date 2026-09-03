@@ -70,6 +70,20 @@ test("fixture execution completes every scheduling checkpoint without live opera
   assert.equal((JSON.parse(await fs.readFile(path.join(paths.repo, "docs", "schedule.json"), "utf8"))).posts.length, 1);
 });
 
+test("scheduled Facebook Reel reconciles from permalink while videos listing is delayed", async t => {
+  const paths = await setup();
+  t.after(() => fs.rm(paths.root, {recursive: true, force: true}));
+  const fixture = JSON.parse(await fs.readFile(paths.fixturePath, "utf8"));
+  fixture.composio.FACEBOOK_GET_SCHEDULED_POSTS.data[0].permalink_url = "https://www.facebook.com/reel/2822550858119109/";
+  fixture.composio.FACEBOOK_GET_PAGE_VIDEOS = {data: []};
+  await fs.writeFile(paths.fixturePath, JSON.stringify(fixture));
+  const result = spawnSync(process.execPath, [script, paths.jobPath, "--execute", "--fixture", paths.fixturePath, "--repo", paths.repo], {encoding: "utf8"});
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+  const job = JSON.parse(await fs.readFile(paths.jobPath, "utf8"));
+  assert.equal(job.publishing.facebook.video_id, "2822550858119109");
+  assert.equal(job.publishing.facebook.post_id, "fb-post-1");
+});
+
 test("occupied slot stops before any mutation", async t => {
   const paths = await setup({occupied: true});
   t.after(() => fs.rm(paths.root, {recursive: true, force: true}));
