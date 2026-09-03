@@ -272,9 +272,9 @@ async function updateWorkerAllowlist(workflow, fixture, action = "add") {
   source = source.replace(arrayMatch[0], `var ISOLATED_ONE_OFFS = [${rendered}];`);
   const form = new FormData();
   form.append("worker.js", new Blob([source], {type: "application/javascript+module"}), "worker.js");
-  form.append("metadata", new Blob([JSON.stringify({main_module: "worker.js", compatibility_date: "2026-08-26", bindings: [{name: "GH_PAT", type: "secret_text"}]})], {type: "application/json"}), "metadata.json");
+  form.append("metadata", new Blob([JSON.stringify({main_module: "worker.js", compatibility_date: "2026-08-26", keep_bindings: ["secret_text"]})], {type: "application/json"}), "metadata.json");
   const uploaded = await fetch(base, {method: "PUT", headers, body: form});
-  if (!uploaded.ok) throw new Error(`Worker update failed: HTTP ${uploaded.status}`);
+  if (!uploaded.ok) throw new Error(`Worker update failed: HTTP ${uploaded.status} ${(await uploaded.text()).slice(0, 300)}`);
   const verify = await fetchReadWithRetry(`${base}/content`, {headers}).then(row => row.text());
   const present = verify.includes(`"${workflow}"`);
   if ((action === "add" && !present) || (action === "remove" && present)) throw new Error("Worker allowlist readback failed");
