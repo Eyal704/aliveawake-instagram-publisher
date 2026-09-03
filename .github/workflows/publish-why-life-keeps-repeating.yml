@@ -23,7 +23,7 @@ jobs:
       IG_ACCOUNT: aliveawake-main
       IG_USER_ID: "28033607902927427"
       QUEUE_JSON: ${{ secrets.WHY_LIFE_KEEPS_REPEATING_QUEUE }}
-      PUBLISH_AT_EPOCH: "1788505200"
+      PUBLISH_AT_EPOCH: "1788424600"
     steps:
       - uses: actions/checkout@v4
         with:
