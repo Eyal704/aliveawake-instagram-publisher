@@ -31,6 +31,7 @@ function safeError(error) {
 }
 
 const schedule = JSON.parse(await fs.readFile(schedulePath, "utf8"));
+const postsBefore = JSON.stringify(schedule.posts);
 const candidates = schedule.posts.filter(post => {
   const due = new Date(post.scheduledAt).getTime();
   return post.instagram?.status === "queued_cloud" && !post.instagram.workflowRun && due <= now + prepareWindowMs && due >= now - recoveryWindowMs;
@@ -175,7 +176,9 @@ for (const post of candidates) {
   }
 }
 
-schedule.updatedAt = new Date().toISOString();
-await fs.writeFile(schedulePath, `${JSON.stringify(schedule, null, 2)}\n`);
+if (JSON.stringify(schedule.posts) !== postsBefore) {
+  schedule.updatedAt = new Date().toISOString();
+  await fs.writeFile(schedulePath, `${JSON.stringify(schedule, null, 2)}\n`);
+}
 console.log(`Processed ${candidates.length} cloud-queued Instagram post(s).`);
 if (failed) process.exitCode = 1;

@@ -33,6 +33,7 @@ function deriveOverall(post, now) {
 }
 
 const schedule = JSON.parse(await fs.readFile(schedulePath, "utf8"));
+const postsBefore = JSON.stringify(schedule.posts);
 const now = Date.now();
 const relevant = schedule.posts.filter(post => {
   const due = new Date(post.scheduledAt).getTime();
@@ -71,14 +72,16 @@ for (const post of relevant) {
       post.instagram.verified = false;
     } else if (igMatches.length === 1) {
       const ig = igMatches[0];
-      post.instagram = {
-        ...post.instagram,
-        status: "published",
-        verified: true,
-        mediaId: ig.id,
-        url: ig.permalink,
-        verifiedAt: new Date().toISOString()
-      };
+      if (post.instagram.status !== "published" || post.instagram.verified !== true || post.instagram.mediaId !== ig.id || post.instagram.url !== ig.permalink) {
+        post.instagram = {
+          ...post.instagram,
+          status: "published",
+          verified: true,
+          mediaId: ig.id,
+          url: ig.permalink,
+          verifiedAt: new Date().toISOString()
+        };
+      }
     } else if (now >= due && post.instagram.status !== "published") {
       post.instagram.status = now > due + 15 * 60 * 1000 ? "missing" : "publishing";
       post.instagram.verified = false;
@@ -90,13 +93,16 @@ for (const post of relevant) {
     const ready = video?.status?.video_status === "ready";
     const published = video?.status?.publishing_phase?.publish_status === "published";
     if (video && ready && published) {
-      post.facebook = {
-        ...post.facebook,
-        status: "published",
-        verified: true,
-        url: video.permalink_url || `https://www.facebook.com/reel/${post.facebook.videoId}/`,
-        verifiedAt: new Date().toISOString()
-      };
+      const url = video.permalink_url || `https://www.facebook.com/reel/${post.facebook.videoId}/`;
+      if (post.facebook.status !== "published" || post.facebook.verified !== true || post.facebook.url !== url) {
+        post.facebook = {
+          ...post.facebook,
+          status: "published",
+          verified: true,
+          url,
+          verifiedAt: new Date().toISOString()
+        };
+      }
     } else if (now < due) {
       // Match on scheduledPostId alone, not also the exact epoch: Facebook's own
       // scheduler can shift an object's reported scheduled_publish_time by a few
@@ -113,7 +119,11 @@ for (const post of relevant) {
   post.overall = deriveOverall(post, now);
 }
 
-schedule.lastCheckedAt = new Date().toISOString();
-schedule.updatedAt = new Date().toISOString();
-await fs.writeFile(schedulePath, `${JSON.stringify(schedule, null, 2)}\n`);
-console.log(`Verified ${relevant.length} scheduled posts.`);
+if (JSON.stringify(schedule.posts) !== postsBefore) {
+  schedule.lastCheckedAt = new Date().toISOString();
+  schedule.updatedAt = new Date().toISOString();
+  await fs.writeFile(schedulePath, `${JSON.stringify(schedule, null, 2)}\n`);
+  console.log(`Verified ${relevant.length} scheduled posts; saved state changes.`);
+} else {
+  console.log(`Verified ${relevant.length} scheduled posts; no state changes.`);
+}

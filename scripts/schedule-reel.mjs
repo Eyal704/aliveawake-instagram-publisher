@@ -195,7 +195,11 @@ async function facebookSchedule(job, captionText, fixture) {
     }, fixture);
     videoId = created.id || created.video_id;
     if (!videoId || videoId === "<REDACTED>") throw new Error("Facebook returned no usable video ID");
-    scheduled = await readScheduled();
+    for (let attempt = 1; attempt <= 4; attempt++) {
+      scheduled = await readScheduled();
+      if (scheduled.length === 1 || scheduled.length > 1 || fixture) break;
+      await new Promise(resolve => setTimeout(resolve, attempt * 2000));
+    }
     if (scheduled.length !== 1) throw new Error(`Facebook post-create verification found ${scheduled.length} exact matches`);
     postId = String(scheduled[0].id);
   }
@@ -357,6 +361,10 @@ async function schedulePhase(args, job, fixture) {
   const queue = auditQueue(schedule, job, captionText);
   const plan = {ok: true, phase: "schedule", mutating: args.execute, reel_id: job.reel_id, state: job.state, checks: {assets: "verified", queue: "consistent"}, platforms: {instagram: {status: queue.existing?.instagram?.status || "not_registered"}, facebook: {status: queue.existing?.facebook?.status || "not_registered"}}, actions: steps};
   if (!args.execute) return plan;
+
+  const driveAccount = process.env.DRIVE_ACCOUNT || "aliveawake-drive";
+  const driveMetadata = await composio("GOOGLEDRIVE_GET_FILE_METADATA", driveAccount, {fileId: job.drive.file_id, fields: "id,name"}, fixture);
+  if (driveMetadata.name !== job.drive.current_name) throw new Error(`Drive name differs from job state: ${driveMetadata.name}`);
 
   job.state = "scheduling";
   job.publishing.transaction = job.publishing.transaction || {};
