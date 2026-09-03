@@ -73,6 +73,16 @@ test("fixture execution completes every scheduling checkpoint without live opera
   assert.equal((JSON.parse(await fs.readFile(path.join(paths.repo, "docs", "schedule.json"), "utf8"))).posts.length, 1);
 });
 
+test("validate phase checks the publish contract without external operations", async t => {
+  const paths = await setup();
+  t.after(() => fs.rm(paths.root, {recursive: true, force: true}));
+  const before = await fs.readFile(paths.jobPath, "utf8");
+  const result = spawnSync(process.execPath, [script, paths.jobPath, "--phase", "validate", "--repo", paths.repo], {encoding: "utf8"});
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+  assert.equal(JSON.parse(result.stdout).phase, "validate");
+  assert.equal(await fs.readFile(paths.jobPath, "utf8"), before);
+});
+
 test("scheduled Facebook Reel reconciles from permalink while videos listing is delayed", async t => {
   const paths = await setup();
   t.after(() => fs.rm(paths.root, {recursive: true, force: true}));
@@ -125,4 +135,27 @@ test("verification keeps Drive scheduled when only Instagram is independently li
   assert.equal(after.drive.current_name, job.drive.current_name);
   assert.equal(after.publishing.instagram.verified, true);
   assert.equal(after.publishing.facebook.verified, true);
+});
+
+test("verification persists published before cleanup so cleanup failures resume safely", async t => {
+  const paths = await setup();
+  t.after(() => fs.rm(paths.root, {recursive: true, force: true}));
+  const job = JSON.parse(await fs.readFile(paths.jobPath, "utf8"));
+  job.state = "scheduled";
+  job.drive.current_name = "AA__SCHEDULED__20260902-0900-VIENNA__20260901-070000__IMG_0001.mov";
+  job.publishing.instagram = {status: "queued_isolated", workflow: ".github/workflows/publish-fixture-reel-one.yml"};
+  await fs.writeFile(paths.jobPath, JSON.stringify(job));
+  const fixture = JSON.parse(await fs.readFile(paths.fixturePath, "utf8"));
+  fixture.schedule.posts = [{
+    id: job.reel_id, scheduledAt: job.publishing.vienna_slot,
+    instagram: {status: "published", verified: true, mediaId: "ig-1", url: "https://instagram.example/ig-1", workflow: job.publishing.instagram.workflow},
+    facebook: {status: "published", verified: true, videoId: "fb-video-1", url: "https://facebook.example/fb-video-1"}
+  }];
+  fixture.worker = {inconsistent: true};
+  await fs.writeFile(paths.fixturePath, JSON.stringify(fixture));
+  const result = spawnSync(process.execPath, [script, paths.jobPath, "--phase", "verify", "--execute", "--fixture", paths.fixturePath, "--repo", paths.repo], {encoding: "utf8"});
+  assert.equal(result.status, 2);
+  const after = JSON.parse(await fs.readFile(paths.jobPath, "utf8"));
+  assert.equal(after.state, "published");
+  assert.ok(after.publishing.published_at);
 });

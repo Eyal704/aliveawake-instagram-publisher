@@ -22,8 +22,9 @@ function parseArgs(argv) {
     else if (value === "--fixture") args.fixture = path.resolve(argv[++i]);
     else throw new Error(`Unknown argument: ${value}`);
   }
-  if (!args.job) throw new Error("Usage: schedule-reel.mjs JOB [--phase schedule|verify] [--execute] [--fixture FILE]");
-  if (!["schedule", "verify"].includes(args.phase)) throw new Error("--phase must be schedule or verify");
+  if (!args.job) throw new Error("Usage: schedule-reel.mjs JOB [--phase validate|schedule|verify] [--execute] [--fixture FILE]");
+  if (!["validate", "schedule", "verify"].includes(args.phase)) throw new Error("--phase must be validate, schedule, or verify");
+  if (args.phase === "validate" && args.execute) throw new Error("validate phase is always read-only");
   if (args.fixture && !args.execute) throw new Error("--fixture is only meaningful with --execute");
   return args;
 }
@@ -72,7 +73,9 @@ function validateJob(job, phase) {
   if (job.version !== 2) errors.push("version must be 2");
   if (!/^[a-z0-9][a-z0-9-]{5,127}$/.test(job.reel_id || "")) errors.push("invalid reel_id");
   if (!job.drive?.file_id || !job.drive?.original_name || !job.drive?.source_timestamp || !job.drive?.current_name) errors.push("complete Drive identity is required");
-  if (phase === "schedule") {
+  // Canonical publish-contract validation. The companion reel-state.py tool
+  // delegates its publish phase here so these requirements cannot drift.
+  if (["validate", "schedule"].includes(phase)) {
     if (job.approval?.publishing_approved !== true) errors.push("publishing approval is absent");
     if (JSON.stringify([...(job.approval?.platforms || [])].sort()) !== JSON.stringify(["facebook", "instagram"])) errors.push("approval must name both platforms");
     if (!job.approval?.approved_at || job.approval?.vienna_slot !== job.publishing?.vienna_slot) errors.push("approved slot is absent or inconsistent");
@@ -363,6 +366,9 @@ async function verifyPhase(args, job, fixture) {
     job.publishing.instagram = result.instagram;
     job.publishing.facebook = result.facebook;
     if (bothVerified) {
+      job.state = "published";
+      job.publishing.published_at ||= new Date().toISOString();
+      await writeJson(args.job, job);
       const workflow = path.basename(job.publishing.instagram.workflow || row.instagram?.workflow || "");
       if (!workflow) throw new Error("verified Instagram row has no registered workflow for Worker cleanup");
       await updateWorkerAllowlist(workflow, fixture, "remove");
@@ -458,6 +464,7 @@ async function main() {
     if (local !== remote) throw new Error("publishing repo is not exactly at origin/main; sync before live execution");
     await preflightCapabilities(args.repo);
   }
+  if (args.phase === "validate") return {ok: true, phase: "validate", mutating: false, reel_id: job.reel_id, state: job.state};
   try {
     return args.phase === "verify" ? await verifyPhase(args, job, fixture) : await schedulePhase(args, job, fixture);
   } catch (error) {
