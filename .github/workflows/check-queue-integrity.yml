@@ -38,6 +38,7 @@ jobs:
       WHY_LIFE_KEEPS_REPEATING_QUEUE: ${{ secrets.WHY_LIFE_KEEPS_REPEATING_QUEUE }}
       RESPONSIBILITY_IS_NOT_SELF_BLAME_QUEUE: ${{ secrets.RESPONSIBILITY_IS_NOT_SELF_BLAME_QUEUE }}
       ASK_YOUR_BODY_QUEUE: ${{ secrets.ASK_YOUR_BODY_QUEUE }}
+      IMG_2760_20260902_QUEUE: ${{ secrets.IMG_2760_20260902_QUEUE }}
     steps:
       - uses: actions/checkout@v4
         with:
