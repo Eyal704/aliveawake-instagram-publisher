@@ -6,8 +6,8 @@
     "17:00",
     "21:00"
   ],
-  "updatedAt": "2026-09-03T21:31:45.927Z",
-  "lastCheckedAt": "2026-09-03T18:01:49.571Z",
+  "updatedAt": "2026-09-04T07:01:21.406Z",
+  "lastCheckedAt": "2026-09-04T07:01:21.406Z",
   "posts": [
     {
       "id": "2026-08-26-1000-when-life-tells-you-to-leave",
@@ -518,18 +518,23 @@
       "scheduledAt": "2026-09-04T09:00:00+02:00",
       "title": "Happiness Is An Action",
       "captionMatch": "happiness is a direction. move toward what gives you life. shift from what drain",
-      "overall": "scheduled",
+      "overall": "published",
       "instagram": {
-        "status": "queued_isolated",
+        "status": "published",
         "verified": true,
-        "workflow": ".github/workflows/publish-img-2760-20260902.yml"
+        "workflow": ".github/workflows/publish-img-2760-20260902.yml",
+        "mediaId": "18019768457867872",
+        "url": "https://www.instagram.com/reel/Dc2KKSsE-KA/",
+        "verifiedAt": "2026-09-04T07:01:21.214Z"
       },
       "facebook": {
-        "status": "scheduled",
+        "status": "published",
         "verified": true,
         "videoId": "898098343142249",
         "scheduledPostId": "299121263767927_1361180529429481",
-        "scheduledPublishTime": 1788505200
+        "scheduledPublishTime": 1788505200,
+        "url": "/reel/898098343142249/",
+        "verifiedAt": "2026-09-04T07:01:21.405Z"
       }
     },
     {
