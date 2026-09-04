@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-04T16:31:19.385Z",
-  "lastAttemptedAt": "2026-09-04T16:31:19.385Z",
-  "lastSuccessfulUpdateAt": "2026-09-04T16:31:19.385Z",
+  "generatedAt": "2026-09-04T17:01:16.000Z",
+  "lastAttemptedAt": "2026-09-04T17:01:16.000Z",
+  "lastSuccessfulUpdateAt": "2026-09-04T17:01:16.000Z",
   "timezone": "Europe/Vienna",
   "stale": {
     "instagram": false,
@@ -79,7 +79,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:31:34.616Z"
+      "metricsAsOf": "2026-09-04T17:01:54.528Z"
     },
     {
       "groupKey": "happiness is a direction. move toward what gives you life.",
@@ -132,7 +132,7 @@
         "available": true,
         "value": 66.7
       },
-      "metricsAsOf": "2026-09-04T16:31:41.363Z"
+      "metricsAsOf": "2026-09-04T17:02:00.876Z"
     },
     {
       "groupKey": "self-respect is not a big decision. it is the small thing yo",
@@ -185,7 +185,7 @@
         "available": false,
         "reason": "Needs both reactions and view count greater than zero."
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "happiness is a direction. move toward what gives you life.",
@@ -238,7 +238,7 @@
         "available": true,
         "value": 33.3
       },
-      "metricsAsOf": "2026-09-04T16:31:48.709Z"
+      "metricsAsOf": "2026-09-04T17:02:08.684Z"
     },
     {
       "groupKey": "when you feel down, changing your state can begin with one s",
@@ -291,7 +291,7 @@
         "available": true,
         "value": 14.3
       },
-      "metricsAsOf": "2026-09-04T16:31:55.475Z"
+      "metricsAsOf": "2026-09-04T17:02:15.473Z"
     },
     {
       "groupKey": "happiness is a direction. move toward what gives you life.",
@@ -344,7 +344,7 @@
         "available": false,
         "reason": "Needs both reactions and view count greater than zero."
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "responsibility for your life is not self-blame. whether you",
@@ -397,7 +397,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:32:01.969Z"
+      "metricsAsOf": "2026-09-04T17:02:21.445Z"
     },
     {
       "groupKey": "religious people trust that what they have is what they need",
@@ -450,7 +450,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:32:08.498Z"
+      "metricsAsOf": "2026-09-04T17:02:27.153Z"
     },
     {
       "groupKey": "when you feel down, changing your state can begin with one s",
@@ -503,7 +503,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "responsibility for your life is not self-blame. whether you",
@@ -556,7 +556,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "life doesn’t repeat itself to punish us. it repeats what we",
@@ -609,7 +609,7 @@
         "available": true,
         "value": 40
       },
-      "metricsAsOf": "2026-09-04T16:32:15.322Z"
+      "metricsAsOf": "2026-09-04T17:02:32.868Z"
     },
     {
       "groupKey": "life doesn’t repeat itself to punish us. it repeats what we",
@@ -662,7 +662,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "religious people trust that what they have is what they need",
@@ -715,7 +715,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "the easiest life is not always the truest one. the world re",
@@ -768,7 +768,7 @@
         "available": true,
         "value": 16.7
       },
-      "metricsAsOf": "2026-09-04T16:32:21.653Z"
+      "metricsAsOf": "2026-09-04T17:02:38.948Z"
     },
     {
       "groupKey": "the direction of your day can be chosen before you even open",
@@ -821,7 +821,7 @@
         "available": true,
         "value": 2.5
       },
-      "metricsAsOf": "2026-09-04T16:32:28.585Z"
+      "metricsAsOf": "2026-09-04T17:02:46.325Z"
     },
     {
       "groupKey": "the easiest life is not always the truest one. the world re",
@@ -874,7 +874,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "the way we live is hidden in the smallest actions. not in t",
@@ -927,7 +927,7 @@
         "available": true,
         "value": 16.7
       },
-      "metricsAsOf": "2026-09-04T16:32:35.479Z"
+      "metricsAsOf": "2026-09-04T17:02:53.866Z"
     },
     {
       "groupKey": "the direction of your day can be chosen before you even open",
@@ -980,7 +980,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "the way we live is hidden in the smallest actions. not in t",
@@ -1033,7 +1033,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "independent doesn't mean financially free. it doesn't mean o",
@@ -1086,7 +1086,7 @@
         "available": true,
         "value": 7.1
       },
-      "metricsAsOf": "2026-09-04T16:32:41.844Z"
+      "metricsAsOf": "2026-09-04T17:02:59.628Z"
     },
     {
       "groupKey": "independent doesn't mean financially free. it doesn't mean o",
@@ -1139,7 +1139,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "the more authentic you become, the less predictable you look",
@@ -1192,7 +1192,7 @@
         "available": true,
         "value": 1.8
       },
-      "metricsAsOf": "2026-09-04T16:32:47.811Z"
+      "metricsAsOf": "2026-09-04T17:03:07.148Z"
     },
     {
       "groupKey": "somewhere between childhood and now, most of us started perf",
@@ -1245,7 +1245,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:32:54.397Z"
+      "metricsAsOf": "2026-09-04T17:03:14.202Z"
     },
     {
       "groupKey": "somewhere between childhood and now, most of us started perf",
@@ -1298,7 +1298,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "the more authentic you become, the less predictable you look",
@@ -1351,7 +1351,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "clarity rarely arrives before the first step. when you feel",
@@ -1404,7 +1404,7 @@
         "available": true,
         "value": 3.1
       },
-      "metricsAsOf": "2026-09-04T16:33:01.024Z"
+      "metricsAsOf": "2026-09-04T17:03:19.755Z"
     },
     {
       "groupKey": "clarity rarely arrives before the first step. when you feel",
@@ -1457,7 +1457,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "we love to rank ourselves. more spiritual. more healed. mor",
@@ -1510,7 +1510,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:33:07.348Z"
+      "metricsAsOf": "2026-09-04T17:03:25.406Z"
     },
     {
       "groupKey": "we love to rank ourselves. more spiritual. more healed. mor",
@@ -1563,7 +1563,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "the moment we stop asking who is to blame, something shifts.",
@@ -1616,7 +1616,7 @@
         "available": true,
         "value": 6.3
       },
-      "metricsAsOf": "2026-09-04T16:33:14.242Z"
+      "metricsAsOf": "2026-09-04T17:03:31.379Z"
     },
     {
       "groupKey": "blaming your parents for how they raised you. blaming your p",
@@ -1669,7 +1669,7 @@
         "available": true,
         "value": 12.9
       },
-      "metricsAsOf": "2026-09-04T16:33:20.940Z"
+      "metricsAsOf": "2026-09-04T17:03:37.615Z"
     },
     {
       "groupKey": "we don't just experience reality. we create it, moment by mo",
@@ -1722,7 +1722,7 @@
         "available": true,
         "value": 1.1
       },
-      "metricsAsOf": "2026-09-04T16:33:27.817Z"
+      "metricsAsOf": "2026-09-04T17:03:43.689Z"
     },
     {
       "groupKey": "stagnation rarely breaks because you finally understand the",
@@ -1775,7 +1775,7 @@
         "available": true,
         "value": 5.6
       },
-      "metricsAsOf": "2026-09-04T16:33:34.359Z"
+      "metricsAsOf": "2026-09-04T17:03:49.142Z"
     },
     {
       "groupKey": "the moment we stop asking who is to blame, something shifts.",
@@ -1828,7 +1828,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "sometimes the next step is not a dramatic leap. it is one ni",
@@ -1881,7 +1881,7 @@
         "available": true,
         "value": 5
       },
-      "metricsAsOf": "2026-09-04T16:33:41.024Z"
+      "metricsAsOf": "2026-09-04T17:03:56.233Z"
     },
     {
       "groupKey": "blaming your parents for how they raised you. blaming your p",
@@ -1934,7 +1934,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "what if your inspiration is not gone—just waiting for the ri",
@@ -1987,7 +1987,7 @@
         "available": true,
         "value": 6.3
       },
-      "metricsAsOf": "2026-09-04T16:33:48.604Z"
+      "metricsAsOf": "2026-09-04T17:04:01.663Z"
     },
     {
       "groupKey": "every city has a rhythm—and that rhythm shapes what we creat",
@@ -2040,7 +2040,7 @@
         "available": true,
         "value": 9.5
       },
-      "metricsAsOf": "2026-09-04T16:33:54.892Z"
+      "metricsAsOf": "2026-09-04T17:04:08.518Z"
     },
     {
       "groupKey": "we don't just experience reality. we create it, moment by mo",
@@ -2093,7 +2093,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "have you ever arrived somewhere and immediately felt like a",
@@ -2146,7 +2146,7 @@
         "available": true,
         "value": 8.3
       },
-      "metricsAsOf": "2026-09-04T16:34:01.580Z"
+      "metricsAsOf": "2026-09-04T17:04:15.041Z"
     },
     {
       "groupKey": "stagnation rarely breaks because you finally understand the",
@@ -2199,7 +2199,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "every city has a rhythm—and that rhythm shapes what we creat",
@@ -2252,7 +2252,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "have you ever arrived somewhere and immediately felt like a",
@@ -2305,7 +2305,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "have you ever known it was time to leave—a relationship, a j",
@@ -2358,7 +2358,7 @@
         "available": true,
         "value": 3.3
       },
-      "metricsAsOf": "2026-09-04T16:34:08.355Z"
+      "metricsAsOf": "2026-09-04T17:04:20.885Z"
     },
     {
       "groupKey": "have you ever known it was time to leave—a relationship, a j",
@@ -2411,7 +2411,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "sometimes the next step is not a dramatic leap. it is one ni",
@@ -2464,7 +2464,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "what if your inspiration is not gone—just waiting for the ri",
@@ -2517,7 +2517,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "you don’t have to be in a perfect state before helping someo",
@@ -2570,7 +2570,7 @@
         "available": true,
         "value": 6.3
       },
-      "metricsAsOf": "2026-09-04T16:34:15.495Z"
+      "metricsAsOf": "2026-09-04T17:04:26.724Z"
     },
     {
       "groupKey": "you don’t have to be in a perfect state before helping someo",
@@ -2623,7 +2623,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "in 2014, i left university with a backpack and one question:",
@@ -2676,7 +2676,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "in 2014, i left university with a backpack and one question:",
@@ -2729,7 +2729,7 @@
         "available": true,
         "value": 3.1
       },
-      "metricsAsOf": "2026-09-04T16:34:22.390Z"
+      "metricsAsOf": "2026-09-04T17:04:34.188Z"
     },
     {
       "groupKey": "👁️👁️",
@@ -2782,7 +2782,7 @@
         "available": true,
         "value": 0.9
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "👁️👁️",
@@ -2835,7 +2835,7 @@
         "available": true,
         "value": 2.3
       },
-      "metricsAsOf": "2026-09-04T16:34:29.197Z"
+      "metricsAsOf": "2026-09-04T17:04:39.721Z"
     },
     {
       "groupKey": "a famous samurai, nearing the end of his life, began to wond",
@@ -2888,7 +2888,7 @@
         "available": true,
         "value": 0.7
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "a famous samurai, nearing the end of his life, began to wond",
@@ -2941,7 +2941,7 @@
         "available": true,
         "value": 3
       },
-      "metricsAsOf": "2026-09-04T16:34:35.611Z"
+      "metricsAsOf": "2026-09-04T17:04:46.681Z"
     },
     {
       "groupKey": "you gain by joining - it’s free and you can contribute whate",
@@ -2994,7 +2994,7 @@
         "available": true,
         "value": 0.5
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "you gain by joining - it’s free and you can contribute whate",
@@ -3047,7 +3047,7 @@
         "available": true,
         "value": 2.6
       },
-      "metricsAsOf": "2026-09-04T16:34:41.805Z"
+      "metricsAsOf": "2026-09-04T17:04:52.335Z"
     },
     {
       "groupKey": "🔥",
@@ -3100,7 +3100,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "🔥",
@@ -3153,7 +3153,7 @@
         "available": true,
         "value": 2.6
       },
-      "metricsAsOf": "2026-09-04T16:34:48.034Z"
+      "metricsAsOf": "2026-09-04T17:04:58.610Z"
     },
     {
       "groupKey": "many of us didn’t receive the love and attention we needed g",
@@ -3206,7 +3206,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "many of us didn’t receive the love and attention we needed g",
@@ -3259,7 +3259,7 @@
         "available": true,
         "value": 0.5
       },
-      "metricsAsOf": "2026-09-04T16:34:54.615Z"
+      "metricsAsOf": "2026-09-04T17:05:05.281Z"
     },
     {
       "groupKey": "",
@@ -3312,7 +3312,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "",
@@ -3365,7 +3365,7 @@
         "available": true,
         "value": 2.9
       },
-      "metricsAsOf": "2026-09-04T16:35:01.186Z"
+      "metricsAsOf": "2026-09-04T17:05:11.739Z"
     },
     {
       "groupKey": "most of us feel it... that quiet ache — that life, as it is, i",
@@ -3418,7 +3418,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "",
@@ -3471,7 +3471,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "this is the way of the universe to reward you",
@@ -3524,7 +3524,7 @@
         "available": true,
         "value": 25
       },
-      "metricsAsOf": "2026-09-04T16:35:08.048Z"
+      "metricsAsOf": "2026-09-04T17:05:17.135Z"
     },
     {
       "groupKey": "entrepreneurs, spiritual seekers and creators. it takes cour",
@@ -3577,7 +3577,7 @@
         "available": true,
         "value": 76.5
       },
-      "metricsAsOf": "2026-09-04T16:35:15.112Z"
+      "metricsAsOf": "2026-09-04T17:05:22.642Z"
     },
     {
       "groupKey": "connect with nature, with your nature, its the ultimate trea",
@@ -3630,7 +3630,7 @@
         "available": true,
         "value": 476.2
       },
-      "metricsAsOf": "2026-09-04T16:35:21.747Z"
+      "metricsAsOf": "2026-09-04T17:05:28.229Z"
     },
     {
       "groupKey": "abundance is everywhere; what is needed to fix is not outsid",
@@ -3683,7 +3683,7 @@
         "available": true,
         "value": 35.7
       },
-      "metricsAsOf": "2026-09-04T16:35:28.102Z"
+      "metricsAsOf": "2026-09-04T17:05:34.202Z"
     },
     {
       "groupKey": "if you’re experiencing one of these signs, consider what you",
@@ -3736,7 +3736,7 @@
         "available": true,
         "value": 192
       },
-      "metricsAsOf": "2026-09-04T16:35:35.296Z"
+      "metricsAsOf": "2026-09-04T17:05:39.770Z"
     },
     {
       "groupKey": "the hard truth about life, just prepare yourself to be wiser",
@@ -3789,7 +3789,7 @@
         "available": true,
         "value": 130
       },
-      "metricsAsOf": "2026-09-04T16:35:41.856Z"
+      "metricsAsOf": "2026-09-04T17:05:45.358Z"
     },
     {
       "groupKey": "enlightenment is not a fairy tale; only dreamers or phonies",
@@ -3842,7 +3842,7 @@
         "available": true,
         "value": 112.5
       },
-      "metricsAsOf": "2026-09-04T16:35:48.888Z"
+      "metricsAsOf": "2026-09-04T17:05:51.134Z"
     },
     {
       "groupKey": "if you have experienced awakening, you are not completely lo",
@@ -3895,7 +3895,7 @@
         "available": true,
         "value": 210
       },
-      "metricsAsOf": "2026-09-04T16:35:57.472Z"
+      "metricsAsOf": "2026-09-04T17:05:57.108Z"
     },
     {
       "groupKey": "it’s time for you to change the direction of your attention.",
@@ -3948,7 +3948,7 @@
         "available": true,
         "value": 200
       },
-      "metricsAsOf": "2026-09-04T16:36:05.926Z"
+      "metricsAsOf": "2026-09-04T17:06:02.586Z"
     },
     {
       "groupKey": "it’s the only journey worth taking – that of light and aware",
@@ -4001,7 +4001,7 @@
         "available": true,
         "value": 462.5
       },
-      "metricsAsOf": "2026-09-04T16:36:16.416Z"
+      "metricsAsOf": "2026-09-04T17:06:08.219Z"
     },
     {
       "groupKey": "when you see that every unconscious action, leads to sufferi",
@@ -4054,7 +4054,7 @@
         "available": true,
         "value": 660
       },
-      "metricsAsOf": "2026-09-04T16:36:23.165Z"
+      "metricsAsOf": "2026-09-04T17:06:14.210Z"
     },
     {
       "groupKey": "this is no joke. when you are in tune with the conscious pul",
@@ -4107,7 +4107,7 @@
         "available": true,
         "value": 737.5
       },
-      "metricsAsOf": "2026-09-04T16:36:30.159Z"
+      "metricsAsOf": "2026-09-04T17:06:19.912Z"
     },
     {
       "groupKey": "reconnecting with your inner child, help you gather forgotte",
@@ -4160,7 +4160,7 @@
         "available": true,
         "value": 455.6
       },
-      "metricsAsOf": "2026-09-04T16:36:36.998Z"
+      "metricsAsOf": "2026-09-04T17:06:25.587Z"
     },
     {
       "groupKey": "whenever you are overthinking or overwhelmed with emotions,",
@@ -4213,7 +4213,7 @@
         "available": true,
         "value": 100
       },
-      "metricsAsOf": "2026-09-04T16:36:45.131Z"
+      "metricsAsOf": "2026-09-04T17:06:32.556Z"
     },
     {
       "groupKey": "live as if you are the first man on earth ❤️ #consciousness",
@@ -4266,7 +4266,7 @@
         "available": true,
         "value": 140
       },
-      "metricsAsOf": "2026-09-04T16:36:51.481Z"
+      "metricsAsOf": "2026-09-04T17:06:39.026Z"
     },
     {
       "groupKey": "meditation doesn’t have to involve sitting with your back st",
@@ -4319,7 +4319,7 @@
         "available": true,
         "value": 137.5
       },
-      "metricsAsOf": "2026-09-04T16:36:57.648Z"
+      "metricsAsOf": "2026-09-04T17:06:44.779Z"
     },
     {
       "groupKey": "start on a profound journey of presence with this meditation",
@@ -4372,7 +4372,7 @@
         "available": true,
         "value": 82.4
       },
-      "metricsAsOf": "2026-09-04T16:37:04.334Z"
+      "metricsAsOf": "2026-09-04T17:06:50.605Z"
     },
     {
       "groupKey": "i have condensed the most important lessons i’ve learned in",
@@ -4425,7 +4425,7 @@
         "available": true,
         "value": 870
       },
-      "metricsAsOf": "2026-09-04T16:37:11.147Z"
+      "metricsAsOf": "2026-09-04T17:06:56.338Z"
     },
     {
       "groupKey": "when i accepted my self, for what ever i was. bad, good. 99",
@@ -4478,7 +4478,7 @@
         "available": true,
         "value": 462.5
       },
-      "metricsAsOf": "2026-09-04T16:37:17.123Z"
+      "metricsAsOf": "2026-09-04T17:07:01.830Z"
     },
     {
       "groupKey": "freedom is something you first have to break from psychologi",
@@ -4531,7 +4531,7 @@
         "available": true,
         "value": 5357.1
       },
-      "metricsAsOf": "2026-09-04T16:37:24.543Z"
+      "metricsAsOf": "2026-09-04T17:07:06.968Z"
     },
     {
       "groupKey": "boy, have i struggled with that one. accepting myself for w",
@@ -4584,7 +4584,7 @@
         "available": true,
         "value": 324.3
       },
-      "metricsAsOf": "2026-09-04T16:37:31.320Z"
+      "metricsAsOf": "2026-09-04T17:07:12.618Z"
     },
     {
       "groupKey": "ever wondered, how do i allow my fullest potential to manife",
@@ -4637,7 +4637,7 @@
         "available": true,
         "value": 275
       },
-      "metricsAsOf": "2026-09-04T16:37:37.495Z"
+      "metricsAsOf": "2026-09-04T17:07:18.406Z"
     },
     {
       "groupKey": "for many years, i have been experimenting with the power of",
@@ -4690,7 +4690,7 @@
         "available": true,
         "value": 375
       },
-      "metricsAsOf": "2026-09-04T16:37:43.856Z"
+      "metricsAsOf": "2026-09-04T17:07:24.554Z"
     },
     {
       "groupKey": "you are allowed to feel good. agree to it.",
@@ -4743,7 +4743,7 @@
         "available": true,
         "value": 57.1
       },
-      "metricsAsOf": "2026-09-04T16:37:50.651Z"
+      "metricsAsOf": "2026-09-04T17:07:31.090Z"
     },
     {
       "groupKey": "everybody tells you what you should do. your parents, your",
@@ -4796,7 +4796,7 @@
         "available": true,
         "value": 21.2
       },
-      "metricsAsOf": "2026-09-04T16:37:56.635Z"
+      "metricsAsOf": "2026-09-04T17:07:37.141Z"
     },
     {
       "groupKey": "watch how focusing on the constant stream of thoughts can dr",
@@ -4849,7 +4849,7 @@
         "available": true,
         "value": 461.5
       },
-      "metricsAsOf": "2026-09-04T16:38:02.655Z"
+      "metricsAsOf": "2026-09-04T17:07:42.511Z"
     },
     {
       "groupKey": "saying yes to life and agreeing to move towards a more fulfi",
@@ -4902,7 +4902,7 @@
         "available": true,
         "value": 36.7
       },
-      "metricsAsOf": "2026-09-04T16:38:09.513Z"
+      "metricsAsOf": "2026-09-04T17:07:47.911Z"
     },
     {
       "groupKey": "find out what life is really all about. don’t miss out on th",
@@ -4955,7 +4955,7 @@
         "available": true,
         "value": 233.3
       },
-      "metricsAsOf": "2026-09-04T16:38:15.606Z"
+      "metricsAsOf": "2026-09-04T17:07:53.309Z"
     },
     {
       "groupKey": "create life, don’t just be entertained #bepresent #awakenin",
@@ -5008,7 +5008,7 @@
         "available": true,
         "value": 171.4
       },
-      "metricsAsOf": "2026-09-04T16:38:23.071Z"
+      "metricsAsOf": "2026-09-04T17:07:59.758Z"
     },
     {
       "groupKey": "life is full of choices between comfort and our true calling",
@@ -5061,7 +5061,7 @@
         "available": true,
         "value": 1700
       },
-      "metricsAsOf": "2026-09-04T16:38:29.390Z"
+      "metricsAsOf": "2026-09-04T17:08:05.107Z"
     },
     {
       "groupKey": "delve into the timeless teachings of guifeng zongmi, a rever",
@@ -5114,7 +5114,7 @@
         "available": true,
         "value": 120
       },
-      "metricsAsOf": "2026-09-04T16:38:36.597Z"
+      "metricsAsOf": "2026-09-04T17:08:11.362Z"
     },
     {
       "groupKey": "an awakened man is someone who: 1) takes full responsibilit",
@@ -5167,7 +5167,7 @@
         "available": true,
         "value": 100
       },
-      "metricsAsOf": "2026-09-04T16:38:43.034Z"
+      "metricsAsOf": "2026-09-04T17:08:17.548Z"
     },
     {
       "groupKey": "want a better life and a better world? cut down on media, fo",
@@ -5379,7 +5379,7 @@
         "available": true,
         "value": 7.5
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "wenn ein nahestehender mensch stirbt, kommt die ganze energi",
@@ -5432,7 +5432,7 @@
         "available": true,
         "value": 8.6
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "where is happiness?",
@@ -5485,7 +5485,7 @@
         "available": true,
         "value": 1.1
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "yes",
@@ -5538,7 +5538,7 @@
         "available": true,
         "value": 3.2
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "the purest you cannot grasp - it is- every moment - ever -",
@@ -5591,7 +5591,7 @@
         "available": true,
         "value": 6.5
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "climbing a nice tree in tel aviv 🌳",
@@ -5644,7 +5644,7 @@
         "available": true,
         "value": 6.3
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "marshal hearts exercises 🙂",
@@ -5697,7 +5697,7 @@
         "available": true,
         "value": 4
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "what we are here for?",
@@ -5750,7 +5750,7 @@
         "available": true,
         "value": 6.1
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "let yourself shine and share your gifts so that you can flow",
@@ -5803,7 +5803,7 @@
         "available": true,
         "value": 4.8
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "if you would not dare to come out of your shell, greatness w",
@@ -5856,7 +5856,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "realizing your gift and becoming independent is bliss",
@@ -5909,7 +5909,7 @@
         "available": true,
         "value": 0.7
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "the inner world is the best world.",
@@ -5962,7 +5962,7 @@
         "available": true,
         "value": 2.7
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "setting intentions and increasing awareness",
@@ -6015,7 +6015,7 @@
         "available": true,
         "value": 1
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "awareness to the source of energy is the most important thin",
@@ -6068,7 +6068,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "awareness to the source of energy is the most important thin",
@@ -6121,7 +6121,7 @@
         "available": true,
         "value": 0.5
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "when you are not present in your life, your life will always",
@@ -6174,7 +6174,7 @@
         "available": true,
         "value": 1.4
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "33",
@@ -6227,7 +6227,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "about love and appriciation",
@@ -6280,7 +6280,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "how to feel comfortable not knowing what comes next?",
@@ -6333,7 +6333,7 @@
         "available": true,
         "value": 3.7
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     },
     {
       "groupKey": "the deep root of unconsciousness",
@@ -6386,7 +6386,7 @@
         "available": true,
         "value": 0
       },
-      "metricsAsOf": "2026-09-04T16:39:51.585Z"
+      "metricsAsOf": "2026-09-04T17:08:59.997Z"
     }
   ]
 }
