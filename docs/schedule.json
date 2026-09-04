@@ -6,8 +6,8 @@
     "17:00",
     "21:00"
   ],
-  "updatedAt": "2026-09-04T07:01:21.406Z",
-  "lastCheckedAt": "2026-09-04T07:01:21.406Z",
+  "updatedAt": "2026-09-04T11:01:21.427Z",
+  "lastCheckedAt": "2026-09-04T11:01:21.427Z",
   "posts": [
     {
       "id": "2026-08-26-1000-when-life-tells-you-to-leave",
@@ -542,18 +542,23 @@
       "scheduledAt": "2026-09-04T13:00:00+02:00",
       "title": "If It Won't Feel Good, Don't Do It",
       "captionMatch": "self-respect is not a big decision. it is the small thing you don't do. your bod",
-      "overall": "scheduled",
+      "overall": "published",
       "instagram": {
-        "status": "queued_isolated",
+        "status": "published",
         "verified": true,
-        "workflow": ".github/workflows/publish-if-it-wont-feel-good.yml"
+        "workflow": ".github/workflows/publish-if-it-wont-feel-good.yml",
+        "mediaId": "18006460835996401",
+        "url": "https://www.instagram.com/reel/Dc2lnIaFDsN/",
+        "verifiedAt": "2026-09-04T11:01:21.423Z"
       },
       "facebook": {
-        "status": "scheduled",
+        "status": "published",
         "verified": true,
         "videoId": "960666427052853",
         "scheduledPostId": "299121263767927_1361392716074929",
-        "scheduledPublishTime": 1788519600
+        "scheduledPublishTime": 1788519600,
+        "url": "/reel/960666427052853/",
+        "verifiedAt": "2026-09-04T11:01:21.426Z"
       }
     }
   ],
