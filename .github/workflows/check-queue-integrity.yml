@@ -40,6 +40,7 @@ jobs:
       ASK_YOUR_BODY_QUEUE: ${{ secrets.ASK_YOUR_BODY_QUEUE }}
       IMG_2760_20260902_QUEUE: ${{ secrets.IMG_2760_20260902_QUEUE }}
       IF_IT_WONT_FEEL_GOOD_QUEUE: ${{ secrets.IF_IT_WONT_FEEL_GOOD_QUEUE }}
+      LISTEN_BEYOND_WHAT_YOU_BELIEVE_QUEUE: ${{ secrets.LISTEN_BEYOND_WHAT_YOU_BELIEVE_QUEUE }}
     steps:
       - uses: actions/checkout@v4
         with:

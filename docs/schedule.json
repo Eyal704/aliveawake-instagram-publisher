@@ -6,7 +6,7 @@
     "17:00",
     "21:00"
   ],
-  "updatedAt": "2026-09-04T11:01:21.427Z",
+  "updatedAt": "2026-09-05T11:35:05.055Z",
   "lastCheckedAt": "2026-09-04T11:01:21.427Z",
   "posts": [
     {
@@ -559,6 +559,25 @@
         "scheduledPublishTime": 1788519600,
         "url": "/reel/960666427052853/",
         "verifiedAt": "2026-09-04T11:01:21.426Z"
+      }
+    },
+    {
+      "id": "listen-beyond-what-you-believe",
+      "scheduledAt": "2026-09-05T17:00:00+02:00",
+      "title": "Listen Beyond What You Believe",
+      "captionMatch": "your belief system is not your intelligence. beliefs live in thought. they are b",
+      "overall": "scheduled",
+      "instagram": {
+        "status": "queued_isolated",
+        "verified": true,
+        "workflow": ".github/workflows/publish-listen-beyond-what-you-believe.yml"
+      },
+      "facebook": {
+        "status": "scheduled",
+        "verified": true,
+        "videoId": "2052181458799579",
+        "scheduledPostId": "299121263767927_1362689752611892",
+        "scheduledPublishTime": 1788620400
       }
     }
   ],
