@@ -6,8 +6,8 @@
     "17:00",
     "21:00"
   ],
-  "updatedAt": "2026-09-05T12:48:37.319Z",
-  "lastCheckedAt": "2026-09-04T11:01:21.427Z",
+  "updatedAt": "2026-09-05T15:01:35.036Z",
+  "lastCheckedAt": "2026-09-05T15:01:35.036Z",
   "posts": [
     {
       "id": "2026-08-26-1000-when-life-tells-you-to-leave",
@@ -566,18 +566,23 @@
       "scheduledAt": "2026-09-05T17:00:00+02:00",
       "title": "Listen Beyond What You Believe",
       "captionMatch": "your belief system is not your intelligence. beliefs live in thought. they are b",
-      "overall": "scheduled",
+      "overall": "published",
       "instagram": {
-        "status": "queued_isolated",
+        "status": "published",
         "verified": true,
-        "workflow": ".github/workflows/publish-listen-beyond-what-you-believe.yml"
+        "workflow": ".github/workflows/publish-listen-beyond-what-you-believe.yml",
+        "mediaId": "17950742640039345",
+        "url": "https://www.instagram.com/reel/Dc53mN3j_EK/",
+        "verifiedAt": "2026-09-05T15:01:35.029Z"
       },
       "facebook": {
-        "status": "scheduled",
+        "status": "published",
         "verified": true,
         "videoId": "2052181458799579",
         "scheduledPostId": "299121263767927_1362689752611892",
-        "scheduledPublishTime": 1788620400
+        "scheduledPublishTime": 1788620400,
+        "url": "/reel/2052181458799579/",
+        "verifiedAt": "2026-09-05T15:01:35.035Z"
       }
     },
     {
