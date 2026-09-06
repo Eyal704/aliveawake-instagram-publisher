@@ -6,8 +6,8 @@
     "17:00",
     "21:00"
   ],
-  "updatedAt": "2026-09-06T01:27:27.063Z",
-  "lastCheckedAt": "2026-09-05T15:01:35.036Z",
+  "updatedAt": "2026-09-06T11:01:46.813Z",
+  "lastCheckedAt": "2026-09-06T11:01:46.813Z",
   "posts": [
     {
       "id": "2026-08-26-1000-when-life-tells-you-to-leave",
@@ -590,18 +590,23 @@
       "scheduledAt": "2026-09-06T13:00:00+02:00",
       "title": "Your Wisdom Is Not In Your Head",
       "captionMatch": "your wisdom is not in your head. it is in your core. your head is where the argu",
-      "overall": "scheduled",
+      "overall": "published",
       "instagram": {
-        "status": "queued_isolated",
+        "status": "published",
         "verified": true,
-        "workflow": ".github/workflows/publish-your-wisdom-is-not-in-your-head.yml"
+        "workflow": ".github/workflows/publish-your-wisdom-is-not-in-your-head.yml",
+        "mediaId": "18135794539625481",
+        "url": "https://www.instagram.com/reel/Dc7vUtLDBhQ/",
+        "verifiedAt": "2026-09-06T11:01:46.806Z"
       },
       "facebook": {
-        "status": "scheduled",
+        "status": "published",
         "verified": true,
         "videoId": "1791224945351523",
         "scheduledPostId": "299121263767927_1362739345940266",
-        "scheduledPublishTime": 1788692400
+        "scheduledPublishTime": 1788692400,
+        "url": "/reel/1791224945351523/",
+        "verifiedAt": "2026-09-06T11:01:46.811Z"
       }
     },
     {
