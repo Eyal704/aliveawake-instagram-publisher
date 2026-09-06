@@ -6,7 +6,7 @@
     "17:00",
     "21:00"
   ],
-  "updatedAt": "2026-09-05T15:01:35.036Z",
+  "updatedAt": "2026-09-06T01:27:27.063Z",
   "lastCheckedAt": "2026-09-05T15:01:35.036Z",
   "posts": [
     {
@@ -602,6 +602,25 @@
         "videoId": "1791224945351523",
         "scheduledPostId": "299121263767927_1362739345940266",
         "scheduledPublishTime": 1788692400
+      }
+    },
+    {
+      "id": "not-knowing-is-the-point",
+      "scheduledAt": "2026-09-06T17:00:00+02:00",
+      "title": "Not Knowing Is The Point",
+      "captionMatch": "knowing what comes next is not wisdom. it is memory. when you let intelligence l",
+      "overall": "scheduled",
+      "instagram": {
+        "status": "queued_isolated",
+        "verified": true,
+        "workflow": ".github/workflows/publish-not-knowing-is-the-point.yml"
+      },
+      "facebook": {
+        "status": "scheduled",
+        "verified": true,
+        "videoId": "28593065357044611",
+        "scheduledPostId": "299121263767927_1363163959231138",
+        "scheduledPublishTime": 1788706800
       }
     }
   ],

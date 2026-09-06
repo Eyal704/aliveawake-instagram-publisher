@@ -42,6 +42,7 @@ jobs:
       IF_IT_WONT_FEEL_GOOD_QUEUE: ${{ secrets.IF_IT_WONT_FEEL_GOOD_QUEUE }}
       LISTEN_BEYOND_WHAT_YOU_BELIEVE_QUEUE: ${{ secrets.LISTEN_BEYOND_WHAT_YOU_BELIEVE_QUEUE }}
       YOUR_WISDOM_IS_NOT_IN_YOUR_HEAD_QUEUE: ${{ secrets.YOUR_WISDOM_IS_NOT_IN_YOUR_HEAD_QUEUE }}
+      NOT_KNOWING_IS_THE_POINT_QUEUE: ${{ secrets.NOT_KNOWING_IS_THE_POINT_QUEUE }}
     steps:
       - uses: actions/checkout@v4
         with:
