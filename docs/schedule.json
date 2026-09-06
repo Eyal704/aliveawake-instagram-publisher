@@ -6,8 +6,8 @@
     "17:00",
     "21:00"
   ],
-  "updatedAt": "2026-09-06T11:01:46.813Z",
-  "lastCheckedAt": "2026-09-06T11:01:46.813Z",
+  "updatedAt": "2026-09-06T15:01:55.591Z",
+  "lastCheckedAt": "2026-09-06T15:01:55.591Z",
   "posts": [
     {
       "id": "2026-08-26-1000-when-life-tells-you-to-leave",
@@ -614,18 +614,23 @@
       "scheduledAt": "2026-09-06T17:00:00+02:00",
       "title": "Not Knowing Is The Point",
       "captionMatch": "knowing what comes next is not wisdom. it is memory. when you let intelligence l",
-      "overall": "scheduled",
+      "overall": "published",
       "instagram": {
-        "status": "queued_isolated",
+        "status": "published",
         "verified": true,
-        "workflow": ".github/workflows/publish-not-knowing-is-the-point.yml"
+        "workflow": ".github/workflows/publish-not-knowing-is-the-point.yml",
+        "mediaId": "18127648090789159",
+        "url": "https://www.instagram.com/reel/Dc8KtBoChxT/",
+        "verifiedAt": "2026-09-06T15:01:55.547Z"
       },
       "facebook": {
-        "status": "scheduled",
+        "status": "published",
         "verified": true,
         "videoId": "28593065357044611",
         "scheduledPostId": "299121263767927_1363163959231138",
-        "scheduledPublishTime": 1788706800
+        "scheduledPublishTime": 1788706800,
+        "url": "/reel/28593065357044611/",
+        "verifiedAt": "2026-09-06T15:01:55.591Z"
       }
     }
   ],
